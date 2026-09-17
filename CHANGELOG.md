@@ -98,6 +98,25 @@ Third Grok pass. Four real errors, three of which would have looked bad on a rev
 
 **Estimates unchanged.**
 
+## 1.21 — 2026-09-17
+
+Fourth-round review, DeepSeek without live search this time (it flagged 2026-specific facts as unverifiable and set them aside, which is the right call for a tool with no web access — those got checked separately). Six real issues, one confused critique addressed by clarifying rather than adopting its diagnosis verbatim, one only partly taken.
+
+**Fixed:**
+- **Warp Speed duration was wrong.** "Ran about a year" for May–December 2020 is seven months, not twelve. Corrected, and the actual timeline (manufacturing scaled in parallel before efficacy was known, wind-down through early 2021) is more informative than the number it replaced.
+- **"Alignment moves the numbers more than capability does, in both columns" was self-contradicting.** The very next paragraph shows capability moving extinction by the same ~20 points that alignment does across the full ladder. The headline claim only holds for disempowerment; on extinction the two levers are comparable. Restated so the header doesn't overclaim what the qualifier immediately walks back.
+- **Tripwire 16's mechanism didn't survive scrutiny, and this is the most important fix in the batch.** v1.20 claimed frozen-weight strategy-layer search aimed at training methods "converts the loop into type 1 while keeping type 3's cheap, unclocked iteration." False: Dream-RSI's offline replay works because an exploration policy can be scored against an already-collected search tree with no new runs. A training-method proposal has no such shortcut — evaluating whether it helps requires actually training, which stays expensive and clocked regardless of how cheaply the candidate was generated. The mechanism is real but weaker: cheap search improves *which* training-method candidates get proposed, not the cost of *evaluating* them. Hard-takeoff update reduced from +5 to +2.
+- **The physical-constraint note was genuinely ambiguous**, if not quite wrong in the way claimed. "Not constraint-limited at that margin" was trying to say the new constraint isn't the *binding* one, since something else already binds tighter — restated directly in those terms rather than in language that could be read as "the estimate isn't constrained," which is the opposite of what a 5–10% figure means.
+- **The three-outcome taxonomy is not exhaustive.** No category exists for retained agency with substantially worse material conditions — managed decline, a costly survived catastrophe. Added as an explicit scope note under "flourishing," which likely overstates that row for such scenarios. Not fixed by adding a fourth column, which would require re-deriving every row; flagged instead.
+- **A genuine maintenance-rule violation, and the rule itself had an undeclared gap.** The tripwire 6/7/15 note narrated "the original pair... missed the state that actually materialised" — process commentary about a past design, restated instead as a direct description of the three current detection states. Separately, the header's "Previously titled..." is also technically process commentary; rather than remove useful continuity information, added an explicit narrow exception to the maintenance rule for identifying metadata, so the rule and the practice now match.
+- OAI–HF spelled out on first use. Market-drop figures dated to the days following Trump's September remarks. OpenAI IPO confirmed real (confidential S-1, June 2026) rather than flagged as hypothetical, with the October 2025 PBC conversion noted as what cleared the capped-profit structure DeepSeek correctly identified as an obstacle — it was an obstacle that has already been removed.
+
+**Declined:** DeepSeek's literal rewrite of the constraint-slack sentence, which read the ambiguity as "should have lowered the estimate" rather than "was unclear about which constraint binds" — the second is the actual issue; adopted the target, not the diagnosis.
+
+**Tooling:** none of these were things check.py could catch — they are factual accuracy and argumentative consistency, not structure or arithmetic. check.py run before commit: all checks pass.
+
+**Estimates unchanged**, except tripwire 16's hard-takeoff contribution (+5 → +2).
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
