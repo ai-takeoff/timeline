@@ -117,6 +117,23 @@ Fourth-round review, DeepSeek without live search this time (it flagged 2026-spe
 
 **Estimates unchanged**, except tripwire 16's hard-takeoff contribution (+5 → +2).
 
+## 1.22 — 2026-09-17
+
+Fifth Grok pass. Two real defects, one good factual correction, one nitpick taken, one declined.
+
+**Fixed:**
+- **Two more process-commentary sentences had slipped into the body**, both from the v1.21 edits themselves: "weaker than v1.20 of this document claimed" and "a reader holding 20–30% should revise down on this section." Neither fits the metadata exception added last version — that exception covers a former title and a changelog pointer, not argument about past versions or advice to other forecasters. Both rewritten to state the current view only.
+- **Tripwire 1's table entry and its explanatory note disagreed on the baseline** (~129 vs 130.8). Reconciled to ~131.
+- **The OpenAI "~$1T target" overstated what OpenAI has committed to.** The confidential S-1 and the October 2025 PBC conversion are real; $1T is press inference from the last private round ($852B) plus banker commentary, not a published target — and Altman has since called a 2026 listing "ill-advised." Restated as tracking the IPO outcome against the reported banker range, not against a company-stated figure.
+
+**Corrected:**
+- **The Trump quote was mischaracterized.** His post named "AI and Data Centers" specifically — a slowdown-and-siting framing — not AI-risk warnings generically. Restated with the actual target of the post.
+- ISO Class 1 is the scanner micro-environment, not the whole lithography area; the energy-load claim now rests on cleanroom air handling generally, with the tighter localized environment noted separately.
+
+**Declined:** softening "wound down through early 2021" for Warp Speed. The review's own point was that distribution continued into 2021 — which is what that clause says. Removing it would lose the correct information rather than fix an error.
+
+**Tooling:** check.py run before commit — all checks pass. No estimate changed.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
