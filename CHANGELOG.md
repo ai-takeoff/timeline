@@ -68,6 +68,36 @@ The conclusion strengthens as a result: alignment moves disempowerment ~31 point
 
 Document down from ~7,400 to ~6,350 words with two table rows added. **Estimates unchanged**, though two previously derived figures are now stated directly.
 
+## 1.19 — 2026-09-17
+
+Second-review pass, four real catches and one overreach correctly declined.
+
+**Fixed:**
+- Tripwires 13–16 were out of file order (13, 16, 15, 14) despite being numbered correctly and cross-referencing correctly — a cosmetic defect check.py's set-completeness test could not catch, since it checks membership, not sequence. Reordered; check.py extended to enforce ascending order in the file, not just a complete set.
+- The 2035 cell for "assisted AI R&D compressing research timelines" was a bare em dash. Filled with ~98%; check.py extended to fail on empty or dash-only cells in the cognitive table.
+- The tripwire-16 commentary ("that is the second time this table has posed a two-state choice...") was self-referential process narration inside the tripwire notes, missed on the previous verbal pass because the maintenance-rule audit only grepped the body's prose sections, not the tripwire table's own commentary. Rewritten to state the design choice without narrating its history. Both phrases added to check.py's banned list.
+- Warp Speed's "manufacturing base substantially existed" overstated the case — the mRNA platform itself (lipid nanoparticle production, large-scale synthesis) was built out under the same compressed timeline; the legacy vaccine infrastructure existed, the mRNA-specific base did not. Softened to name both.
+
+**Declined:** the claim that the Dream-RSI multiplier and tripwire 16 are "mismatched" because the tested domains excluded AI research. Tripwire 16 exists precisely because the paper's domains are not AI research — it is the tripwire for detecting if and when such gains transfer there. Untested-so-far is the premise the tripwire is written against, not evidence against the tripwire. Also declined: bolding both entries in outcome row three, since the point of the note is that neither is a mode.
+
+**Tooling:** check.py's tripwire check previously verified the set {1..16} was complete but not that entries appeared in that order — a genuine gap, since order matters for a human reading top to bottom even when cross-references still resolve. Added an explicit ascending-order check and an empty-cell check for the cognitive table. Both failures in this round were things check.py could have caught with the checks it now has; it did not have them yet.
+
+## 1.20 — 2026-09-17
+
+Third Grok pass. Four real errors, three of which would have looked bad on a revisit.
+
+**McAfee was misstated.** The text said he "retracted his prediction that AI would displace white-collar work," with radiologists as his example. Wrong verb and wrong claim: what he disowned was his expectation about **job and wage pressure / technological unemployment**, citing historically low joblessness. He continues to hold that AI will replace a great deal of white-collar knowledge work. The radiologist example is contested enough to drop. Rewritten — and the corrected version is the stronger counterweight, since the error was about labour-market aggregates, which is exactly the class of thing this document estimates.
+
+**METR figure corrected: 188 → 196 days.** The 188 came from the AI-2027 tracker, a secondary source; METR's own TH1.1 post gives 196 for the full-period trend and notes it is a *hybrid*, since pre-2023 models were never re-estimated under TH1.1. The pinned baseline is now 130.8 days rather than a rounded 129, with its CI (107–161) stated — which incidentally validates the trigger design, as 75 days sits below the lower bound and 260 above the upper.
+
+**Tripwire 16 contradicted the type-3 paragraph.** The body said type 3 does not move hard takeoff because the ceiling, not the clock, is the bound; tripwire 16 then awarded hard takeoff +5. Both are right but the connecting step was unwritten: strategy-layer search aimed at *training methods* is not extracting from a fixed ceiling, it is searching for ways to raise one, which converts the loop to type 1 while keeping type 3's cheap unclocked iteration. A fast search layer pointed at the slow expensive step. Now stated.
+
+**Millennium hedge had lost its antecedent.** Inserting the McAfee counterweight left "this is not calibration evidence — n=1, narrow mathematical task" sitting under McAfee rather than under Navier–Stokes. Re-anchored explicitly.
+
+**Smaller:** the "larger lever" claim now carries a scoping clause, since capability across the full ladder to no-RSI also moves extinction ~20 points and the slogan was quotable against the no-RSI row. The caution sentence named two moves exceeding their cell width; there are three. RentAHuman's payment mechanism is crypto wallet payouts in stablecoins, not escrow. OpenAI's term is *compaction* summaries, not context summaries. The constraint-slack note contained a self-reference ("by more than this document does") that the maintenance rule forbids — rephrased, and the phrase added to check.py's banned list.
+
+**Estimates unchanged.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
