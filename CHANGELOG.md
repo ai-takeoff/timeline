@@ -134,6 +134,39 @@ Fifth Grok pass. Two real defects, one good factual correction, one nitpick take
 
 **Tooling:** check.py run before commit — all checks pass. No estimate changed.
 
+## 1.23 — 2026-09-17
+
+Sixth external pass (Google AI Mode). Four of five items were stale or mistaken about the current file; one was a real catch that check.py structurally cannot make.
+
+**Fixed:** the tripwire-16 note ended "It is not the 'fast search layer bypasses the clock' story the +5 implied. **Reduced to +2.**" — narration of a change to the document's own number, inside the body. Restated as a statement of what the mechanism is and isn't, with no reference to what it previously was. This is the third consecutive version in which a process-commentary violation was introduced *by the edit that removed the previous one*, so the pattern is now the thing to watch: the repair is the highest-risk site, not the old text. Phrases added to check.py's banned list.
+
+**Declined, with reasons:**
+- Tripwire reordering (claimed 11,12,13,16,15,14) — actual file order is 10–16 sequential; fixed in 1.19.
+- Filling the "blank" 2035 cell for assisted AI R&D — reads ~98%; filled in 1.19.
+- Changing Warp Speed's "scientific and platform foundations" to "scientific foundations" to avoid conflicting with the physical-scaling argument — the same sentence already states that the mRNA manufacturing base was built out under the compressed window. The change would weaken a concession the text already makes.
+- Two of three claimed maintenance-rule violations: "second time this table has posed a two-state choice" was removed in 1.21, and "closer to the agency end than anything previously disclosed" refers to the incident record, not to earlier versions of this document.
+- Bolding both cells in outcome row three. The review confirms the accompanying text is correct and then proposes a change that would break the stated convention (bold marks *the* modal outcome) in the one row where the point is that no single mode exists.
+
+**Note on review value:** structural and arithmetic claims from reviewers working off a PDF or an older copy have now produced more false positives than real findings across several rounds. The reviews that have found real defects were reading current markdown and arguing about substance. Worth weighting accordingly.
+
+**check.py: all checks pass. No estimate changed.**
+
+## 1.24 — 2026-09-17
+
+Final increment before freeze. One real logical error, one formatting defect found during the audit, two items declined.
+
+**Fixed:**
+- **"Physical autonomy is what makes extinction live at all" contradicted the document's own table.** Cognitive RSI without physical bootstrap, alignment unsolved, sits at 8–15% extinction — which is not "not live." Restated: physical autonomy raises extinction to its highest rates rather than creating the risk. This was an overclaim surviving from an earlier framing, not a transcription slip.
+- A paragraph break had been lost between the physical-friction discussion and the note on reading that section, collapsing two distinct arguments into one block. Restored. Found during audit, not flagged by the review.
+
+**Declined:**
+- Dropping "winding down through early 2021" from the Warp Speed passage, on the grounds that distribution continued into 2021. That is what the clause conveys: the *program* wound down while distribution continued, which is the distinction between an emergency coordination effort and the ongoing logistics it enabled. The seven-month span is stated immediately before it and is not obscured.
+- Rewording "a looser estimate has more room for a new binding constraint to move it." This states a general property of estimates near versus far from their floor — the same class of statement as the horizon-sensitivity note. It is not advice about how to revise this document, which is what the maintenance rule forbids.
+
+**Status: this is the frozen dated snapshot.** Further increments without a tripwire firing or a verified factual error add surface area rather than accuracy. The next substantive change should be triggered by evidence, not review.
+
+**check.py: all checks pass. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
