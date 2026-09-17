@@ -36,6 +36,38 @@ Two structural defects recurred: tripwires phrased on *mechanisms* were twice by
 
 ---
 
+## 1.17 — 2026-09-17
+
+First commit under version control. Definitional correction, raised by the reader on re-reading.
+
+**Defect:** the physical RSI definition listed only production steps — mining, refining, fabrication, assembly, energy — and omitted the plant and site infrastructure production depends on. For a leading-edge fab that omission is material: cleanroom environmental control, ultrapure water supply and treatment, process gas delivery, vibration isolation, drainage, and keeping the site functional through weather.
+
+**Changes:**
+
+- Definition broadened to include plant and site infrastructure explicitly.
+- Infrastructure commissioning added to the friction taxonomy as a serial dependency in its own right — cleanroom qualification, water commissioning, gas certification and HVAC balancing all occur after construction and before production, and none parallelizes with what it depends on.
+- Added a distinction between two axes of physical competence that automation of this layer requires: *depth* (expert diagnosis of yield excursions, contamination tracing — narrow, tacit, plant-specific) and *breadth* (drainage, snow load, weather damage to external plant — unskilled per task but general, and outdoors where conditions vary without warning). Current robotics is weak on both, for different reasons. Warehouse pick-and-place is the easy case on both axes.
+- Tripwire 10 broadened to include unstructured outdoor site work alongside fab exception-handling.
+- Added a note on infrastructure exposure to the governance section. The same dependency is both a check on loss-of-control scenarios — a system holding its own compute does not hold the substation or the water — and a source of near-term disorder, since opposition to buildout has physical targets and local conflicts over water, grid and land are the likeliest venue for it. Stated as a well-known property of large industrial sites, with no operational content.
+
+**Methodological note added:** the estimate did not move, and the document now says why that is uninformative on its own. The 5–10% figure for 2030 was already dominated by serial dependence and phase-transition limits, so a further serial dependency changes nothing — which shows the estimate was not constraint-limited at that margin. An estimate with less slack must move when constraints are added, so a reader holding 20–30% for 2030 should revise down on this section by more than the author does. Reporting "no change" from a conservative baseline is not evidence that a constraint is slack.
+
+**Estimates:** unchanged.
+
+## 1.18 — 2026-09-17
+
+**Defect:** process commentary had reaccumulated in the body. v1.5 removed backward-looking narration and added a rule against it; the rule only covered one direction, and forward-looking versions crept in — most visibly "the most useful single change available at the next revisit." A reader arrives with no version history and no interest in one.
+
+**The substantive fix was not trimming.** The worst offender was ~1,100 words of arithmetic under the outcome table, deriving what alignment success would imply by correcting mixture rows for their embedded failure mass, under an assumed failure share of ~32%. That entire chain existed only because the table had no alignment-success row. Added the two missing rows (human-less RSI and cognitive-only, alignment largely solved), deleted the chain, and the findings are now read directly off the table instead of inferred. The all-outcomes superset rows are gone with it, since they were only ever a proxy for the rows now present.
+
+The conclusion strengthens as a result: alignment moves disempowerment ~31 points and extinction ~20, against capability's 2.5 and 13.5. **Alignment is the larger lever in both columns**, stated directly rather than via a corrected mixture. No assumed failure share, no derivation table, no lower-bound caveats.
+
+**Other cuts:** compressed the METR series note, the Dream-RSI multiplier discussion, and the constraint-slack note; removed self-referential asides ("elsewhere in this document", "two consequences this document should state", "on a revisit, the numbers matter more"); removed backward-looking phrases in the architecture and infrastructure sections.
+
+**Maintenance rule widened** to forbid process commentary in both directions: gaps worth flagging go in issues, gaps worth fixing get fixed.
+
+Document down from ~7,400 to ~6,350 words with two table rows added. **Estimates unchanged**, though two previously derived figures are now stated directly.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
