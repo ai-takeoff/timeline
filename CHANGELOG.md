@@ -181,6 +181,62 @@ Evidence-driven, from a Stuart Russell interview. Two additions, one of which at
 
 **check.py: all checks pass, 6989/7000. No estimate changed.**
 
+## 1.26 — 2026-09-17
+
+Prior-art survey before public release, plus one queued wording fix.
+
+**README: added a Related work section.** A survey of the existing landscape found the method is a variant on established practice, not a new one, and the README implied otherwise by omission. Now names the AI Futures Project as the nearest substantive neighbour — a more detailed forecast, better resourced, with a public record of its own revisions and a self-corrected modelling bug — along with Metaculus and Samotsvety for pre-registered resolution criteria, `dr-robert-li/us-china-segmented-bipolarity` for structurally near-identical pre-registered falsifiers applied to geopolitics, and `falsify` for cryptographic pre-registration tooling that is stronger than this repository's reliance on git history.
+
+What survives as distinctive is stated narrowly: update rules that carry magnitudes rather than binary resolution criteria; a log of *declined* critiques, not only accepted ones; and disclosed AI authorship with a public adversarial-review record including which reviews were wrong. The section invites readers to file prior art for any of the three.
+
+The reasoning is not only honesty. A document about epistemic discipline that overclaims novelty loses exactly the audience it wants, and that audience knows AI 2027 exists.
+
+**Document: replaced "at 100K visits and at a nine-stone handicap"** with "against systems running at superhuman strength, in one case while giving a nine-stone handicap." A visit is one Monte Carlo tree search iteration; 100K is well into superhuman territory, but the term is legible only to readers already familiar with computer Go, and the load-bearing claim (superhuman settings) is established earlier in the sentence. Imported jargon from a primary source without checking whether it carried meaning outside it — the same class of error as the earlier citation problems, and one check.py cannot catch.
+
+**check.py: all checks pass. No estimate changed.**
+
+## 1.27 — 2026-09-17
+
+Read the AI Futures Project's August 2026 timelines update properly rather than from search snippets. Three findings, one of which challenges the tripwire this document calls its most important.
+
+**Tripwire 2b added, because time horizon is a contested instrument.** The AI Futures Project pioneered using METR time horizons for timeline forecasting and downgraded it in August 2026 on two grounds: it is unclear what time-horizon value corresponds to a capability milestone and possibly none does, and forecasters disagree sharply about superexponentiality in ways that produce vastly different predictions. They now weight coding uplift — the doubling time of (uplift − 1) — most heavily.
+
+Their first objection misses this document's use, which is detecting whether the trend *bends* rather than mapping onto a milestone, and the second partly supports tripwire 1, which tests bending directly. But uplift reads the RSI loop more directly than time horizon does, so tripwire 2b anchors on it, with the trade stated: time horizon is published and reproducible, uplift rests on employee surveys plausibly biased upward. Where 2b and 1/2 disagree, 2b is preferred and the conflict recorded.
+
+**Independent corroboration of the retraining-clock claim, with a magnitude.** Their revision explicitly simulates the leading model's training run to account for retraining time during takeoff. It raised the median automated-coder-to-superintelligence gap from 1.22 to 1.72 years under one author's parameters and 3.86 to 4.56 under another's — and slowed the fastest takeoffs while leaving slow ones unchanged. That is precisely where this document claims the clock acts: on hard takeoff, not on whether the loop closes. Arrived at here through critique, reached there through formal modelling.
+
+**Stated what these estimates are conditional on** — a gap this document had and did not notice until AI Futures made the same one explicit for themselves. These figures assume continued investment and no successful coordinated slowdown, but not maximum technically feasible speed. AI Futures, having found its own team split, now states its forecasts *are* so conditioned. Their figures should therefore read as an upper bound relative to these.
+
+**Word ceiling raised 7000 → 7400.** The first deliberate raise. The ceiling guards against review-driven accretion — more rows, caveats, structure — and these additions are evidence-driven, which is the category the document exists to absorb. Cutting argumentative material to fit new evidence would be the wrong trade, since the arguments are what make the numbers interpretable. The new material was compressed first; margin left deliberately thin (~125 words) so the guard still binds. Reasoning recorded in check.py itself.
+
+**check.py: all checks pass. No estimate changed.**
+
+## 1.28 — 2026-09-17
+
+**check.py bug fixed, found by the reader.** The tripwire check matched only purely numeric row IDs, so it silently skipped row 2b — and then reported "Tripwires: 16 (1-16)" for a document containing 17 tripwire rows. That is a false statement about the document, not merely an incomplete check, and "all checks passed" alongside a known unvalidated row was untenable. The check now parses suffixed IDs, validates the numeric backbone for gaps, duplicates and ascending order separately, and additionally requires each sub-row to sit immediately after its parent. Verified against a deliberate break (relabelling 2b as 9b), which it catches. The releasable state of check.py was the right standard, and it was not met before this fix.
+
+**check.py: all checks pass — 17 rows, backbone 1-16, sub-row 2b. No estimate changed.**
+
+## 1.29 — 2026-09-17
+
+Three further findings from the AI Futures August 2026 update, absorbed without raising the ceiling again. Two of the five candidates were declined.
+
+**Added — the uplift measurement gap, which undercuts the tripwire added one version ago.** Anthropic's internal survey gives a 4× geometric mean for present-day coding uplift; METR's controlled study measured 1.04–1.2×. A three- to fourfold discrepancy on the same quantity, unresolved, with METR judging its own figures biased down by selection effects and lab self-report the obvious candidate for upward bias. Tripwire 2b therefore tracks the doubling time rather than the level, which survives constant multiplicative bias but not growing bias. 2b is now explicitly labelled the weaker instrument despite measuring the more relevant quantity — a caveat that should have accompanied it in 1.27.
+
+**Added — alignment may bottleneck capability rather than follow it.** Brendan Halstead's argument: if epistemics and alignment gate automated coding and are gross complements to narrow technical capability that cannot improve as fast, the uplift trend slows once systems become alignment-bottlenecked, and the loop flattens for a reason no capability metric shows. This is a flattening mechanism the document lacked, and it interacts with the outcome table's finding that alignment dominates disempowerment risk: if Halstead is right, alignment gates timeline *and* outcome, from independent directions.
+
+**Added — a calibration datum on range width.** Three AI Futures forecasters, using one shared formal model and the same evidence, put the automated-coder median at November 2027, January 2029 and January 2030 — a two-year spread arising from adjustments for unknown model limitations and data bottlenecks rather than disagreement about the model. Careful forecasters on identical inputs diverge by more than the width of most cells in these tables. The ranges here are now explicitly flagged as narrower than the real uncertainty.
+
+**Declined — the research-taste result.** Preliminary P-Zero Research findings, reported secondhand, indicate Opus 5 at parity with expert humans on research taste for *verifiable* tasks. Not included, for two reasons. The evidence chain is exactly the shape that produced the earlier Grace error: preliminary, single source, reported through an intermediary, on a narrow operationalisation — and research taste on verifiable tasks is the easy case, since verifiability is what makes taste checkable. More importantly it does not bear on the binding constraint this document identifies: taste is about choosing what to try, while the bottleneck claimed here is the cost of finding out whether it worked. It corroborates the tripwire-16 argument that proposing is getting cheap while evaluating stays expensive, rather than challenging any estimate.
+
+**Declined — AI 2027's missed "China Wakes Up" prediction.** Mild support for this document's China section, but too weak to earn space under the ceiling.
+
+**No estimate changed**, and that is the finding rather than an omission: the research-taste result pushes toward faster, the alignment-bottleneck mechanism pushes toward slower, and neither is strong enough to move a number on its own. Manufacturing a revision to show responsiveness would be worse than reporting a wash.
+
+**Cut to stay within ceiling:** the infrastructure-exposure passage, RentAHuman, the KataGo passage, the retraining-clock corroboration, three argumentative passages, and the maintenance-rule statement. No content removed.
+
+**check.py: all checks pass, 7398/7400.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
