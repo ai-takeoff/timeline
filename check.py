@@ -17,7 +17,15 @@ from pathlib import Path
 DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
 
-WORD_CEILING = 7000  # drift guard; raise deliberately, never incidentally
+WORD_CEILING = 7400  # drift guard; raise deliberately, never incidentally
+# Raised 7000 -> 7400 at v1.27. Reasoning: the ceiling guards against
+# review-driven accretion (more rows, more caveats, more structure). This
+# raise accommodates evidence-driven additions instead - external
+# corroboration of the retraining-clock claim, a second tripwire anchored
+# on coding uplift, and an explicit statement of what the estimates are
+# conditional on. Cutting argumentative material to fit new evidence would
+# be the wrong trade: the arguments are what make the numbers interpretable.
+# Margin is deliberately thin (~125 words) so the guard still binds.
 
 # Phrases that indicate process commentary rather than current view.
 # The maintenance rule itself names these, so that line is exempt.
@@ -35,6 +43,10 @@ BANNED = [
     "recurring failure",
     "than this document does",
     "this document is estimating" if False else "more than this document",
+    "the +5 implied",
+    "the +2 implied",
+    "Reduced to +",
+    "previous draft",
 ]
 BANNED_EXEMPT = "No process commentary in the body"
 
@@ -109,27 +121,46 @@ else:
             note(f"  {total:5.1f}  {short}")
 
 # ------------------------------------------------ 3. tripwire numbering
-tw = [int(n) for n in re.findall(r"^\| (\d+) \|", doc, re.M)]
-if not tw:
+raw_ids = re.findall(r"^\| (\d+[a-z]?) \|", doc, re.M)
+if not raw_ids:
     fail("No tripwire rows found")
 else:
-    uniq = sorted(set(tw))
-    note(f"Tripwires: {len(uniq)} (1-{max(uniq)})")
-    if len(tw) != len(uniq):
-        dupes = sorted({n for n in tw if tw.count(n) > 1})
+    def parse(tid):
+        m = re.match(r"(\d+)([a-z]?)", tid)
+        return int(m.group(1)), m.group(2)
+
+    parsed = [parse(t) for t in raw_ids]
+    backbone = [n for n, suf in parsed if not suf]
+    suffixed = [(n, suf) for n, suf in parsed if suf]
+    note(f"Tripwires: {len(raw_ids)} rows — backbone 1-{max(backbone) if backbone else 0}"
+         + (f", sub-rows {', '.join(f'{n}{s}' for n, s in suffixed)}" if suffixed else ""))
+
+    if len(backbone) != len(set(backbone)):
+        dupes = sorted({n for n in backbone if backbone.count(n) > 1})
         fail(f"Duplicate tripwire numbers: {dupes}")
-    missing = [n for n in range(1, max(uniq) + 1) if n not in uniq]
+    missing = [n for n in range(1, max(backbone) + 1) if n not in backbone] if backbone else []
     if missing:
         fail(f"Gaps in tripwire numbering: {missing}")
-    if tw != sorted(tw):
-        out_of_order = [n for i, n in enumerate(tw) if i > 0 and n < tw[i - 1]]
-        fail(f"Tripwires not in ascending order in the file: appears as {tw}, "
-             f"first out-of-order value(s): {out_of_order}")
+    if backbone != sorted(backbone):
+        fail(f"Tripwire backbone not in ascending file order: {backbone}")
 
-    # cross-references must resolve
+    # a sub-row (e.g. 2b) must sit immediately after its parent, or after an
+    # earlier sub-row of the same parent
+    for i, (n, suf) in enumerate(parsed):
+        if not suf:
+            continue
+        if i == 0:
+            fail(f"Sub-row {n}{suf} appears before any parent row")
+            continue
+        pn, psuf = parsed[i - 1]
+        if pn != n:
+            fail(f"Sub-row {n}{suf} does not immediately follow tripwire {n} "
+                 f"(follows {pn}{psuf} instead)")
+
+    uniq = sorted(set(backbone))
     refs = set()
     for chunk in re.findall(r"tripwires? ([\d, and]+)", doc):
-        refs.update(int(n) for n in re.findall(r"\d+", chunk))
+        refs.update(int(x) for x in re.findall(r"\d+", chunk))
     unresolved = sorted(r for r in refs if r not in uniq)
     if unresolved:
         fail(f"Cross-reference to nonexistent tripwire(s): {unresolved}")
@@ -169,6 +200,25 @@ for heading in ["## What this is", "## Definitions", "## Timeline estimates",
 
 if "CHANGELOG.md" not in doc:
     fail("Document does not point to CHANGELOG.md")
+
+# ------------------------------- 8. references coverage
+# LIMITATION: the source list below is hardcoded, so this catches a source
+# being dropped from REFERENCES.md while still named in the document, but
+# NOT a newly named source that was never added to either the list or the
+# references file. Adding a source means adding it here too.
+ref_path = Path("REFERENCES.md")
+if ref_path.exists():
+    refs_text = ref_path.read_text()
+    named = set(re.findall(
+        r"\b(METR|Grace et al|Wang et al|Metaculus|Epoch|AI Futures|Dream-RSI|"
+        r"SimpleTES|KataGo|Prime Intellect|RentAHuman|TC260|McAfee|Halstead)\b", doc))
+    uncited = sorted(n for n in named if n not in refs_text)
+    if uncited:
+        fail(f"Source(s) named in the document but absent from REFERENCES.md: {uncited}")
+    else:
+        note(f"REFERENCES.md covers all {len(named)} named sources in the document")
+else:
+    fail("REFERENCES.md not found — externally checkable claims have no citation map")
 
 # ------------------------------------------------------------ report
 print("=" * 62)
