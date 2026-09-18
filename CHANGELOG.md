@@ -237,6 +237,22 @@ Three further findings from the AI Futures August 2026 update, absorbed without 
 
 **check.py: all checks pass, 7398/7400.**
 
+## 1.30 — 2026-09-17
+
+**README status corrected. Found by the reader, from an inconsistency between two things stated in conversation.**
+
+The README claimed "every revision so far has been a correction to the document, not an update triggered by evidence crossing a threshold." The second clause is true — no tripwire threshold has been crossed. The first is false: six revisions (1.14, 1.15, 1.16, 1.25, 1.27, 1.29) are evidence-driven and are labelled as such in this log. Conflating "no tripwire fired" with "no evidence was absorbed" understated what the document has actually been doing.
+
+Correcting it surfaced something worse, now stated in the README:
+
+**Tripwires fired: zero. Tripwires created in response to developments they failed to anticipate: three.** Tripwire 15 after OpenAI's voluntary disclosure framework, which fell outside the evaluator-or-victim binary in 6 and 7. Tripwire 16 after Dream-RSI demonstrated a loop type firing neither 3 nor 4. Tripwire 2b after the AI Futures Project downgraded the metric tripwire 1 depends on. The first two share a diagnosis already recorded in 1.16 — mechanism-phrased tripwires get bypassed by mechanisms not enumerated in advance — but the pattern was never carried into the public status claim.
+
+**And one instance crossed a line that needs naming.** Tripwire 15 prescribes "no timeline change, modest upgrade to governance expectations," which is what 1.14 concluded about the very event that prompted the tripwire's creation. Writing a rule after an observation and applying it to that observation is not pre-registration. Doing it in an open changelog is better than doing it silently, but it is still the failure mode the entire apparatus exists to prevent. Recorded rather than quietly repaired.
+
+The status section now says the tripwire set is demonstrably incomplete rather than merely untried, which is a more useful thing for a contributor to know than a claim of unblemished discipline.
+
+**check.py: all checks pass. No estimate changed, no document text changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

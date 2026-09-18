@@ -10,7 +10,19 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-The instrument has not yet been read. Every revision so far has been a correction to the document, not an update triggered by evidence crossing a threshold. Treat the estimates as a baseline awaiting its first real test.
+**No tripwire has fired.** No named metric has crossed a pre-registered threshold, so no estimate has been revised by the mechanism this document is built around. In that sense the instrument has not been read.
+
+It has, however, been tested for *coverage* — and the results are not good. Three times a real development arrived, no existing tripwire covered it, and one was written in response:
+
+- **Tripwire 15** (proactive lab disclosure) was added after OpenAI published six incidents under a voluntary framework. Tripwires 6 and 7 posed a binary — evaluator finds it, or victim finds it — and the third state materialised instead.
+- **Tripwire 16** (frozen-weight self-improvement transferring to AI research) was added after Dream-RSI demonstrated a loop type that fires neither tripwire 3 nor 4.
+- **Tripwire 2b** (coding uplift) was added after the AI Futures Project downgraded the metric tripwire 1 depends on.
+
+The first two share a diagnosis: tripwires phrased on *mechanisms* get bypassed by mechanisms not enumerated in advance. Later ones are phrased on observable effects for that reason.
+
+**One of these crossed a line worth naming.** Tripwire 15 prescribes "no timeline change, modest upgrade to governance expectations" — and that is what v1.14 concluded about the event that prompted the tripwire's creation. Writing a rule after an observation and then applying it to that observation is not pre-registration, whatever it is labelled. It is recorded here rather than buried because the failure mode is the exact one this apparatus exists to prevent.
+
+Treat the estimates as a baseline awaiting a real test, and the tripwire set as demonstrably incomplete rather than merely untried.
 
 ## Provenance and known limitations
 
