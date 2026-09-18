@@ -253,6 +253,46 @@ The status section now says the tripwire set is demonstrably incomplete rather t
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
+## 1.31 — 2026-09-17
+
+Pre-release hardening after a GitHub Copilot review of the repository. One point in that review was the strongest release-readiness finding anyone has raised; several were template-filling.
+
+**REFERENCES.md added — the citation gap was real and embarrassing.** The document names twenty external sources and contained **zero links**. A document whose entire contribution request is "check a number against its source" gave readers no way to do so quickly. Every externally checkable claim is now mapped to a source with a quality class: primary, secondary, the document's own inference, or unverified. Claims that are inference — including every probability estimate — are listed explicitly so they are not mistaken for cited findings.
+
+Roughly a third of the rows are marked with sources still to be pinned. These are genuine gaps rather than placeholders: each traces to material that was read, but the citation was never recorded. That is now stated in the file as a finding about the process rather than hidden, and pinning one is listed as a useful contribution.
+
+**check.py extended to enforce it.** A new check fails if the document names a source absent from REFERENCES.md, so the two cannot drift apart. Verified against a deliberate break — though the first attempt at that verification was itself wrong, and the correction exposed a limitation now documented in the code: the source list is hardcoded, so the check catches a source *dropped* from REFERENCES.md but not a *newly named* source never added to either. Adding a source to the document means adding it to the checker as well.
+
+**CONTRIBUTING.md added**, carrying the acceptance criteria worked out earlier: flaws in method, math, or assumptions get accepted; disagreement with the numbers does not; structural audits belong to check.py. It states the standing document rules (table row structure, no process commentary, the word ceiling, commits naming a tripwire or defect) and directs reviewers to current markdown rather than the PDF, since stale-PDF reviews produced more false positives than real findings across the pre-release rounds. It also asks explicitly for the contribution that would be most valuable: a tripwire phrased on observable effects that would have caught one of the three misses.
+
+**LICENSE added** — CC BY 4.0 for documents, MIT for code, with a request that anyone quoting an estimate cite its version, since an uncited figure becomes unfalsifiable.
+
+**Declined: SECURITY.md.** A document repository with no credentials, no dependencies and no attack surface does not need a vulnerability disclosure policy. Adding one because the template lists it would be noise.
+
+**Declined: most of the README framing suggestions.** "Not a consensus forecast," "estimates are not model outputs," "may become stale" — already covered by the epistemic-status section, the conflict-of-interest disclosure, and a title that is literally "A Dated Snapshot" with a version and date in the header. Added a repository-contents table instead, which is the thing a first-time reader actually lacked.
+
+**Noted, not actioned:** the history hygiene advice (mirror-clone inspection, gitleaks scan over all refs) is sound and belongs to the maintainer rather than this document.
+
+**check.py: all checks pass, 7398/7400. No estimate changed, no document text changed.**
+
+## 1.32 — 2026-09-17
+
+Link durability, raised by the reader immediately after references were added. The concern was correct and the obvious implementation would have been wrong.
+
+**Archiving is targeted, not universal.** The references split sharply by stability: five arXiv identifiers are permanent, versioned and never rewritten in place, so archiving them is wasted effort. The fragile cases are a Substack post, a politically deletable social post, market reporting, and a startup site — which is to say, the sources already sitting in the secondary and unverified tiers. Policy now recorded in REFERENCES.md: permanent identifiers preferred where they exist, unstable sources must carry an archive snapshot as the citation of record, institutional sources archived when a claim depends on a specific figure rather than the page's existence.
+
+Noted there too: silent *editing* of a live source is a worse failure than rot, since a 404 is visible and an edit is not.
+
+**Rechecking is monthly, not per revision, and deliberately decoupled from check.py.** Thirty-one revisions in three days would have meant thirty-one network passes, and a dead external link should not block a commit fixing a typo. `linkcheck.py` plus a scheduled workflow opens an issue on failure instead.
+
+**Running it exposed a flaw that would have shipped.** Every URL returned 403 — an artifact of this environment's egress proxy, but the same response Cloudflare and similar give to a HEAD request from an unfamiliar user agent. The first version treated any 4xx as failure, which would have produced a monthly issue full of false alarms, which is how a maintenance job gets ignored. It now reports **404 and 410 as dead** and **403 and 429 as inconclusive**, needing a human look rather than an alarm. It also flags unstable sources lacking an adjacent archive snapshot.
+
+**One rule stated in REFERENCES.md that matters more than the tooling:** when a link dies, replace it with an archive snapshot, re-source the claim, or mark the row unverifiable — but do not silently drop the claim from the document. A claim that can no longer be checked is itself information.
+
+**Outstanding for the maintainer:** an initial archiving pass over the unstable sources. This environment has no network access to archiving services, so it cannot be done here.
+
+**check.py: all checks pass. No estimate changed, no document text changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

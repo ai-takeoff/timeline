@@ -1,0 +1,48 @@
+name: linkcheck
+
+# Deliberately separate from check.py and NOT run on push/PR.
+# Link health is a different failure mode from structural integrity:
+# a dead external link should not block a commit that fixes a typo.
+on:
+  schedule:
+    - cron: '0 9 1 * *'   # 09:00 UTC, first of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check links in REFERENCES.md
+        id: check
+        run: |
+          python3 linkcheck.py | tee linkcheck-report.txt
+        continue-on-error: true
+
+      - name: Open an issue if anything broke
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('linkcheck-report.txt', 'utf8');
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Link check failures — ${today}`,
+              labels: ['maintenance', 'references'],
+              body: "Automated monthly link check found problems in `REFERENCES.md`.\n\n"
+                  + "```\n" + body + "\n```\n\n"
+                  + "For each failure: replace with an archive URL if one exists, "
+                  + "re-source the claim, or mark the row unverifiable in REFERENCES.md. "
+                  + "Do not silently drop the claim from the document."
+            });
