@@ -167,6 +167,20 @@ Final increment before freeze. One real logical error, one formatting defect fou
 
 **check.py: all checks pass. No estimate changed.**
 
+## 1.25 — 2026-09-17
+
+Evidence-driven, from a Stuart Russell interview. Two additions, one of which attacks an argument the document makes. Required cutting ~250 words elsewhere to stay under the word ceiling — the first revision where the ceiling forced a real trade rather than a warning.
+
+**Added: benchmarked capability can diverge sharply from robust capability.** Wang et al. (ICML 2023) beat KataGo at superhuman settings with a >97% win rate using adversarial policies that lose to human amateurs. The exploit transferred zero-shot to other superhuman Go systems and a human expert reproduced it unaided at 100K visits and at a nine-stone handicap. Critically, it persisted in agents adversarially trained against it — a superhuman rating coexisted with a missing basic concept, and patching did not install the concept. This bears on the document's central crux twice: it is a mechanistic reason to expect the loop to flatten rather than compound, and it is a caution about the tripwires themselves, since METR-style measures track benchmarked capability and a rising curve is therefore weaker evidence of real gain than it appears.
+
+**Added: the survivorship objection to the declining-hazard argument.** The document argues that "time works against us" assumes a constant hazard rate, citing nuclear risk as an analogue where per-year probability fell. Russell's objection: the absence of nuclear war may reflect luck rather than competent management, since on at least half a dozen occasions it was averted by individuals overriding orders or instruments — and reading the record as a stabilizing process is what a surviving observer would conclude either way. This does not refute the declining-hazard argument but removes its best empirical support, and is now stated alongside it.
+
+**Cut to compensate:** compressed the decentralized-training passage, the capital-inversion note, plant infrastructure, the depth/breadth distinction, China's regulatory record, distillation, algorithmic efficiency, and the thermodynamics argument. No content removed, ~250 words of it.
+
+**Considered and declined from the same source:** cognitive-offloading study results (out of scope — human cognition effects, not timelines or outcomes, and the user notes a subgroup that improved); Klarna's AI rollback (contested by its own CEO); proof-carrying code as a governance mechanism (real, but Russell concedes it is far from applicable to current systems); the "no one has described a post-AGI world worth living in" argument (a real gap in the flourishing category's definition, but addressing it properly needs a category revision, not a sentence).
+
+**check.py: all checks pass, 6989/7000. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
