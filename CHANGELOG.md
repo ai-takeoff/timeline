@@ -293,6 +293,40 @@ Noted there too: silent *editing* of a live source is a worse failure than rot, 
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
+## 1.33 — 2026-09-17
+
+Issue templates and a pull request template, discussed twice earlier and never built. Caught by the reader before release.
+
+**Issue *forms*, not markdown templates.** The distinction is the whole point: a form can mark fields required, and the triage design depends on forcing three things — the exact text being challenged, the specific claim about it, and a source or derivation. A markdown template is a suggestion contributors can ignore, which is how a review channel fills with unactionable opinion.
+
+Three forms, with blank issues disabled:
+
+- **Finding** — method, math, or evidence. Two required checkboxes before anything else: that the contributor is quoting current markdown rather than the PDF, and that they have checked the changelog. The first cites the measured reason — PDF reviews produced more false positives than real findings, including a text-layer artifact that read "~20W" as "~200W" and would have made an argument wrong by an order of magnitude.
+- **Tripwire proposal** — flagged in the form itself as the most valuable contribution available, with the three past misses named and the effect-versus-mechanism diagnosis stated. Requires the proposer to show their threshold is clear of the current baseline, since tripwire 1 was originally set at a value the metric already satisfied. Also requires answering whether a new mechanism producing the same effect would still fire it.
+- **Checker bug** — with the two known blind spots stated up front so they are not re-reported.
+
+The config routes readers to CHANGELOG, CONTRIBUTING and REFERENCES before they can open anything, with the changelog link explicitly framed as "argue against the stated reasoning rather than raising it as new."
+
+**Pull request template** enforces the standing rules: name the tripwire or the defect, check.py passing locally, changelog updated with reasoning rather than just the change, new sources added to both REFERENCES and check.py's source list. An estimate change must state old value, new value, and cause — a change without a stated cause is declined regardless of whether the new number is better.
+
+**Not built: KNOWN-DECLINED.md.** Duplicate suppression is a real concern at scale, but building machinery for a problem that has not appeared is how good-faith reports get auto-closed by a misfiring filter. The changelog link in the issue config is the light version. Revisit if duplicates actually materialise.
+
+**check.py: all checks pass. No estimate changed, no document text changed.**
+
+## 1.34 — 2026-09-17
+
+Enforcement for the one PR rule that can be machine-checked.
+
+**Context, from the reader's question:** pull request templates activate on opening a PR, not on commit, must sit on the default branch first, and — unlike issue forms — cannot require fields. Their checkboxes are decorative; a contributor can delete the body entirely and submit. That asymmetry undercuts the point made one version earlier about forms gating rather than suggesting.
+
+Most of the standing rules resist automation. "State your reasoning" is not checkable. But one is: **a change to the document must be accompanied by a changelog entry.** A workflow now fails any PR that modifies `ai-timelines-and-outcomes.md` without touching `CHANGELOG.md`, with the failure message stating why — a revision whose reasoning is unrecorded cannot be argued with later, which is the document's entire premise.
+
+It also emits a non-blocking note when the document changes without `REFERENCES.md` changing, since check.py catches a *named* source missing from references but not a *newly named* source absent from its own hardcoded list. A warning rather than a failure, because most document edits legitimately touch no sources.
+
+**Note for the maintainer:** none of this applies to direct pushes to main, which is the current workflow. Routing changes through PRs once public would mean check.py runs before anything lands rather than after.
+
+**check.py: all checks pass. No estimate changed, no document text changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
