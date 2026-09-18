@@ -1,0 +1,36 @@
+name: Checker bug
+description: check.py or linkcheck.py misses something, or reports something wrongly.
+labels: ["tooling"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The checker has known blind spots, some documented in the code. Two found so far: it validated only numeric tripwire IDs and silently skipped sub-row 2b while reporting a false row count, and the references check uses a hardcoded source list that catches a source *dropped* from REFERENCES.md but not a *newly named* one.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - False negative — a real defect the checker does not catch
+        - False positive — it fails on something correct
+        - The checker reports something untrue about the document
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How to reproduce
+      description: The edit that should fail but passes, or passes but should fail. A minimal case is best.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Checker output
+      render: shell
+    validations:
+      required: true
