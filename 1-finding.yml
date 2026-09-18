@@ -1,0 +1,68 @@
+name: Finding — method, math, or evidence
+description: A flaw in the reasoning, an error in the arithmetic, or information that changes an assumption.
+labels: ["finding"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Disagreement with a number is not a finding.** If you think an estimate is wrong, identify the step where the reasoning fails or the evidence that bears on it. "I'd put that at 40%" cannot be acted on.
+
+        **Structural and arithmetic problems belong to `check.py`.** Run it before filing — if it passes and you still believe there is a structural defect, that is a bug report against the checker, and there is a template for it.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Before filing
+      options:
+        - label: I am quoting the current markdown, not the rendered PDF. (Reviews of the PDF have produced more false positives than real findings — text-layer extraction has corrupted figures, in one case reading "~20W" as "~200W".)
+          required: true
+        - label: I checked CHANGELOG.md to see whether this has already been raised and answered.
+          required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of finding is this?
+      options:
+        - A flaw in the method — the reasoning does not support the conclusion
+        - A flaw in the math — a sum, derivation, or threshold is wrong
+        - Evidence that changes an assumption — a source says something else, or something moved
+        - A cited source does not say what the document claims
+        - An unpinned source in REFERENCES.md that I can pin
+    validations:
+      required: true
+
+  - type: textarea
+    id: quote
+    attributes:
+      label: The exact text you are challenging
+      description: Copy it verbatim from the markdown. Include enough surrounding context to locate it.
+      render: markdown
+    validations:
+      required: true
+
+  - type: textarea
+    id: claim
+    attributes:
+      label: What specifically is wrong with it
+      description: One paragraph. Be precise about the step that fails, not the conclusion you dislike.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Source, derivation, or reasoning
+      description: |
+        A link to a primary source, the arithmetic worked through, or the reasoning step you think does not hold. For sources, prefer permanent identifiers (arXiv ID, DOI) and say whether the source is primary or secondary reporting.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Document version
+      description: From the header of ai-timelines-and-outcomes.md, e.g. 1.32
+      placeholder: "1.32"
+    validations:
+      required: true
