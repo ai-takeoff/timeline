@@ -355,6 +355,29 @@ The reconciliation, now stated in both places: the dispute is about the *level* 
 
 **check.py: all checks pass, 7269/7400. No estimate changed.**
 
+## 1.37 — 2026-09-19
+
+Google AI review, framed as an "exhaustive audit." Seven claims: one real bug I created in the previous version, three legitimate asks answered with additions, one restated after two consecutive misreadings, two declined as confused or unsupported speculation.
+
+**Real bug, and an embarrassing one:** v1.36's changelog was *about* fixing a stale date, and left a different stale date behind. The footer said "15–17 September," unchanged since before the header was corrected to the 19th. Fixed to "15–19 September."
+
+**Added, legitimate asks:**
+- Horizon sensitivity now gives 2050 a rough qualitative position (closer to the 2040 baseline than the midpoint of 2040→2060) rather than only anchoring 2100, with an explicit note that no intermediate years are tabulated and this is shape, not interpolation.
+- Pathway A's role in the cognitive-only and no-RSI rows made explicit at the point of reading the table, not just in the pathway definition above it: a purely cognitive system with no physical bootstrap still carries extinction risk through bioweapon design assistance, rented human labor, and cyber effects on infrastructure it does not itself control.
+- Tripwire 2b's note now names a concrete mechanism for the growing-bias failure mode it already warned about in the abstract: self-report bias scaling with model complexity via contamination or scaffolding, which would fire 2b on rising bias rather than a real inflection — precisely why it is scoped to disagree-with-1/2 cases.
+
+**Restated after a second misreading:** the binding-constraint passage ("a new constraint doesn't move the estimate if something else already binds tighter") has now been misread twice by two different reviewers as "the prior estimate is assumed complete." It never claimed that. Restated to say explicitly that a future constraint tighter than the existing floor *would* move the estimate, and that each new constraint needs the same check rather than an assumed pass. Two misreads of the same passage is a prose problem regardless of whether the logic held.
+
+**Declined — confused, not a contradiction:** the claim that cognitive-only extinction risk is incoherent because "Human-less RSI" is defined as both loops closed. The reviewer treated Human-less RSI as the only route to extinction and then objected that a different row also carries extinction risk — but that route (pathway A, independent of RSI) is exactly why the row exists and is stated as such above the table. Addressed by making the pathway-A point more visible at the table itself (see above), not by revising the definitions, which were not actually in conflict.
+
+**Declined — unsupported extrapolation:** the claim that Dream-RSI's 1.7× search-efficiency gain "shortens the wall-clock time of the next generation's retraining phase," collapsing the ceiling/clock distinction. This is a three-step inference chain (search efficiency → data curation → shorter next retraining run) not made by the cited paper or by anything else in the document's source base. Speculating a specific compounding mechanism the sources don't describe would be the same error the Grace citation made earlier: asserting more than the evidence supports.
+
+**Declined — reframes accurately-described governance risk as a definitional flaw:** the claim that treating Chinese domestic AI regulation as evidence against pure-defector framing "ignores" the possibility that ideological alignment pressure creates a different, unmodeled safety vector. That possibility is real but is a different risk, not a flaw in the narrower claim actually made (that Beijing's incentive structure argues against a purely accelerationist read of its position). Worth a future addition, not a correction to the existing text.
+
+**Not actioned:** making tripwire 15's design intent ("no-change tripwires still register that an event was evaluated, which is what makes the earlier self-criticism about it checkable") explicit in the note. Correct and worth doing, but no ceiling room remained without a further cut, and the point is adequately covered by the surrounding tripwire 6/7/15 discussion. Queued for the next round.
+
+**check.py: all checks pass, 7396/7400. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
