@@ -337,6 +337,24 @@ This was a real gap, not an edge case: the checker had never actually been exerc
 
 **check.py: all checks pass, on both platforms now. No estimate changed.**
 
+## 1.36 — 2026-09-19
+
+Post-publication review (Grok, reading the live repo). Three findings, one a genuine self-contradiction.
+
+**Tripwire 2b contradicted itself between table and note.** The table said "prefer 2b" as a tie-break with no qualification; the note called 2b the *weaker* instrument because of the unresolved 4× (Anthropic survey) versus 1.04–1.2× (METR measured) gap. Both were defensible separately and incoherent together — and a reader consulting the table to apply a tripwire would never reach the note.
+
+The reconciliation, now stated in both places: the dispute is about the *level* of uplift, while 2b reads only the *rate* at which that level doubles. Constant multiplicative bias cancels out of a doubling time, so the rate can be informative while the level is unusable — hence preferring 2b on questions of rate. It stays the weaker instrument because bias that *grows* does not cancel. The table row now carries the qualification inline ("prefer 2b only if the divergence is in rate rather than level") and flags that the underlying level is disputed. This is the second time a tripwire's operative instruction and its explanatory note diverged; the lesson is that the table must be self-sufficient, since it is what gets consulted under time pressure.
+
+**Warp Speed's "winding down through early 2021" clause removed.** Declined twice before on the grounds that it marked programme end versus continued distribution — but the same reviewer has now raised it three times, and the seven-month span immediately preceding it carries the argument alone. Keeping a contested clause that adds nothing was stubbornness rather than precision.
+
+**Header date corrected: 17 → 19 September 2026.** The body still claimed the 17th while the repository moved through the 19th. For a document whose premise is that dating enables checking, a stale stamp is a substantive defect, not a cosmetic one. The date now tracks the last change to an estimate or a rule.
+
+**Accepted without action:** the observation that 1.30–1.35 were infrastructure rather than forecast revisions, and that the estimates have been frozen since roughly 1.23/1.29. That is accurate and the log says "no estimate changed" throughout. The next version that matters is the first where a named series crosses a threshold.
+
+**Cut to stay within ceiling:** the document's Maintenance section was duplicating `CONTRIBUTING.md`'s standing rules — less completely, since CONTRIBUTING also covers the word ceiling and the commit-naming rule — and now points there instead. The Earth-resource paragraph was cut outright as the least load-bearing argumentative passage. Eight other passages compressed.
+
+**check.py: all checks pass, 7269/7400. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
