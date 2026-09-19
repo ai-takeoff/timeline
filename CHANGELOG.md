@@ -410,6 +410,18 @@ Renumbered tripwires from {1, 2, 2b, 3–16} to a clean {1–17}, prompted by a 
 
 **check.py: all checks pass. No estimate changed — this is a labelling correction, not a content one.**
 
+## 1.39 — 2026-09-19
+
+A sixth DeepSeek review (its second full re-read of the live document, following its earlier truncated-fetch review that wrongly claimed tripwires 15/16 were missing — it opened this pass by correcting itself, which is worth crediting) was folded into the previous version's changelog entry without attribution and without addressing one of its two substantive points. Both fixed now, on the reader's prompt.
+
+**The Elo/Epoch citation fix, now properly attributed.** DeepSeek correctly identified that "Epoch's index; a ~29 Elo gap on Arena" reads as one figure from one source when they are two different metrics from two different sources. This was fixed in v1.38's edit pass but credited only to the general tripwire-renumbering work, with no mention that it came from this review. Corrected here: the fix is DeepSeek's finding, applied in v1.38, documented properly now.
+
+**The AI Futures figures point was dropped entirely, and should not have been.** DeepSeek's search could confirm the August 2026 revision happened and that the median gap widened, but could not surface the specific values this document quotes (1.22→1.72 years, 3.86→4.56 years). That is a real gap between what I can verify by having fetched the source directly earlier in this project and what a second party can independently confirm via search — and a document built on checkability should say so rather than silently keep a "P" (primary, fully verified) label on a claim a second party's honest attempt could not corroborate.
+
+Added a new source class to `REFERENCES.md`: **P\*** — primary, fetched and quoted directly, but a specific figure within it later failed independent re-verification by search. Applied to the AI Futures gap figures. This is not a retraction: I fetched the post directly and the figures are quoted as they appeared. It is an honest flag that a claim resting on a single direct fetch, unconfirmable by a second party's search, carries different evidential weight than one two independent methods agree on — and that distinction belongs in the references file, not just in my confidence.
+
+**check.py: all checks pass. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

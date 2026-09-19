@@ -8,6 +8,7 @@ Every externally checkable claim in `ai-timelines-and-outcomes.md`, with its sou
 - **S** — secondary. Reporting or analysis about a primary source.
 - **I** — inference. The document's own reasoning from P or S material, not a claim anyone else has made.
 - **U** — unverified. Reported but not independently confirmed; flagged as such in the document.
+- **P\*** — primary, fetched and quoted directly, but a specific figure within it later failed a second party's independent search-based re-verification. Worth re-checking rather than either dismissing or fully trusting.
 
 If a claim in the document cannot be traced from this file, that is a defect worth an issue.
 
@@ -47,7 +48,7 @@ When a link does die: replace it with an archive snapshot if one exists, re-sour
 | Metaculus "date of general AI": 25% by 2029, 50% by 2033 (Feb 2026) | Metaculus — https://www.metaculus.com/ | P |
 | AI safety leaders survey: median AGI 2033, IQR 2031–2036 | Secondary reporting; **primary source not yet traced** | S |
 | AI Futures: automated-coder medians Nov 2027 / Jan 2029 / Jan 2030 across three forecasters | AI Futures Project, Q2.5 2026 timelines update — https://blog.aifutures.org/p/q25-2026-timelines-update-uplift | P |
-| Model revision simulating training runs raised AC→ASI median 1.22→1.72 yr and 3.86→4.56 yr, slowing fast takeoffs only | AI Futures Project, same | P |
+| Model revision simulating training runs raised AC→ASI median 1.22→1.72 yr and 3.86→4.56 yr, slowing fast takeoffs only | AI Futures Project, same post (fetched directly and quoted from at the time; a later reviewer's search could confirm the revision and direction but not these exact figures — worth an independent re-check) | P* |
 | AI Futures forecasts are conditional on maximum technically feasible speed | AI Futures Project, same | P |
 | Halstead's alignment-bottleneck argument | AI Futures Project, same | P |
 | Opus 5 at expert parity on research taste for verifiable tasks | P-Zero Research preliminary, reported via AI Futures — **declined from the document as too weakly sourced** | U |
