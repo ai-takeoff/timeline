@@ -70,8 +70,8 @@ if not LOG.exists():
     print(f"FATAL: {LOG} not found")
     sys.exit(1)
 
-doc = DOC.read_text()
-log = LOG.read_text()
+doc = DOC.read_text(encoding="utf-8")
+log = LOG.read_text(encoding="utf-8")
 
 # ---------------------------------------------------- 1. version match
 m = re.search(r"\*\*Version (\d+\.\d+) — (\d{1,2} \w+ \d{4})\*\*", doc)
@@ -208,7 +208,7 @@ if "CHANGELOG.md" not in doc:
 # references file. Adding a source means adding it here too.
 ref_path = Path("REFERENCES.md")
 if ref_path.exists():
-    refs_text = ref_path.read_text()
+    refs_text = ref_path.read_text(encoding="utf-8")
     named = set(re.findall(
         r"\b(METR|Grace et al|Wang et al|Metaculus|Epoch|AI Futures|Dream-RSI|"
         r"SimpleTES|KataGo|Prime Intellect|RentAHuman|TC260|McAfee|Halstead)\b", doc))

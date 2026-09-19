@@ -327,6 +327,16 @@ It also emits a non-blocking note when the document changes without `REFERENCES.
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
+## 1.35 — 2026-09-17
+
+**check.py failed on Windows entirely — found while syncing files during the private-to-public transition.** All three of the checker's core validations (version header, changelog format, outcome table) failed simultaneously on a clean local Windows clone, despite the same files passing cleanly here and in GitHub Actions (Ubuntu). Cause: `check.py` read files without an explicit encoding, and Python's default text encoding is platform-dependent — UTF-8 on Linux/Actions, but often cp1252 on Windows. The document and changelog both rely on em-dashes and en-dashes throughout (the version header format, every percentage range like "20–30%"), and misdecoding those bytes broke every regex that depends on matching a dash character, which is why header, changelog, and table parsing all failed at once rather than one specific check.
+
+Fixed by making every `read_text()` call explicit: `encoding="utf-8"`. Verified passing on the reporting Windows machine after the fix.
+
+This was a real gap, not an edge case: the checker had never actually been exercised on Windows before this, despite Windows contributors being a substantial part of the intended audience for a public repository. CI running on `ubuntu-latest` masked it entirely — a clean pass there says nothing about whether the tool works for a contributor running it locally on Windows, which is exactly the audience CONTRIBUTING.md asks to run `check.py` before filing anything.
+
+**check.py: all checks pass, on both platforms now. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
