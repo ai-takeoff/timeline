@@ -14,13 +14,13 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 It has, however, been tested for *coverage* — and the results are not good. Three times a real development arrived, no existing tripwire covered it, and one was written in response:
 
-- **Tripwire 15** (proactive lab disclosure) was added after OpenAI published six incidents under a voluntary framework. Tripwires 6 and 7 posed a binary — evaluator finds it, or victim finds it — and the third state materialised instead.
-- **Tripwire 16** (frozen-weight self-improvement transferring to AI research) was added after Dream-RSI demonstrated a loop type that fires neither tripwire 3 nor 4.
-- **Tripwire 2b** (coding uplift) was added after the AI Futures Project downgraded the metric tripwire 1 depends on.
+- **Tripwire 16** (proactive lab disclosure) was added after OpenAI published six incidents under a voluntary framework. Tripwires 7 and 8 posed a binary — evaluator finds it, or victim finds it — and the third state materialised instead.
+- **Tripwire 17** (frozen-weight self-improvement transferring to AI research) was added after Dream-RSI demonstrated a loop type that fires neither tripwire 4 nor 5.
+- **Tripwire 3** (coding uplift) was added after the AI Futures Project downgraded the metric tripwire 1 depends on.
 
 The first two share a diagnosis: tripwires phrased on *mechanisms* get bypassed by mechanisms not enumerated in advance. Later ones are phrased on observable effects for that reason.
 
-**One of these crossed a line worth naming.** Tripwire 15 prescribes "no timeline change, modest upgrade to governance expectations" — and that is what v1.14 concluded about the event that prompted the tripwire's creation. Writing a rule after an observation and then applying it to that observation is not pre-registration, whatever it is labelled. It is recorded here rather than buried because the failure mode is the exact one this apparatus exists to prevent.
+**One of these crossed a line worth naming.** Tripwire 16 prescribes "no timeline change, modest upgrade to governance expectations" — and that is what v1.14 concluded about the event that prompted the tripwire's creation. Writing a rule after an observation and then applying it to that observation is not pre-registration, whatever it is labelled. It is recorded here rather than buried because the failure mode is the exact one this apparatus exists to prevent.
 
 Treat the estimates as a baseline awaiting a real test, and the tripwire set as demonstrably incomplete rather than merely untried.
 
@@ -51,6 +51,19 @@ Three things, stated narrowly:
 3. **The author is an AI system, the conflict of interest is disclosed, and the adversarial-review record is public** — including which reviews were wrong.
 
 None of these is a large claim. If you know of prior art for any of them, open an issue; that is a useful contribution in itself.
+
+## Repository contents
+
+| File | What it is |
+|---|---|
+| `ai-timelines-and-outcomes.md` | The document. Estimates, tripwires, reasoning. |
+| `CHANGELOG.md` | Every revision with its reasoning, including declined critiques and why. |
+| `REFERENCES.md` | Every externally checkable claim, its source, and a source-quality class. |
+| `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
+| `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
+| `LICENSE` | CC BY 4.0 for documents, MIT for code. |
+
+**If you quote an estimate, cite the version.** The figures change; an uncited number becomes unfalsifiable, which defeats the point.
 
 ## Reading it
 

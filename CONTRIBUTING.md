@@ -10,7 +10,7 @@ This repository wants adversarial review. It is not a wiki — editorial control
 python3 check.py
 ```
 
-It validates structure and arithmetic: version/changelog synchronisation, outcome-table midpoints, tripwire numbering and ordering, sub-row placement, cross-references, empty cells, banned process-commentary phrases, and the word ceiling. It runs automatically on every push and pull request.
+It validates structure and arithmetic: version/changelog synchronisation, outcome-table midpoints, tripwire numbering and ordering, cross-references, empty cells, banned process-commentary phrases, and the word ceiling. It runs automatically on every push and pull request.
 
 Across the review rounds that preceded public release, **structural complaints produced more false positives than real findings** — usually from reviewers reading a stale PDF rather than current markdown. The checker now covers that ground better than a human can. Reviewing the rendered PDF is the single most common way to waste your own time and the maintainer's.
 
@@ -24,7 +24,7 @@ Across the review rounds that preceded public release, **structural complaints p
 
 **Information that changes an assumption.** A cited source says something other than what the document claims. A new result bears on a premise. Something in the world moved. `REFERENCES.md` lists every externally checkable claim with its source class; unpinned sources are marked, and pinning one is a real contribution.
 
-**A tripwire that would have caught a miss.** Three tripwires were written *after* a development the existing set failed to anticipate (15, 16, 2b). Tripwires phrased on mechanisms get bypassed by mechanisms not enumerated in advance. A tripwire phrased on observable *effects* that would have caught one of those three is the most valuable single contribution available.
+**A tripwire that would have caught a miss.** Three tripwires were written *after* a development the existing set failed to anticipate (now numbered 3, 16, and 17 — see `CHANGELOG.md` for what each was added in response to). Tripwires phrased on mechanisms get bypassed by mechanisms not enumerated in advance. A tripwire phrased on observable *effects* that would have caught one of those three is the most valuable single contribution available.
 
 ## What does not get accepted
 

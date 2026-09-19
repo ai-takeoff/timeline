@@ -12,6 +12,22 @@ Three things are worth knowing about that history, because they are the point of
 
 Two structural defects recurred: tripwires phrased on *mechanisms* were twice bypassed by a third state reality supplied (the disclosure binary in v1.14, the self-improvement binary in v1.16). Tripwires should be phrased on observable effects.
 
+## Renumbering note (read this before matching old entries to current tripwire numbers)
+
+**As of v1.38, tripwires are numbered 1–17 in file order, with no sub-rows.** Before that, tripwire "2b" sat between 2 and 3 as a historical accident: it was added mid-project as a paired cross-check on tripwires 1 and 2, and given a letter suffix rather than being renumbered into the sequence, on the reasoning that renumbering was costly and the letter preserved the pairing. That reasoning held up worse than the alternative — a document meant to be cited by number should not have a "2b," any more than a legal code does — so v1.38 renumbered properly.
+
+**Entries below dated before 2026-09-19 use the old numbering and are not rewritten.** They are a historical record of what was true when written, and rewriting them to match current numbers would be exactly the kind of quiet revision this changelog exists to prevent. The mapping, if you need to translate an old reference:
+
+| Old | New | Old | New | Old | New |
+|---|---|---|---|---|---|
+| 1 | 1 | 7 | 8 | 13 | 14 |
+| 2 | 2 | 8 | 9 | 14 | 15 |
+| 2b | 3 | 9 | 10 | 15 | 16 |
+| 3 | 4 | 10 | 11 | 16 | 17 |
+| 4 | 5 | 11 | 12 | | |
+| 5 | 6 | 12 | 13 | | |
+| 6 | 7 | | | | |
+
 ## Entries
 
 | Version | Date | Changes |
@@ -377,6 +393,22 @@ Google AI review, framed as an "exhaustive audit." Seven claims: one real bug I 
 **Not actioned:** making tripwire 15's design intent ("no-change tripwires still register that an event was evaluated, which is what makes the earlier self-criticism about it checkable") explicit in the note. Correct and worth doing, but no ceiling room remained without a further cut, and the point is adequately covered by the surrounding tripwire 6/7/15 discussion. Queued for the next round.
 
 **check.py: all checks pass, 7396/7400. No estimate changed.**
+
+## 1.38 — 2026-09-19
+
+Renumbered tripwires from {1, 2, 2b, 3–16} to a clean {1–17}, prompted by a direct challenge: "2b" is sloppy, no reader cares about the mid-project history that produced it, and a crux document should be as clean as a legal code — the Constitution has no Amendment 2b.
+
+**The reasoning that produced "2b" was defensible and the outcome was still wrong.** It was added as a paired cross-check on tripwires 1 and 2 (a second, independent read on whether the RSI loop is bending), and the letter suffix was meant to preserve that pairing without the cost of renumbering everything after it. But the pairing belongs in the *text* of the row, not in its ID, and "2b" reads as a patch number to anyone who doesn't know the history — which is every reader.
+
+**What moved:** the coding-uplift tripwire is now **3**, immediately after 1 and 2 as the pairing always intended. Everything from old-3 through old-16 shifted up by one, to new-4 through new-17. Full mapping recorded at the top of this file, since it is a live reference, not a historical entry.
+
+**What did not move:** every changelog entry dated before this one. They describe what was true when written, under the numbering that existed then. Rewriting old entries to match new numbers would be a quiet revision of history — the same failure mode the maintenance rule against process commentary exists to prevent, applied to numbers instead of prose. A reader working from an old entry uses the mapping table above.
+
+**Also updated:** `check.py`'s tripwire validation, which previously had to distinguish a numeric "backbone" from lettered sub-rows — that distinction no longer exists and the check is simpler for it, which is itself a point in favour of the renumbering: the sub-row case was adding real complexity to the tooling for a naming choice that added no real information. `README.md` and `CONTRIBUTING.md` updated to current numbers, since both describe the live document rather than a point in time.
+
+**On iteration risk:** this touched the table, four prose notes below it, three files outside the document, and `check.py`'s parsing logic — flagged in advance as likely to need a correction pass despite a careful first attempt, since cross-references live in more places than the table itself and a pattern-match on digits would silently miscount references to the *old* tripwire 3 (now 4) as if they meant the new tripwire 3. Every reference in this pass was resolved by rereading what it pointed to, not by search-and-replace on the digit.
+
+**check.py: all checks pass. No estimate changed — this is a labelling correction, not a content one.**
 
 ## Convention from here
 

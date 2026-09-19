@@ -121,43 +121,21 @@ else:
             note(f"  {total:5.1f}  {short}")
 
 # ------------------------------------------------ 3. tripwire numbering
-raw_ids = re.findall(r"^\| (\d+[a-z]?) \|", doc, re.M)
-if not raw_ids:
+tw = [int(n) for n in re.findall(r"^\| (\d+) \|", doc, re.M)]
+if not tw:
     fail("No tripwire rows found")
 else:
-    def parse(tid):
-        m = re.match(r"(\d+)([a-z]?)", tid)
-        return int(m.group(1)), m.group(2)
-
-    parsed = [parse(t) for t in raw_ids]
-    backbone = [n for n, suf in parsed if not suf]
-    suffixed = [(n, suf) for n, suf in parsed if suf]
-    note(f"Tripwires: {len(raw_ids)} rows — backbone 1-{max(backbone) if backbone else 0}"
-         + (f", sub-rows {', '.join(f'{n}{s}' for n, s in suffixed)}" if suffixed else ""))
-
-    if len(backbone) != len(set(backbone)):
-        dupes = sorted({n for n in backbone if backbone.count(n) > 1})
+    uniq = sorted(set(tw))
+    note(f"Tripwires: {len(uniq)} rows, 1-{max(uniq)}")
+    if len(tw) != len(uniq):
+        dupes = sorted({n for n in tw if tw.count(n) > 1})
         fail(f"Duplicate tripwire numbers: {dupes}")
-    missing = [n for n in range(1, max(backbone) + 1) if n not in backbone] if backbone else []
+    missing = [n for n in range(1, max(uniq) + 1) if n not in uniq]
     if missing:
         fail(f"Gaps in tripwire numbering: {missing}")
-    if backbone != sorted(backbone):
-        fail(f"Tripwire backbone not in ascending file order: {backbone}")
+    if tw != sorted(tw):
+        fail(f"Tripwires not in ascending file order: {tw}")
 
-    # a sub-row (e.g. 2b) must sit immediately after its parent, or after an
-    # earlier sub-row of the same parent
-    for i, (n, suf) in enumerate(parsed):
-        if not suf:
-            continue
-        if i == 0:
-            fail(f"Sub-row {n}{suf} appears before any parent row")
-            continue
-        pn, psuf = parsed[i - 1]
-        if pn != n:
-            fail(f"Sub-row {n}{suf} does not immediately follow tripwire {n} "
-                 f"(follows {pn}{psuf} instead)")
-
-    uniq = sorted(set(backbone))
     refs = set()
     for chunk in re.findall(r"tripwires? ([\d, and]+)", doc):
         refs.update(int(x) for x in re.findall(r"\d+", chunk))
