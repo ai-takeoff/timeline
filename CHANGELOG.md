@@ -422,6 +422,27 @@ Added a new source class to `REFERENCES.md`: **P\*** — primary, fetched and qu
 
 **check.py: all checks pass. No estimate changed.**
 
+## 1.40 — 2026-09-19
+
+ChatGPT review, framed as a full editorial/factual/logical audit. Its top item was a factual error, but the error was in the review, not the document — worth stating plainly since it was presented as the leading finding.
+
+**Declined — the Dream-RSI attribution was already correct, and the review's own citations confirm it.** It claimed "Google, Google DeepMind, Maryland, Virginia" was unsupported and that the "actual" authors were "Tong Zheng, Xidong Wu, and others." Checked directly: Tong Zheng and Xidong Wu are two of seventeen authors, and the four institutions named in the document are exactly the paper's affiliations (Google, Google DeepMind, University of Maryland, University of Virginia), confirmed independently by the paper itself, its GitHub README, and a third-party fact-check that verified ~190 claims against the arXiv text. The review's evidence doesn't contradict the document; it's consistent with it. No change made, and this is recorded because "the top-listed finding in a review was itself wrong" is exactly the class of thing this project's own record should catch, regardless of which direction the error runs.
+
+**Correction, added after the reader checked: the "stale copy" explanation below was wrong and has been retracted.** The reader confirmed they supplied the actual current v1.39 file, timestamped same-day. There is no evidence this review used anything else, and the original text of this entry claimed otherwise without support — while also self-contradicting, since it labelled the physical-infrastructure passage both "already resolved" and, three paragraphs later, a real fix made in this version. Both cannot be true; the second was correct, the first was not.
+
+**What the Elo/Epoch item actually was.** The citation *was* separated into two sources in v1.38. What v1.38 did not add, and what this review actually asked for on rereading its text, is a specific date and methodology for each of the two metrics individually. That is a distinct, unresolved ask, not a stale repeat of something already fixed. Left open for a future version, since the document is at its word ceiling.
+
+**The real explanation for the overlap with prior reviews is more interesting than staleness.** Grok, DeepSeek, Google AI, and now ChatGPT have independently converged on the same *category* of issue across different versions and different passages: absolutist phrasing that outruns its evidence, comparisons presented as clean when the underlying conditions differ, citations asserting more precision than the source supports. That is not several tools reading an old file — each caught something in text that was current when they read it. It is a recurring authorial pattern: sentences get written with more certainty than the evidence carries, get caught, get fixed, and the same tendency produces a new instance elsewhere. Worth naming as a standing risk in how this document gets written, not attributing to tooling.
+
+**Accepted — three real, unaddressed points:**
+- The "gap between safety-selected and field-wide samples is itself the datum" sentence stated an interpretation as if it were a survey finding, and the safety-leader survey itself was never pinned in `REFERENCES.md`. Both now flagged explicitly in the document text, not just the references file.
+- "None parallelizing with what it depends on," describing fab infrastructure commissioning, was too absolute — some sub-tasks can overlap even though the critical path itself doesn't compress. Restated around the critical-path distinction, which preserves the argument while removing the overstatement.
+- The no-RSI-vs-human-less-RSI "two-thirds" disempowerment comparison was stated as if the rows differed only in RSI status; they also differ in alignment conditioning. Now flagged inline as not a clean causal comparison.
+
+**Declined — the remaining precision requests, for space.** Naming the specific AI Futures forecasters, adding hardware/task-matching caveats to the 20W comparison, specifying which of several metrics the 162×/1.7× figures measure, and several similar asks are individually reasonable but the document is at its word ceiling and none is a correctness issue — the existing hedges ("roughly," "a datum this document infers") already carry the appropriate uncertainty. Revisit if space opens up.
+
+**check.py: all checks pass, 7400/7400 — at the ceiling exactly. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

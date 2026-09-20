@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.39 — 19 September 2026**
+**Version 1.40 — 19 September 2026**
 *(Previously titled "RSI and AI Risk." Version history in the revision log.)*
 
 ---
@@ -15,7 +15,7 @@ These are my views, not a summary of the conversation that produced them, and no
 
 **Epistemic status.** These numbers are structured intuitions, not outputs of a model I can show you. I have no privileged insight into capability trajectories by virtue of being an AI system, and I can't rule out that my training has shaped my views here in ways I can't detect. There is an obvious conflict-of-interest concern with any AI system opining on AI risk. Weight accordingly — slightly better than a coin flip on direction, not much more.
 
-**The outside view cuts against these numbers.** Grace et al.'s survey of 2,778 published AI researchers (2023, published 2024) put the chance of machines outperforming humans on every task at 10% by 2027 and 50% by 2047, and full automation of all occupations at 10% by 2037 and 50% as late as 2116. On tasks directly relevant here, the aggregate 50% year was twelve years out for *replicating* a high-quality ML paper and nineteen for *researching and writing* one — roughly 2035 and 2042. These are fitted aggregate crossing points, not the median respondent's own answer. Metaculus's "date of general AI" question stood at 25% by 2029 and 50% by 2033 as of February 2026. A February 2026 survey of AI safety leaders gave a median AGI year of 2033, with an interquartile range of roughly 2031–2036. The gap between safety-selected and field-wide samples is itself the datum.
+**The outside view cuts against these numbers.** Grace et al.'s survey of 2,778 published AI researchers (2023, published 2024) put the chance of machines outperforming humans on every task at 10% by 2027 and 50% by 2047, and full automation of all occupations at 10% by 2037 and 50% as late as 2116. On tasks directly relevant here, the aggregate 50% year was twelve years out for *replicating* a high-quality ML paper and nineteen for *researching and writing* one — roughly 2035 and 2042. These are fitted aggregate crossing points, not the median respondent's own answer. Metaculus's "date of general AI" question stood at 25% by 2029 and 50% by 2033 as of February 2026. A February 2026 survey of AI safety leaders gave a median AGI year of 2033, IQR ~2031–2036 (not independently pinned in `REFERENCES.md` — treat as secondary until sourced). The size of the gap to the field-wide samples above is this document's own inference, not a finding either survey reports.
 
 **A datum that may cut the other way, held loosely.** The same survey put solving a Millennium Prize problem twenty-seven years out, approximately 2050. A claimed solution surfaced in 2026; it has not been accepted by the Clay Institute and is disputed. If it stands, that estimate was beaten by roughly twenty-four years.
 
@@ -98,7 +98,7 @@ What actually blocks physical bootstrap, in four categories:
 
 **Automating this needs two kinds of physical competence, and current robotics lacks both.** *Depth*: diagnosing an unexplained yield excursion, tracing contamination, finding an unlogged vibration source — narrow, expert, tacit, plant-specific. *Breadth*: clearing a blocked drain, snow load, weather damage outdoors in conditions that vary without warning. Each breadth task is unskilled by comparison, which is why it drops out of automation estimates — but the competence is general rather than specialised, in unstructured outdoor settings rather than the structured indoor ones where current systems perform best. Warehouse pick-and-place is easy on both axes.
 
-**Plant and site infrastructure is a serial dependency in its own right.** Cleanroom qualification, ultrapure water commissioning, gas certification and HVAC balancing all happen *after* construction and *before* production, none parallelizing with what it depends on. Not ancillary for a leading-edge fab: cleanroom air handling is among the plant's largest energy loads before counting the tighter ISO Class 1 environments scanners require, temperature must hold to fractions of a degree because thermal drift moves lithographic alignment, and water runs to millions of gallons a day with treatment facilities that are plants in themselves.
+**Plant and site infrastructure is a serial dependency in its own right.** Cleanroom qualification, ultrapure water commissioning, gas certification and HVAC balancing sit on the critical path after construction and before production — some sub-tasks can overlap, but the path itself does not compress. Not ancillary for a leading-edge fab: cleanroom air handling is among the plant's largest energy loads before counting the tighter ISO Class 1 environments scanners require, temperature must hold to fractions of a degree because thermal drift moves lithographic alignment, and water runs to millions of gallons a day with treatment facilities that are plants in themselves.
 
 The boundary between the first two is less clean than it looks. Much permitting delay is not statutory waiting but iteration on deficient filings: applications that fail to anticipate objections, environmental reports that get sent back, responses that arrive late. That is coordination friction wearing institutional clothing, and it is genuinely compressible by systems that produce complete, objection-anticipating filings on the first pass.
 
@@ -120,7 +120,7 @@ These are parallel, not nested. Each can occur without the others, and they are 
 
 Requires no misalignment and no RSI. Bio uplift, large-scale cyber operations, industrialized fraud. Already documented in threat reporting. Open weights lagging the frontier by four to six months is short enough for serious misuse even though nowhere near short enough for a garage RSI loop. **For the next three to five years this is plausibly the dominant risk**, and it is the one most responsive to near-term intervention.
 
-**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (February 2026) sells human physical presence to agents via REST API and MCP server, paid in stablecoins — ID-requiring pickups, in-person attendance, hardware setup, document signing. Security researchers call these an operational primitive analogous to CAPTCHA-solving services with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Registration figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
+**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (Feb 2026) sells human physical presence to agents via REST API/MCP, paid in stablecoins — pickups, attendance, hardware setup, signing. Security researchers call these a CAPTCHA-solving analogue with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
 
 ### B. Fragmentation and delegation, no RSI required
 
@@ -160,7 +160,7 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 *Alignment is the larger lever on disempowerment; on extinction the two levers are comparable.* Holding capability fixed and solving alignment moves disempowerment about 31 points (47.5% → 16% at midpoints) and extinction about 20. Holding alignment unsolved and removing the physical loop moves disempowerment only 2.5 points and extinction 13.5 — but capability's fuller effect on extinction shows up across the whole ladder to no-RSI, which moves it about 20 points as well (25% → 5%). So: alignment clearly dominates disempowerment. On extinction, alignment (~20) and capability (~20) are roughly tied rather than either dominating. Physical autonomy is what raises extinction to its highest rates — it does not create the risk, since cognitive-only with alignment unsolved still sits at 8–15%; alignment failure is what makes losing control likely.
 
-*RSI raises the odds of disempowerment but does not create them.* At unsolved alignment the column reads 25–40% with no RSI, 38–52% with cognitive RSI, 40–55% with the full loop. A world that never closes the loop still carries roughly two-thirds the disempowerment risk of one that does. The floor is set by delegation and misuse, which proceed regardless. Note the bottom row carries no alignment condition, because pathway B does not route through misalignment.
+*RSI raises the odds of disempowerment but does not create them.* At unsolved alignment the column reads 25–40% with no RSI, 38–52% with cognitive RSI, 40–55% with the full loop — a world that never closes the loop still carries roughly two-thirds the disempowerment risk of one that does, though the rows differ in more than RSI status alone and this is not a clean causal comparison. The floor is set by delegation and misuse, which proceed regardless; the bottom row carries no alignment condition, since pathway B does not route through misalignment.
 
 *Pathway A is inside every row, not just the bottom one.* Misuse does not depend on how the RSI question resolves — it is why the cognitive-only rows carry meaningful extinction risk (8–15%) despite no physical bootstrap, and why the no-RSI row's figure is 3–7% rather than near zero. A system need not personally control physical infrastructure to raise extinction risk: bioweapon design assistance, rented human labor, and cyber effects on infrastructure are pathway-A channels available to a purely cognitive system. No-RSI is not safe, and neither is cognitive-only.
 
@@ -179,11 +179,11 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 **But "regulation fails" ≠ "pace unchanged."** Capital markets can slow this without a single law passing. Closed IPO windows and rising capital costs hit training budgets directly, and compute is a binding input.
 
-**Capital is not a clean brake, and may invert.** A lab facing a closed funding window and unsustainable burn has incentives to do what safety pressure is meant to prevent: strip deployment restrictions, ship agents before evaluation completes, sell frontier access to buyers it would refuse, or dump weights as a hail mary. Distressed open-sourcing has precedent. The same selloff that slows *compute scaling* may increase *deployment recklessness and proliferation* — a brake on pathway C, an accelerant on pathway A.
+**Capital is not a clean brake, and may invert.** A lab facing a closed funding window has incentives to do what safety pressure is meant to prevent: strip deployment restrictions, ship agents before evaluation completes, sell access it would refuse, or dump weights as a hail mary. Distressed open-sourcing has precedent. The same selloff that slows *compute scaling* may increase *deployment recklessness* — a brake on pathway C, an accelerant on pathway A.
 
 **Proliferation: the cat is half out of the bag.** Open weights lag the frontier by roughly four to six months per Epoch's capability index, and sit roughly 29 Elo behind on Arena's separate leaderboard — two metrics, not one source. For misuse, diffusion is irreversible. For RSI, it isn't: running a model and training one are different problems.
 
-**The chokepoint is narrow — and not only chips.** EUV is one company shipping dozens of machines a year; leading-edge logic is essentially TSMC; HBM is three suppliers. **Power and interconnection deserve coequal billing:** a clandestine or runaway compute loop is constrained by substations, generation and interconnect queues as much as by accelerators, and those are slower to build and harder to hide.
+**The chokepoint is narrow — and not only chips.** EUV is one company shipping dozens of machines a year; logic is essentially TSMC; HBM is three suppliers. **Power and interconnection deserve equal billing:** a runaway compute loop is constrained by substations and interconnect queues as much as accelerators, and those are slower to build and harder to hide.
 
 **The decentralized bypass is real but hurts RSI disproportionately.** Low-communication methods (DiLoCo-style; Prime Intellect's runs) cut synchronization frequency by orders of magnitude, and a distributed pool draws the same power spread below detection thresholds, with no substation to photograph.
 
@@ -191,7 +191,7 @@ Two bounds. Demonstrated runs sit an order of magnitude or more below frontier s
 
 **Rogue-state cognitive RSI: 4–8% this decade under a verified US–China regime, 8–15% without one.** Money isn't the binding constraint. Cognitive RSI is the worst case for a clandestine program: it needs a sustained loop of runs, plausibly 10–100× a single frontier training run, operated continuously and undetected.
 
-**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new pretraining paradigm is invented, yet scaffolding, test-time compute, tool use and efficiency gains can make a distilled student more useful than last year's teacher. The distinction holds — misuse leaks easily, RSI-grade training loops do not — but the boundary is soft.
+**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new pretraining paradigm is invented, yet scaffolding and efficiency gains can make a distilled student more useful than last year's teacher. The distinction holds — misuse leaks easily, RSI-grade loops do not — but the boundary is soft.
 
 **The real erosion mechanism is algorithmic efficiency, which no treaty addresses.** Human cognition runs on ~20W and current systems are orders of magnitude off, so the headroom is real. If 2026-frontier capability becomes trainable for $50M in 2033, any compute-threshold regime leaks from below — every such regime has an expiration date. Headroom tells you the ceiling, not the rate of convergence.
 
@@ -283,7 +283,7 @@ The deeper problem is equivocation: physical laws are descriptive and exceptionl
 
 **Conversely, whether alarm is convenient for a marketing team is not evidence about whether systems are dangerous** — orthogonal questions, and this applies equally to my own conflict-of-interest caveats about Anthropic.
 
-**Amodei's 6–12 month persistent-botnet figure is a scenario, not a measurement** — an upper-tail warning from someone with internal visibility, not a base rate.
+**Amodei's 6–12 month persistent-botnet figure is a scenario, not a measurement.**
 
 ---
 
