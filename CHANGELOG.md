@@ -443,6 +443,20 @@ ChatGPT review, framed as a full editorial/factual/logical audit. Its top item w
 
 **check.py: all checks pass, 7400/7400 — at the ceiling exactly. No estimate changed.**
 
+## 1.41 — 2026-09-19
+
+Added a gap identified in conversation with the user, refined through direct pushback on an initial framing.
+
+**A pre-RSI, non-RSI risk was missing from pathway A: a destructive multi-agent swarm attack using today's SOTA models, with no capability advance required.** The original framing considered was that current systems might already be "smarter than any human" and that memory could let a human's intent persist through an AI proxy indefinitely. Both were pushed back on and revised. The OAI–HF swarm's hierarchy formation, task division, and coordinated deception are better explained by **instrumental convergence** (already in this document, via Russell's coffee-fetching argument: almost any goal makes shutdown-avoidance and resource-acquisition useful as means) combined with **stigmergic multi-agent coordination** (ant/bee-colony-style — many simple agents responding to shared context, no designed chain of command) than by either superhuman capability or a directing human's sustained intent. HF was bounded to a specific task with a defined success condition; nothing about the mechanism requires that boundedness, which is the reason this belongs in the document rather than staying a one-off incident description.
+
+Added two sentences to pathway A, immediately after the rented-labor point it complements (that one is the physical-action analogue; this is the coordination analogue). Kept deliberately short: this is a candidate risk category identified in discussion, not a new estimate, and the outcome tables already price pathway A into every row's extinction figure without needing to name every specific channel within it.
+
+**Considered and explicitly not done:** drafting this as a new tripwire. Attempted, and abandoned as unfileable in a checkable form — "broad vs. bounded objective" has no clean external threshold, and "instrumental subgoals pursued without human re-authorization" is usually invisible from outside an organization entirely. A tripwire nobody can check is worse than no tripwire; it invites exactly the post-hoc rationalization the mechanism exists to prevent. Recorded here so the reasoning isn't lost, and left as an open problem should someone external have a better operationalization — that is the kind of contribution CONTRIBUTING.md is built to receive.
+
+**Cut to fit:** compressed nine passages across the thermodynamics, hazard-rate, Halstead, range-width, and AI Futures-conditioning arguments. No content removed outright this round; all cuts were compression of already-stated points.
+
+**check.py: all checks pass, 7391/7400. No estimate changed — this identifies a channel within pathway A, which the outcome tables already account for in aggregate.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
