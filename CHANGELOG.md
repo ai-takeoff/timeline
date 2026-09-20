@@ -457,6 +457,14 @@ Added two sentences to pathway A, immediately after the rented-labor point it co
 
 **check.py: all checks pass, 7391/7400. No estimate changed — this identifies a channel within pathway A, which the outcome tables already account for in aggregate.**
 
+## 1.42 — 2026-09-19
+
+Removed the "Previously titled 'RSI and AI Risk'" header line, flagged by the user as overdue cleanup. It was added in v1.5, when the rename had just happened and the note was load-bearing for anyone arriving with the old name in mind. Thirty-seven versions later it serves no reader arriving fresh, and the maintenance rule's own metadata exception (added to accommodate this exact line) was carrying weight nothing needed anymore. The rename itself remains fully recorded in this changelog's history.
+
+**Process note, not about the document:** this and the already-resolved "100K visits" item had been sitting in an informal queue across several versions without being surfaced before proposing new work. Going forward, queued items get raised before any new change is proposed, rather than left to be remembered or asked about.
+
+**check.py: all checks pass, 7379/7400. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

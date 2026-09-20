@@ -1,7 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.41 — 19 September 2026**
-*(Previously titled "RSI and AI Risk." Version history in the revision log.)*
+**Version 1.42 — 19 September 2026**
 
 ---
 
