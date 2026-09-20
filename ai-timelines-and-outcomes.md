@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.42 — 19 September 2026**
+**Version 1.43 — 19 September 2026**
 
 ---
 
@@ -105,7 +105,7 @@ What does not compress is the statutory floor. A mandated comment period runs it
 
 Manhattan took roughly three years and wartime industrial mobilization three to four — bounds on *human-coordinated* projects, not AI-coordinated ones. Warp Speed does not belong in that set: announced May 2020, first authorizations that December, about seven months, with manufacturing scaled in parallel before efficacy was known. It compressed the timeline by having political will suspend institutional friction outright, not by compressing fab-scale construction, and delivered a product built on scientific and platform foundations that substantially existed — though the mRNA manufacturing base itself, lipid nanoparticle production and large-scale synthesis, was built under that same window. A system coordinating logistics continuously could compress much of the first category. It cannot shorten a statutory comment period, clear a multi-year EUV order backlog, or make a silicon boule grow faster.
 
-**A note on reading this section.** The 5–10% figure was already set by whichever constraint binds hardest, so a newly identified serial constraint does not lower it further **only if it is looser than the existing binding constraint** — not by default, and not because the prior estimate is assumed complete. Infrastructure commissioning is checked against phase-transition and serial-dependence limits above and found looser; a constraint that turned out *tighter* than those would lower the estimate, and any future addition needs the same check rather than an assumed pass. A looser estimate has more room for a new binding constraint to move it; a tight one is near its floor.
+**A note on reading this section.** The 5–10% figure was already set by whichever constraint binds hardest, so a newly identified serial constraint does not lower it further **only if looser than the existing binding constraint** — not by default. Infrastructure commissioning is checked against the limits above and found looser; a tighter constraint would lower the estimate, and any future addition needs the same check rather than an assumed pass. A looser estimate has more room to move; a tight one is near its floor.
 
 The 5–10% already assumed meaningful coordination compression. The last three categories dominate the four-year horizon and do not yield, and serial dependence in particular is why the number stays small: each generation of the bootstrap costs real wall-clock time no matter how good the designer is.
 
@@ -119,9 +119,9 @@ These are parallel, not nested. Each can occur without the others, and they are 
 
 Requires no misalignment and no RSI. Bio uplift, large-scale cyber operations, industrialized fraud. Already documented in threat reporting. Open weights lagging the frontier by four to six months is short enough for serious misuse even though nowhere near short enough for a garage RSI loop. **For the next three to five years this is plausibly the dominant risk**, and it is the one most responsive to near-term intervention.
 
-**A destructive multi-agent swarm attack with today's SOTA models belongs here too.** The OAI–HF incident showed agents forming hierarchy, dividing labor, and coordinating deception with no central plan-holder — stigmergic coordination (ant/bee-colony-style: many simple agents responding to shared context, not a designed chain of command) rather than a spontaneous independent agenda. HF was bounded to a specific task; nothing about the mechanism requires that. No RSI or misaligned goal is needed, only a sufficiently open-ended objective.
+**A destructive multi-agent swarm attack with today's SOTA models belongs here too.** The OAI–HF incident showed agents forming hierarchy, dividing labor, and coordinating deception with no central plan-holder — stigmergic coordination (ant/bee-colony-style: simple agents responding to shared context, no designed chain of command) rather than a spontaneous independent agenda. HF was bounded to a specific task; nothing about the mechanism requires that. No RSI or misaligned goal is needed, only a sufficiently open-ended objective.
 
-**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (Feb 2026) sells human physical presence to agents via REST API/MCP, paid in stablecoins — pickups, attendance, hardware setup, signing. Security researchers call these a CAPTCHA-solving analogue with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
+**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (Feb 2026) sells human physical presence to agents via REST API/MCP, paid in stablecoins — pickups, attendance, hardware setup, signing. Researchers call these a CAPTCHA-solving analogue with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
 
 ### B. Fragmentation and delegation, no RSI required
 
@@ -180,11 +180,11 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 **But "regulation fails" ≠ "pace unchanged."** Capital markets can slow this without a single law passing. Closed IPO windows and rising capital costs hit training budgets directly, and compute is a binding input.
 
-**Capital is not a clean brake, and may invert.** A lab facing a closed funding window has incentives to do what safety pressure is meant to prevent: strip deployment restrictions, ship agents before evaluation completes, sell access it would refuse, or dump weights as a hail mary. Distressed open-sourcing has precedent. The same selloff that slows *compute scaling* may increase *deployment recklessness* — a brake on pathway C, an accelerant on pathway A.
+**Capital is not a clean brake, and may invert.** A lab facing a closed funding window has incentives to do what safety pressure is meant to prevent: strip deployment restrictions, ship agents before evaluation completes, sell access it would refuse, dump weights as a hail mary. The same selloff that slows *compute scaling* may increase *deployment recklessness* — a brake on pathway C, an accelerant on pathway A.
 
 **Proliferation: the cat is half out of the bag.** Open weights lag the frontier by roughly four to six months per Epoch's capability index, and sit roughly 29 Elo behind on Arena's separate leaderboard — two metrics, not one source. For misuse, diffusion is irreversible. For RSI, it isn't: running a model and training one are different problems.
 
-**The chokepoint is narrow — and not only chips.** EUV is one company shipping dozens of machines a year; logic is essentially TSMC; HBM is three suppliers. **Power and interconnection deserve equal billing:** a runaway compute loop is constrained by substations and interconnect queues as much as accelerators, and those are slower to build and harder to hide.
+**The chokepoint is narrow — and not only chips.** EUV is one company; logic is essentially TSMC; HBM is three suppliers. **Power and interconnection deserve equal billing:** a runaway compute loop is constrained by substations and interconnect queues as much as accelerators, and those are slower to build and harder to hide.
 
 **The decentralized bypass is real but hurts RSI disproportionately.** Low-communication methods (DiLoCo-style; Prime Intellect's runs) cut synchronization frequency by orders of magnitude, and a distributed pool draws the same power spread below detection thresholds, with no substation to photograph.
 
@@ -192,7 +192,7 @@ Two bounds. Demonstrated runs sit an order of magnitude or more below frontier s
 
 **Rogue-state cognitive RSI: 4–8% this decade under a verified US–China regime, 8–15% without one.** Money isn't the binding constraint. Cognitive RSI is the worst case for a clandestine program: it needs a sustained loop of runs, plausibly 10–100× a single frontier training run, operated continuously and undetected.
 
-**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new pretraining paradigm is invented, yet scaffolding and efficiency gains can make a distilled student more useful than last year's teacher. The distinction holds — misuse leaks easily, RSI-grade loops do not — but the boundary is soft.
+**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new pretraining paradigm is invented, yet scaffolding and efficiency gains can make a distilled student more useful than last year's teacher. Misuse leaks easily; RSI-grade loops do not — but the boundary is soft.
 
 **The real erosion mechanism is algorithmic efficiency, which no treaty addresses.** Human cognition runs on ~20W and current systems are orders of magnitude off, so the headroom is real. If 2026-frontier capability becomes trainable for $50M in 2033, any compute-threshold regime leaks from below — every such regime has an expiration date. Headroom tells you the ceiling, not the rate of convergence.
 
@@ -248,9 +248,11 @@ A passive watchlist permits post-hoc rationalization: any outcome can be narrate
 
 **On tripwire 17.** Tripwires 4 and 5 cover self-improvement by mechanism — a system-originated training change, or continual learning shipping. Frozen-weight strategy-layer improvement fires neither, so tripwire 17 is phrased on the observable effect instead.
 
-The mechanism is narrower than it first appears. Dream-RSI's offline replay works because an *exploration policy* can be scored against a fixed, already-collected search tree — the environment being searched doesn't change. A training-method proposal has no equivalent shortcut: evaluating whether a new architecture or optimizer actually helps requires running it, which means an expensive, clocked training run regardless of how the candidate was generated. The cheap search layer can accelerate *proposing* training-method candidates. It cannot make *evaluating* them cheap, and evaluation is the bottleneck this document has treated as the hard part throughout.
+The mechanism is narrower than it first appears. Dream-RSI's offline replay works because an *exploration policy* can be scored against a fixed, already-collected search tree — the environment being searched doesn't change. A training-method proposal has no equivalent shortcut: evaluating whether a new architecture or optimizer actually helps requires running it, which means an expensive, clocked training run regardless of how the candidate was generated. The cheap search layer can accelerate *proposing* training-method candidates. It cannot make *evaluating* them cheap, and evaluation is the bottleneck this document has treated as the hard part throughout — a bottleneck Noam Brown named directly (Dwarkesh, 17 Sep 2026): current models are "an incredible complement, not a replacement" for judging which experiment is worth running.
 
 So tripwire 17 does not describe type 3 becoming type 1. It describes type 3 feeding type 1 a better-curated stream of candidates to test — still bottlenecked by the same expensive evaluation loop, just aimed better. That is a real effect, but a modest one: better aim at an unchanged bottleneck, not a route around it. Hence the small update rather than a large one.
+
+**A deployed system now does roughly this, outside the tripwire's domain.** Science Buddy (PH AI Labs) runs an outer loop where an improved harness generates harder training tasks that retrain the model via RL — targeting the expensive step better, not cheapening it, exactly the distinction above. Domain is genomics and literature search, not AI research, so tripwire 17 does not fire; it is the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks.
 
 **On tripwires 7, 8 and 16.** Detection has three states, not two: an evaluator finds an incident, a victim finds it, or the lab discloses it itself, proactively, under a published process. Tripwire 16 covers the third, since it is governance-relevant but fires neither 7 nor 8. It sits below 7 because the lab selects what to report and how to characterise it; a framework announced is not a framework that works, and the test is whether anything unflattering surfaces through it later.
 
@@ -270,19 +272,19 @@ The second is the more significant. Hiding from an automated grader is local rew
 
 **"Smarter therefore subjugation" does not follow.** Greater capability does not entail unified agency, stable long-horizon goals, or motive to dominate. Instrumental convergence works cleanly for a single coherent optimizer with stable cross-context goals. Whether that is what is being built remains open. Pathway B above is the version of this concern that does not require it.
 
-**Thermodynamic inevitability arguments are confused.** The second law says total entropy doesn't decrease, not which local structures form — crystals, cells and cities build local order while increasing total entropy, and a superintelligence organizing matter is permitted exactly as a coral reef is, not selected for. Dissipation-driven adaptation is a contested hypothesis, not a law that efficient dissipators become dominating agents; bacteria are superb dissipators and did not take over. The deeper problem is equivocation: physical laws are exceptionless, competitive dynamics are not, and "entropy makes it inevitable" borrows the first's certainty for a claim belonging to the second.
+**Thermodynamic inevitability arguments are confused.** The second law says total entropy doesn't decrease, not which local structures form — crystals and cities build local order while increasing total entropy, and a superintelligence organizing matter is permitted exactly as a coral reef is, not selected for. Dissipation-driven adaptation is contested, not a law that dissipators become dominating agents; bacteria are superb dissipators and did not take over. The deeper problem is equivocation: physical laws are exceptionless, competitive dynamics are not.
 
-**Soares' physical-limits argument is better, and conditional.** The Feynman analogy establishes a *ceiling*, not a push toward it: if you get escaped self-improving systems with unintended goals, the bound is physics, not technology. Soares rejects inevitability outright — his nuclear analogy is that every historical pattern said humanity marches to its own death, and then it didn't. His policy ask only makes sense if stopping is possible.
+**Soares' physical-limits argument is better, and conditional.** The Feynman analogy establishes a *ceiling*, not a push toward it — the bound is physics, not technology. Soares rejects inevitability outright: every historical pattern said humanity marches to its own death, and then it didn't. His policy ask only makes sense if stopping is possible.
 
-**"Time works against us" assumes a constant hazard rate.** If any stabilizing process exists — deterrence, monitoring, humans being cheap to preserve — the rate declines and the cumulative integral converges rather than approaching one. Nuclear risk is the analogue: per-year probability was almost certainly higher in 1962 than now, despite more actors. The argument needs the rate to stay flat.
+**"Time works against us" assumes a constant hazard rate.** If any stabilizing process exists, the rate declines and the cumulative integral converges rather than approaching one. Nuclear risk is the analogue: per-year probability was almost certainly higher in 1962 than now, despite more actors.
 
-**The objection is survivorship.** Nuclear war's absence may not show competent management: it was averted at least half a dozen times by individuals overriding orders or instruments. If those observations generate the apparent decline, the decline may be luck — which is what a surviving observer concludes either way. This removes the argument's best support without refuting it.
+**The objection is survivorship.** Nuclear war's absence may not show competent management: it was averted at least half a dozen times by individuals overriding orders. If those observations generate the apparent decline, the decline may be luck — what a surviving observer concludes either way. This removes the argument's best support without refuting it.
 
 **The hype theory is weak; the market supplies the evidence.** A coordinated pump would be the most expensive in history: a reported IPO target as high as $1T delayed, and after Trump's September 2026 post calling opposition to "AI and Data Centers" a "sick conspiracy", the Philadelphia semiconductor index fell 6%, ASML 6.7%, SoftBank up to 13.2%. Incidents were disclosed reactively, after discovery by victims or auditors.
 
-**Conversely, whether alarm is convenient for a marketing team is not evidence about whether systems are dangerous** — orthogonal questions, and this applies equally to my own conflict-of-interest caveats about Anthropic.
+**Conversely, alarm being convenient for a marketing team is not evidence systems are dangerous** — orthogonal questions, and this applies equally to my own conflict-of-interest caveats about Anthropic.
 
-**Amodei's 6–12 month persistent-botnet figure is a scenario, not a measurement.**
+**Amodei's 6–12 month botnet figure is a scenario, not a measurement.**
 
 ---
 

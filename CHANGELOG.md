@@ -465,6 +465,20 @@ Removed the "Previously titled 'RSI and AI Risk'" header line, flagged by the us
 
 **check.py: all checks pass, 7379/7400. No estimate changed.**
 
+## 1.43 — 2026-09-19
+
+Evidence-driven, from OpenAI's September 2026 research-acceleration disclosure and Noam Brown's Dwarkesh interview. Two additions, scoped down from a larger candidate set after the user asked which items bear on the technical critical path specifically rather than governance.
+
+**Science Buddy added to the tripwire-17 discussion, as evidence for the mechanism without claiming the tripwire fires.** Tripwire 17 requires scaffolding gains reported on model design, training-method search, or evaluation design — AI research on itself. Science Buddy's domain is genomics and literature search, so it does not fire. But its outer loop does exactly what the tripwire-17 note already argued cheap search *cannot* do cheaply — it targets the expensive retraining step better, using an improved harness to generate harder training data, then actually retrains via RL on it. That is the mechanism the note describes, running in a deployed system, one domain removed from where the tripwire is watching. Recorded as the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks, not as a trigger.
+
+**The research-taste bottleneck now has primary-source corroboration, reversing the sourcing objection from v1.29's decline, though not its substance.** That entry declined a preliminary, secondhand P-Zero Research report on the grounds that the evidence chain — preliminary, single source, relayed through an intermediary — was exactly the shape that produced the earlier Grace citation error. Noam Brown naming the same bottleneck directly, on the record, in a long-form interview (Dwarkesh, 17 September 2026) is different sourcing entirely: a named researcher at the lab in question, not a secondhand preliminary result. Added as a direct quote — "an incredible complement, not a replacement" for judging which experiment is worth running — corroborating the document's existing argument that evaluation, not idea generation, is the binding constraint. This does not reverse the earlier decline's *reasoning*, which was correct given what was available; it reflects that better evidence for the same underlying claim has since arrived.
+
+**Considered and set aside, per explicit priority from the user (technical critical path over governance):** OpenAI's chief scientist Jakub Pachocki's essay calling for mandated safety bars and voluntary slowdowns, paralleling Amodei's; and OpenAI's own August 7 voluntary 59.2% GPU cut to Astra-class compute after preliminary evidence of critical cyber capabilities. Both are real and would strengthen the governance section's cross-lab corroboration, but were deprioritized this round as institutional-response rather than critical-path evidence. Revisit if governance-section space opens.
+
+**Not verified and not used:** the video's claim of a Dream-RSI result at "300 versus 51,000" agent calls, which does not match the 162×/1.7× figures already cited from the paper. Left unresolved — may be a different specific benchmark instance rather than a contradiction, but not confirmed either way, so nothing built on it.
+
+**check.py: all checks pass, 7383/7400. No estimate changed** — both additions strengthen existing arguments and mechanisms without moving a number, which is the correct outcome for evidence that corroborates rather than surprises.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
