@@ -510,6 +510,22 @@ Added, from a conversation about an AI 2027 reaction video whose specific conten
 
 **check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this names an unquantified gap in the detection framework, it does not assign it a probability or a magnitude.
 
+## 1.46 — 2026-09-19
+
+The single most direct challenge this document has received to its own central skepticism, from the most relevant available critic — added at the reader's request after a search turned up sourced, on-record material rather than reconstructed argument.
+
+**Kokotajlo rejects the physical-friction taxonomy by name, not by implication.** Asked specifically about mineral and material bottlenecks: "nothing comes remotely close to being able to play that sort of role." Generally: "if superintelligence can overcome bottlenecks faster than humans, apply that speedup multiplier." That is a direct rejection of the coordination/institutional/phase-transition/serial-dependence split this section is built on, from someone who has priced physical bottlenecks into a competing forecast rather than ignored them — the single most relevant critic available, added with his own words rather than a reconstruction of what he might say.
+
+**His own team's model documentation does not fully agree with him, which is the more interesting finding.** The AI Futures Model states that training-compute growth "will slow over time, due to limits on... the speed of building new fabs," with "a big impact in ~2035+ timelines" — a fab-construction bottleneck built into their own numbers, in tension with the "apply the speedup multiplier" framing. A co-authored piece states the actual crux more starkly than either side resolves: believing AI R&D is close to fully automated implies believing robots are close to being able to "reliably construct and operate power plants, fabs, mines" — precisely the correlation this document's physical/cognitive split exists to deny. This is not document-versus-Kokotajlo; it is an unresolved fault line inside AI Futures Project itself, and this document sits closer to one side of an internal disagreement than to a settled outside consensus.
+
+**Sourced properly, not reconstructed.** An earlier exchange this session speculated about what Kokotajlo's critique would likely say, explicitly labelled as inference from his published positions rather than his voice. This entry replaces that speculation with his actual words, found via search, cited in REFERENCES.md with source and date. The speculation was reasonably close in substance — which is a mild data point that inferring a public figure's likely position from their record is not worthless, but sourced material is categorically better and should always supersede it once available.
+
+**Added to REFERENCES.md and check.py's source-coverage list**, both previously missing Kokotajlo/AI Futures Project entries despite the document citing the organisation extensively — the reference file's hardcoded name list had not kept pace with how much AI Futures material had accumulated in the document over prior versions.
+
+**Cut to fit:** the largest compression pass of the night — fourteen passages tightened across thermodynamics, hazard rate, hype theory, rented labor, the swarm-attack note, the treacherous-turn note, AI Futures corroboration, range width, Halstead, KataGo, capital inversion, decentralized training, the chokepoint note, China's regulatory record, and distillation. No content cut outright this round; every passage survived, compressed.
+
+**check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this documents a named, sourced disagreement with the physical-RSI section's own framework; it does not resolve it, and the document's numbers stand pending better evidence on either side.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

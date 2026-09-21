@@ -189,7 +189,7 @@ if ref_path.exists():
     refs_text = ref_path.read_text(encoding="utf-8")
     named = set(re.findall(
         r"\b(METR|Grace et al|Wang et al|Metaculus|Epoch|AI Futures|Dream-RSI|"
-        r"SimpleTES|KataGo|Prime Intellect|RentAHuman|TC260|McAfee|Halstead)\b", doc))
+        r"SimpleTES|KataGo|Prime Intellect|RentAHuman|TC260|McAfee|Halstead|Kokotajlo)\b", doc))
     uncited = sorted(n for n in named if n not in refs_text)
     if uncited:
         fail(f"Source(s) named in the document but absent from REFERENCES.md: {uncited}")

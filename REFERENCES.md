@@ -101,6 +101,10 @@ Several rows above are marked with links or primary sources still to be pinned. 
 
 **This is itself a finding about the process.** A document built around checkability accumulated twenty externally verifiable claims and zero links before anyone noticed. Contributions that pin an unpinned source, or that show a cited source does not say what the document claims, are among the most useful available.
 
+| Kokotajlo: material bottlenecks "nothing comes remotely close"; "apply that speedup multiplier" | 80,000 Hours podcast, "Daniel Kokotajlo on what a hyperspeed robot economy might look like," Jan 2026 | P |
+| AI Futures model: compute growth "will slow over time... speed of building new fabs," "big impact in ~2035+" | aifuturesmodel.com, AI Futures Model documentation | P |
+| Co-authored piece: AI R&D automation implies proximity to robots that "reliably construct and operate power plants, fabs, mines" | AI 2040: Plan A, LessWrong comment thread, 2026 | P |
+
 ## Claims that are inference, not citation
 
 The following are the document's own reasoning and should not be attributed to any source:
