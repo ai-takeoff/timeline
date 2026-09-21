@@ -479,6 +479,25 @@ Evidence-driven, from OpenAI's September 2026 research-acceleration disclosure a
 
 **check.py: all checks pass, 7383/7400. No estimate changed** — both additions strengthen existing arguments and mechanisms without moving a number, which is the correct outcome for evidence that corroborates rather than surprises.
 
+## 1.44 — 2026-09-19
+
+DeepSeek, working from internal consistency alone with external claims explicitly bracketed as unverifiable — a useful discipline, since it caught six real internal contradictions cleanly rather than mixing them with source-checking noise.
+
+**Fixed, real contradictions:**
+- Bottleneck numbering was out of order in the text (second, then fourth, then third) despite being in file order. Renumbered second/third/fourth to match actual sequence.
+- "Selected precisely because it resolved early" while calling the same Millennium Prize claim disputed and unaccepted was self-contradicting — a disputed claim has not resolved, early or otherwise. Changed to "claimed early."
+- The no-RSI row's 25–40% figure was described as read "at unsolved alignment" alongside two rows that genuinely are alignment-conditioned, when the bottom row carries no alignment condition at all (correctly stated two sentences earlier in the same paragraph). Restated per-row so the column reading doesn't imply a shared conditioning it doesn't have.
+- The flourishing definition (agency AND comparable material conditions) directly contradicted the sentence folding managed decline into flourishing "by the agency criterion," since managed decline fails the material criterion by definition. Corrected: managed decline actually falls to disempowerment or extinction under the stated definition, which is arguably the wrong bucket — the mismatch is left unresolved and stated as such, rather than asserting a fold that the definition doesn't support.
+- "Monotonic" (extinction risk rises with horizon) sat next to a 2050 note reading as if disempowerment converts into extinction over an interval, which would contradict monotonicity if true. Clarified: separate columns, not sequential stages: the 2050 note now describes redistribution toward disempowerment at both extinction and flourishing's expense, not a stage transition.
+- "SoftBank up to 13.2%" was directionally ambiguous in a passage entirely about a market decline. Made explicit: SoftBank fell as much as 13.2%, and ASML's direction stated explicitly alongside it.
+- "Versions 1.0–1.16 predate version control... from 1.16 onward, git holds what changed" put the same version on both sides of a boundary it can't be on both sides of. Corrected to "from 1.17 onward."
+
+**Fixed, minor:** standardized to "AI Futures Project" on full first reference within each passage, correcting two shortened instances introduced during prior compression rounds.
+
+**Declined, correctly flagged as minor and not acted on:** the "the word ceiling" phrase in the maintenance rule is fine in context (the word-count ceiling, discussed at length elsewhere) and does not need quotation marks; the 260-vs-261.6-day rounding, the "eight times" vs 8.7× rounding (softened to "roughly eight times" as a low-cost improvement), and the two-year-vs-two-years-two-months spread are all already qualified with "roughly" or equivalent and are not treated as errors.
+
+**check.py: all checks pass, 7399/7400 — at the ceiling. No estimate changed** — every fix this round was wording or internal consistency, not a numeric revision.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

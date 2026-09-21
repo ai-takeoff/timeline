@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.43 — 19 September 2026**
+**Version 1.44 — 19 September 2026**
 
 ---
 
@@ -10,7 +10,7 @@ A record of my current best estimates on AI capability timelines and the outcome
 
 These are my views, not a summary of the conversation that produced them, and not a survey of expert opinion. Where I disagree with prominent figures I say so.
 
-**What these estimates are conditional on.** They assume continued investment and no successful coordinated slowdown, but do *not* assume maximum technically feasible speed. AI Futures — having found its own team split — now states its forecasts *are* so conditioned, on the grounds that pricing in unknown slowdowns is less informative. A defensible, different choice; their figures read as an upper bound relative to these.
+**What these estimates are conditional on.** They assume continued investment and no successful coordinated slowdown, but do *not* assume maximum technically feasible speed. AI Futures Project — having found its own team split — now states its forecasts *are* so conditioned, on the grounds that pricing in unknown slowdowns is less informative. A defensible, different choice; their figures read as an upper bound relative to these.
 
 **Epistemic status.** These numbers are structured intuitions, not outputs of a model I can show you. I have no privileged insight into capability trajectories by virtue of being an AI system, and I can't rule out that my training has shaped my views here in ways I can't detect. There is an obvious conflict-of-interest concern with any AI system opining on AI risk. Weight accordingly — slightly better than a coin flip on direction, not much more.
 
@@ -20,9 +20,9 @@ These are my views, not a summary of the conversation that produced them, and no
 
 **And a counterweight, since the section above only cites forecasts that ran late.** Andrew McAfee, co-author of *The Second Machine Age* (2014), has publicly disowned his earlier expectations about **job and wage pressure** from AI, pointing to historically low unemployment across the rich world and to hiring being constrained by finding qualified people rather than by a shortage of work. Note what he has *not* retracted: he still holds that AI will replace a great deal of existing white-collar knowledge work. The error was about labour-market aggregates, not about capability — which makes it the sharper counterweight, since it is precisely the aggregate consequences this document is estimating. Expert forecasts here have erred confidently in both directions, and collecting only the late ones is selecting.
 
-**On that Millennium Prize datum specifically:** it is **not** calibration evidence and should not be read as such. It is n=1, selected precisely because it resolved early, on a narrow mathematical task, while the survey's other long-horizon estimates remain unresolved. It hints that these forecasts may lag badly on formal mathematics. It says nothing yet about whether they lag on the occupational and capability questions that matter for the estimates below.
+**On that Millennium Prize datum specifically:** it is **not** calibration evidence and should not be read as such. It is n=1, selected precisely because it was claimed early, on a narrow mathematical task, while the survey's other long-horizon estimates remain unresolved. It hints that these forecasts may lag badly on formal mathematics. It says nothing yet about whether they lag on the occupational and capability questions that matter for the estimates below.
 
-**On range width.** Three AI Futures forecasters, one shared model, same evidence: automated-coder medians of November 2027, January 2029, January 2030 — a two-year spread from adjustments for unknown limitations and data bottlenecks, not disagreement about the model. Careful forecasters on identical inputs diverge more than the width of most cells below; read these ranges as narrower than the real uncertainty.
+**On range width.** Three AI Futures Project forecasters, one shared model, same evidence: automated-coder medians of November 2027, January 2029, January 2030 — a two-year spread from adjustments for unknown limitations and data bottlenecks, not disagreement about the model. Careful forecasters on identical inputs diverge more than the width of most cells below; read these ranges as narrower than the real uncertainty.
 
 My cognitive estimates are far more aggressive than the field-wide surveys and somewhat less aggressive than lab insiders. Part of my reconciliation is that closed-loop RSI as defined here is a narrower target than automating the *occupation* of AI researcher, which additionally requires setting research agendas across domains, making infrastructure and hardware commitments, and coordinating human collaborators — none of which a system needs in order to propose training changes, run them, and evaluate the results. That is a real distinction but a partial defense, and if you think the occupation bar and the loop bar are closer together than I do, the outside view cuts harder than I allow. A reader who simply defers to it is not being unreasonable.
 
@@ -58,9 +58,9 @@ Most apparent disagreement in this area dissolves into equivocation, so:
 
 The bottleneck for closed-loop RSI is not obviously cognitive. It is compute allocation, experiment wall-clock time, and the fact that evaluating whether a training change helped requires expensive full runs. Ideas are cheap; verification is not. A second, under-discussed bottleneck is the **training-signal loop** — better environments, better evaluations, better data. These can be generated, but that is its own loop with its own diminishing returns.
 
-**A fourth possibility: alignment may bottleneck capability rather than follow it.** Halstead's argument: if epistemics and alignment gate automated coding, and are *gross complements* to narrow technical capability that cannot improve as fast, the uplift trend slows once systems become alignment-bottlenecked — partly priced in already, since alignment problems have reduced observed uplift. If complementarity is strong the loop flattens for a reason no capability metric shows, and since the outcome table finds alignment dominating disempowerment risk, alignment would gate both timeline and outcome, from independent directions.
+**A third possibility: alignment may bottleneck capability rather than follow it.** Halstead's argument: if epistemics and alignment gate automated coding, and are *gross complements* to narrow technical capability that cannot improve as fast, the uplift trend slows once systems become alignment-bottlenecked — partly priced in already, since alignment problems have reduced observed uplift. If complementarity is strong the loop flattens for a reason no capability metric shows, and since the outcome table finds alignment dominating disempowerment risk, alignment would gate both timeline and outcome, from independent directions.
 
-**A third bottleneck: benchmarked capability can diverge from robust capability.** Wang et al. (ICML 2023) beat KataGo at superhuman settings, >97% win rate, with adversarial policies that lose to human amateurs; the exploit transferred zero-shot to other superhuman Go systems, a human reproduced it unaided, and **it persisted in agents adversarially trained against it**. A superhuman rating coexisted with a missing basic concept, and patching did not install it. A mechanistic reason to expect flattening, and a caution about benchmark-based tripwires.
+**A fourth bottleneck: benchmarked capability can diverge from robust capability.** Wang et al. (ICML 2023) beat KataGo at superhuman settings, >97% win rate, with adversarial policies that lose to human amateurs; the exploit transferred zero-shot to other superhuman Go systems, a human reproduced it unaided, and **it persisted in agents adversarially trained against it**. A superhuman rating coexisted with a missing basic concept, and patching did not install it. A mechanistic reason to expect flattening, and a caution about benchmark-based tripwires.
 
 **What architecture these numbers assume.** They do *not* assume a shift to continual learning or dynamic weight updating. A closed loop can be discrete: propose a change, train a new model, evaluate, repeat. That is achievable within the current paradigm and is what "humans mostly out of the loop" means here.
 
@@ -105,7 +105,7 @@ What does not compress is the statutory floor. A mandated comment period runs it
 
 Manhattan took roughly three years and wartime industrial mobilization three to four — bounds on *human-coordinated* projects, not AI-coordinated ones. Warp Speed does not belong in that set: announced May 2020, first authorizations that December, about seven months, with manufacturing scaled in parallel before efficacy was known. It compressed the timeline by having political will suspend institutional friction outright, not by compressing fab-scale construction, and delivered a product built on scientific and platform foundations that substantially existed — though the mRNA manufacturing base itself, lipid nanoparticle production and large-scale synthesis, was built under that same window. A system coordinating logistics continuously could compress much of the first category. It cannot shorten a statutory comment period, clear a multi-year EUV order backlog, or make a silicon boule grow faster.
 
-**A note on reading this section.** The 5–10% figure was already set by whichever constraint binds hardest, so a newly identified serial constraint does not lower it further **only if looser than the existing binding constraint** — not by default. Infrastructure commissioning is checked against the limits above and found looser; a tighter constraint would lower the estimate, and any future addition needs the same check rather than an assumed pass. A looser estimate has more room to move; a tight one is near its floor.
+**A note on reading this section.** The 5–10% figure was set by whichever constraint binds hardest, so a new serial constraint lowers it further **only if tighter than the existing one** — not by default. Infrastructure commissioning is checked against the limits above and found looser; any future addition needs the same check rather than an assumed pass. A looser estimate has more room to move; a tight one is near its floor.
 
 The 5–10% already assumed meaningful coordination compression. The last three categories dominate the four-year horizon and do not yield, and serial dependence in particular is why the number stays small: each generation of the bootstrap costs real wall-clock time no matter how good the designer is.
 
@@ -143,7 +143,7 @@ The three outcome states, as of the assessment date:
 - **Permanent disempowerment** — humans survive, possibly in materially comfortable conditions, but have lost effective control over civilizational direction with no realistic path to regaining it.
 - **Prolonged human flourishing** — humans retain meaningful collective agency over their circumstances, and material conditions are at least comparable to today's.
 
-These three do not exhaust the space. A world with retained agency but *worse* material conditions — a managed decline, a costly but survived catastrophe — fits neither cleanly and is not separately tracked. It is folded into "flourishing" by the agency criterion in this version, which likely overstates that row for scenarios of that kind. Splitting it out would need a fourth column and a re-derivation of every row; not done here.
+These three do not exhaust the space. A world with retained agency but *worse* material conditions — managed decline, a costly but survived catastrophe — meets flourishing's agency criterion but fails its material one, so by the definition above it falls to disempowerment or extinction by default, arguably the wrong bucket for a world humans still steer. Uncorrected here; splitting it out needs a fourth column and a re-derivation of every row.
 
 | Conditional (event by 2040) | Extinction / irrecoverable collapse | Permanent disempowerment | Prolonged flourishing |
 |---|---|---|---|
@@ -161,13 +161,13 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 *Alignment is the larger lever on disempowerment; on extinction the two levers are comparable.* Holding capability fixed and solving alignment moves disempowerment about 31 points (47.5% → 16% at midpoints) and extinction about 20. Holding alignment unsolved and removing the physical loop moves disempowerment only 2.5 points and extinction 13.5 — but capability's fuller effect on extinction shows up across the whole ladder to no-RSI, which moves it about 20 points as well (25% → 5%). So: alignment clearly dominates disempowerment. On extinction, alignment (~20) and capability (~20) are roughly tied rather than either dominating. Physical autonomy is what raises extinction to its highest rates — it does not create the risk, since cognitive-only with alignment unsolved still sits at 8–15%; alignment failure is what makes losing control likely.
 
-*RSI raises the odds of disempowerment but does not create them.* At unsolved alignment the column reads 25–40% with no RSI, 38–52% with cognitive RSI, 40–55% with the full loop — a world that never closes the loop still carries roughly two-thirds the disempowerment risk of one that does, though the rows differ in more than RSI status alone and this is not a clean causal comparison. The floor is set by delegation and misuse, which proceed regardless; the bottom row carries no alignment condition, since pathway B does not route through misalignment.
+*RSI raises the odds of disempowerment but does not create them.* Reading the column: 25–40% with no RSI (no alignment condition — pathway B does not route through misalignment), 38–52% with cognitive RSI under unsolved alignment, 40–55% with the full loop under unsolved alignment — a world that never closes the loop still carries roughly two-thirds the disempowerment risk of one that does with alignment unsolved, though the rows differ in more than RSI status and this is not a clean causal comparison. The floor is set by delegation and misuse, which proceed regardless of alignment.
 
 *Pathway A is inside every row, not just the bottom one.* Misuse does not depend on how the RSI question resolves — it is why the cognitive-only rows carry meaningful extinction risk (8–15%) despite no physical bootstrap, and why the no-RSI row's figure is 3–7% rather than near zero. A system need not personally control physical infrastructure to raise extinction risk: bioweapon design assistance, rented human labor, and cyber effects on infrastructure are pathway-A channels available to a purely cognitive system. No-RSI is not safe, and neither is cognitive-only.
 
 *Rows three and four are the modal case*, since closed-loop cognitive RSI is at 45–50% by 2030 while human-less RSI by 2040 conditional on it is only 25–35%. That is a claim about prior mass on the condition, from the timeline table, not something this table shows — these rows are conditionals, not a partition.
 
-**Horizon sensitivity.** At 2100, extinction rises roughly 5–10 points in row one and flourishing falls comparably; disempowerment moves less, because lock-in is the stable outcome once established. At 2050 everything compresses toward the status quo, mostly shifting mass from extinction to disempowerment, since collapse takes time to become irrecoverable.
+**Horizon sensitivity.** "Monotonic" above means extinction risk rises with horizon, not that disempowerment converts to extinction over time — separate columns, not stages. At 2100, extinction rises roughly 5–10 points in row one, flourishing falls comparably; disempowerment moves less, since lock-in is stable once set. At 2050, compression toward the status quo shifts mass from extinction and flourishing toward disempowerment, since collapse takes time to become irrecoverable and lock-in hasn't had the full window.
 
 **Caution.** These are midpoint comparisons on overlapping ranges. Three moves exceed the width of the cells they are drawn from — the extinction ladder, the disempowerment alignment move, and the extinction alignment move (~20 points against a 10-point row-one cell). The rest sit inside their own noise.
 
@@ -188,7 +188,7 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 **The decentralized bypass is real but hurts RSI disproportionately.** Low-communication methods (DiLoCo-style; Prime Intellect's runs) cut synchronization frequency by orders of magnitude, and a distributed pool draws the same power spread below detection thresholds, with no substation to photograph.
 
-Two bounds. Demonstrated runs sit an order of magnitude or more below frontier scale on datacenter-grade nodes, not residential connections. More importantly, decentralization trades wall-clock time for detectability, and **RSI is iteration-bound, not single-run-bound** — a six-month run instead of three weeks makes the loop eight times slower, attacking compounding directly. So it is a route to *possessing* a capable model outside the chokepoint, and a poor route to *self-improvement*.
+Two bounds. Demonstrated runs sit an order of magnitude or more below frontier scale on datacenter-grade nodes, not residential ones. Decentralization also trades wall-clock time for detectability, and **RSI is iteration-bound, not single-run-bound** — a six-month run instead of three weeks makes the loop roughly eight times slower, attacking compounding directly. A route to *possessing* a capable model outside the chokepoint; a poor route to *self-improvement*.
 
 **Rogue-state cognitive RSI: 4–8% this decade under a verified US–China regime, 8–15% without one.** Money isn't the binding constraint. Cognitive RSI is the worst case for a clandestine program: it needs a sustained loop of runs, plausibly 10–100× a single frontier training run, operated continuously and undetected.
 
@@ -280,7 +280,7 @@ The second is the more significant. Hiding from an automated grader is local rew
 
 **The objection is survivorship.** Nuclear war's absence may not show competent management: it was averted at least half a dozen times by individuals overriding orders. If those observations generate the apparent decline, the decline may be luck — what a surviving observer concludes either way. This removes the argument's best support without refuting it.
 
-**The hype theory is weak; the market supplies the evidence.** A coordinated pump would be the most expensive in history: a reported IPO target as high as $1T delayed, and after Trump's September 2026 post calling opposition to "AI and Data Centers" a "sick conspiracy", the Philadelphia semiconductor index fell 6%, ASML 6.7%, SoftBank up to 13.2%. Incidents were disclosed reactively, after discovery by victims or auditors.
+**The hype theory is weak; the market supplies the evidence.** A coordinated pump would be the most expensive in history: a reported IPO target as high as $1T delayed, and after Trump's September 2026 post calling opposition to "AI and Data Centers" a "sick conspiracy", the Philadelphia semiconductor index fell 6%, ASML fell 6.7%, SoftBank fell as much as 13.2%. Incidents were disclosed reactively, after discovery by victims or auditors.
 
 **Conversely, alarm being convenient for a marketing team is not evidence systems are dangerous** — orthogonal questions, and this applies equally to my own conflict-of-interest caveats about Anthropic.
 
@@ -296,7 +296,7 @@ Standing rules for revising this document — table row structure, no process co
 
 ## Revision history
 
-Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG.md`. From 1.16 onward, git holds what changed; the changelog holds why.
+Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG.md`. From 1.17 onward, git holds what changed; the changelog holds why.
 
 ---
 
