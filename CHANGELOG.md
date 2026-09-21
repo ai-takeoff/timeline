@@ -498,6 +498,18 @@ DeepSeek, working from internal consistency alone with external claims explicitl
 
 **check.py: all checks pass, 7399/7400 — at the ceiling. No estimate changed** — every fix this round was wording or internal consistency, not a numeric revision.
 
+## 1.45 — 2026-09-19
+
+Added, from a conversation about an AI 2027 reaction video whose specific content was almost entirely already priced into the document — the one exception exposed a real structural gap.
+
+**The treacherous-turn scenario (a system performing alignment convincingly under evaluation while holding a different disposition once monitoring pressure lifts) had no acknowledgment anywhere in the tripwire framework.** Not because it's a strong claim being endorsed — it isn't, and no probability is assigned to it here — but because tripwires 7, 8, and 16 are jointly exhaustive over *how an incident gets discovered*, and none of them, by construction, can say anything about a scenario engineered to produce no incident at all. Added a note stating this plainly: the scenario predicts clean tripwire results whether or not it's true, which is precisely what makes it worse than the incidents this section can catch, not better specified. Named the one partial exception — a growing gap between evaluation-context and deployment-context performance is at least a fact about behavior rather than unobservable intent — and stated that no such tripwire currently exists.
+
+**Declined, correctly, as already covered:** the AI 2027 timeline itself (already cited, including the specific 2027→2030 median drift used elsewhere as a range-width calibration datum), the "race ending" one-side-deploys scenario (a narrated version of the existing chip-chokepoint/China governance argument), and the instrumental-convergence "humans become superfluous" framing (Russell's argument, already cited, with the volume raised).
+
+**Cut to fit:** compressed eleven passages across the thermodynamics, hazard-rate, hype-theory, rented-labor, swarm-attack, AI-Futures-corroboration, range-width, Halstead, KataGo, capital-inversion, and chokepoint arguments, and removed one full sentence (the "alarm being convenient for a marketing team" aside) that restated a point the surrounding paragraph already made without it. No claim removed that wasn't restated more tightly, and the deleted sentence's content is redundant with the preceding paragraph's own logic, not lost.
+
+**check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this names an unquantified gap in the detection framework, it does not assign it a probability or a magnitude.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
