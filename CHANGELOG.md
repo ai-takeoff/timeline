@@ -526,6 +526,18 @@ The single most direct challenge this document has received to its own central s
 
 **check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this documents a named, sourced disagreement with the physical-RSI section's own framework; it does not resolve it, and the document's numbers stand pending better evidence on either side.
 
+## 1.47 — 2026-09-19
+
+Added a second gap to the flourishing definition, alongside the managed-decline gap already flagged — this one qualitatively different, at the user's suggestion.
+
+**Voluntary human-AI merger scenarios (Kurzweil-style) are not scored, and the reason is not that they're rare but that the question underneath them may have no fact-of-the-matter answer.** Flourishing's definition assumes continuity between "today's humans" and whatever entity is doing the flourishing later. Merger breaks that assumption on purpose. In the mild case — enhancement with continuous memory and values — nothing changes; the existing definition already covers it. In the radical case, whether the resulting entity is "these people, augmented" or "a successor that replaced them, willingly" is a question about personal identity under transformation, not a question this document has the tools to adjudicate. Scoring it as flourishing by default would answer that question rather than decline it. Left unscored, and stated as such.
+
+**Distinguished explicitly from the managed-decline gap it sits beside:** managed decline is empirically resolvable in principle — a specific world's material conditions either are or aren't worse than today's, independent of anyone's philosophy. Merger's boundary case is not resolvable even in principle, because there may be no fact of the matter for a probability to track. That is a stronger and different kind of gap, and treating it as parallel to managed decline would understate it.
+
+**Cut to fit:** the second-largest compression pass of the night — fifteen passages tightened across thermodynamics, Soares, survivorship, hype theory, rented labor, the swarm-attack note, the treacherous-turn note, the Kokotajlo addition itself, Halstead, KataGo, capital inversion, the chokepoint note, China's regulatory record, decentralized training, AI Futures corroboration, range width, and distillation — plus one full sentence removed outright (the Amodei botnet-figure aside, whose content is fully covered by the surrounding paragraph's own logic).
+
+**check.py: all checks pass, 7399/7400 — at the ceiling. No estimate changed** — this names an unscored gap in the flourishing definition, consistent with how the managed-decline gap was handled: flagged, not resolved.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

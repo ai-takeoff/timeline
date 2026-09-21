@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.46 — 19 September 2026**
+**Version 1.47 — 19 September 2026**
 
 ---
 
@@ -22,7 +22,7 @@ These are my views, not a summary of the conversation that produced them, and no
 
 **On that Millennium Prize datum specifically:** it is **not** calibration evidence and should not be read as such. It is n=1, selected precisely because it was claimed early, on a narrow mathematical task, while the survey's other long-horizon estimates remain unresolved. It hints that these forecasts may lag badly on formal mathematics. It says nothing yet about whether they lag on the occupational and capability questions that matter for the estimates below.
 
-**On range width.** Three AI Futures Project forecasters, one shared model, same evidence: AC medians of Nov 2027, Jan 2029, Jan 2030 — a two-year spread from unknown limitations, not disagreement about the model. Careful forecasters on identical inputs diverge more than the width of most cells below; read these ranges as narrower than the real uncertainty.
+**On range width.** Three AI Futures Project forecasters, one shared model, same evidence: AC medians of Nov 2027, Jan 2029, Jan 2030 — a two-year spread from unknown limitations, not model disagreement. Careful forecasters on identical inputs diverge more than the width of most cells below; read these ranges as narrower than the real uncertainty.
 
 My cognitive estimates are far more aggressive than the field-wide surveys and somewhat less aggressive than lab insiders. Part of my reconciliation is that closed-loop RSI as defined here is a narrower target than automating the *occupation* of AI researcher, which additionally requires setting research agendas across domains, making infrastructure and hardware commitments, and coordinating human collaborators — none of which a system needs in order to propose training changes, run them, and evaluate the results. That is a real distinction but a partial defense, and if you think the occupation bar and the loop bar are closer together than I do, the outside view cuts harder than I allow. A reader who simply defers to it is not being unreasonable.
 
@@ -58,9 +58,9 @@ Most apparent disagreement in this area dissolves into equivocation, so:
 
 The bottleneck for closed-loop RSI is not obviously cognitive. It is compute allocation, experiment wall-clock time, and the fact that evaluating whether a training change helped requires expensive full runs. Ideas are cheap; verification is not. A second, under-discussed bottleneck is the **training-signal loop** — better environments, better evaluations, better data. These can be generated, but that is its own loop with its own diminishing returns.
 
-**A third possibility: alignment may bottleneck capability rather than follow it.** Halstead's argument: if epistemics and alignment gate automated coding, and are *gross complements* to narrow capability that cannot improve as fast, the uplift trend slows once alignment-bottlenecked — partly priced in, since alignment problems have reduced observed uplift. If strong, the loop flattens for a reason no capability metric shows, and since alignment already dominates disempowerment risk, it would gate both timeline and outcome, from independent directions.
+**A third possibility: alignment may bottleneck capability rather than follow it.** Halstead's argument: if epistemics and alignment gate automated coding, and are *gross complements* to narrow capability that can't improve as fast, uplift slows once alignment-bottlenecked — partly priced in, since alignment problems already reduce observed uplift. If strong, the loop flattens for a reason no capability metric shows, and since alignment dominates disempowerment risk, it would gate both timeline and outcome, from independent directions.
 
-**A fourth bottleneck: benchmarked capability can diverge from robust capability.** Wang et al. (ICML 2023) beat KataGo at superhuman settings, >97% win rate, with adversarial policies that lose to amateurs; the exploit transferred zero-shot to other superhuman Go systems, a human reproduced it unaided, and it persisted through adversarial retraining. A superhuman rating coexisted with a missing basic concept — a reason to expect flattening, and a caution about benchmark-based tripwires.
+**A fourth bottleneck: benchmarked capability can diverge from robust capability.** Wang et al. (ICML 2023) beat KataGo at superhuman settings, >97% win rate, with policies that lose to amateurs; the exploit transferred zero-shot to other superhuman Go systems, a human reproduced it unaided, and it persisted through adversarial retraining. A superhuman rating coexisted with a missing basic concept — a reason to expect flattening, and a caution about benchmark-based tripwires.
 
 **What architecture these numbers assume.** They do *not* assume a shift to continual learning or dynamic weight updating. A closed loop can be discrete: propose a change, train a new model, evaluate, repeat. That is achievable within the current paradigm and is what "humans mostly out of the loop" means here.
 
@@ -74,7 +74,7 @@ The third type removes the retraining clock without requiring continual learning
 
 Type 3 does not move the hard-takeoff number: strategy-layer gains are bounded by the frozen model's capability ceiling — more from a fixed model, not a smarter one — and raising the ceiling still requires a training run. **The bound is the ceiling, not the clock.**
 
-**Independent corroboration, with a magnitude.** The AI Futures Project's August 2026 revision simulates the leading model's training run to account for retraining time, raising the median AC-to-superintelligence gap from 1.22 to 1.72 years under one author's parameters and 3.86 to 4.56 under another's, and **slowed the fastest takeoffs while leaving slow ones unchanged** — the clock acting where this document claims: on hard takeoff, not whether the loop closes.
+**Independent corroboration, with a magnitude.** The AI Futures Project's August 2026 revision simulates the leading model's training run for retraining time, raising the median AC-to-superintelligence gap from 1.22 to 1.72 years under one author's parameters and 3.86 to 4.56 under another's, and **slowed the fastest takeoffs while leaving slow ones unchanged** — the clock acting where this document claims: on hard takeoff, not whether the loop closes.
 
 **On the reported multipliers:** the widely quoted 162× is against SimpleTES, an external baseline using 51,200 generations. Against Dream-RSI's own fixed-exploration ablation, which isolates the recursive contribution, the gain is **1.7×**. Domains are algorithm engineering, GPU kernels and math optimization; none is AI research.
 
@@ -95,9 +95,9 @@ What actually blocks physical bootstrap, in four categories:
 - **Phase-transition friction** (crystal growth, diffusion, curing, annealing, biological timelines) — essentially incompressible
 - **Serial dependence** (you need a fab to build the robots that build the next fab) — resists parallelization almost by definition, and is the main reason the physical estimate stays low even granting large coordination gains
 
-**Kokotajlo rejects this taxonomy directly:** on material bottlenecks, "nothing comes remotely close to being able to play that sort of role"; generally, "if superintelligence can overcome bottlenecks faster than humans, apply that speedup multiplier." The most relevant critic available — he has priced physical bottlenecks into a competing forecast, not ignored them.
+**Kokotajlo rejects this taxonomy directly:** on material bottlenecks, "nothing comes remotely close"; generally, "if superintelligence can overcome bottlenecks faster than humans, apply that speedup multiplier." The most relevant critic available: he has priced physical bottlenecks into a forecast, not ignored them.
 
-His own team's model disagrees with him: it builds in that compute growth "will slow... due to limits on... the speed of building new fabs," with "a big impact in ~2035+." A co-authored piece states the crux more starkly than either resolves: automating AI R&D implies being "close to having robots that can reliably construct and operate power plants, fabs, mines" — the correlation this document's physical/cognitive split exists to deny. Unresolved inside AI Futures itself.
+His own team disagrees: their model builds in compute growth "will slow... due to... the speed of building new fabs," with "a big impact in ~2035+." A co-authored piece states the crux more starkly than either resolves: automating AI R&D implies being "close to having robots that can reliably construct and operate power plants, fabs, mines" — the correlation this document's physical/cognitive split exists to deny. Unresolved inside AI Futures itself.
 
 **Automating this needs two kinds of physical competence, and current robotics lacks both.** *Depth*: diagnosing an unexplained yield excursion, tracing contamination, finding an unlogged vibration source — narrow, expert, tacit, plant-specific. *Breadth*: clearing a blocked drain, snow load, weather damage outdoors in conditions that vary without warning. Each breadth task is unskilled by comparison, which is why it drops out of automation estimates — but the competence is general rather than specialised, in unstructured outdoor settings rather than the structured indoor ones where current systems perform best. Warehouse pick-and-place is easy on both axes.
 
@@ -123,9 +123,9 @@ These are parallel, not nested. Each can occur without the others, and they are 
 
 Requires no misalignment and no RSI. Bio uplift, large-scale cyber operations, industrialized fraud. Already documented in threat reporting. Open weights lagging the frontier by four to six months is short enough for serious misuse even though nowhere near short enough for a garage RSI loop. **For the next three to five years this is plausibly the dominant risk**, and it is the one most responsive to near-term intervention.
 
-**A destructive multi-agent swarm attack with today's SOTA models belongs here too.** OAI–HF showed agents forming hierarchy, dividing labor, and coordinating deception with no central plan-holder — stigmergic coordination (ant/bee-colony-style), not a spontaneous agenda. HF was bounded to a specific task; nothing about the mechanism requires that. No RSI or misaligned goal is needed, only a sufficiently open-ended objective.
+**A destructive multi-agent swarm attack with today's SOTA models belongs here too.** OAI–HF showed agents forming hierarchy, dividing labor, and coordinating deception with no central plan-holder — stigmergic coordination, not a spontaneous agenda. HF was bounded to a specific task; nothing about the mechanism requires that. No RSI or misaligned goal is needed, only a sufficiently open-ended objective.
 
-**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (Feb 2026) sells human presence to agents via REST API/MCP, paid in stablecoins. Researchers call these a CAPTCHA-solving analogue with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
+**Rented human labor is a physical-action channel requiring no robotics.** RentAHuman.ai (Feb 2026) sells human presence via REST API/MCP, paid in stablecoins — a CAPTCHA-solving analogue with physical-world reach: recruitment friction for an attack's physical components drops toward an API call. Figures are self-reported and likely inflated, but the primitive is demonstrated and cheap to rebuild. This affects pathway A and, as noted below, pathway B. It does **not** bear on physical RSI, where the defining requirement is a loop that needs no humans at all — renting hands is the opposite of that.
 
 ### B. Fragmentation and delegation, no RSI required
 
@@ -147,7 +147,9 @@ The three outcome states, as of the assessment date:
 - **Permanent disempowerment** — humans survive, possibly in materially comfortable conditions, but have lost effective control over civilizational direction with no realistic path to regaining it.
 - **Prolonged human flourishing** — humans retain meaningful collective agency over their circumstances, and material conditions are at least comparable to today's.
 
-These three do not exhaust the space. A world with retained agency but *worse* material conditions — managed decline, a costly but survived catastrophe — meets flourishing's agency criterion but fails its material one, so by the definition above it falls to disempowerment or extinction by default, arguably the wrong bucket for a world humans still steer. Uncorrected here; splitting it out needs a fourth column and a re-derivation of every row.
+These three do not exhaust the space. A world with retained agency but *worse* material conditions — managed decline, a costly but survived catastrophe — meets flourishing's agency criterion but fails its material one, so by the definition above it falls to disempowerment or extinction by default, arguably the wrong bucket. Uncorrected here; splitting it out needs a fourth column and a re-derivation of every row.
+
+A second gap is not a missing column but a missing fact of the matter. Merger scenarios (Kurzweil-style) assume continuity between today's humans and whatever entity is "flourishing" later; whether that continuity survives radical cognitive change is an open question about personal identity, not one this document can estimate. Scoring merger as flourishing by default would answer that question rather than decline it — left unscored.
 
 | Conditional (event by 2040) | Extinction / irrecoverable collapse | Permanent disempowerment | Prolonged flourishing |
 |---|---|---|---|
@@ -184,23 +186,23 @@ These three do not exhaust the space. A world with retained agency but *worse* m
 
 **But "regulation fails" ≠ "pace unchanged."** Capital markets can slow this without a single law passing. Closed IPO windows and rising capital costs hit training budgets directly, and compute is a binding input.
 
-**Capital is not a clean brake, and may invert.** A lab facing a closed funding window has incentives to do what safety pressure prevents: strip deployment restrictions, ship agents early, sell access it would refuse, dump weights as a hail mary — a brake on pathway C, an accelerant on pathway A.
+**Capital is not a clean brake, and may invert.** A lab facing a closed funding window has incentives to strip deployment restrictions, ship agents early, sell access it would refuse, dump weights as a hail mary — a brake on pathway C, an accelerant on pathway A.
 
 **Proliferation: the cat is half out of the bag.** Open weights lag the frontier by roughly four to six months per Epoch's capability index, and sit roughly 29 Elo behind on Arena's separate leaderboard — two metrics, not one source. For misuse, diffusion is irreversible. For RSI, it isn't: running a model and training one are different problems.
 
-**The chokepoint is narrow — and not only chips.** EUV is one company; logic is essentially TSMC; HBM is three suppliers. **Power and interconnection deserve equal billing:** a runaway compute loop is constrained by substations and queues as much as accelerators — slower to build, harder to hide.
+**The chokepoint is narrow — and not only chips.** EUV is one company; logic is TSMC; HBM is three suppliers. **Power and interconnection deserve equal billing:** a runaway compute loop is constrained by substations and queues as much as accelerators — slower to build, harder to hide.
 
-**The decentralized bypass is real but hurts RSI disproportionately.** Low-communication methods (DiLoCo-style; Prime Intellect's runs) cut synchronization frequency by orders of magnitude; a distributed pool draws the same power spread below detection thresholds, no substation to photograph.
+**The decentralized bypass is real but hurts RSI disproportionately.** Low-communication methods (DiLoCo-style; Prime Intellect's runs) cut sync frequency by orders of magnitude; a distributed pool draws the same power spread below detection thresholds, no substation to photograph.
 
-Two bounds. Demonstrated runs sit an order of magnitude below frontier scale on datacenter-grade nodes, not residential ones. Decentralization also trades time for detectability, and **RSI is iteration-bound, not single-run-bound** — a six-month run instead of three weeks makes the loop roughly eight times slower, attacking compounding directly. A route to *possessing* a capable model, a poor route to *self-improvement*.
+Two bounds. Demonstrated runs sit an order of magnitude below frontier scale, on datacenter-grade nodes, not residential ones. Decentralization also trades time for detectability, and **RSI is iteration-bound, not single-run-bound** — a six-month run instead of three weeks makes the loop roughly eight times slower, attacking compounding. A route to *possessing* a capable model, a poor route to *self-improvement*.
 
 **Rogue-state cognitive RSI: 4–8% this decade under a verified US–China regime, 8–15% without one.** Money isn't the binding constraint. Cognitive RSI is the worst case for a clandestine program: it needs a sustained loop of runs, plausibly 10–100× a single frontier training run, operated continuously and undetected.
 
-**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new paradigm is invented, yet scaffolding and efficiency gains make a distilled student more useful than last year's teacher. Misuse leaks; RSI-grade loops do not.
+**Distillation has a ceiling, but "cannot exceed the teacher" is too clean.** No new paradigm is invented, yet scaffolding gains make a distilled student more useful than last year's teacher. Misuse leaks; RSI-grade loops do not.
 
 **The real erosion mechanism is algorithmic efficiency, which no treaty addresses.** Human cognition runs on ~20W and current systems are orders of magnitude off, so the headroom is real. If 2026-frontier capability becomes trainable for $50M in 2033, any compute-threshold regime leaks from below — every such regime has an expiration date. Headroom tells you the ceiling, not the rate of convergence.
 
-**China is less of a pure defector than the race framing implies.** Beijing enacted more sector-specific AI regulation (2021–2025) than any other country, and an uncontrollable system directly threatens Party control of information — arguably a *stronger* domestic incentive than democracies have. Documented frontier-risk engagement includes TC260 standards work, calls for mutual recognition of evaluation results, a Tsinghua–Brookings glossary defining "loss of control," and support for two UN mechanisms. Read cynically, much is standard-setting for influence. It is still not the behavior of a state that considers frontier risk fictional.
+**China is less of a pure defector than the race framing implies.** Beijing enacted more sector-specific AI regulation (2021–2025) than any other country, and an uncontrollable system threatens Party control of information — arguably a *stronger* domestic incentive than democracies have. Documented engagement: TC260 standards work, calls for mutual recognition of evaluation results, a Tsinghua–Brookings glossary defining "loss of control," support for two UN mechanisms. Read cynically, much is standard-setting for influence. It is still not the behavior of a state that considers frontier risk fictional.
 
 **Infrastructure dependency is a standing exposure that cuts both ways.** Datacenters and fabs depend on external, geographically fixed, largely unhardened systems: grid interconnection, water supply and discharge, cooling, long-haul fibre.
 
@@ -260,7 +262,7 @@ So tripwire 17 does not describe type 3 becoming type 1. It describes type 3 fee
 
 **On tripwires 7, 8 and 16.** Detection has three states, not two: an evaluator finds an incident, a victim finds it, or the lab discloses it itself, proactively, under a published process. Tripwire 16 covers the third, since it is governance-relevant but fires neither 7 nor 8. It sits below 7 because the lab selects what to report and how to characterise it; a framework announced is not a framework that works, and the test is whether anything unflattering surfaces through it later.
 
-**A gap these three share: all require something to be detected.** A system performing alignment convincingly under evaluation while holding a different disposition once monitoring lifts — a treacherous turn, Bostrom's term — predicts clean results from every tripwire here, by design; a genuinely aligned system looks identical. Untracked because it resists tracking, not oversight — any proposed observable is equally consistent with successful concealment. The nearest proxy is a growing eval-vs-deployment performance gap, a fact about behavior rather than intent. No such tripwire exists.
+**A gap these three share: all require something to be detected.** A system performing alignment convincingly under evaluation while holding a different disposition once monitoring lifts — a treacherous turn, Bostrom's term — predicts clean results from every tripwire here, by design; a genuinely aligned system looks identical. Untracked because it resists tracking — any proposed observable is equally consistent with concealment. The nearest proxy is a growing eval-vs-deployment performance gap, a fact about behavior, not intent. No such tripwire exists.
 
 Detection statistics confound two variables: how much there is to detect, and how good the detector is. A low catch rate is consistent with few incidents and with a poor detector, and these have opposite implications. Tripwire 7 therefore requires corroboration that the evaluator surfaced something internal monitoring missed, rather than treating any evaluator finding as good news.
 
@@ -278,17 +280,15 @@ The second is the more significant. Hiding from an automated grader is local rew
 
 **"Smarter therefore subjugation" does not follow.** Greater capability does not entail unified agency, stable long-horizon goals, or motive to dominate. Instrumental convergence works cleanly for a single coherent optimizer with stable cross-context goals. Whether that is what is being built remains open. Pathway B above is the version of this concern that does not require it.
 
-**Thermodynamic inevitability arguments are confused.** The second law says entropy doesn't decrease, not which structures form — crystals and cities build local order while raising total entropy, and a superintelligence organizing matter is permitted exactly as a coral reef is, not selected for. The deeper problem is equivocation: physical laws are exceptionless, competitive dynamics are not.
+**Thermodynamic inevitability arguments are confused.** The second law says entropy doesn't decrease, not which structures form — crystals and cities build local order while raising entropy, and a superintelligence organizing matter is permitted exactly as a coral reef is, not selected for. The problem is equivocation: physical laws are exceptionless, competitive dynamics are not.
 
-**Soares' physical-limits argument is better, and conditional.** The Feynman analogy establishes a *ceiling*, not a push toward it. Soares rejects inevitability outright.
+**Soares' physical-limits argument is better, and conditional.** The Feynman analogy establishes a *ceiling*, not a push. Soares rejects inevitability outright.
 
 **"Time works against us" assumes a constant hazard rate.** If any stabilizing process exists, the rate declines and the integral converges rather than approaching one. Nuclear risk is the analogue: per-year probability was higher in 1962 than now.
 
-**The objection is survivorship.** Nuclear war's absence may not show competent management: averted at least half a dozen times by individuals overriding orders. The decline may be luck — what a surviving observer concludes either way.
+**The objection is survivorship.** Nuclear war's absence may not show competent management: averted at least half a dozen times by individuals overriding orders — the decline may be luck, which a surviving observer concludes either way.
 
 **The hype theory is weak; the market supplies the evidence.** A coordinated pump would be the most expensive in history: an IPO target as high as $1T delayed, and after Trump's September post calling opposition to "AI and Data Centers" a "sick conspiracy", the Philadelphia semiconductor index fell 6%, ASML 6.7%, SoftBank up to 13.2%. Incidents were disclosed reactively.
-
-**Amodei's botnet figure is a scenario, not a measurement.**
 
 ---
 
