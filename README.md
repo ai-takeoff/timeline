@@ -52,6 +52,10 @@ Three things, stated narrowly:
 
 None of these is a large claim. If you know of prior art for any of them, open an issue; that is a useful contribution in itself.
 
+## Open questions
+
+Some things this project raises are genuinely open — not findings to fix or tripwires to file, but research questions with no answer yet. See [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) for the written-up questions and [Discussions](../../discussions) for live conversation about them.
+
 ## Repository contents
 
 | File | What it is |
@@ -60,7 +64,10 @@ None of these is a large claim. If you know of prior art for any of them, open a
 | `CHANGELOG.md` | Every revision with its reasoning, including declined critiques and why. |
 | `REFERENCES.md` | Every externally checkable claim, its source, and a source-quality class. |
 | `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
+| `OPEN-QUESTIONS.md` | Genuinely open research questions the project raises but can't resolve. |
 | `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
+| `linkcheck.py` | Monthly link-durability check on `REFERENCES.md`'s external sources. |
+| `datecheck.py` | Verifies changelog entry dates against actual GitHub commit dates. |
 | `LICENSE` | CC BY 4.0 for documents, MIT for code. |
 
 **If you quote an estimate, cite the version.** The figures change; an uncited number becomes unfalsifiable, which defeats the point.

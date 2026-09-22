@@ -183,7 +183,7 @@ Final increment before freeze. One real logical error, one formatting defect fou
 
 **check.py: all checks pass. No estimate changed.**
 
-## 1.25 — 2026-09-17
+## 1.25 — 2026-09-18
 
 Evidence-driven, from a Stuart Russell interview. Two additions, one of which attacks an argument the document makes. Required cutting ~250 words elsewhere to stay under the word ceiling — the first revision where the ceiling forced a real trade rather than a warning.
 
@@ -197,7 +197,7 @@ Evidence-driven, from a Stuart Russell interview. Two additions, one of which at
 
 **check.py: all checks pass, 6989/7000. No estimate changed.**
 
-## 1.26 — 2026-09-17
+## 1.26 — 2026-09-18
 
 Prior-art survey before public release, plus one queued wording fix.
 
@@ -211,7 +211,7 @@ The reasoning is not only honesty. A document about epistemic discipline that ov
 
 **check.py: all checks pass. No estimate changed.**
 
-## 1.27 — 2026-09-17
+## 1.27 — 2026-09-18
 
 Read the AI Futures Project's August 2026 timelines update properly rather than from search snippets. Three findings, one of which challenges the tripwire this document calls its most important.
 
@@ -227,13 +227,13 @@ Their first objection misses this document's use, which is detecting whether the
 
 **check.py: all checks pass. No estimate changed.**
 
-## 1.28 — 2026-09-17
+## 1.28 — 2026-09-18
 
 **check.py bug fixed, found by the reader.** The tripwire check matched only purely numeric row IDs, so it silently skipped row 2b — and then reported "Tripwires: 16 (1-16)" for a document containing 17 tripwire rows. That is a false statement about the document, not merely an incomplete check, and "all checks passed" alongside a known unvalidated row was untenable. The check now parses suffixed IDs, validates the numeric backbone for gaps, duplicates and ascending order separately, and additionally requires each sub-row to sit immediately after its parent. Verified against a deliberate break (relabelling 2b as 9b), which it catches. The releasable state of check.py was the right standard, and it was not met before this fix.
 
 **check.py: all checks pass — 17 rows, backbone 1-16, sub-row 2b. No estimate changed.**
 
-## 1.29 — 2026-09-17
+## 1.29 — 2026-09-18
 
 Three further findings from the AI Futures August 2026 update, absorbed without raising the ceiling again. Two of the five candidates were declined.
 
@@ -253,7 +253,7 @@ Three further findings from the AI Futures August 2026 update, absorbed without 
 
 **check.py: all checks pass, 7398/7400.**
 
-## 1.30 — 2026-09-17
+## 1.30 — 2026-09-18
 
 **README status corrected. Found by the reader, from an inconsistency between two things stated in conversation.**
 
@@ -269,7 +269,7 @@ The status section now says the tripwire set is demonstrably incomplete rather t
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
-## 1.31 — 2026-09-17
+## 1.31 — 2026-09-18
 
 Pre-release hardening after a GitHub Copilot review of the repository. One point in that review was the strongest release-readiness finding anyone has raised; several were template-filling.
 
@@ -291,7 +291,7 @@ Roughly a third of the rows are marked with sources still to be pinned. These ar
 
 **check.py: all checks pass, 7398/7400. No estimate changed, no document text changed.**
 
-## 1.32 — 2026-09-17
+## 1.32 — 2026-09-18
 
 Link durability, raised by the reader immediately after references were added. The concern was correct and the obvious implementation would have been wrong.
 
@@ -309,7 +309,7 @@ Noted there too: silent *editing* of a live source is a worse failure than rot, 
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
-## 1.33 — 2026-09-17
+## 1.33 — 2026-09-18
 
 Issue templates and a pull request template, discussed twice earlier and never built. Caught by the reader before release.
 
@@ -329,7 +329,7 @@ The config routes readers to CHANGELOG, CONTRIBUTING and REFERENCES before they 
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
-## 1.34 — 2026-09-17
+## 1.34 — 2026-09-18
 
 Enforcement for the one PR rule that can be machine-checked.
 
@@ -343,7 +343,7 @@ It also emits a non-blocking note when the document changes without `REFERENCES.
 
 **check.py: all checks pass. No estimate changed, no document text changed.**
 
-## 1.35 — 2026-09-17
+## 1.35 — 2026-09-18
 
 **check.py failed on Windows entirely — found while syncing files during the private-to-public transition.** All three of the checker's core validations (version header, changelog format, outcome table) failed simultaneously on a clean local Windows clone, despite the same files passing cleanly here and in GitHub Actions (Ubuntu). Cause: `check.py` read files without an explicit encoding, and Python's default text encoding is platform-dependent — UTF-8 on Linux/Actions, but often cp1252 on Windows. The document and changelog both rely on em-dashes and en-dashes throughout (the version header format, every percentage range like "20–30%"), and misdecoding those bytes broke every regex that depends on matching a dash character, which is why header, changelog, and table parsing all failed at once rather than one specific check.
 
@@ -353,7 +353,7 @@ This was a real gap, not an edge case: the checker had never actually been exerc
 
 **check.py: all checks pass, on both platforms now. No estimate changed.**
 
-## 1.36 — 2026-09-19
+## 1.36 — 2026-09-18
 
 Post-publication review (Grok, reading the live repo). Three findings, one a genuine self-contradiction.
 
@@ -371,7 +371,7 @@ The reconciliation, now stated in both places: the dispute is about the *level* 
 
 **check.py: all checks pass, 7269/7400. No estimate changed.**
 
-## 1.37 — 2026-09-19
+## 1.37 — 2026-09-18
 
 Google AI review, framed as an "exhaustive audit." Seven claims: one real bug I created in the previous version, three legitimate asks answered with additions, one restated after two consecutive misreadings, two declined as confused or unsupported speculation.
 
@@ -443,7 +443,7 @@ ChatGPT review, framed as a full editorial/factual/logical audit. Its top item w
 
 **check.py: all checks pass, 7400/7400 — at the ceiling exactly. No estimate changed.**
 
-## 1.41 — 2026-09-19
+## 1.41 — 2026-09-20
 
 Added a gap identified in conversation with the user, refined through direct pushback on an initial framing.
 
@@ -457,7 +457,7 @@ Added two sentences to pathway A, immediately after the rented-labor point it co
 
 **check.py: all checks pass, 7391/7400. No estimate changed — this identifies a channel within pathway A, which the outcome tables already account for in aggregate.**
 
-## 1.42 — 2026-09-19
+## 1.42 — 2026-09-20
 
 Removed the "Previously titled 'RSI and AI Risk'" header line, flagged by the user as overdue cleanup. It was added in v1.5, when the rename had just happened and the note was load-bearing for anyone arriving with the old name in mind. Thirty-seven versions later it serves no reader arriving fresh, and the maintenance rule's own metadata exception (added to accommodate this exact line) was carrying weight nothing needed anymore. The rename itself remains fully recorded in this changelog's history.
 
@@ -465,7 +465,7 @@ Removed the "Previously titled 'RSI and AI Risk'" header line, flagged by the us
 
 **check.py: all checks pass, 7379/7400. No estimate changed.**
 
-## 1.43 — 2026-09-19
+## 1.43 — 2026-09-20
 
 Evidence-driven, from OpenAI's September 2026 research-acceleration disclosure and Noam Brown's Dwarkesh interview. Two additions, scoped down from a larger candidate set after the user asked which items bear on the technical critical path specifically rather than governance.
 
@@ -479,7 +479,7 @@ Evidence-driven, from OpenAI's September 2026 research-acceleration disclosure a
 
 **check.py: all checks pass, 7383/7400. No estimate changed** — both additions strengthen existing arguments and mechanisms without moving a number, which is the correct outcome for evidence that corroborates rather than surprises.
 
-## 1.44 — 2026-09-19
+## 1.44 — 2026-09-20
 
 DeepSeek, working from internal consistency alone with external claims explicitly bracketed as unverifiable — a useful discipline, since it caught six real internal contradictions cleanly rather than mixing them with source-checking noise.
 
@@ -498,7 +498,7 @@ DeepSeek, working from internal consistency alone with external claims explicitl
 
 **check.py: all checks pass, 7399/7400 — at the ceiling. No estimate changed** — every fix this round was wording or internal consistency, not a numeric revision.
 
-## 1.45 — 2026-09-19
+## 1.45 — 2026-09-21
 
 Added, from a conversation about an AI 2027 reaction video whose specific content was almost entirely already priced into the document — the one exception exposed a real structural gap.
 
@@ -510,7 +510,7 @@ Added, from a conversation about an AI 2027 reaction video whose specific conten
 
 **check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this names an unquantified gap in the detection framework, it does not assign it a probability or a magnitude.
 
-## 1.46 — 2026-09-19
+## 1.46 — 2026-09-21
 
 The single most direct challenge this document has received to its own central skepticism, from the most relevant available critic — added at the reader's request after a search turned up sourced, on-record material rather than reconstructed argument.
 
@@ -526,7 +526,7 @@ The single most direct challenge this document has received to its own central s
 
 **check.py: all checks pass, 7398/7400 — at the ceiling. No estimate changed** — this documents a named, sourced disagreement with the physical-RSI section's own framework; it does not resolve it, and the document's numbers stand pending better evidence on either side.
 
-## 1.47 — 2026-09-19
+## 1.47 — 2026-09-21
 
 Added a second gap to the flourishing definition, alongside the managed-decline gap already flagged — this one qualitatively different, at the user's suggestion.
 
@@ -538,7 +538,44 @@ Added a second gap to the flourishing definition, alongside the managed-decline 
 
 **check.py: all checks pass, 7399/7400 — at the ceiling. No estimate changed** — this names an unscored gap in the flourishing definition, consistent with how the managed-decline gap was handled: flagged, not resolved.
 
-## Convention from here
+## 1.48 — 2026-09-22
+
+Two changes prepared in the same sitting, before the first real commit since v1.47 — combined into one version rather than presented as two, since no commit actually occurred between them.
+
+### Part one: physical-friction pointer to OPEN-QUESTIONS.md
+
+Added a pointer from the physical-friction section to `OPEN-QUESTIONS.md`, which now holds the full treatment of the minimum-viable-RSI question developed in conversation over several exchanges.
+
+**The document text:** "This door may only look far because nobody has looked for a small one" — stated as an open question, not a finding, immediately after the algorithmic-efficiency erosion passage it sits beside conceptually. Both are about the physical-friction argument potentially being weaker than currently stated; algorithmic efficiency erodes the cost of reaching a fixed capability level over time, while this is the sharper and more immediate worry that the threshold itself — the minimum configuration capable of sustaining RSI at all — could already be far below what current brute-force designs assume, independent of any future cost reduction.
+
+**Where the full argument lives, and why it doesn't live here:** `OPEN-QUESTIONS.md`, a new permanent file, not this document. The two candidate search methods (stripping from a known-working RSI system, versus emergence through continued post-RSI capability growth), the path-dependence/frozen-accident failure mode of the first, and the Kolmogorov-complexity argument for why neither method may yield a provable exact answer are all real content but don't fit this document's sourcing standard or word ceiling, and don't need to — they're explicitly speculative in a way nothing else in the main document is.
+
+**A structural decision made and then partly reversed this session, worth recording:** a duplicate draft of the same content was built for posting directly into GitHub Discussions, then recognized as creating exactly the sync-drift risk this project has spent most of tonight fixing in other forms — two copies of one argument that would need identical edits applied twice. Resolved by making `OPEN-QUESTIONS.md` the single canonical version; Discussions, once enabled, will hold conversation about it and a short pointer, not a duplicate.
+
+**Cut to fit:** ten passages compressed (thermodynamics, Soares, survivorship, rented labor, the swarm-attack note, the treacherous-turn note, range width, capital inversion, China's regulatory record, the chokepoint note, distillation) for a two-sentence addition.
+
+**check.py: all checks pass, 7400/7400 — exactly at the ceiling. No estimate changed.**
+
+### Part two: changelog date correction
+
+**Twenty changelog entry dates were wrong, found by the reader asking a simple, correct question: does the commit date confirm the changelog date, or is it just trusted blindly?** Somewhere after v1.24 this changelog stopped tracking real elapsed time — the practice had been to hand-type "today's date" into each new entry, and at some point that stopped being re-derived and became a copy-forward instead, silently carrying a stale date across dozens of real edits and, per this correction, several real calendar days.
+
+**Verified, not guessed.** `datecheck.py`, written for this purpose, walks every commit that touched `CHANGELOG.md`, extracts the `## X.Y — YYYY-MM-DD` line(s) added in that commit's actual diff, and compares the stated date to GitHub's own committer timestamp for that commit — ground truth, since this repo's normal workflow (web upload) server-stamps commit time and isn't something the changelog text can accidentally drag along uncorrected. Run against the live repo: 31 entries checked, 20 mismatched.
+
+**Corrected, using the verified commit dates as source of truth:**
+- v1.25–v1.35: stated 2026-09-17, actually committed 2026-09-18. Corrected to 09-18.
+- v1.36–v1.37: stated 2026-09-19, actually committed 2026-09-18. Corrected to 09-18 — these were wrong in the *other* direction, ahead of the true date rather than behind it, which rules out "the date just never got updated" as the whole story; something advanced it incorrectly at least once too.
+- v1.38–v1.40: stated and committed both 2026-09-19. Correct as written; no change.
+- v1.41–v1.44: stated 2026-09-19, actually committed 2026-09-20. Corrected to 09-20.
+- v1.45–v1.47: stated 2026-09-19, actually committed 2026-09-21. Corrected to 09-21.
+- v1.48 (this entry): dated 2026-09-22, its actual completion date, not yet committed as of this writing.
+
+**Why this is a correction, not a forbidden rewrite of history.** The rule against touching old entries protects *interpretation* — what a past version's reasoning was, which tripwire numbering was live at the time, judgments that were reasonable given what was known then. A commit date is not interpretation; it is a fact GitHub already recorded independently of anything this changelog says, and the changelog's job is to report it accurately. This is the same category as the McAfee misattribution or the Warp Speed arithmetic — fixing a specific factual error the record contains, not revising the record's judgments.
+
+**`datecheck.py` added to the repo as a permanent tool**, alongside `check.py` and `linkcheck.py`. Not wired into CI — a not-yet-committed version has no commit date to check against yet, so running it automatically on every push would produce meaningless failures on work in progress. Intended for periodic manual runs, the same way this one was.
+
+**check.py: all checks pass. No estimate changed** — every correction in this entry is to changelog metadata, not to the document's content or numbers.
+
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
 
