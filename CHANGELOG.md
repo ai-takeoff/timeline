@@ -629,6 +629,18 @@ Verified directly against the live repo before this entry was written: v1.50 was
 
 **check.py: all checks pass. No estimate changed.**
 
+## 1.52 — 2026-09-22
+
+**Files changed:**
+- `REFERENCES.md` — added Anthropic's own disclosure that Claude "leads" 26% of Anthropic's AI R&D (up from under 1% in February 2026), via a public methodology (Epoch AI's AL0–AL5 automation scale applied to ~15,000 sampled internal tasks). A third, independent measurement axis for closed-loop progress, distinct from METR's time-horizon curve and the coding-uplift self-report/measured gap. Anthropic's own page applies the same self-report caution already carried elsewhere in this document for a related figure, citing METR directly.
+- `ai-timelines-and-outcomes.md` — version header only, `1.51` → `1.52`. No other line changed.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+Does not fire any tripwire as currently worded — tripwire 4 requires a specific self-originated architectural change adopted into production; this is a continuous aggregate measure, not a discrete event. Not brought into the main document: no estimate or tripwire threshold is moved by it, and the word ceiling is at ​7400/7400 with no margin, so a references-only addition was the right scope for evidence that corroborates rather than changes anything.
+
+**check.py: all checks pass. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
