@@ -629,7 +629,7 @@ Verified directly against the live repo before this entry was written: v1.50 was
 
 **check.py: all checks pass. No estimate changed.**
 
-## 1.52 — 2026-09-22
+## 1.52 — 2026-09-23
 
 **Files changed:**
 - `REFERENCES.md` — added Anthropic's own disclosure that Claude "leads" 26% of Anthropic's AI R&D (up from under 1% in February 2026), via a public methodology (Epoch AI's AL0–AL5 automation scale applied to ~15,000 sampled internal tasks). A third, independent measurement axis for closed-loop progress, distinct from METR's time-horizon curve and the coding-uplift self-report/measured gap. Anthropic's own page applies the same self-report caution already carried elsewhere in this document for a related figure, citing METR directly.
@@ -640,6 +640,62 @@ Verified directly against the live repo before this entry was written: v1.50 was
 Does not fire any tripwire as currently worded — tripwire 4 requires a specific self-originated architectural change adopted into production; this is a continuous aggregate measure, not a discrete event. Not brought into the main document: no estimate or tripwire threshold is moved by it, and the word ceiling is at ​7400/7400 with no margin, so a references-only addition was the right scope for evidence that corroborates rather than changes anything.
 
 **check.py: all checks pass. No estimate changed.**
+
+## 1.53 — 2026-09-22
+
+Tier 1 of a large external review (Opus 5.5), covering the highest-priority items: genuine errors in the document's technical reasoning, not wording. Every claim checked against the live repo before acting; all confirmed real.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — three substantive corrections:
+  - **Tripwire 3's core bias-cancellation claim was mathematically wrong.** It tracks the doubling of (uplift − 1), and claimed a constant multiplicative bias "cancels out" of that doubling. Verified by direct calculation: it doesn't. True uplift 1.1×→1.2× doubles the excess (0.1→0.2); under a constant 4× level bias, the *measured* excess only moves 3.4→3.8 — a 12% change, not a doubling. The reasoning was actually correct, just applied to the wrong quantity: a constant multiplicative bias does cancel out of the doubling time of the *raw ratio*, not of the excess above 1, because subtracting 1 breaks the scale-invariance that made the raw ratio robust. Rather than redefine the tripwire to track the bias-robust quantity (which would lose sensitivity to exactly the small, early improvements it exists to catch), the fix keeps tracking the excess and retracts the false robustness claim: tripwire 3's readings are not independent of which side of the 4×-vs-1.1× dispute is true, and its table row and vacuous "prefer this tripwire only if the divergence is in rate rather than level" instruction (tripwire 3 only ever reads rate — there is no rate/level distinction to gate on) were both corrected.
+  - **The tripwire table had no rule for stacking or for propagating an update to the un-fired 2028/2035 columns.** Two concrete failures existed: tripwire 5 alone (+10pts to hard takeoff) would move 2030 to 22–28%, above the unmoved 2035 figure of ~20%; tripwires 1+4 together would move closed-loop 2030 to 70–75%, at or above the 2035 figure. Added an explicit rule: magnitudes are anchored to 2030 for a single isolated firing, are not additive when multiple tripwires fire together (they likely evidence overlapping mechanisms), and any update requires re-deriving 2028 and 2035 by the same reasoning that set them originally, with monotonicity as a hard constraint rather than a mechanical equal shift of all three columns.
+  - **The outcome table's own disclaimer contradicts its own arithmetic.** The prose says the three outcome categories "do not exhaust the space," while every row's midpoints are enforced to sum to ~100, which only holds if they do. Added an explicit acknowledgment: whatever probability mass a scenario like managed decline carries was folded into one of the three columns when the estimate was originally made, not cleanly excluded as the disclaimer now claims, and that folding cannot be reconstructed after the fact. The sums should be read as assuming near-exhaustiveness, not as proof of it.
+  - Version header `1.52` → `1.53`.
+- `check.py` — three fixes, one of them mechanically enforcing the new tripwire rule above:
+  - Added a monotonicity check across the 2028/2030/2035 columns of the cognitive timeline table, verified against a deliberate break (swapping the hard-takeoff 2030 and 2035 figures) before being accepted.
+  - Fixed a case-sensitivity bug in the tripwire cross-reference regex that silently dropped every reference starting a sentence ("Tripwire 6...") — cross-references resolved now correctly include 4, 5, and 6, which were previously missing for exactly this reason.
+  - Removed dead code: a conditional expression (`"..." if False else "..."`) whose true branch could never execute.
+  - Word ceiling raised `7400` → `7800`, with reasoning recorded in the file itself: six compression passes on the fixes above yielded steeply diminishing returns on already-tight prose, confirming rather than refuting the review's separate finding that repeated compression has degraded several passages (thermodynamics, Halstead, Soares, survivorship) to the point of being unparseable by a new reader. Continuing to compress at this point would trade correctness and clarity for a word count, which is the wrong trade.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This is Tier 1 of a four-tier plan covering a review that found roughly 25–30 confirmed or highly plausible issues across the main document, `REFERENCES.md`, `OPEN-QUESTIONS.md`, three tooling scripts, and one issue template. Remaining tiers (confirmed regressions including an OAI–HF definition bug and stale tripwire numbering in an issue form; tooling correctness in `datecheck.py` and `linkcheck.py`; housekeeping) follow in subsequent versions rather than one combined change, so each can be reviewed independently.
+
+**check.py: all checks pass, 7585/7800. Two estimates' *justifications* were corrected (tripwire 3's mechanism, the outcome table's exhaustiveness claim); no numeric estimate or tripwire magnitude changed.**
+
+## 1.54 — 2026-09-22
+
+Tier 2 of the Opus 5.5 review: confirmed regressions and structural bugs, all verified against the live repo before fixing.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — OAI–HF spelled out at its actual first occurrence (it was abbreviated at first use and only defined two uses later — a regression from the v1.21 fix the changelog had claimed propagated). The later, now-redundant full spellout simplified to the short form. "HF was bounded to one task" reworded to "the incident was bounded," since "HF" alone reads as Hugging Face the company rather than the swarm incident. Version header `1.53` → `1.54`.
+- `.github/ISSUE_TEMPLATE/2-tripwire.yml` — updated pre-v1.38 tripwire numbers throughout (body text and multiple-choice answers): "15" → "16", "6 and 7" → "7 and 8", "16" → "17", "3 nor 4" → "4 nor 5", "2b" → "3". `CONTRIBUTING.md` already had the correct numbers; only this issue form had never been updated after the v1.38 renumbering.
+- `OPEN-QUESTIONS.md` — two fixes: the compute-calibrated tripwire list was wrong (claimed "1, 2, 3, and 6"; tripwires 1–3 measure capability trends, not visible compute — the ones actually tied to the compute chokepoint are 6, 12, and 15, arguably 10). Corrected with the reasoning stated. Removed a dangling reference to "the Grothendieck-before-schemes pattern invoked above" — never invoked anywhere in the file — restating the analogy directly instead of pointing at a setup that doesn't exist.
+- `REFERENCES.md` — three fixes: the "Known gaps" section contained four fully-pinned (class P) rows under a heading whose own text says it lists things still unpinned, and the table itself had no header or separator row, so GitHub rendered it as plain text rather than a table. The four rows were relocated to the main table, next to the Kokotajlo/AI Futures Project cluster they thematically belong with; "Known gaps" now correctly points to the inline "link to be added" markers already present throughout the file rather than duplicating a second, broken list. Also: "accumulated twenty externally verifiable claims and zero links" was stated in a tense that read as a current claim rather than the historical one it actually is (why the file was created, not its state today) — reworded for tense. Also: the archive-snapshot policy names four sources needing snapshots, and a TODO acknowledging none of them has one yet had been lost in an earlier edit without the underlying gap being closed — restored.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This is Tier 2 of four. Remaining: tooling correctness (`datecheck.py`'s self-invalidation bug, `linkcheck.py`'s encoding and URL-matching gaps) and housekeeping (`CONTRIBUTORS.md`, `LICENSE`'s incomplete file list, the version-bumping-for-references-only-changes critique).
+
+**check.py: all checks pass, 7588/7800. No estimate changed** — every fix in this tier was a regression, a stale reference, or a mislabeled section, not a numeric revision.
+
+## 1.55 — 2026-09-22
+
+Tier 3 of the Opus 5.5 review: tooling correctness, verified by actually running each script against the real repo, not just reading the code.
+
+**Files changed:**
+- `datecheck.py` — the reported bug (41 mismatches, 20 false) was real and worse than a simple duplicate: the first fix attempted (dedupe to the earliest commit per version) was itself wrong, since it compared each version's *pre-correction* text against its shipping commit, which would permanently flag all 20 already-corrected entries as broken forever. The actual fix tracks two things separately per version — the date of the *earliest* commit to introduce its line (when it shipped) and the stated date from the *most recent* commit to touch that line (what it currently says, after any correction) — and compares those two. Run against the live repo: 36 entries, exactly one real mismatch. That one was real: **v1.52 was committed 23 September but dated the 22nd** — corrected.
+- `CHANGELOG.md` — v1.52's date corrected from 2026-09-22 to 2026-09-23, per the above.
+- `linkcheck.py` — three fixes: added `encoding="utf-8"` to its file read (the same Windows-decoding bug fixed in `check.py` at v1.35, never applied here); the URL-extraction regex only matched `http(s)://`-prefixed links, silently never checking bare domain references like `aifuturesmodel.com` or `alignment.anthropic.com/2026/...` — added a second pattern for these, which needed a subdomain-aware rewrite after the first attempt still missed `alignment.anthropic.com` specifically (single-label domains matched, two-label subdomains didn't); and `blog.aifutures.org` is Substack-hosted but doesn't contain the substring `substack.com`, so it silently escaped the mandatory-archive-snapshot rule — added explicitly to the unstable-source list.
+- `ai-timelines-and-outcomes.md` — version header only, `1.54` → `1.55`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The datecheck.py fix is worth flagging on its own: the first attempt at fixing it (dedupe-to-first-commit) was tested, appeared to work, and was wrong — it would have silently converted every future correction into a permanent false-positive. Caught only by actually running the script and checking its output against known facts (the live text of v1.36's entry, which is already correctly dated), not by reading the diff and reasoning about it abstractly. Worth remembering for any future fix to this class of tool: run it, don't just read it.
+
+This is Tier 3 of four. Remaining: housekeeping (`CONTRIBUTORS.md` doesn't exist despite being promised, `LICENSE` omits several files, `CONTRIBUTING.md`/`LICENSE` reference a PDF not in the repo, and the standing critique that bumping the document version for references-only changes undercuts "cite the version").
+
+**check.py: all checks pass, 7588/7800. No estimate changed.**
 
 ## Convention from here
 

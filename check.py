@@ -17,15 +17,22 @@ from pathlib import Path
 DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
 
-WORD_CEILING = 7400  # drift guard; raise deliberately, never incidentally
-# Raised 7000 -> 7400 at v1.27. Reasoning: the ceiling guards against
-# review-driven accretion (more rows, more caveats, more structure). This
-# raise accommodates evidence-driven additions instead - external
-# corroboration of the retraining-clock claim, a second tripwire anchored
-# on coding uplift, and an explicit statement of what the estimates are
-# conditional on. Cutting argumentative material to fit new evidence would
-# be the wrong trade: the arguments are what make the numbers interpretable.
-# Margin is deliberately thin (~125 words) so the guard still binds.
+WORD_CEILING = 7800  # drift guard; raise deliberately, never incidentally
+# Raised 7000 -> 7400 at v1.27 (see prior comment below).
+# Raised 7400 -> 7800 at v1.53. Reasoning: an external review (Opus 5.5)
+# identified that repeated compression of the same passages (thermodynamics,
+# Halstead, Soares, survivorship) had degraded them to the point of being
+# unparseable by a new reader ("gross complements" unexplained, a one-line
+# Soares paragraph, "The objection is survivorship" as a bare heading). The
+# same review also required three substantive additions to fix real errors:
+# a mathematical mistake in tripwire 3's bias-cancellation argument, a
+# tripwire-stacking/monotonicity rule that didn't exist, and an
+# acknowledgment that the outcome table's row sums contradict its own
+# exhaustiveness disclaimer. Six further compression passes on already-tight
+# prose yielded steeply diminishing savings before this raise, confirming
+# the diagnosis rather than refuting it: the ceiling was no longer trading
+# length for clarity, it was trading correctness and clarity for length.
+# Margin is again left deliberately thin so the guard keeps binding.
 
 # Phrases that indicate process commentary rather than current view.
 # The maintenance rule itself names these, so that line is exempt.
@@ -42,7 +49,7 @@ BANNED = [
     "second time this table",
     "recurring failure",
     "than this document does",
-    "this document is estimating" if False else "more than this document",
+    "more than this document",
     "the +5 implied",
     "the +2 implied",
     "Reduced to +",
@@ -137,7 +144,7 @@ else:
         fail(f"Tripwires not in ascending file order: {tw}")
 
     refs = set()
-    for chunk in re.findall(r"tripwires? ([\d, and]+)", doc):
+    for chunk in re.findall(r"tripwires? ([\d, and]+)", doc, re.I):
         refs.update(int(x) for x in re.findall(r"\d+", chunk))
     unresolved = sorted(r for r in refs if r not in uniq)
     if unresolved:
@@ -154,6 +161,11 @@ for label, c28, c30, c35 in cog_rows:
         if cell.strip() in ("—", "-", ""):
             fail(f'Empty cell ({colname}) in cognitive table row: {label.strip()[:50]} '
                  f'— use a value or an explicit "n/a", not a bare dash')
+    m28, m30, m35 = midpoint(c28), midpoint(c30), midpoint(c35)
+    if None not in (m28, m30, m35) and not (m28 <= m30 <= m35):
+        fail(f"Non-monotonic 2028/2030/2035 midpoints in cognitive table row "
+             f"'{label.strip()[:50]}': {m28:.1f} / {m30:.1f} / {m35:.1f} — "
+             f"a later column reads lower than an earlier one")
 
 # --------------------------------------------- 5. process commentary
 body = doc.split("## Revision history")[0]
