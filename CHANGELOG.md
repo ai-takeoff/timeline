@@ -592,6 +592,29 @@ This entry was built by cloning the actual live repo and checking directly, afte
 
 **check.py: all checks pass. No estimate changed.**
 
+## 1.50 — 2026-09-22
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — five fixes from external review, all verified against the live repo before editing:
+  - Footer date corrected from "15–17 September" to "15–22 September" (matches the header; same stale-date bug class as v1.36, recurred).
+  - The AI Futures Project "upper bound" line was backwards — max-speed conditioning means *earlier* dates, not later. Restated as a lower bound on arrival dates, more aggressive than these figures, not an upper bound.
+  - The managed-decline sentence was a false dichotomy: it said the scenario "falls to disempowerment or extinction by default," but disempowerment requires *lost* control, and managed decline retains it. Fixed to say the scenario fits none of the three columns as defined, rather than asserting a fit that the definitions don't support.
+  - Science Buddy's inner/outer loop was compressed into one motion; separated (inner loop evolves the harness with the model fixed, outer loop retrains the model under the improved harness).
+  - "A missing basic concept" (KataGo) was presented as if it were Wang et al.'s own claim; relabeled as inference.
+  - Version header `1.49` → `1.50`.
+- `OPEN-QUESTIONS.md` — three changes, developed in conversation:
+  - Fixed a dead stub (`[link once the thread exists]`) to point at the actual Discussions tab.
+  - Route 2 (emergence through capability growth) no longer requires the post-RSI premise — the mechanism never actually needed it, only the file's framing did.
+  - New section: a present-tense version of the minimal-RSI question — could ordinary, already-underway research stumble onto a minimal RSI-triggering design as an accidental byproduct, the way mathematics periodically finds a much simpler proof of an old result? Unlike a gradual erosion of the compute chokepoint, this would invalidate every tripwire's calibration at once. Explicitly flagged as close to unfalsifiable until the moment it isn't.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The reviewer's sharpest catch was that the document's pointer to `OPEN-QUESTIONS.md` implied a present-day claim ("this door may only look far") that the file, as originally scoped, didn't actually support — it was purely retrospective (post-RSI only). Rather than adopting the reviewer's proposed fix (a separate, newly-specified present-day question), the user identified that Route 2's own mechanism, read without its artificial post-RSI restriction, already licenses the present-day claim the pointer makes — a smaller and more precise fix than adding new formal content.
+
+Nine passages compressed elsewhere in the main document to fit the five fixes above under the word ceiling; no content cut outright.
+
+**check.py: all checks pass, 7400/7400 — at the ceiling. No estimate changed** — every main-document fix was wording or a logical correction, not a numeric revision.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
