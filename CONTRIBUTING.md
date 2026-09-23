@@ -44,6 +44,10 @@ Across the review rounds that preceded public release, **structural complaints p
 
 **Pull requests** for changes you have already worked out. `check.py` runs on every PR, so structural problems surface before review. A PR that changes an estimate must also update `CHANGELOG.md` with the reasoning — the log is the substance, not paperwork.
 
+## Changelog entry format
+
+Every entry opens with **Files changed:** — one line per file, plain language, what and why. Repo-mechanics content goes in a separate Process notes section afterward. No entry may cite itself as its own reason for existing.
+
 ## Standing rules for the document
 
 These apply to any accepted change, and a PR that violates them will be asked to revise:

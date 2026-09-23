@@ -52,6 +52,8 @@ When a link does die: replace it with an archive snapshot if one exists, re-sour
 | AI Futures forecasts are conditional on maximum technically feasible speed | AI Futures Project, same | P |
 | Halstead's alignment-bottleneck argument | AI Futures Project, same | P |
 | Opus 5 at expert parity on research taste for verifiable tasks | P-Zero Research preliminary, reported via AI Futures — **declined from the document as too weakly sourced** | U |
+| Anthropic AAR: 0.97 performance-gap-recovered in-sandbox vs. human baseline of 0.23; strongest method +0.5pt at production scale, within noise floor | Anthropic, "Automated Weak-to-Strong Researcher," alignment.anthropic.com/2026/automated-w2s-researcher/, 2026 | P |
+| Two genuinely unpublished ICML 2026 papers given to research agents; agents excelled at mechanics, made no progress on central research questions | Kapoor, Narayanan, Kirgis, Rabanser et al., "Can AI agents conduct open-ended AI research?", arXiv 2607.27191, July 2026 | P |
 | McAfee disowned his earlier job-and-wage-pressure expectations while maintaining AI will replace much white-collar knowledge work | Public statements; **specific citation not yet pinned** | S |
 
 ## Capability robustness

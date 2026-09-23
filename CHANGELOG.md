@@ -577,6 +577,23 @@ Added a pointer from the physical-friction section to `OPEN-QUESTIONS.md`, which
 **check.py: all checks pass. No estimate changed** — every correction in this entry is to changelog metadata, not to the document's content or numbers.
 
 
+## 1.49 — 2026-09-22
+
+**Files changed:**
+- `CHANGELOG.md` — fixed a live bug: the "Convention from here" section heading was missing (verified against the actual committed repo, not a draft), leaving its two rules orphaned with no heading. Restored.
+- `REFERENCES.md` — added two corroborating sources for the research-taste bottleneck already argued in the document (Anthropic's Automated Weak-to-Strong Researcher; Kapoor/Narayanan's open-ended-research study). No estimate changes.
+- `check.py` — added a check requiring every new changelog entry to open with a `Files changed:` list, and a check flagging entries that cite themselves as their own reason for existing.
+- `CONTRIBUTING.md` — documents the format above.
+- `ai-timelines-and-outcomes.md` — version header only, `1.48` → `1.49`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This entry was built by cloning the actual live repo and checking directly, after an earlier exchange asserted "nothing committed since v1.47" without verifying — wrong; v1.48 was already live. That false assumption produced several rounds of confusion and wasted turns. Going forward, repo state gets checked by direct clone before any claim about what is or isn't committed, not assumed either way.
+
+**check.py: all checks pass. No estimate changed.**
+
+## Convention from here
+
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
 
 Estimate tables keep their row structure across versions. Prose may be reorganised freely; the tables should not be, absent a strong reason, because cross-version comparability is this document's main asset.

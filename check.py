@@ -179,6 +179,17 @@ for heading in ["## What this is", "## Definitions", "## Timeline estimates",
 if "CHANGELOG.md" not in doc:
     fail("Document does not point to CHANGELOG.md")
 
+# ------------ newest changelog entry has a Files-changed list
+if log_vers:
+    newest_num = max(log_vers, key=lambda t: [int(p) for p in t[0].split(".")])[0]
+    m = re.search(rf"^## {re.escape(newest_num)} — \d{{4}}-\d{{2}}-\d{{2}}\n(.*?)(?=\n## |\Z)", log, re.S | re.M)
+    if m:
+        entry_body = m.group(1)
+        if "Files changed:" not in entry_body:
+            fail(f"Newest changelog entry (v{newest_num}) has no Files changed: list.")
+        if re.search(r"added?\s+(a\s+)?changelog entry\s+(for|to record)\s+this", entry_body, re.I):
+            fail(f"Newest changelog entry (v{newest_num}) cites itself as its own reason.")
+
 # ------------------------------- 8. references coverage
 # LIMITATION: the source list below is hardcoded, so this catches a source
 # being dropped from REFERENCES.md while still named in the document, but
