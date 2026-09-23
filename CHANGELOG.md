@@ -615,6 +615,20 @@ Nine passages compressed elsewhere in the main document to fit the five fixes ab
 
 **check.py: all checks pass, 7400/7400 — at the ceiling. No estimate changed** — every main-document fix was wording or a logical correction, not a numeric revision.
 
+## 1.51 — 2026-09-22
+
+**Files changed:**
+- `OPEN-QUESTIONS.md` — two fixes from a second external review, both real and applied on top of the already-committed v1.50:
+  - The premise paragraph claimed the whole file was posed "entirely from inside" a post-RSI world with "nothing below asks how RSI is reached" — directly contradicted by the present-tense section added in v1.50, which is explicitly about pre-RSI research. Scoped the premise to name what it actually governs (the ablation route and the retrospective minimum only), and flagged that a later section steps outside it deliberately.
+  - "Invalidates the calibration of every threshold at once" overclaimed — only tripwires 1, 2, 3, and 6 are compute-calibrated and would be blindsided by a minimal design; 11 (dexterity), 14 (delegation), and the disclosure tripwires don't depend on visible compute at all. Narrowed to name which tripwires are actually affected.
+- `ai-timelines-and-outcomes.md` — version header only, `1.50` → `1.51`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+Verified directly against the live repo before this entry was written: v1.50 was already committed, which an earlier exchange incorrectly assumed it wasn't. That produced two responses telling the user no version bump was needed, when a real one was — the fixes were being layered onto a public version without a record. Corrected here rather than repeated: check commit state directly, every time, before saying whether a version bump is needed.
+
+**check.py: all checks pass. No estimate changed.**
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
