@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.55 — 22 September 2026**
+**Version 1.57 — 23 September 2026**
 
 ---
 

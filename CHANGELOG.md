@@ -641,7 +641,7 @@ Does not fire any tripwire as currently worded — tripwire 4 requires a specifi
 
 **check.py: all checks pass. No estimate changed.**
 
-## 1.53 — 2026-09-22
+## 1.53 — 2026-09-23
 
 Tier 1 of a large external review (Opus 5.5), covering the highest-priority items: genuine errors in the document's technical reasoning, not wording. Every claim checked against the live repo before acting; all confirmed real.
 
@@ -663,7 +663,7 @@ This is Tier 1 of a four-tier plan covering a review that found roughly 25–30 
 
 **check.py: all checks pass, 7585/7800. Two estimates' *justifications* were corrected (tripwire 3's mechanism, the outcome table's exhaustiveness claim); no numeric estimate or tripwire magnitude changed.**
 
-## 1.54 — 2026-09-22
+## 1.54 — 2026-09-23
 
 Tier 2 of the Opus 5.5 review: confirmed regressions and structural bugs, all verified against the live repo before fixing.
 
@@ -679,7 +679,7 @@ This is Tier 2 of four. Remaining: tooling correctness (`datecheck.py`'s self-in
 
 **check.py: all checks pass, 7588/7800. No estimate changed** — every fix in this tier was a regression, a stale reference, or a mislabeled section, not a numeric revision.
 
-## 1.55 — 2026-09-22
+## 1.55 — 2026-09-23
 
 Tier 3 of the Opus 5.5 review: tooling correctness, verified by actually running each script against the real repo, not just reading the code.
 
@@ -696,6 +696,27 @@ The datecheck.py fix is worth flagging on its own: the first attempt at fixing i
 This is Tier 3 of four. Remaining: housekeeping (`CONTRIBUTORS.md` doesn't exist despite being promised, `LICENSE` omits several files, `CONTRIBUTING.md`/`LICENSE` reference a PDF not in the repo, and the standing critique that bumping the document version for references-only changes undercuts "cite the version").
 
 **check.py: all checks pass, 7588/7800. No estimate changed.**
+
+## 1.57 — 2026-09-23
+
+**A repair, not new content.** A partial-upload accident during a lost-credit gap left CHANGELOG.md's v1.54 and v1.55 entries claiming fixes that were never actually applied to five files. Rebuilt fresh against the live repo, verified directly before and after, not assumed.
+
+**Files changed:**
+- `.github/ISSUE_TEMPLATE/2-tripwire.yml` — the v1.54 numbering fix had never landed. Stale pre-v1.38 numbers ("15," "6 and 7," "2b") were still live. Rebuilt: "16" for the disclosure case, "7 and 8" for the binary it fell outside, "17" for the Dream-RSI case, "4 nor 5" for the mechanisms it bypassed, "3" for the time-horizon downgrade case — in both the body text and the multiple-choice answers.
+- `OPEN-QUESTIONS.md` — two v1.54 fixes had never landed: the compute-calibrated tripwire list still read "1, 2, 3, and 6" (wrong — those measure capability trends, not visible compute) instead of the corrected "6, 12, 15, arguably 10"; and "the Grothendieck-before-schemes pattern invoked above" was still a dangling reference to nothing. Both rebuilt.
+- `REFERENCES.md` — all three v1.54 fixes had never landed: four fully-pinned rows were still sitting under "Known gaps," a section whose own text says it lists things still unpinned; the table still had no header or separator row, so GitHub still rendered it as plain text. Rows relocated to the Forecasts section next to the Kokotajlo/AI Futures Project cluster they belong with. Also restored: the tense fix on "twenty externally verifiable claims and zero links" (read as current, is actually historical), and the archive-snapshot TODO (none of the four named sources has a snapshot yet — a real, unactioned gap, not a completed policy).
+- `datecheck.py` — none of the v1.55 fixes had landed; running it against the live repo reproduced the exact original self-invalidation bug. Rebuilt with the correct logic: track the earliest commit to introduce each version's line (when it shipped) separately from the most recent commit to touch that line (what it currently says), and compare those two — not the naive "does the original text match its own commit" comparison, which would permanently flag every already-corrected entry as broken. Run fresh against the live repo: **found three new, genuinely real mismatches** — v1.53, v1.54, and v1.55 were all committed 23 September but dated the 22nd, since real time passed between when this content was written and when it was actually uploaded during the credit gap.
+- `CHANGELOG.md` — the three dates above corrected to 2026-09-23.
+- `linkcheck.py` — none of the v1.55 fixes had landed. Rebuilt all three: UTF-8 encoding on the file read; bare-domain URL matching (`aifuturesmodel.com`, `alignment.anthropic.com/2026/...` were never checked at all, having no `http://` prefix), with subdomain support after the first version of the pattern still missed the two-label case; `blog.aifutures.org` added to the unstable-source list, since it doesn't contain the substring `substack.com` despite being Substack-hosted.
+- `ai-timelines-and-outcomes.md` — version header only, `1.55` → `1.57` (v1.56 is reserved: it was the Tier 4 content prepared before this gap was discovered, and has not yet been rebuilt or applied — see process notes).
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+Root cause, confirmed by the pattern of what did and didn't land: every file with a nested path, or uploaded in the same batch as one, has some or all of its intended changes missing; every flat root-level file landed correctly every time. A batch upload was interrupted mid-way, almost certainly by the `.github/ISSUE_TEMPLATE/2-tripwire.yml` drag-and-drop snag the user encountered and backed away from.
+
+Going forward, nested-path edits use GitHub's in-browser editor (navigate to the file's existing URL, click edit, paste, commit) rather than drag-and-drop, which requires no folder navigation and cannot mis-place a path. And tiers are now applied and *verified committed* one at a time, rather than prepared in a batch and uploaded across a gap in contact — this specific failure mode requires exactly that combination (multiple tiers queued, a long gap, nested paths) and removing any one of the three would likely have prevented it.
+
+**check.py: all checks pass, 7588/7800. No estimate changed** — every fix in this entry restores something already decided and previously verified; nothing here is a new judgment call.
 
 ## Convention from here
 

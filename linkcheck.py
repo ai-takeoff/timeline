@@ -29,8 +29,16 @@ if not REFS.exists():
     print("FATAL: REFERENCES.md not found")
     sys.exit(1)
 
-text = REFS.read_text()
-urls = sorted(set(re.findall(r"https?://[^\s)\]|>]+", text)))
+text = REFS.read_text(encoding="utf-8")
+full_urls = re.findall(r"https?://[^\s)\]|>]+", text)
+# Bare domain references ("aifuturesmodel.com,", "alignment.anthropic.com/2026/...")
+# are legitimate citations the http(s):// pattern above misses entirely.
+# Must handle subdomains (alignment.anthropic.com is two label segments plus
+# the TLD, not one).
+bare = re.findall(
+    r"(?<![\w/.])(?:[a-z0-9][a-z0-9-]*\.)+(?:com|org|net|io)(?:/[^\s,;)\]|>\"']*)?",
+    text)
+urls = sorted(set(full_urls) | {"https://" + b for b in bare})
 urls = [u.rstrip(".,;") for u in urls]
 
 permanent = [u for u in urls if any(p in u for p in PERMANENT)]
@@ -86,7 +94,11 @@ for url in checkable:
         print(f"  ok   {code}  {url}")
 
 # unstable sources should carry an archive snapshot
-UNSTABLE_HINTS = ("substack.com", "truthsocial.com", "twitter.com", "x.com",
+UNSTABLE_HINTS = ("substack.com", "blog.aifutures.org",  # Substack-hosted
+                  # under a custom domain -- doesn't match "substack.com" as
+                  # a substring, so it silently escaped the archive rule
+                  # until listed explicitly
+                  "truthsocial.com", "twitter.com", "x.com",
                   "rentahuman.ai", "medium.com")
 unarchived = [u for u in checkable
               if any(h in u for h in UNSTABLE_HINTS)

@@ -7,8 +7,14 @@ Run inside a git clone of the repo:
     python datecheck.py
 
 For each commit that touched CHANGELOG.md, finds any "## X.Y — YYYY-MM-DD"
-lines added in that commit's diff, and compares the stated date to the
-commit's actual date. Reports mismatches.
+lines added in that commit's diff. Two things are tracked separately per
+version: the date of the EARLIEST commit to introduce that version's line
+(when it actually shipped) and the stated date from the MOST RECENT commit
+to touch that line (what the entry currently says, after any correction).
+The two are compared -- not "did the original text match its own commit,"
+which would falsely re-flag every entry a later correction commit fixed,
+and not "does the latest commit's date match its own text," which would
+miss a real drift on any entry a correction commit never touched.
 
 Note: commit date != author date in general, but for commits made via
 GitHub's web upload flow (which is this repo's normal workflow), both are
@@ -42,6 +48,14 @@ commits = log.split("@@COMMIT@@")[1:]  # first split chunk is empty
 mismatches = []
 checked = 0
 
+ship_commit = {}    # version -> (date, hash) of the EARLIEST commit to
+                     # introduce this version's header line -- this is when
+                     # the version actually shipped, regardless of any later
+                     # edits to the entry's text.
+latest_text = {}     # version -> stated_date from the MOST RECENT commit to
+                     # touch this header line -- this is what the entry
+                     # currently says, after any corrections.
+
 for chunk in commits:
     header, _, body = chunk.partition("\n")
     commit_hash, commit_date_iso, subject = header.split("@@", 2)
@@ -51,13 +65,20 @@ for chunk in commits:
         m = ENTRY_RE.match(line)
         if m:
             version, stated_date = m.groups()
-            checked += 1
-            status = "OK" if stated_date == commit_date else "MISMATCH"
-            marker = "  " if status == "OK" else "!!"
-            print(f"{marker} v{version:<8} stated={stated_date}  "
-                  f"commit={commit_date}  ({commit_hash[:8]})  {status}")
-            if status == "MISMATCH":
-                mismatches.append((version, stated_date, commit_date, commit_hash[:8]))
+            if version not in ship_commit:
+                ship_commit[version] = (commit_date, commit_hash[:8])
+            latest_text[version] = stated_date
+
+for version in sorted(ship_commit, key=lambda v: [int(p) for p in v.split(".")]):
+    ship_date, ship_hash = ship_commit[version]
+    stated_date = latest_text[version]
+    checked += 1
+    status = "OK" if stated_date == ship_date else "MISMATCH"
+    marker = "  " if status == "OK" else "!!"
+    print(f"{marker} v{version:<8} stated={stated_date}  "
+          f"shipped={ship_date}  ({ship_hash})  {status}")
+    if status == "MISMATCH":
+        mismatches.append((version, stated_date, ship_date, ship_hash))
 
 print(f"\n{checked} changelog entries checked.")
 if mismatches:

@@ -20,6 +20,8 @@ Link rot is a real threat to a document built on checkability, and silent *editi
 - **Unstable sources must carry an archive snapshot** alongside the live URL — Substack and other newsletter hosts, social posts, startup sites, and news reporting. A Wayback or archive.today capture is the citation of record; the live link is secondary. In this file that currently means the AI Futures post, the Truth Social post, market reporting, and RentAHuman.
 - **Institutional sources** (METR, Epoch, lab disclosures) sit between: archive them when a claim depends on a specific figure rather than the existence of the page.
 
+**Outstanding: none of the four sources named above actually has a snapshot yet.** This environment has no network access to archiving services, so the initial pass has to happen outside it — this is a real, currently unactioned gap, not a completed policy.
+
 `linkcheck.py` runs monthly via GitHub Actions and opens an issue on failure. It is deliberately **not** part of `check.py`: link health and structural integrity are different failure modes, and a dead external link should not block a commit that fixes a typo.
 
 It reports **404 and 410 as dead**, and treats **403 and 429 as inconclusive** rather than failures, since those are overwhelmingly anti-bot responses rather than missing resources. Inconclusive results need a human look, not an alarm.
@@ -51,6 +53,10 @@ When a link does die: replace it with an archive snapshot if one exists, re-sour
 | Model revision simulating training runs raised AC→ASI median 1.22→1.72 yr and 3.86→4.56 yr, slowing fast takeoffs only | AI Futures Project, same post (fetched directly and quoted from at the time; a later reviewer's search could confirm the revision and direction but not these exact figures — worth an independent re-check) | P* |
 | AI Futures forecasts are conditional on maximum technically feasible speed | AI Futures Project, same | P |
 | Halstead's alignment-bottleneck argument | AI Futures Project, same | P |
+| Kokotajlo: material bottlenecks "nothing comes remotely close"; "apply that speedup multiplier" | 80,000 Hours podcast, "Daniel Kokotajlo on what a hyperspeed robot economy might look like," Jan 2026 | P |
+| AI Futures model: compute growth "will slow over time... speed of building new fabs," "big impact in ~2035+" | aifuturesmodel.com, AI Futures Model documentation | P |
+| Co-authored piece: AI R&D automation implies proximity to robots that "reliably construct and operate power plants, fabs, mines" | AI 2040: Plan A, LessWrong comment thread, 2026 | P |
+| Anthropic's R&D Automation Index: Claude "leads" 26% of Anthropic's AI R&D, up from <1% in Feb 2026; ~90% done "in collaboration" with Claude; ~30,000 internal research/engineering agents; methodology uses Epoch AI's AL0–AL5 automation scale on ~15,000 sampled tasks. Anthropic itself cautions the related 80%-Claude-authored-code figure "should not be read as a real-world training speedup," citing METR's finding that developer productivity self-reports are overestimated | Anthropic, "When AI builds itself," anthropic.com/institute/recursive-self-improvement, Sep 2026; corroborated independently (BetaNews, Fast Company, NBC New York) | P |
 | Opus 5 at expert parity on research taste for verifiable tasks | P-Zero Research preliminary, reported via AI Futures — **declined from the document as too weakly sourced** | U |
 | Anthropic AAR: 0.97 performance-gap-recovered in-sandbox vs. human baseline of 0.23; strongest method +0.5pt at production scale, within noise floor | Anthropic, "Automated Weak-to-Strong Researcher," alignment.anthropic.com/2026/automated-w2s-researcher/, 2026 | P |
 | Two genuinely unpublished ICML 2026 papers given to research agents; agents excelled at mechanics, made no progress on central research questions | Kapoor, Narayanan, Kirgis, Rabanser et al., "Can AI agents conduct open-ended AI research?", arXiv 2607.27191, July 2026 | P |
@@ -99,14 +105,9 @@ When a link does die: replace it with an archive snapshot if one exists, re-sour
 
 ## Known gaps
 
-Several rows above are marked with links or primary sources still to be pinned. These are real gaps, not placeholders for things that don't exist — each claim traces to material that was read, but the citation was not recorded at the time it entered the document.
+Several rows above are marked with links or primary sources still to be pinned, flagged inline as "link to be added" or "primary source not yet traced." These are real gaps, not placeholders for things that don't exist — each claim traces to material that was read, but the citation was not recorded at the time it entered the document. There is no separate list here; the markers are in place, in the rows themselves, above.
 
-**This is itself a finding about the process.** A document built around checkability accumulated twenty externally verifiable claims and zero links before anyone noticed. Contributions that pin an unpinned source, or that show a cited source does not say what the document claims, are among the most useful available.
-
-| Anthropic's R&D Automation Index: Claude "leads" 26% of Anthropic's AI R&D, up from <1% in Feb 2026; ~90% done "in collaboration" with Claude; ~30,000 internal research/engineering agents; methodology uses Epoch AI's AL0–AL5 automation scale on ~15,000 sampled tasks. Anthropic itself cautions the related 80%-Claude-authored-code figure "should not be read as a real-world training speedup," citing METR's finding that developer productivity self-reports are overestimated | Anthropic, "When AI builds itself," anthropic.com/institute/recursive-self-improvement, Sep 2026; corroborated independently (BetaNews, Fast Company, NBC New York) | P |
-| Kokotajlo: material bottlenecks "nothing comes remotely close"; "apply that speedup multiplier" | 80,000 Hours podcast, "Daniel Kokotajlo on what a hyperspeed robot economy might look like," Jan 2026 | P |
-| AI Futures model: compute growth "will slow over time... speed of building new fabs," "big impact in ~2035+" | aifuturesmodel.com, AI Futures Model documentation | P |
-| Co-authored piece: AI R&D automation implies proximity to robots that "reliably construct and operate power plants, fabs, mines" | AI 2040: Plan A, LessWrong comment thread, 2026 | P |
+**This is itself a finding about the process.** Before this file existed, the document had accumulated twenty externally verifiable claims and zero links — that historical gap is why `REFERENCES.md` was created. Contributions that pin a still-unpinned source, or that show a cited source does not say what the document claims, are among the most useful available.
 
 ## Claims that are inference, not citation
 
