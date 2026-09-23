@@ -7,7 +7,7 @@ body:
       value: |
         **This is the most valuable contribution available.**
 
-        Three tripwires were written *after* a development the existing set failed to anticipate: 15 after OpenAI's voluntary disclosure framework fell outside the evaluator-or-victim binary in 6 and 7; 16 after Dream-RSI demonstrated a self-improvement loop firing neither 3 nor 4; 2b after the AI Futures Project downgraded the metric tripwire 1 depends on.
+        Three tripwires were written *after* a development the existing set failed to anticipate: 16 after OpenAI's voluntary disclosure framework fell outside the evaluator-or-victim binary in 7 and 8; 17 after Dream-RSI demonstrated a self-improvement loop firing neither 4 nor 5; 3 after the AI Futures Project downgraded the metric tripwire 1 depends on.
 
         The shared diagnosis: **tripwires phrased on mechanisms get bypassed by mechanisms nobody enumerated in advance.** A tripwire phrased on an observable *effect* — something measurable regardless of how it comes about — is more durable.
 
@@ -43,9 +43,9 @@ body:
     attributes:
       label: Would this have caught one of the three misses?
       options:
-        - "Yes — the OpenAI proactive disclosure case (now tripwire 15)"
-        - "Yes — the Dream-RSI frozen-weight loop case (now tripwire 16)"
-        - "Yes — the time-horizon downgrade case (now tripwire 2b)"
+        - "Yes — the OpenAI proactive disclosure case (now tripwire 16)"
+        - "Yes — the Dream-RSI frozen-weight loop case (now tripwire 17)"
+        - "Yes — the time-horizon downgrade case (now tripwire 3)"
         - "No — this covers something none of the existing set addresses"
     validations:
       required: true
