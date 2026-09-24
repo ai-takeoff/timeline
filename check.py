@@ -106,6 +106,8 @@ elif doc_ver:
     else:
         note(f"Estimates last changed: v{est_ver}"
              + (" (this version)" if est_ver == doc_ver else ""))
+else:
+    est_tuple = None
 
 log_vers = re.findall(r"^## (\d+\.\d+) — (\d{4}-\d{2}-\d{2})", log, re.M)
 if not log_vers:
@@ -113,6 +115,10 @@ if not log_vers:
 else:
     newest = max(log_vers, key=lambda t: [int(p) for p in t[0].split(".")])
     note(f"Newest changelog entry: {newest[0]} ({newest[1]})")
+    if est_tuple:
+        since = sum(1 for v, _ in log_vers
+                    if [int(p) for p in v.split(".")] > est_tuple)
+        note(f"Versions published since the estimates marker: {since}")
     if doc_ver and doc_ver != newest[0]:
         fail(f"Version mismatch: document says {doc_ver}, newest changelog entry is {newest[0]}")
 

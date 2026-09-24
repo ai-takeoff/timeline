@@ -749,6 +749,26 @@ The `LICENSE` miss is the more important finding than either text correction: it
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
+## 1.60 — 2026-09-23
+
+Targeted follow-up review (Grok, reading the live repo), per the plan to use a free reviewer for verification work rather than a full re-review. Confirmed both v1.57 and v1.59 repairs match the commit history, then found five smaller real issues.
+
+**Files changed:**
+- `CONTRIBUTING.md` — the "thirty-six consecutive versions" line was already stale by the time it shipped (v1.59 alone made it thirty-seven), because it hardcoded a count in prose that changes every version. Removed the number entirely; `check.py` now computes and prints it live, so this can't go stale again. Added a clarifying clause: the count is versions in *publish order*, not a span of version numbers — v1.56 was reserved and never shipped, so it isn't a gap needing explanation.
+- `check.py` — added a live "Versions published since the estimates marker" count, computed from the changelog rather than stated as fixed prose. Verified: correctly reads 37 as of this version.
+- `CONTRIBUTORS.md` — three attributions were wrong, confirmed against the actual changelog text for the versions in question:
+  - v1.36 is explicitly a Grok pass ("Post-publication review (Grok, reading the live repo)"); v1.37 is explicitly Google AI ("Google AI review, framed as an 'exhaustive audit'"). The Google AI entry had credited it with v1.37's *label* but v1.44's *content* (bottleneck numbering, "resolved early," the no-RSI row, the flourishing contradiction) — all of which v1.44's own changelog text attributes directly to DeepSeek. Swapped: DeepSeek's entry now includes its actual v1.44 findings; Google AI's entry now describes v1.37's actual findings (the stale-footer regression, the 2050 horizon note, pathway A made explicit at the table, tripwire 3's growing-bias mechanism).
+  - Grok's entry cited a "v1.42–v1.44 stretch" — none of those three versions are Grok's; v1.42 was the user's own request, v1.43 was my own evidence-driven addition, v1.44 is explicitly DeepSeek's. Corrected to Grok's actual later contributions: the tripwire 3 table/note contradiction at v1.36, and the AI Futures bound-direction error, managed-decline dichotomy, and OPEN-QUESTIONS.md fixes at v1.50–v1.51.
+  - The claim that "AI 2027's timeline had already drifted across the project's own outside-view section" had no specific changelog entry to point to when checked — the closest match is a different, more specific claim (AI 2027's own median used as a range-width calibration datum). Dropped rather than kept on a loose paraphrase.
+- `LICENSE` — two nits: `.github/ISSUE_TEMPLATE/*` was in neither the documents nor the code list, now added to CODE; the MIT copyright line had no holder, now reads "the ai-takeoff/timeline contributors (see CONTRIBUTORS.md)."
+- `ai-timelines-and-outcomes.md` — the footer date was still "15–22 September," one day stale relative to the header (same class of bug as v1.36/v1.37, recurred a third time). Corrected to "15–23 September." Version header `1.59` → `1.60`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The footer-date bug recurring a third time is worth naming plainly: it has now happened at v1.36 (caught by Grok), v1.37 (caught by Google AI, one version later, on the *fix* for the first one), and here (caught by Grok again, on v1.59's fix for something else entirely). The footer is not part of anything `check.py` currently validates. Worth a dedicated check rather than trusting continued manual catches — queued, not done here, since this entry is corrections, not new tooling.
+
+**check.py: all checks pass, 7653/7800. Estimates last changed: v1.21, 37 versions since** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

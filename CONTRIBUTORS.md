@@ -8,11 +8,11 @@ Credit for findings that changed this document, per the promise in `CONTRIBUTING
 
 ## Grok (xAI)
 
-The most frequent external reviewer, across many rounds from v1.14 onward. Findings that changed the document include: the physical-friction taxonomy's original three-category framing (later expanded to four after Grok's critique of the coordination/institutional/phase-transition split), multiple citation and arithmetic corrections in the v1.17–v1.24 range, the observation that AI 2027's timeline had already drifted across the project's own outside-view section, and continued structural review through the v1.42–v1.44 stretch.
+The most frequent external reviewer, across many rounds from v1.14 onward. Findings that changed the document include: the physical-friction taxonomy's original three-category framing (later expanded to four after Grok's critique of the coordination/institutional/phase-transition split), multiple citation and arithmetic corrections in the v1.17–v1.24 range, a self-contradiction between tripwire 3's table row and its own note resolved at v1.36, and — reading the live repo directly — the AI Futures "upper bound" direction error, the managed-decline false dichotomy, and the OPEN-QUESTIONS.md premise-scoping and tripwire-count corrections at v1.50–v1.51.
 
 ## DeepSeek
 
-Contributed the "Impossible Date Bug" framing and several internal-consistency catches focused on arithmetic and cross-references rather than external sourcing — notably the discovery, in an early pass, that a PDF rendering of the document had introduced text-extraction errors (misreading "~20W" as "~200W"), which is the origin of this project's rule to review current markdown rather than the PDF.
+Contributed the "Impossible Date Bug" framing and several internal-consistency catches focused on arithmetic and cross-references rather than external sourcing — notably the discovery, in an early pass, that a PDF rendering of the document had introduced text-extraction errors (misreading "~20W" as "~200W"), which is the origin of this project's rule to review current markdown rather than the PDF. Also, at v1.44, working from internal consistency alone with external claims explicitly bracketed as unverifiable: bottleneck numbering out of file-order sequence, a self-contradicting "resolved early" claim about a disputed Millennium Prize solution, the no-RSI row's alignment-conditioning language, and the flourishing/managed-decline definitional contradiction.
 
 ## ChatGPT (OpenAI)
 
@@ -20,7 +20,7 @@ Reviewed the document once, in depth (v1.40). Its most consequential finding was
 
 ## Google AI (Gemini)
 
-Multiple rounds through v1.36–v1.38, focused on structural consistency: bottleneck numbering out of sequence, a self-contradicting "resolved early" claim about the Millennium Prize datum, the no-RSI row's alignment-conditioning language, and the flourishing/managed-decline definitional contradiction that led to the current wording explicitly stating the gap rather than papering over it.
+At v1.37, framed as an "exhaustive audit": a real regression I'd introduced the version before (a stale footer date, left behind while the changelog was fixing a different stale date), the 2050 horizon note's rough qualitative position, pathway A's role made explicit at the point of reading the cognitive-only and no-RSI rows rather than only in its own definition, and a concrete growing-bias mechanism for tripwire 3's note (self-report bias scaling with model complexity).
 
 ## Opus 5.5 (Anthropic)
 
