@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.61 — 24 September 2026** · **Estimates last changed: v1.21**
+**Version 1.62 — 24 September 2026** · **Estimates last changed: v1.21 (17 September 2026)**
 
 The version number tracks every change to this file, including wording, sourcing, and tooling — most of it. The second figure tracks the last version where a probability, range, or tripwire magnitude actually moved. If you are citing a number from this document, that second figure is the one that matters; two versions many releases apart can carry identical estimates.
 

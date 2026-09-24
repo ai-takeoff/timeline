@@ -781,6 +781,21 @@ The footer-date bug recurring a third time is worth naming plainly: it has now h
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
+## 1.62 — 2026-09-24
+
+The user's own observation: the estimates-last-changed date is old enough to be worth surfacing where a visitor sees it before opening the full document, not just in the document's own header.
+
+**Files changed:**
+- `README.md` — added the estimates marker to the existing "Status" section, next to the no-tripwire-fired note it belongs with: **"Estimates last changed: v1.21 (17 September 2026)."**
+- `ai-timelines-and-outcomes.md` — the document's own marker now carries the date alongside the version number, not just the version: `v1.21 (17 September 2026)` rather than bare `v1.21`. Version header `1.61` → `1.62`.
+- `check.py` — three new checks, all verified against deliberate breaks before being accepted: the marker's stated date must match that version's actual changelog date (catches either drifting independently); README's copy of the marker must exist; and README's copy must match the document's copy exactly, word for word.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The obvious risk in adding a second copy of anything is that it silently diverges from the first — exactly the failure mode this whole session has been repairing in other forms. Handled the same way as everywhere else tonight: not by trusting two humans (or one human and one model) to remember to update both, but by making divergence a build failure. `check.py` now reads `README.md` for the first time; previously it validated only the document and changelog.
+
+**check.py: all checks pass, 7656/7800. Estimates last changed: v1.21, 39 versions since** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

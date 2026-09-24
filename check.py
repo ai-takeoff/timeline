@@ -16,6 +16,7 @@ from pathlib import Path
 
 DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
+README = Path("README.md")
 
 WORD_CEILING = 7800  # drift guard; raise deliberately, never incidentally
 # Raised 7000 -> 7400 at v1.27 (see prior comment below).
@@ -79,6 +80,7 @@ if not LOG.exists():
 
 doc = DOC.read_text(encoding="utf-8")
 log = LOG.read_text(encoding="utf-8")
+readme = README.read_text(encoding="utf-8") if README.exists() else ""
 
 # ---------------------------------------------------- 1. version match
 m = re.search(r"\*\*Version (\d+\.\d+) — (\d{1,2} \w+ \d{4})\*\*", doc)
@@ -106,6 +108,40 @@ elif doc_ver:
     else:
         note(f"Estimates last changed: v{est_ver}"
              + (" (this version)" if est_ver == doc_ver else ""))
+
+    # The marker now carries a date too ("v1.21 (17 September 2026)") --
+    # cross-check it against that version's own changelog entry, so a
+    # future edit can't update the version number without also updating
+    # the date, or vice versa.
+    dm = re.search(rf"Estimates last changed: v{re.escape(est_ver)} \((\d{{1,2}} \w+ \d{{4}})\)", doc)
+    log_entry_date = re.search(rf"^## {re.escape(est_ver)} — (\d{{4}}-\d{{2}}-\d{{2}})", log, re.M)
+    if dm and log_entry_date:
+        # convert "17 September 2026" and "2026-09-17" to the same form for comparison
+        import datetime
+        marker_date = datetime.datetime.strptime(dm.group(1), "%d %B %Y").date()
+        log_date = datetime.date.fromisoformat(log_entry_date.group(1))
+        if marker_date != log_date:
+            fail(f"Estimates marker shows v{est_ver} dated {dm.group(1)}, but "
+                 f"the changelog dates v{est_ver} as {log_entry_date.group(1)} "
+                 f"— one of these is stale.")
+    elif not dm:
+        fail(f"Estimates marker (v{est_ver}) has no readable "
+             f"'(D Month YYYY)' date alongside the version number.")
+
+    # README.md carries a copy of this same marker for visitors who never
+    # open the full document -- the two must say the same thing, or the
+    # README becomes exactly the kind of unsynced duplicate this whole
+    # marker exists to prevent.
+    if readme:
+        rm = re.search(r"Estimates last changed: v[\d.]+ \([^)]+\)", readme)
+        dm_full = re.search(r"Estimates last changed: v[\d.]+ \([^)]+\)", doc)
+        if not rm:
+            fail("README.md has no 'Estimates last changed' marker -- either "
+                 "add one (kept in sync with the document's) or remove this "
+                 "check if the README is no longer meant to carry it.")
+        elif dm_full and rm.group(0) != dm_full.group(0):
+            fail(f"README.md's estimates marker ({rm.group(0)!r}) does not "
+                 f"match the document's ({dm_full.group(0)!r}).")
 else:
     est_tuple = None
 

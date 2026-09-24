@@ -10,6 +10,8 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
+**Estimates last changed: v1.21 (17 September 2026).** Every version since has changed wording, sourcing, or tooling — not a number. Check the same marker at the top of the document itself; the two are kept in sync by `check.py`.
+
 **No tripwire has fired.** No named metric has crossed a pre-registered threshold, so no estimate has been revised by the mechanism this document is built around. In that sense the instrument has not been read.
 
 It has, however, been tested for *coverage* — and the results are not good. Three times a real development arrived, no existing tripwire covered it, and one was written in response:
