@@ -733,6 +733,22 @@ This closes the four-tier plan for the Opus 5.5 review, following the v1.57 repa
 
 **check.py: all checks pass, 7653/7800. Estimates last changed: v1.21** — this entry does not move it, since nothing in this tier touched a number.
 
+## 1.59 — 2026-09-23
+
+Self-check, done before spending credits on another external review, per the user's own request. Found three real issues by actually reading the committed files rather than trusting the previous verification's shallow existence-check.
+
+**Files changed:**
+- `LICENSE` — **the v1.58 fix had never actually landed.** My own verification of v1.58 only ran `ls LICENSE`, confirming the file existed, not that its content was correct — it wasn't. The live file still had the old document list (missing `OPEN-QUESTIONS.md`, `CONTRIBUTORS.md`), the old code list (only `check.py` and one workflow), and the old citation wording. Applied fresh, verified against the actual live content this time, not against my own prior output.
+- `CONTRIBUTORS.md` — the Opus 5.5 entry said "v1.53–v1.57"; Tier 4 (v1.58) was also that review's work and was missing from its own range.
+- `CONTRIBUTING.md` — the estimates-marker rule cited "thirty-seven consecutive versions" since v1.21; the real count, verified by parsing every changelog header, is thirty-six — v1.56 was deliberately skipped during the v1.57 repair and I miscounted across the gap.
+- `ai-timelines-and-outcomes.md` — version header only, `1.58` → `1.59`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The `LICENSE` miss is the more important finding than either text correction: it means a "verified" commit in the previous turn was not actually verified at the level that mattered. Existence is not correctness, and this is exactly the same category of error as the v1.57 partial-upload gap, just smaller in scope — one file, not five. Going forward, verifying a file after commit means checking its content matches what was intended, not just that the filename appears in the tree.
+
+**check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

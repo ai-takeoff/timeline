@@ -3,7 +3,10 @@ This repository contains two kinds of material, licensed separately.
 --------------------------------------------------------------------
 DOCUMENTS
 ai-timelines-and-outcomes.md, CHANGELOG.md, REFERENCES.md,
-README.md, CONTRIBUTING.md, and the generated PDF
+OPEN-QUESTIONS.md, README.md, CONTRIBUTING.md, CONTRIBUTORS.md,
+and the periodically-generated PDF rendering of the main document
+(not stored in this repository — see the repository README for why —
+but covered by this license whenever it is distributed)
 
 Creative Commons Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
@@ -12,13 +15,15 @@ You may share and adapt these for any purpose, including
 commercially, provided you give appropriate credit, link to the
 license, and indicate if changes were made.
 
-If you quote an estimate, cite the version it came from. The
-estimates change; an uncited figure becomes unfalsifiable, which
-defeats the purpose of the document.
+If you quote an estimate, cite the version it came from — and check
+the "Estimates last changed" marker in the document header, since
+most versions carry identical numbers to the one before them.
 
 --------------------------------------------------------------------
 CODE
-check.py and .github/workflows/check.yml
+check.py, linkcheck.py, datecheck.py, and
+.github/workflows/check.yml, .github/workflows/linkcheck.yml,
+.github/workflows/pr-rules.yml
 
 MIT License
 

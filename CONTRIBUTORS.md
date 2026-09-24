@@ -24,7 +24,7 @@ Multiple rounds through v1.36–v1.38, focused on structural consistency: bottle
 
 ## Opus 5.5 (Anthropic)
 
-The most technically rigorous review received, v1.53–v1.57. Found a genuine mathematical error in tripwire 3's bias-cancellation argument (present since v1.29, undetected through several later edits to the same passage), the absence of any tripwire-stacking or column-propagation rule, a direct contradiction between the outcome table's exhaustiveness disclaimer and its enforced row sums, a self-invalidating bug in `datecheck.py`, and roughly two dozen smaller regressions and structural issues across every file in the repository, nearly all of which were confirmed real on direct verification before being fixed.
+The most technically rigorous review received, v1.53–v1.58. Found a genuine mathematical error in tripwire 3's bias-cancellation argument (present since v1.29, undetected through several later edits to the same passage), the absence of any tripwire-stacking or column-propagation rule, a direct contradiction between the outcome table's exhaustiveness disclaimer and its enforced row sums, a self-invalidating bug in `datecheck.py`, and roughly two dozen smaller regressions and structural issues across every file in the repository, nearly all of which were confirmed real on direct verification before being fixed.
 
 ## The user (maintainer)
 
