@@ -749,7 +749,7 @@ The `LICENSE` miss is the more important finding than either text correction: it
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
-## 1.60 — 2026-09-23
+## 1.60 — 2026-09-24
 
 Targeted follow-up review (Grok, reading the live repo), per the plan to use a free reviewer for verification work rather than a full re-review. Confirmed both v1.57 and v1.59 repairs match the commit history, then found five smaller real issues.
 
@@ -768,6 +768,18 @@ Targeted follow-up review (Grok, reading the live repo), per the plan to use a f
 The footer-date bug recurring a third time is worth naming plainly: it has now happened at v1.36 (caught by Grok), v1.37 (caught by Google AI, one version later, on the *fix* for the first one), and here (caught by Grok again, on v1.59's fix for something else entirely). The footer is not part of anything `check.py` currently validates. Worth a dedicated check rather than trusting continued manual catches — queued, not done here, since this entry is corrections, not new tooling.
 
 **check.py: all checks pass, 7653/7800. Estimates last changed: v1.21, 37 versions since** — this entry does not move it.
+
+## 1.61 — 2026-09-24
+
+**Files changed:**
+- `CHANGELOG.md` — v1.60's date corrected from 2026-09-23 to 2026-09-24, found by the user running `datecheck.py` after committing and catching the drift themselves. Real time passed between authoring v1.60's content and it actually being uploaded, same pattern as v1.52's and v1.53–v1.55's earlier corrections.
+- `ai-timelines-and-outcomes.md` — footer span extended from "15–23 September" to "15–24 September" to match; version header `1.60` → `1.61`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+`datecheck.py` did exactly what it exists to do here — one real mismatch, caught cleanly, no noise. The footer-date check queued at v1.60 (a dedicated `check.py` rule verifying the footer's end date against the header's date) remains queued, not done in this entry, since this one was purely the changelog correction the user surfaced.
+
+**check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
 ## Convention from here
 

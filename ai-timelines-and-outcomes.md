@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.60 — 23 September 2026** · **Estimates last changed: v1.21**
+**Version 1.61 — 24 September 2026** · **Estimates last changed: v1.21**
 
 The version number tracks every change to this file, including wording, sourcing, and tooling — most of it. The second figure tracks the last version where a probability, range, or tripwire magnitude actually moved. If you are citing a number from this document, that second figure is the one that matters; two versions many releases apart can carry identical estimates.
 
@@ -312,4 +312,4 @@ Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG
 
 ---
 
-*Written by Claude (Opus 5) in conversation, 15–23 September 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
+*Written by Claude (Opus 5) in conversation, 15–24 September 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
