@@ -718,6 +718,21 @@ Going forward, nested-path edits use GitHub's in-browser editor (navigate to the
 
 **check.py: all checks pass, 7588/7800. No estimate changed** — every fix in this entry restores something already decided and previously verified; nothing here is a new judgment call.
 
+## 1.58 — 2026-09-23
+
+Tier 4 of the Opus 5.5 review — housekeeping — plus one design fix worth more than the label suggests. Built and verified against the confirmed-live v1.57 base, after the previous tier's partial-upload gap.
+
+**Files changed:**
+- `CONTRIBUTORS.md` — new file, fulfilling a promise `CONTRIBUTING.md` had made since it was written but never kept. Built retroactively from the changelog's existing attribution record: Grok, DeepSeek, ChatGPT, Google AI, and Opus 5.5 each credited with the versions their findings landed in, plus the user's own direct contributions (the undated outcome table, the infrastructure taxonomy gap, the "2b" renumbering complaint, the twenty wrong changelog dates, the v1.57 partial-upload discovery, and the standing insistence on verifying rather than assuming repo state). Stated explicitly as a first pass built by scanning for named reviewers, not a line-by-line audit.
+- `LICENSE` — the document list was missing `OPEN-QUESTIONS.md` and `CONTRIBUTORS.md`; the code list named only `check.py` and one workflow, omitting `datecheck.py`, `linkcheck.py`, and two workflow files. Both corrected. Clarified that the PDF is licensed when distributed despite never being stored in the repository.
+- `ai-timelines-and-outcomes.md`, `check.py`, `CONTRIBUTING.md`, `README.md` — a fix to the standing critique that bumping the document version for references-only or wording-only changes undercuts "cite the version," since identical estimates can carry different version numbers across many releases. Confirmed sharply: the last version where a probability, range, or tripwire magnitude actually moved was **v1.21** — thirty-seven consecutive versions since then have carried numerically identical estimates. Added a second header marker, **"Estimates last changed: vX.Y,"** distinct from the version number that tracks every change including wording and tooling. `check.py` now validates the marker exists and is not newer than the document's own version (verified against a deliberate break). `CONTRIBUTING.md` states the rule: any PR changing a number must update this marker. Version header `1.57` → `1.58`.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This closes the four-tier plan for the Opus 5.5 review, following the v1.57 repair of a partial upload that had affected Tiers 2 and 3. Total across the full review: roughly 30 confirmed findings across the main document, `REFERENCES.md`, `OPEN-QUESTIONS.md`, three tooling scripts, one issue template, and now `LICENSE`/`CONTRIBUTORS.md` — nearly all confirmed real on direct verification before being acted on, with one exception (an early attempted fix to `datecheck.py` that was itself wrong, caught by testing rather than review).
+
+**check.py: all checks pass, 7653/7800. Estimates last changed: v1.21** — this entry does not move it, since nothing in this tier touched a number.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

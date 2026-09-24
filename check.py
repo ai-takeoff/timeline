@@ -89,6 +89,24 @@ else:
     doc_ver = m.group(1)
     note(f"Document version: {doc_ver} ({m.group(2)})")
 
+# ------------------------------------- 1b. estimates-last-changed marker
+em = re.search(r"Estimates last changed: v(\d+\.\d+)", doc)
+if not em:
+    fail("No 'Estimates last changed: vX.Y' marker in the header — the "
+         "document version alone conflates content changes with numeric "
+         "changes, which is exactly the ambiguity this marker exists to "
+         "remove for anyone citing a figure.")
+elif doc_ver:
+    est_ver = em.group(1)
+    est_tuple = [int(p) for p in est_ver.split(".")]
+    doc_tuple = [int(p) for p in doc_ver.split(".")]
+    if est_tuple > doc_tuple:
+        fail(f"Estimates-last-changed marker (v{est_ver}) is newer than the "
+             f"document's own version (v{doc_ver}) — that can't be right.")
+    else:
+        note(f"Estimates last changed: v{est_ver}"
+             + (" (this version)" if est_ver == doc_ver else ""))
+
 log_vers = re.findall(r"^## (\d+\.\d+) — (\d{4}-\d{2}-\d{2})", log, re.M)
 if not log_vers:
     fail("CHANGELOG has no parseable '## X.Y — YYYY-MM-DD' entries")

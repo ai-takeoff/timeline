@@ -64,6 +64,7 @@ Some things this project raises are genuinely open — not findings to fix or tr
 | `CHANGELOG.md` | Every revision with its reasoning, including declined critiques and why. |
 | `REFERENCES.md` | Every externally checkable claim, its source, and a source-quality class. |
 | `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
+| `CONTRIBUTORS.md` | Credit for findings that changed the document, by reviewer and version. |
 | `OPEN-QUESTIONS.md` | Genuinely open research questions the project raises but can't resolve. |
 | `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
 | `linkcheck.py` | Monthly link-durability check on `REFERENCES.md`'s external sources. |
