@@ -58,6 +58,10 @@ None of these is a large claim. If you know of prior art for any of them, open a
 
 Some things this project raises are genuinely open — not findings to fix or tripwires to file, but research questions with no answer yet. See [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) for the written-up questions and [Discussions](../../discussions) for live conversation about them.
 
+## FAQ
+
+Some questions have answers a reader could still reasonably get wrong on first encounter. The first: why real, well-evidenced "recursive self-improvement" results such as Dream-RSI and AIDE² do not automatically fire tripwire 17. See [FAQ.md](FAQ.md).
+
 ## Repository contents
 
 | File | What it is |
@@ -68,6 +72,7 @@ Some things this project raises are genuinely open — not findings to fix or tr
 | `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
 | `CONTRIBUTORS.md` | Credit for findings that changed the document, by reviewer and version. |
 | `OPEN-QUESTIONS.md` | Genuinely open research questions the project raises but can't resolve. |
+| `FAQ.md` | Answers to questions a reader could reasonably get wrong on first encounter, starting with why "recursive self-improvement" headlines don't automatically fire tripwire 17. |
 | `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
 | `linkcheck.py` | Monthly link-durability check on `REFERENCES.md`'s external sources. |
 | `datecheck.py` | Verifies changelog entry dates against actual GitHub commit dates. |

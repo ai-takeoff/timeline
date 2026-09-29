@@ -796,6 +796,26 @@ The obvious risk in adding a second copy of anything is that it silently diverge
 
 **check.py: all checks pass, 7656/7800. Estimates last changed: v1.21, 39 versions since** — this entry does not move it.
 
+## 1.63 — 2026-09-29
+
+**Files changed:**
+- `FAQ.md` — new file. Answers one question a reader could reasonably get wrong: whether a new "recursive self-improvement" result fires tripwire 17. States a reusable test (does the result improve how a frontier model gets designed, trained, or evaluated, or the tool doing the improving on general engineering tasks?) and checks four real results against it — Dream-RSI, ScienceBuddy, DeepSeek's DSec, and Weco's AIDE² — all on the non-firing side. Explains the reason for the line: algorithm-engineering and kernel tasks give fast, cheap, checkable feedback, while model design and training-method search still need a real training run to evaluate. Also separates tripwire 17's observable (gains *reported* in those domains) from tripwire 4's (a system-originated change *adopted* in a production run).
+- `README.md` — added an "FAQ" pointer section and a `FAQ.md` row in the contents table. The estimates marker is untouched.
+- `LICENSE` — `FAQ.md` added to the documents list, so the new file is licensed like the others.
+- `REFERENCES.md` — two additions. (a) Registered the three papers the FAQ cites that had no entry: ScienceBuddy (arXiv 2609.17523), DeepSeek's DSec (arXiv 2609.22978), and Weco's AIDE² (Weco blog, 14 Jul 2026; arXiv 2609.26457) — the FAQ cites all three. (b) A queued item folded in: Amodei's "We Must Pace the Frontier" essay (12 Sep 2026), including its Level 3 "speed limit" on recursive self-improvement modelled on the SALT treaties; Altman's same-day agreement on X (secondary reporting); and what Amodei and Altman actually said at the UN Security Council on 23 September. Sourced from the essay itself and the speech transcripts, not from summaries.
+- `check.py` — two queued checks folded in, each tested against a deliberate break before being accepted. (1) The footer's writing span ("in conversation, 15–29 September 2026") must end on the header's date; the footer had gone stale independently at v1.36, v1.37 and v1.59–60. (2) Every tracked root `.md`/`.py` file must appear in both the README's contents table and `LICENSE`; a root file had been missing from one or the other twice before. The second check enumerates git-tracked files, so untracked local drafts don't trip it, and it is skipped outside a git checkout.
+- `ai-timelines-and-outcomes.md` — corrected a name error in the tripwire 17 note: "Science Buddy (PH AI Labs)" is **ScienceBuddy (PhAI Labs)**. The error came from a video transcript's auto-caption and had never been checked against a source; ScienceBuddy was also missing from `REFERENCES.md`, now fixed above. Header `1.62` → `1.63` and dated 29 September; footer span extended to 15–29 September to match.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The FAQ is a response to a specific worry: that readers will see AIDE² billed as "the first real evidence of recursive self-improvement" and conclude tripwire 17 has fired. It hasn't, and stating the reason as a test rather than a one-off rebuttal means the next such headline can be checked the same way. AIDE² itself was published by Weco on 14 July 2026, so the September framing that recirculated it was not new information.
+
+An earlier draft of the governance references, written from secondary reporting before the speeches were read, was wrong in two ways and was rewritten from the primary sources. It said Amodei reiterated the SALT comparison at the UN; the comparison is in his 12 September essay and does not appear in his UN speech. It also said Altman endorsed the plan at the UN; his endorsement was a same-day post on X, and his UN speech makes its own case for standards and incident reporting without mentioning Amodei's plan. Both are now stated as the sources support.
+
+Older changelog entries (v1.43, v1.54) still say "Science Buddy" and, in v1.43, the wrong company name. They are left as written, per the convention that history is not rewritten; the correction is recorded here.
+
+**check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it. No estimate or tripwire magnitude changed.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

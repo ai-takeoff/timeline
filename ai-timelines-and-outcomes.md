@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.62 — 24 September 2026** · **Estimates last changed: v1.21 (17 September 2026)**
+**Version 1.63 — 29 September 2026** · **Estimates last changed: v1.21 (17 September 2026)**
 
 The version number tracks every change to this file, including wording, sourcing, and tooling — most of it. The second figure tracks the last version where a probability, range, or tripwire magnitude actually moved. If you are citing a number from this document, that second figure is the one that matters; two versions many releases apart can carry identical estimates.
 
@@ -266,7 +266,7 @@ The mechanism is narrower than it first appears. Dream-RSI's offline replay work
 
 So tripwire 17 does not describe type 3 becoming type 1. It describes type 3 feeding type 1 a better-curated stream of candidates to test — still bottlenecked by the same expensive evaluation loop, just aimed better. That is a real effect, but a modest one: better aim at an unchanged bottleneck, not a route around it. Hence the small update rather than a large one.
 
-**A deployed system now does roughly this, outside the tripwire's domain.** Science Buddy (PH AI Labs) pairs an inner loop, which evolves the harness with the model held fixed, and an outer loop, which retrains the model under that improved harness — targeting the expensive step better, not cheapening it, exactly the distinction above. Domain is genomics and literature search, not AI research, so tripwire 17 does not fire; it is the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks.
+**A deployed system now does roughly this, outside the tripwire's domain.** ScienceBuddy (PhAI Labs) pairs an inner loop, which evolves the harness with the model held fixed, and an outer loop, which retrains the model under that improved harness — targeting the expensive step better, not cheapening it, exactly the distinction above. Domain is genomics and literature search, not AI research, so tripwire 17 does not fire; it is the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks.
 
 **On tripwires 7, 8 and 16.** Detection has three states, not two: an evaluator finds an incident, a victim finds it, or the lab discloses it itself, proactively, under a published process. Tripwire 16 covers the third, since it is governance-relevant but fires neither 7 nor 8. It sits below 7 because the lab selects what to report and how to characterise it; a framework announced is not a framework that works, and the test is whether anything unflattering surfaces through it later.
 
@@ -312,4 +312,4 @@ Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG
 
 ---
 
-*Written by Claude (Opus 5) in conversation, 15–24 September 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
+*Written by Claude (Opus 5) in conversation, 15–29 September 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*

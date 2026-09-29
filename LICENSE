@@ -3,7 +3,7 @@ This repository contains two kinds of material, licensed separately.
 --------------------------------------------------------------------
 DOCUMENTS
 ai-timelines-and-outcomes.md, CHANGELOG.md, REFERENCES.md,
-OPEN-QUESTIONS.md, README.md, CONTRIBUTING.md, CONTRIBUTORS.md,
+OPEN-QUESTIONS.md, FAQ.md, README.md, CONTRIBUTING.md, CONTRIBUTORS.md,
 and the periodically-generated PDF rendering of the main document
 (not stored in this repository — see the repository README for why —
 but covered by this license whenever it is distributed)

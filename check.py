@@ -10,7 +10,9 @@ Run: python3 check.py
 Exit 0 = all pass. Exit 1 = at least one failure.
 """
 
+import datetime
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -144,6 +146,30 @@ elif doc_ver:
                  f"match the document's ({dm_full.group(0)!r}).")
 else:
     est_tuple = None
+
+# ------------------- 1c. footer's writing span ends on the header's date
+# The footer ("in conversation, 15-29 September 2026") and the header date
+# are two hand-maintained copies of "when this version was written". They
+# went stale independently at v1.36, v1.37 and v1.59-60; making the mismatch
+# a build failure is cheaper than catching it by eye each time.
+if m:
+    header_date = datetime.datetime.strptime(m.group(2), "%d %B %Y").date()
+    fm = re.search(r"in conversation, (\d{1,2})(?: [A-Za-z]+)?–(\d{1,2}) ([A-Za-z]+) (\d{4})", doc)
+    if not fm:
+        fail("Footer has no parseable 'in conversation, D–D Month YYYY' writing span")
+    else:
+        try:
+            footer_end = datetime.datetime.strptime(
+                f"{fm.group(2)} {fm.group(3)} {fm.group(4)}", "%d %B %Y").date()
+        except ValueError:
+            footer_end = None
+            fail(f"Footer's writing-span end date is not a real date: "
+                 f"{fm.group(2)} {fm.group(3)} {fm.group(4)}")
+        if footer_end and footer_end != header_date:
+            fail(f"Footer's writing span ends {footer_end.isoformat()} but the header is "
+                 f"dated {header_date.isoformat()} — one of them is stale.")
+        elif footer_end:
+            note(f"Footer writing span ends on the header date ({header_date.isoformat()})")
 
 log_vers = re.findall(r"^## (\d+\.\d+) — (\d{4}-\d{2}-\d{2})", log, re.M)
 if not log_vers:
@@ -280,6 +306,37 @@ if ref_path.exists():
         note(f"REFERENCES.md covers all {len(named)} named sources in the document")
 else:
     fail("REFERENCES.md not found — externally checkable claims have no citation map")
+
+# --------------------------- 9. root files are listed in README and LICENSE
+# Twice a root file was missing from LICENSE's lists or the README table
+# (v1.56-58's LICENSE, and linkcheck.py from the README). Enumerated from
+# git's tracked files so untracked local drafts don't count; skipped when
+# this isn't a git checkout.
+try:
+    tracked = subprocess.run(["git", "ls-files"], capture_output=True, text=True,
+                             check=True, encoding="utf-8").stdout.splitlines()
+except (OSError, subprocess.CalledProcessError):
+    tracked = None
+
+if tracked is None:
+    note("Root-file coverage: skipped (not a git checkout)")
+else:
+    root_files = sorted(f for f in tracked
+                        if "/" not in f and f.endswith((".md", ".py")))
+    license_path = Path("LICENSE")
+    license_text = license_path.read_text(encoding="utf-8") if license_path.exists() else ""
+    if not license_text:
+        fail("LICENSE not found or empty — root files have no license coverage")
+    if not readme:
+        fail("README.md not found — root files have no contents table")
+    not_in_readme = [f for f in root_files if f != "README.md" and f not in readme]
+    not_in_license = [f for f in root_files if f not in license_text]
+    if not_in_readme:
+        fail(f"Root file(s) missing from README.md's contents table: {not_in_readme}")
+    if not_in_license:
+        fail(f"Root file(s) missing from LICENSE's documents/code lists: {not_in_license}")
+    if not (not_in_readme or not_in_license):
+        note(f"All {len(root_files)} tracked root .md/.py files are listed in README and LICENSE")
 
 # ------------------------------------------------------------ report
 print("=" * 62)
