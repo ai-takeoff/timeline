@@ -816,6 +816,18 @@ Older changelog entries (v1.43, v1.54) still say "Science Buddy" and, in v1.43, 
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it. No estimate or tripwire magnitude changed.
 
+## 1.64 — 2026-10-02
+
+**Files changed:**
+- `REFERENCES.md` — added Daniel Kokotajlo's Senate testimony (30 September 2026, to the Subcommittee on Disaster Management, District of Columbia, and Census): a sharper personal estimate (~50% full AI R&D automation by end of 2028); a concrete institutional-access limitation (METR investigated only one of several rogue-swarm incidents, given six days on-site); a declining-trend claim about chain-of-thought monitorability specifically; a compute-allocation figure (~50% of OpenAI's and Anthropic's compute spent on AI R&D itself); a direct critique that "pace the frontier" commitments haven't yet produced measurable slowdown; and a corroborating quote from OpenAI researcher Dan Selsam on models "increasingly seem[ing] aligned even when they are not."
+- `ai-timelines-and-outcomes.md` — version header only, `1.63` → `1.64`, dated 2 October; footer span extended to match.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This event was processed promptly rather than queued, on a rationale distinct from its content: it was public Senate testimony from the document's most-cited named source, squarely on-topic, and easy for anyone to find. A reader who encountered the testimony and then checked this repository for a response would reasonably read a long gap as the document being behind events, independent of whether the testimony actually changes anything here — and it doesn't. None of it fires a tripwire or moves an estimate: the 2028 figure is Kokotajlo's own forecast, not a measured trend crossing a threshold, and the rest is governance context. The addition is recorded in `REFERENCES.md` alone for exactly that reason. The rationale is stated here explicitly, consistent with the project's standing practice of recording *why* a judgment call was made, not only what changed — in this case, the reason is about visible timeliness, not substance, and that distinction is worth being honest about rather than dressing up as a stronger finding than it is.
+
+**check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
