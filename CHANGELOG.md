@@ -842,6 +842,32 @@ Prompted by a direct question about whether a credentialed expert's serious obje
 
 **check.py: all checks pass, 7702/7800. Estimates last changed: v1.21** — this entry does not move it.
 
+## 1.66 — 2026-10-02
+
+Full rebuild of the Yampolskiy entry following a scoped external review (Opus 5.5), requested specifically to check representation accuracy and the reasoning's logical soundness — not to evaluate whether the estimates should change on the strength of the objection alone. The review found real, specific, checkable problems; this entry incorporates essentially all of them.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — two additions to the outcome-table section, closing a genuine internal-consistency gap the review surfaced: (1) an explicit statement that "alignment largely solved" requires preserving human collective agency, not good outcomes alone — the table's definitions of flourishing and disempowerment never actually said this, and a value-aligned-but-non-deferential outcome fits the disempowerment definition as written; confirmed with the user this was the intended sense before fixing it as a definition rather than moving probability mass; (2) an explicit statement that the alignment-solved/unsolved lever — the single largest driver of the disempowerment column, about 31 points — is structurally unobservable, since no tripwire distinguishes genuine from deceptive alignment and `P(alignment largely solved | RSI closes)` is never stated. Version header `1.65` → `1.66`.
+- `check.py` — word ceiling raised 7800 → 7850, reason stated inline, to accommodate the two additions above after trimming had closed all but a few words of the gap.
+- `OPEN-QUESTIONS.md` — the Yampolskiy entry rebuilt substantially:
+  - Representation corrected from a static "unverifiability implies doom" framing to his actual iterative mechanism (ongoing change, indefinite horizon, active optimization against safeguards, unrecoverable single failure), sourced to a primary transcript (Lex Fridman Podcast #431) rather than secondary summary.
+  - Added the control-type-failure strand from *On Controllability of AI* — literal obedience and non-deferential benevolence both fail as "control" in different ways — which is the direct source of the first estimates finding above.
+  - Softened overstated characterization of his work's rigor ("sustained body of formal work" → informal argument with some borrowed formal results); attributed "coined AI safety" as self-description rather than asserted fact; flagged the 99.9%/100-year horizon pairing as secondhand and unconfirmed against a primary quote.
+  - Replaced the aviation/nuclear analogy as primary rebuttal with a sharper one: Rice's theorem blocks deciding a property for *all* programs, not for one specific program built and proven to have it (seL4, CompCert are real instances) — with the honest limit stated alongside it, that neural networks are trained rather than built to be verifiable and sit closer to Rice's "arbitrary program" case than seL4 does. The aviation analogy is kept only as a weaker supplementary point, after the review identified four specific features (fixed/certified versions, no adversarial optimization, learning from *survivable* failures, in-regime testing) that it fails to share with the AI control problem.
+  - Reframed the "unresolved" section around the actual empirical crux — the probability that a capable system deceives evaluators by default — rather than resting on the analogy.
+  - Corrected the perpetual-motion rebuttal to target his actual use of the analogy (perpetual, not single-shot, safety) rather than attacking it for lacking thermodynamic exactness.
+  - Fixed the nines-stacking critique: "compounds multiplicatively," not "sums"; added that a common root among correlated worries relocates the question to the root's own probability rather than resolving it; added the review's sharpest point, that the same independence-assumption critique applies symmetrically to Yampolskiy's own strongest argument (per-iteration compounding, *p^N* → 0), so the tool doesn't favor either side's conclusion on its own; flagged "more nines" as an attributed characterization of his reasoning process, not a pinned direct quote.
+  - Both estimates-level findings written up explicitly, including that the first is now resolved by definition (confirmed with the user) and the second remains a stated, open structural limit rather than a miscalibration.
+  - Fixed "the alignment largely solved row" (singular) to reflect that two such rows exist.
+- `REFERENCES.md` — the single general Yampolskiy row replaced with five properly pinned citations: the primary perpetual-safety-machine quote (Lex Fridman transcript), the books/papers it's built on, the P(doom)/horizon claim marked as secondhand (S-tier, not P), the "coined AI safety" self-description with its source, and seL4/CompCert as the verified-systems counter-illustration.
+- `README.md` — one sentence added: the adversarial-review process has the same correlated-reviewer limitation being discussed, since a reviewer from the same model family as the author isn't a fully independent check — sharpened by the fact that the reviewing model disclosed exactly this about itself.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The review was scoped in advance to exclude "the estimates should change because this objection is serious or credentialed" as a sufficient basis for a recommendation, while explicitly keeping in scope "the estimates should change because of this specific, independently checkable reasoning gap." The review used that scope correctly: both estimates-level findings are structural and checkable against the document's own prior text, verified directly before being accepted, not deferred to on authority. Nothing in the outcome table's numbers changed as a result of this entry; what changed is a definition that had been ambiguous and a limit that had been true but unstated.
+
+**check.py: all checks pass, 7802/7850. Estimates last changed: v1.21** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

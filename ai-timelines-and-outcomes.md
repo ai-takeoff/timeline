@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.65 — 2 October 2026** · **Estimates last changed: v1.21 (17 September 2026)**
+**Version 1.66 — 2 October 2026** · **Estimates last changed: v1.21 (17 September 2026)**
 
 The version number tracks every change to this file, including wording, sourcing, and tooling — most of it. The second figure tracks the last version where a probability, range, or tripwire magnitude actually moved. If you are citing a number from this document, that second figure is the one that matters; two versions many releases apart can carry identical estimates.
 
@@ -149,6 +149,8 @@ The three outcome states, as of the assessment date:
 - **Permanent disempowerment** — humans survive, possibly in materially comfortable conditions, but have lost effective control over civilizational direction with no realistic path to regaining it.
 - **Prolonged human flourishing** — humans retain meaningful collective agency over their circumstances, and material conditions are at least comparable to today's.
 
+**"Alignment largely solved" is not satisfied by good outcomes alone.** A value-aligned superintelligence that does not preserve human collective agency meets this document's disempowerment definition, not flourishing, however good the outcome feels. The flourishing figures below assume alignment in this stronger, agency-preserving sense.
+
 These three do not exhaust the space. A world with retained agency but *worse* material conditions — managed decline, a costly but survived catastrophe — meets flourishing's agency criterion but fails its material one, and also fails disempowerment's criterion, since that category requires *lost* control, not retained control under worse conditions. It fits none of the three columns as defined. Uncorrected here; a fourth column would need a re-derivation of every row.
 
 **This creates a real tension with the numbers below, not just a conceptual gap.** Every row's midpoints sum to roughly 100, which only holds if the three columns partition the space — the opposite of what the paragraph above says. In practice, whatever mass a scenario like managed decline carries was folded into one of the three columns when each estimate was made, not cleanly excluded as the prose now claims. That folding was not tracked at the time and cannot be reconstructed after the fact. Read the sums as an approximation that assumes near-exhaustiveness, not as a proof that it holds.
@@ -170,6 +172,8 @@ A second gap is not a missing column but a missing fact of the matter. Merger sc
 *Most bad mass is lock-in, not death.* Row one's combined bad outcomes run 60–85%, but the extinction component is 20–30% and the rest is survival without control. Dependency is not autonomy, and "not exterminated" is a low bar.
 
 *Alignment is the larger lever on disempowerment; on extinction the two levers are comparable.* Holding capability fixed and solving alignment moves disempowerment about 31 points (47.5% → 16% at midpoints) and extinction about 20. Holding alignment unsolved and removing the physical loop moves disempowerment only 2.5 points and extinction 13.5 — but capability's fuller effect on extinction shows up across the whole ladder to no-RSI, which moves it about 20 points as well (25% → 5%). So: alignment clearly dominates disempowerment. On extinction, alignment (~20) and capability (~20) are roughly tied rather than either dominating. Physical autonomy is what raises extinction to its highest rates — it does not create the risk, since cognitive-only with alignment unsolved still sits at 8–15%; alignment failure is what makes losing control likely.
+
+**This lever cannot currently be read.** No tripwire distinguishes alignment-largely-solved from deceptive alignment that is behaviorally identical under every evaluation here — the treacherous-turn gap applies with full force to the table's single largest driver. `P(alignment largely solved | RSI closes)` is never stated as a number. The biggest disempowerment lever is therefore unobservable, not merely uncertain.
 
 *RSI raises the odds of disempowerment but does not create them.* Reading the column: 25–40% with no RSI (no alignment condition — pathway B does not route through misalignment), 38–52% with cognitive RSI under unsolved alignment, 40–55% with the full loop under unsolved alignment — a world that never closes the loop still carries roughly two-thirds the disempowerment risk of one that does with alignment unsolved, though the rows differ in more than RSI status and this is not a clean causal comparison. The floor is set by delegation and misuse, which proceed regardless of alignment.
 

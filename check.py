@@ -20,7 +20,11 @@ DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
 README = Path("README.md")
 
-WORD_CEILING = 7800  # drift guard; raise deliberately, never incidentally
+WORD_CEILING = 7850  # drift guard; raise deliberately, never incidentally.
+# Raised from 7800 at v1.66: two short additions closing a real internal-
+# consistency gap found by external review (the agency-preservation
+# clause on "alignment largely solved," and the unobservable-lever note)
+# didn't fit under trimming alone without degrading clarity.
 # Raised 7000 -> 7400 at v1.27 (see prior comment below).
 # Raised 7400 -> 7800 at v1.53. Reasoning: an external review (Opus 5.5)
 # identified that repeated compression of the same passages (thermodynamics,
