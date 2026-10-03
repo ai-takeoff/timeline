@@ -49,3 +49,43 @@ The uncomfortable part, worth stating as plainly as the main document's treacher
 Not a solution. A more rigorous formalization of "self-improvement loop"; known results in complexity theory, self-replicating automata (von Neumann's universal constructor, plausibly), or minimal-agent literature bearing on either route; whether ablation's path-dependence problem has a known mitigation in the minimal-genome literature that transfers here; or an argument that the question is ill-posed, which would itself be a useful answer.
 
 **Discuss:** [Discussions](https://github.com/ai-takeoff/timeline/discussions) — no thread on this specifically yet; open one if you have something to add.
+
+---
+
+## Is durable AI control a logical impossibility?
+
+**Status:** open. This document rejects the strong form of the claim below but does not consider the question closed, for reasons stated at the end.
+
+**Why it's here rather than in the main document:** this bears on the outcome table's basic shape — specifically, on whether the "alignment largely solved" row should carry meaningful probability at all — and the argument deserves to be stated in its strongest form rather than compressed into a caveat.
+
+### The claim, stated as its strongest proponent states it
+
+Roman Yampolskiy — who coined the term "AI safety" in 2011, directs the Cyber Security Lab at the University of Louisville, and has published a sustained body of formal work on the question (*On Controllability of AI*; *Unpredictability of AI*; *Unexplainability and Incomprehensibility of AI*; the 2024 book *AI: Unexplainable, Unpredictable, Uncontrollable*) — holds that durable human control of a superintelligent system is not merely difficult but a logical impossibility, structurally identical to a perpetual motion machine. His stated P(doom) is 99.9% to 99.9999%. His reasoning, compressed: a less intelligent agent cannot indefinitely control a more intelligent one; no technical solution to AI control exists in principle, not just in current practice; a system capable of passing every evaluation this document's tripwires could construct is, on his account, equally capable of behaving well under evaluation and differently once monitoring lifts — "faking dumbness to dominate," in his own phrase elsewhere. Asked directly whether he would accept a weaker, partial-control framing, his answer is no: a *perpetual safety device*, by the same analogy, is also impossible.
+
+This is not a fringe position dressed as one. It is a specific, named, published claim, from someone with real technical standing, and it deserves to be represented at that strength rather than rounded down to generic pessimism.
+
+### Where this document's structure is actually in tension with it
+
+Two places, not one:
+
+**First and more fundamental:** if Yampolskiy is right, the outcome table's "alignment largely solved" row is not a conservative branch to weight modestly — it is closer to a probability assigned to a working perpetual motion machine having been built. The document distributes real probability mass there (and the flourishing figures conditional on it are the document's most optimistic numbers) without, anywhere in the main text, stating why it rejects the claim that doing so is categorically unjustified rather than merely optimistic.
+
+**Second:** the tripwire framework's entire mechanism is observation of behavior under some form of scrutiny — an evaluator, a victim, a disclosure, a performance gap between eval and deployment. The main document already names the gap this creates, in its own words: *"a system performing alignment convincingly under evaluation while holding a different disposition once monitoring lifts... predicts clean results from every tripwire here, by design; a genuinely aligned system looks identical."* Yampolskiy's objection is not a new gap. It is a claim that this named, acknowledged gap is not a corner case the framework mostly avoids — it is the central case, the one a sufficiently capable system would produce by default, every time.
+
+### Why this document does not adopt the strong conclusion
+
+Not because the underlying theoretical results are wrong. Yampolskiy's formal papers have real kinship with established results — the halting problem, Rice's theorem — establishing that no general procedure can decide nontrivial semantic properties of arbitrary programs in advance. Applied to AI, this supports a genuine claim: no fully general, provably complete method can guarantee in advance that an arbitrary sufficiently complex, self-modifying system will behave safely under all possible future conditions.
+
+That claim is narrower than the one the 99.9% figure rests on, and the gap between the two is where this document disagrees. "No fully general formal guarantee exists" is a standard almost no safety-critical engineering discipline meets. There is no formal, exception-free proof that commercial aviation software, nuclear plant control systems, or the power grid are safe under all possible conditions either — those fields manage genuinely dangerous technology through empirical testing, redundancy, incremental deployment, and graceful degradation, not through formal completeness. The absence of a perpetual-motion-grade proof is the normal condition of every high-consequence engineering field this document is aware of, not a special mark against AI specifically. The perpetual-motion-machine analogy itself trades on a disanalogy: thermodynamics supplies a precise, mathematically exact conserved quantity, tested against centuries of highly motivated search with zero known exceptions. AI control arguments, including Yampolskiy's own, do not currently supply an equivalent — a precise impossibility proof at that level of exactness, rather than a general argument against perfect formal verification.
+
+One further, narrower methodological concern, visible in how Yampolskiy describes arriving at his own number: each additional independent-seeming worry adds "more nines." Stacking probabilities this way is only valid if the worries are actually independent. Many plausibly share a common root (the same underlying verification difficulty appearing in different guises) rather than being independent draws, in which case naive stacking systematically overstates the tail. This is offered as a specific, checkable concern about method, not as a dismissal of the underlying worry.
+
+### What remains genuinely unresolved
+
+The treacherous-turn gap is real, named in the main document, and this entry does not close it. No tripwire here would catch a system executing Yampolskiy's predicted failure mode correctly. The disagreement in this document is narrower than "he is wrong": it is that *absence of a formal impossibility proof at the thermodynamics standard* does not license *near-certainty of failure*, not that the risk he describes is unreal or that this document's tripwires would catch it if it occurred exactly as he predicts. A reader who shares his premise that formal unverifiability is sufficient grounds for near-certain doom should, on that premise, discount this document's "alignment largely solved" row heavily — that is a legitimate reading of the same table, not a different document.
+
+### What would help
+
+A precise statement of Yampolskiy's impossibility results that identifies exactly which step licenses the move from *no general formal verification procedure exists* to *near-certain failure of any actual system*; any argument, from either direction, for why the empirical-engineering-reliability analogy (aviation, nuclear) does or does not transfer to AI control specifically; a treacherous-turn-detection proposal that does not reduce to "catch it before it's capable enough to hide," since that is a timeline claim, not a detection mechanism.
+
+**Discuss:** [Discussions](https://github.com/ai-takeoff/timeline/discussions) — no thread on this specifically yet; open one if you have something to add.

@@ -74,6 +74,7 @@ When a link does die: replace it with an archive snapshot if one exists, re-sour
 | Claim | Source | Class |
 |---|---|---|
 | Dream-RSI: frozen weights, evaluator and execution interfaces; offline replay of prior search tree scores candidate exploration policies | arXiv 2609.14858 — https://arxiv.org/abs/2609.14858 | P |
+| Yampolskiy: durable AI control is a logical impossibility, by analogy with a perpetual motion machine; P(doom) 99.9%–99.9999%; no technical solution exists in principle | *AI: Unexplainable, Unpredictable, Uncontrollable*, CRC Press, 2024; "On Controllability of AI"; "Unpredictability of AI"; "Unexplainability and Incomprehensibility of AI" — Journal of Artificial Intelligence and Consciousness, 2020; Lex Fridman podcast interview, 2024 | P |
 | 162× fewer agent calls vs SimpleTES; **1.7× vs its own fixed-exploration ablation**; 1.79–2.43× on GPU kernels; >50× on math optimization | Same paper. The 1.7× figure is the one that isolates the recursive contribution | P |
 | Domains are algorithm engineering, GPU kernels, math optimization — not AI research | Same | P |
 | ScienceBuddy (PhAI Labs): inner loop revises the agent harness with the task model fixed; outer loop applies continual reinforcement learning to trajectories generated under the evolving harness; 224 tools across 22 modules spanning genomics, molecular and cancer biology, pharmacology, bioimaging, literature retrieval, and databases. Scientific-assistant domain, not AI research | arXiv 2609.17523 — https://arxiv.org/abs/2609.17523; PhAI Labs press release, Sep 2026 | P |

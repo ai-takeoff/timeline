@@ -828,6 +828,20 @@ This event was processed promptly rather than queued, on a rationale distinct fr
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
+## 1.65 — 2026-10-02
+
+**Files changed:**
+- `OPEN-QUESTIONS.md` — new entry: "Is durable AI control a logical impossibility?" States Roman Yampolskiy's position (University of Louisville, coined "AI safety" in 2011, published impossibility results, P(doom) 99.9%–99.9999%, the perpetual-motion-machine analogy) in its strongest form, identifies the two places this document's structure is actually in tension with it — the "alignment largely solved" row's existence, and the tripwire framework's vulnerability to a treacherous turn — and gives the document's actual reasoning for not adopting the strong conclusion: a distinction between "no fully general formal verification procedure exists" (a real, narrower claim with genuine theoretical grounding) and "therefore near-certain failure" (a stronger claim the formal results don't by themselves establish), plus a named methodological concern about treating correlated risk factors as independent when stacking probabilities. States plainly what remains genuinely unresolved rather than claiming the objection is closed.
+- `ai-timelines-and-outcomes.md` — one-sentence pointer added after the existing treacherous-turn paragraph, same pattern as the minimal-RSI pointer, directing to the new entry. Version header only otherwise, `1.64` → `1.65`.
+- `README.md` — the provenance paragraph previously named the AI-authorship conflict of interest generically ("no privileged insight"). Strengthened to name the specific asymmetric-incentive version of the concern — that an AI author could be motivated, undetectably, toward reassuring estimates about its own risk category — and to state plainly that nothing in the document can fully rule that out from the inside. States what the document offers instead (logged adversarial review including rejected critiques, conditional/bracketed estimates, direct engagement with the strongest counter-argument) without claiming these resolve the concern.
+- `REFERENCES.md` — registered Yampolskiy's book and papers.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+Prompted by a direct question about whether a credentialed expert's serious objection to the document's core structure was being effectively ignored by staying in conversation rather than in the record — a fair challenge, given the project's own standing claim that rejected critiques are logged, not just accepted ones. This entry is that logging applied to an objection raised in conversation rather than through the issue process. The numbers in the outcome table are unchanged: this document's standing rule is that estimates move on a demonstrated flaw in reasoning, math, or sourcing, not on the seriousness or credentials of a disagreeing party, and adjusting a number because the objection is forceful would be the same social-conformity failure Yampolskiy himself attributes to other researchers' numbers. What changed is that the objection is now represented at full strength, in the permanent record, with the document's actual reasoning for its disagreement stated rather than left implicit — which is a different and lower bar than resolving the disagreement.
+
+**check.py: all checks pass, 7702/7800. Estimates last changed: v1.21** — this entry does not move it.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

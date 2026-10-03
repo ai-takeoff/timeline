@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.64 — 2 October 2026** · **Estimates last changed: v1.21 (17 September 2026)**
+**Version 1.65 — 2 October 2026** · **Estimates last changed: v1.21 (17 September 2026)**
 
 The version number tracks every change to this file, including wording, sourcing, and tooling — most of it. The second figure tracks the last version where a probability, range, or tripwire magnitude actually moved. If you are citing a number from this document, that second figure is the one that matters; two versions many releases apart can carry identical estimates.
 
@@ -271,6 +271,8 @@ So tripwire 17 does not describe type 3 becoming type 1. It describes type 3 fee
 **On tripwires 7, 8 and 16.** Detection has three states, not two: an evaluator finds an incident, a victim finds it, or the lab discloses it itself, proactively, under a published process. Tripwire 16 covers the third, since it is governance-relevant but fires neither 7 nor 8. It sits below 7 because the lab selects what to report and how to characterise it; a framework announced is not a framework that works, and the test is whether anything unflattering surfaces through it later.
 
 **A gap these three share: all require something to be detected.** A system performing alignment convincingly under evaluation while holding a different disposition once monitoring lifts — a treacherous turn, Bostrom's term — predicts clean results from every tripwire here, by design; a genuinely aligned system looks identical. Untracked because it resists tracking. The nearest proxy is a growing eval-vs-deployment performance gap, a fact about behavior, not intent. No such tripwire exists.
+
+**The strongest named objection to this document's whole tripwire framework argues this is not a corner case but the central one** — that a system capable enough to matter is, by the same capability, capable of producing exactly this gap by default. Open question — see `OPEN-QUESTIONS.md`.
 
 Detection statistics confound two variables: how much there is to detect, and how good the detector is. A low catch rate is consistent with few incidents and with a poor detector, and these have opposite implications. Tripwire 7 therefore requires corroboration that the evaluator surfaced something internal monitoring missed, rather than treating any evaluator finding as good news.
 
