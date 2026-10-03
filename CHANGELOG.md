@@ -842,7 +842,7 @@ Prompted by a direct question about whether a credentialed expert's serious obje
 
 **check.py: all checks pass, 7702/7800. Estimates last changed: v1.21** — this entry does not move it.
 
-## 1.66 — 2026-10-02
+## 1.66 — 2026-10-03
 
 Full rebuild of the Yampolskiy entry following a scoped external review (Opus 5.5), requested specifically to check representation accuracy and the reasoning's logical soundness — not to evaluate whether the estimates should change on the strength of the objection alone. The review found real, specific, checkable problems; this entry incorporates essentially all of them.
 
@@ -865,6 +865,33 @@ Full rebuild of the Yampolskiy entry following a scoped external review (Opus 5.
 **Process notes** *(skip unless auditing the maintenance process)*:
 
 The review was scoped in advance to exclude "the estimates should change because this objection is serious or credentialed" as a sufficient basis for a recommendation, while explicitly keeping in scope "the estimates should change because of this specific, independently checkable reasoning gap." The review used that scope correctly: both estimates-level findings are structural and checkable against the document's own prior text, verified directly before being accepted, not deferred to on authority. Nothing in the outcome table's numbers changed as a result of this entry; what changed is a definition that had been ambiguous and a limit that had been true but unstated.
+
+**check.py: all checks pass, 7802/7850. Estimates last changed: v1.21** — this entry does not move it.
+
+## 1.67 — 2026-10-03
+
+Grok review of v1.66, run in two parts after a transcript was accidentally omitted from the first message and supplied separately: one pass checked the entry against Lex Fridman Podcast #431 (the source actually cited), the second against the interview transcript provided for review. Together they found a real problem the single-source check in v1.66 didn't surface.
+
+**The most serious finding: v1.66 presented a fabricated quotation.** A composite sentence — a reasonable compression of Yampolskiy's actual position — was put in quotation marks and attributed to a specific interview as though it were a direct quote. It was not something he said, in that interview or the other one checked. This is corrected below. Both reviews independently confirmed the underlying four-element mechanism (iteration, indefinite horizon, active optimization against safeguards, unrecoverable failure) is real and accurately represented; the error was specifically in presenting a paraphrase as an exact quotation, not in the substance being paraphrased.
+
+**Files changed:**
+- `OPEN-QUESTIONS.md` — the Yampolskiy entry corrected:
+  - The fabricated quotation removed; replaced with real, separately-attributed quotes from both transcripts, since they differ in emphasis.
+  - A fabricated exchange removed — "asked whether a weaker, partial-control framing would satisfy him, his answer is no" was not a real question-and-answer in either source. Replaced with an accurate statement that his existing position already extends to partial control, without claiming he was asked and answered directly.
+  - P(doom)/horizon section rewritten: 99.9% is the interviewer's figure in one interview, not repeated by Yampolskiy; in the Lex Fridman interview "99.9" is a stated verification-confidence ceiling, not an extinction probability; 99.9999% remains secondary-sourced only. The "100-year horizon, unconfirmed" framing replaced with what the sources actually support: his direct statement "80 years is not 2 years," plus century-scale language in the Lex Fridman interview used for a different, specific argument (zero-bug/decision-volume), not paired with an extinction percentage.
+  - The nines-stacking attribution corrected from hedged ("not a pinned direct quote") to pinned: an independent third source (Digital Disruption podcast) confirms "every time I meet an independent concern, I have to add more nines" as real and repeated, alongside a related "fractal" framing.
+  - Added the sharper version of his objection to the Rice's-theorem/seL4 rebuttal: a verifier-regress argument (confirming the next system needs an already-proven-safe system at least as capable), a residual-error-under-volume argument (a verification-confidence ceiling isn't enough headroom at high decision throughput over long horizons), and — the most consequential addition — his direct, previously-unrepresented rejection of design-based (rather than evolved) AI as a path around the control problem: tried for the field's first fifty years, doesn't scale, doesn't produce competitive capability. The entry's rebuttal is reframed to acknowledge this is his actual objection to roughly the seL4-style move, not a caveat the document is adding on his behalf.
+  - Added a third estimates-level finding: the table doesn't state whether "alignment largely solved" means solved-and-holds-within-the-2040–2060-window, or solved-and-remains-solved-indefinitely-under-continued-modification — different claims, and his persistence argument specifically targets the second. Framed as a missing conditional probability, not a demonstrated miscalibration.
+  - Status line and "what would help" section updated to reflect two review rounds and the remaining open asks.
+- `REFERENCES.md` — P(doom) row rewritten to match the corrected framing above; added pinned citations for the nines quote (Digital Disruption podcast — a real, findable, public source) and flagged the timing quote and the design-vs-evolution rejection as sourced to the review transcript with original broadcast source not yet identified ("link to be added," consistent with existing convention for this project).
+- `ai-timelines-and-outcomes.md` — v1.66's header and footer corrected: actually committed 2026-10-03 (confirmed via commit timestamp, 10:18:12 -0400 / 14:18 UTC), not 10-02 as dated. Same upload-lag class as v1.52 and v1.60. Version header `1.66` → `1.67`.
+- `CHANGELOG.md` — v1.66's own entry date corrected 2026-10-02 → 2026-10-03 to match.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The two-part submission (transcript omitted, then supplied separately) produced two independent checks against two different primary sources rather than one, which is how the fabricated quotation was caught — a single pass against either transcript alone might have found the other errors without surfacing that one, since each review was reading a different source than the one the false quote claimed to be drawn from. Worth treating as a reason to occasionally check contested material against more than one primary source deliberately, not just a lucky accident this time.
+
+`check.py`'s footer-date check (added v1.60) verifies the footer matches the header; it does not and cannot verify the header matches the actual commit date, which is exactly the class of error that recurred here. No automated check currently exists for this — `datecheck.py` catches it after the fact, on request, not automatically.
 
 **check.py: all checks pass, 7802/7850. Estimates last changed: v1.21** — this entry does not move it.
 
