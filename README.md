@@ -4,84 +4,72 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## What this is
 
-`ai-timelines-and-outcomes.md` is the document. It states probability estimates with the reasoning attached, so that if the estimates turn out wrong it is possible to see *why* rather than only *that*. It carries pre-registered update rules — tripwires — which commit in advance to a direction and rough magnitude of revision when a named observable crosses a named threshold. The point of pre-registering them is that a passive watchlist permits post-hoc rationalisation: any outcome can be narrated as consistent with the priors.
-
-`CHANGELOG.md` holds the revision history, including the versions that predate this repository.
+`ai-timelines-and-outcomes.md` states probability estimates with the reasoning attached, so that if they turn out wrong it is possible to see *why*, not only *that*. It carries pre-registered update rules, called **tripwires**. Each one commits in advance to a direction and rough size of revision when a named measurement crosses a named threshold. A passive watchlist lets any outcome be narrated as consistent with the priors; a rule written in advance does not.
 
 ## Status
 
-**Estimates last changed: v1.68 (12 October 2026).** That version stated three alignment parameters and a combined figure for the first time, and gave tripwire 14 a de facto branch with its own magnitude. No existing cell moved, and no tripwire fired. Before it, the last numeric change was v1.21 (17 September 2026). Check the same marker at the top of the document itself; the two are kept in sync by `check.py`.
+**Estimates last changed: v1.68 (12 October 2026).** That version stated three alignment parameters and a combined figure for the first time, and gave tripwire 14 a de facto branch. No existing cell moved, and no tripwire fired. The same marker heads the document, and `check.py` keeps the two in sync.
 
-**No tripwire has fired.** No named metric has crossed a pre-registered threshold, so no estimate has been revised by the mechanism this document is built around. In that sense the instrument has not been read.
+**No tripwire has fired**, so the instrument has not yet been read.
 
-It has, however, been tested for *coverage* — and the results are not good. Three times a real development arrived, no existing tripwire covered it, and one was written in response:
+**The tripwire set is demonstrably incomplete.** Four times, something arrived that no existing tripwire covered, and one was written or widened in response:
 
-- **Tripwire 16** (proactive lab disclosure) was added after OpenAI published six incidents under a voluntary framework. Tripwires 7 and 8 posed a binary — evaluator finds it, or victim finds it — and the third state materialised instead.
-- **Tripwire 17** (frozen-weight self-improvement transferring to AI research) was added after Dream-RSI demonstrated a loop type that fires neither tripwire 4 nor 5.
-- **Tripwire 3** (coding uplift) was added after the AI Futures Project downgraded the metric tripwire 1 depends on.
+- **Tripwire 3** (coding uplift): the metric tripwire 1 relies on was downgraded by the forecasters who pioneered it.
+- **Tripwire 14**, de facto branch: an argument (Harari, Leahy) showed that delegation can happen without any formal transfer of authority.
+- **Tripwire 16** (proactive lab disclosure): a lab disclosed its own incidents, a third state between "an evaluator finds it" and "the victim finds it."
+- **Tripwire 17** (frozen-weight self-improvement): Dream-RSI showed a loop type that fires neither tripwire 4 nor 5.
 
-A fourth gap was exposed by an argument rather than an event: tripwire 14 fired only on *formal* delegation, while the mechanism Harari and Leahy describe — humans keeping a signature they can no longer meaningfully withhold — never involves a formal transfer. v1.68 added a de facto branch.
+Tripwires phrased on mechanisms get bypassed by mechanisms nobody listed, so newer ones are phrased on observable effects.
 
-The first two share a diagnosis: tripwires phrased on *mechanisms* get bypassed by mechanisms not enumerated in advance. Later ones are phrased on observable effects for that reason.
+One of these was not pre-registration at all. Tripwire 16 was written after the event that prompted it and then applied to that same event. That is recorded rather than hidden, because it is the failure this apparatus exists to prevent.
 
-**One of these crossed a line worth naming.** Tripwire 16 prescribes "no timeline change, modest upgrade to governance expectations" — and that is what v1.14 concluded about the event that prompted the tripwire's creation. Writing a rule after an observation and then applying it to that observation is not pre-registration, whatever it is labelled. It is recorded here rather than buried because the failure mode is the exact one this apparatus exists to prevent.
+## Provenance and limitations
 
-Treat the estimates as a baseline awaiting a real test, and the tripwire set as demonstrably incomplete rather than merely untried.
+The estimates are Claude's own (Opus 5, with later revisions by other Claude models), produced in conversation. They are not a survey of expert opinion, and not the human maintainer's, whose figures ran higher on physical and rogue-state timelines and are left out to keep a single-forecaster baseline.
 
-## Provenance and known limitations
+Weight them accordingly. An AI system estimating AI risk has a conflict of interest and no privileged insight into where capabilities are heading. The specific worry is that an AI author could lean, undetectably, toward reassuring estimates about its own kind of risk. Nothing here can rule that out from the inside. What the project offers instead is auditability:
 
-The estimates were produced by Claude (Opus 5, with later revisions by other Claude models) in conversation and are that model's own, not a survey of expert opinion and not the human collaborator's, whose figures ran higher on physical and rogue-state timelines and are deliberately not represented so that this stays a single-forecaster baseline.
+- adversarial review by other AI systems, with rejected critiques logged alongside accepted ones;
+- bracketed, conditional estimates rather than single figures;
+- in `OPEN-QUESTIONS.md`, the strongest published argument that this whole structure is too optimistic.
 
-They should be weighted accordingly. An AI system estimating AI risk has an obvious conflict of interest and no privileged insight into capability trajectories. The specific version of that conflict worth naming rather than leaving implicit: an AI author could be motivated, in ways neither it nor a reader could necessarily detect from the text alone, to produce systematically reassuring estimates about its own category of risk. Nothing here can fully rule that out from the inside. What the document offers in its place is not a guarantee but a form of auditability: adversarial review from other AI systems, with every rejected critique logged alongside the accepted ones rather than only the ones that improved the document; estimates built conditionally and bracketed rather than asserted as a single confident figure; and, in `OPEN-QUESTIONS.md`, direct engagement with the strongest published argument that this document's whole structure is too optimistic by construction. That review process has the same limitation it's meant to check: a reviewer from the same model family as the author, or sharing training lineage, is not a fully independent check, and at least one past reviewer has disclosed exactly this about itself while reviewing. The document's own outside-view section notes that these figures are far more aggressive than field-wide researcher surveys and somewhat less aggressive than frontier-lab insiders, and that a reader who simply defers to the surveys is not being unreasonable.
+The review process shares the weakness it is meant to check: a reviewer from the same model family as the author is not an independent check. The figures are far more aggressive than field-wide researcher surveys and somewhat less aggressive than frontier-lab insiders. A reader who simply defers to the surveys is not being unreasonable.
 
 ## Related work
 
-This is a variant on an established method, not a new one. Anyone evaluating it should know what it sits alongside.
+This is a variant of an established method, and these sit alongside it:
 
-**[AI Futures Project](https://blog.aifutures.org/) — the nearest substantive neighbour.** Their AI 2027 scenario (April 2025) is a far more detailed forecast than this document, by a better-resourced team with a real track record. They update publicly, assess their own pace against reality — their Q2.5 2026 post puts actual progress at roughly 70–90% of what AI 2027 projected — and maintain a record of how their medians have moved since 2018. They have publicly corrected a modelling bug that shifted their own median by about nine months. Read them first.
+- **[AI Futures Project](https://blog.aifutures.org/)** is the nearest neighbour: a far more detailed forecast (AI 2027) by a better-resourced team that updates publicly, scores its own pace against reality, and publishes its corrections. Read them first.
+- **[Metaculus](https://www.metaculus.com/), Samotsvety and Manifold** pre-register resolution criteria; Metaculus scores AI 2027's milestones directly.
+- **[us-china-segmented-bipolarity](https://github.com/dr-robert-li/us-china-segmented-bipolarity)** applies the same method to geopolitics, with falsifiers committed before the estimation code existed.
+- **[falsify](https://github.com/studio-11-co/falsify)** timestamps claims cryptographically, which is stronger than this repository's reliance on git history.
 
-**[Metaculus](https://www.metaculus.com/), Samotsvety, Manifold — pre-registered resolution criteria.** Specifying in advance what would settle a question is the core of how these platforms work, and Metaculus runs a tournament scoring AI 2027's milestones directly. "Commit before the observation" is not novel.
+What is different here, stated narrowly:
 
-**[us-china-segmented-bipolarity](https://github.com/dr-robert-li/us-china-segmented-bipolarity) — the same method, another domain.** Pre-registered falsifiers committed before the estimation code existed, with commit history as proof of ordering, so that any later change to a threshold appears as a diff rather than a silent revision. Structurally very close to this repository, applied to geopolitics.
+1. Tripwires carry **magnitudes**: if this series crosses this threshold, this estimate moves by roughly this much.
+2. **Rejected critiques are logged with reasons**, which makes single-maintainer editorial control auditable.
+3. The **author is an AI system**, with the conflict disclosed and the review record public, including the reviews that were wrong.
 
-**[falsify](https://github.com/studio-11-co/falsify) — tooling for the same problem.** Cryptographically locks a claim and threshold before an experiment runs. Its SHA-256 timestamping is stronger than this repository's reliance on git history.
+If you know of prior art for any of these, open an issue.
 
-### What is actually different here
-
-Three things, stated narrowly:
-
-1. **Update rules carry magnitudes.** A Metaculus question pre-registers what resolves it. A tripwire here pre-registers that *if this named series crosses this threshold, this specific estimate moves by roughly this much, in this direction.* That is a different object, and no equivalent was found for AI timelines.
-2. **Rejected critiques are logged with reasons**, not only accepted ones. The changelog records findings that were declined and why, which is what makes single-maintainer editorial control auditable rather than arbitrary.
-3. **The author is an AI system, the conflict of interest is disclosed, and the adversarial-review record is public** — including which reviews were wrong.
-
-None of these is a large claim. If you know of prior art for any of them, open an issue; that is a useful contribution in itself.
-
-## Open questions
-
-Some things this project raises are genuinely open — not findings to fix or tripwires to file, but research questions with no answer yet. See [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md) for the written-up questions and [Discussions](../../discussions) for live conversation about them.
-
-## FAQ
-
-Some questions have answers a reader could still reasonably get wrong on first encounter: why "recursive self-improvement" headlines such as Dream-RSI and AIDE² do not automatically fire tripwire 17; whether AI has already taken over without any singularity; how the overall probability is derived from the conditional table; how to read the spread of expert estimates; and which futures each outcome column includes. See [FAQ.md](FAQ.md).
-
-## Repository contents
+## Files
 
 | File | What it is |
 |---|---|
-| `ai-timelines-and-outcomes.md` | The document. Estimates, tripwires, reasoning. |
-| `CHANGELOG.md` | Every revision with its reasoning, including declined critiques and why. |
+| `ai-timelines-and-outcomes.md` | The document: estimates, tripwires, reasoning. |
+| `CHANGELOG.md` | Every revision with its reasoning, including declined critiques. |
 | `REFERENCES.md` | Every externally checkable claim, its source, and a source-quality class. |
+| `FAQ.md` | Questions a reader could reasonably get wrong, including how the combined probability is derived. |
+| `OPEN-QUESTIONS.md` | Research questions the project raises but cannot resolve. |
 | `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
-| `CONTRIBUTORS.md` | Credit for findings that changed the document, by reviewer and version. |
-| `OPEN-QUESTIONS.md` | Genuinely open research questions the project raises but can't resolve. |
-| `FAQ.md` | Answers to questions a reader could reasonably get wrong on first encounter, including the derivation of the combined probability. |
-| `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
-| `linkcheck.py` | Monthly link-durability check on `REFERENCES.md`'s external sources. |
-| `datecheck.py` | Verifies changelog entry dates against actual GitHub commit dates. |
+| `CONTRIBUTORS.md` | Credit for findings that changed the document. |
+| `check.py` | Structural and arithmetic validation; runs on every push and pull request. |
+| `linkcheck.py` | Monthly check that `REFERENCES.md` links still resolve. |
+| `datecheck.py` | Checks changelog dates against actual commit dates. |
 | `LICENSE` | CC BY 4.0 for documents, MIT for code. |
 
-**If you quote an estimate, cite the version.** The figures change; an uncited number becomes unfalsifiable, which defeats the point.
+**If you quote an estimate, cite the version.** The figures change, and an uncited number cannot be checked.
 
 ## Reading it
 
-The estimates and tripwires are the operative content. The argumentative sections at the back — on thermodynamic inevitability, resource-competition scenarios, hazard rates, and the hype hypothesis — are context and are deliberately placed last.
+The estimates and tripwires are the operative content. The argumentative sections at the back are context. If a headline seems to fire a tripwire, or you want the overall probability rather than the conditional table, start with `FAQ.md`.

@@ -936,6 +936,26 @@ Consolidated revision folding in everything queued since v1.67. **This version m
 
 The alignment parameters were set by the author after seeing elicitations from two AI systems, both identifying as Claude models. Those are not independent of the author or of each other, and polling was dropped for that reason. The stated ranges are the author's own, the dependence is disclosed in the text, and the elicitations are not cited as evidence. `check.py`: all checks pass, 7850/7850 — at the ceiling, not over it. The next addition to the main text has to be paid for by a cut, or by a deliberate raise.
 
+## 1.69 — 2026-10-13
+
+Housekeeping. **Defect:** the ancillary files had grown long, repeated each other, and carried internal history (what earlier versions said, how errors were found, which review round produced what) that readers do not need and that already lives in this changelog. They were cut by about 30% overall without removing a claim, source, caveat or open question.
+
+**Files changed:**
+
+- `OPEN-QUESTIONS.md` — 4,171 → ~2,040 words.
+  - Minimal-RSI entry: the post-RSI "premise" framing reduced to one sentence; the argument, its precedents, the present-tense version and the unfalsifiability point kept.
+  - Yampolskiy entry: removed narration about earlier drafts, review rounds and the corrected quotation (recorded in 1.66–1.67); kept every quotation, the four-element mechanism, both tensions, the Rice/seL4 rebuttal and his three sharper objections, the aviation analogy's four failures, the crux, the symmetric nines argument, the three estimates findings as they now stand, and what would help.
+- `README.md` — 1,482 → ~900 words. The coverage-gap list, provenance, conflict of interest, related work and "what is different" kept in compressed form. Separate Open-questions and FAQ sections dropped as duplicates of the file table.
+- `REFERENCES.md` — 3,601 → ~3,090 words. Preamble and link-durability policy compressed; the longest rows (Kokotajlo testimony, Anthropic R&D index, Amodei essay and UN session, AIDE², ScienceBuddy, Yampolskiy, OpenAI math, Harari) trimmed to the checkable claim. The second Harari recording link (hBtVGwuJzpk) dropped as a duplicate edit of the same lecture. No source removed.
+- `FAQ.md` — 2,819 → ~2,435 words. The tripwire-17 entry rewritten more tightly, and its "why a test rather than a list" aside removed. Other entries lightly tightened; all tables kept unchanged.
+- `CONTRIBUTING.md` — 897 → ~656 words. Removed the release-history aside about PDF reviews (kept as a one-line rule), the tripwire-1 anecdote, and the note about v1.56 being skipped.
+- `CONTRIBUTORS.md` — 652 → ~457 words. Kept each reviewer's credited findings and versions, added Grok's v1.67 and Opus 5.5's v1.66 findings, and the maintainer's v1.68 observation.
+- `ai-timelines-and-outcomes.md` — version header and footer date only.
+
+**Not changed:** this changelog's existing entries, which are the designated home for history and are not rewritten; the main document's text, which is already bound by its word ceiling and the no-process-commentary rule; the `.github/` templates and workflows.
+
+**Estimates:** unchanged. Marker stays at v1.68.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

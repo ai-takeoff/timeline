@@ -1,31 +1,36 @@
 # Contributors
 
-Credit for findings that changed this document, per the promise in `CONTRIBUTING.md`: contributors whose findings are accepted are credited here, with the version their finding landed in, including findings raised outside GitHub — this document's review history predates the repository's public existence, so most contributions here were made in conversation and credited retroactively rather than filed as GitHub issues. That does not make them less real; the changelog entry for each version is the primary record, and this file is an index into it, not a separate source of truth.
-
-**This is a first pass, built by scanning the changelog for named reviewers, not a line-by-line audit of every finding in every version.** If a real contribution is missing or a version number is wrong, that is itself a legitimate finding — open an issue.
-
----
+Credit for findings that changed the document, with the version each landed in. Most were made in conversation before the repository went public and are credited retroactively. The changelog entry for each version is the primary record; this file is an index into it. It was built by scanning the changelog for named reviewers, so if a contribution is missing or misdated, open an issue.
 
 ## Grok (xAI)
 
-The most frequent external reviewer, across many rounds from v1.14 onward. Findings that changed the document include: the physical-friction taxonomy's original three-category framing (later expanded to four after Grok's critique of the coordination/institutional/phase-transition split), multiple citation and arithmetic corrections in the v1.17–v1.24 range, a self-contradiction between tripwire 3's table row and its own note resolved at v1.36, and — reading the live repo directly — the AI Futures "upper bound" direction error, the managed-decline false dichotomy, and the OPEN-QUESTIONS.md premise-scoping and tripwire-count corrections at v1.50–v1.51.
+The most frequent external reviewer, from v1.14 onward. Findings include the critique that expanded the physical-friction taxonomy from three categories to four; citation and arithmetic corrections across v1.17–v1.24; a contradiction between tripwire 3's row and its note (v1.36); the AI Futures "upper bound" direction error, the managed-decline false dichotomy, and `OPEN-QUESTIONS.md` scoping corrections (v1.50–v1.51); and a fabricated quotation and invented exchange in the Yampolskiy entry, found by checking it against two primary transcripts (v1.67).
 
 ## DeepSeek
 
-Contributed the "Impossible Date Bug" framing and several internal-consistency catches focused on arithmetic and cross-references rather than external sourcing — notably the discovery, in an early pass, that a PDF rendering of the document had introduced text-extraction errors (misreading "~20W" as "~200W"), which is the origin of this project's rule to review current markdown rather than the PDF. Also, at v1.44, working from internal consistency alone with external claims explicitly bracketed as unverifiable: bottleneck numbering out of file-order sequence, a self-contradicting "resolved early" claim about a disputed Millennium Prize solution, the no-RSI row's alignment-conditioning language, and the flourishing/managed-decline definitional contradiction.
+Internal-consistency and arithmetic catches. It found that a PDF rendering had introduced extraction errors (reading "~20W" as "~200W"), the origin of the rule to review markdown rather than PDF. At v1.44, working from internal consistency alone, it found out-of-order bottleneck numbering, a self-contradicting claim about the disputed Millennium Prize solution, the no-RSI row's alignment wording, and the flourishing/managed-decline contradiction.
 
 ## ChatGPT (OpenAI)
 
-Reviewed the document once, in depth (v1.40). Its most consequential finding was incorrect — a claimed misattribution of the Dream-RSI paper's institutional affiliations, which turned out to be accurate when checked directly against the paper and independent fact-checks. Recorded in the changelog as an instance of a review's own claim needing verification, not just the document's.
+One in-depth review (v1.40). Its most consequential finding, a claimed misattribution of the Dream-RSI paper's affiliations, was itself wrong when checked against the paper. It is recorded as a reminder that a review's claims need verifying too.
 
 ## Google AI (Gemini)
 
-At v1.37, framed as an "exhaustive audit": a real regression I'd introduced the version before (a stale footer date, left behind while the changelog was fixing a different stale date), the 2050 horizon note's rough qualitative position, pathway A's role made explicit at the point of reading the cognitive-only and no-RSI rows rather than only in its own definition, and a concrete growing-bias mechanism for tripwire 3's note (self-report bias scaling with model complexity).
+At v1.37: a stale footer date left behind by the previous version, the 2050 horizon note, pathway A's role made explicit where the cognitive-only and no-RSI rows are read, and a growing-bias mechanism for tripwire 3.
 
 ## Opus 5.5 (Anthropic)
 
-The most technically rigorous review received, v1.53–v1.58. Found a genuine mathematical error in tripwire 3's bias-cancellation argument (present since v1.29, undetected through several later edits to the same passage), the absence of any tripwire-stacking or column-propagation rule, a direct contradiction between the outcome table's exhaustiveness disclaimer and its enforced row sums, a self-invalidating bug in `datecheck.py`, and roughly two dozen smaller regressions and structural issues across every file in the repository, nearly all of which were confirmed real on direct verification before being fixed.
+v1.53–v1.58, the most technically rigorous review. It found a mathematical error in tripwire 3's bias-cancellation argument, the missing rule for stacking simultaneous tripwire firings, a contradiction between the outcome table's exhaustiveness disclaimer and its enforced row sums, a self-invalidating bug in `datecheck.py`, and about two dozen smaller issues. At v1.66 it reviewed the Yampolskiy entry, leading to the agency-preserving definition of "alignment largely solved" and the statement that the alignment lever cannot be observed.
 
-## The user (maintainer)
+## The maintainer
 
-Not a contributor in the "external review" sense, but the source of several of the sharpest catches in this project's history, including: the undated, unsummed early version of the outcome table; the physical-infrastructure gap in the original three-category friction taxonomy; the process-commentary leak in early versions; the "2b" tripwire-numbering complaint that led to the full renumbering; the discovery that twenty changelog dates were wrong (leading to `datecheck.py`); the discovery of the partial-upload gap that produced v1.57's repair; and the repeated, correct insistence on verifying claims against the live repository rather than assuming committed state, which is now this project's standing practice.
+Not an external reviewer, but the source of several of the sharpest catches:
+
+- the undated, unsummed early outcome table;
+- the physical-infrastructure gap in the friction taxonomy;
+- process commentary leaking into the body;
+- the "2b" tripwire numbering that led to the full renumbering;
+- twenty wrong changelog dates, which led to `datecheck.py`;
+- the partial-upload gap repaired in v1.57;
+- the insistence on verifying against the live repository rather than assuming what was committed;
+- the observation that the document carried pathway B's risk without communicating it (v1.68).

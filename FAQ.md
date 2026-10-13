@@ -1,59 +1,45 @@
 # FAQ
 
-Questions a reader could reasonably get wrong on first encounter, with answers you can check against the main document. Unlike the questions in [OPEN-QUESTIONS.md](OPEN-QUESTIONS.md), these have answers. If you think an answer here is wrong, open a Finding issue and quote the passage you are challenging.
+Questions a reader could reasonably get wrong on first encounter, with answers you can check against the main document. Unlike those in `OPEN-QUESTIONS.md`, these have answers. If you think one is wrong, open a Finding issue quoting the passage.
 
 ---
 
 ## A new AI system claims "recursive self-improvement." Doesn't that fire tripwire 17?
 
-Check which side of one line the result is on.
+Usually not. Check which side of one line the result falls on.
 
-Tripwire 17 fires on scaffolding gains reported on **model design, training-method search, or evaluation design** — decisions that shape how a frontier model itself gets built, trained, or measured. It does not fire on **algorithm engineering and kernels** — general coding, optimization, and research-tooling work, however impressive the results or however good the evidence that it generalizes — because those tasks give fast, cheap, checkable feedback (the code runs faster or it doesn't, the answer verifies or it doesn't), which is exactly what lets a scaffold improve itself without retraining anything. Improving how a frontier model is designed and trained has no such shortcut: every candidate change still has to be tested by a real training run that takes weeks and costs millions, so success in the cheap-feedback domain doesn't tell you the trick works in the expensive one.
+Tripwire 17 fires on scaffolding gains reported on **model design, training-method search, or evaluation design**: decisions about how a frontier model is built, trained or measured. It does not fire on **algorithm engineering and kernels**, however impressive. Those tasks give fast, cheap, checkable feedback (the code runs faster or it doesn't), which is exactly what lets a scaffold improve itself without retraining anything. Improving how a frontier model is trained has no such shortcut: every candidate change must be tested by a real training run that takes weeks and costs millions. Success on the cheap side says little about the expensive one.
 
-The test to apply to any new claim: does the result improve *how a frontier model gets designed, trained, or evaluated*, or does it improve *the tool doing the improving* — search policy, memory management, harness code — on general engineering tasks? Only the first can fire the tripwire.
+**The test:** does the result improve *how a frontier model is designed, trained or evaluated*, or *the tool doing the improving* (search policy, memory, harness code) on general engineering tasks? Only the first can fire the tripwire.
 
-### Four real results, checked against that line
-
-| Result | What it actually improved | Side of the line |
+| Result | What it improved | Side of the line |
 |---|---|---|
-| Dream-RSI (arXiv 2609.14858) | The exploration policy of a frozen agent, on algorithm design, math optimization, and GPU kernels | Non-firing. This is the tripwire's own named example of the non-firing side |
-| ScienceBuddy, PhAI Labs (arXiv 2609.17523) | An agent harness (inner loop, model fixed), then the model itself via reinforcement learning on trajectories produced under that harness, on genomics, biology, and literature-retrieval tasks | Non-firing. A different domain entirely, and a small task model rather than a frontier one |
-| DSec, DeepSeek (arXiv 2609.22978) | Sandbox infrastructure for training agents at scale, including agents building the training environments used to train later agents | Non-firing. Training infrastructure, not a training-method, model-design, or evaluation-design result |
-| AIDE², Weco AI (arXiv 2609.26457) | An AI research agent's own harness (search policy, memory management), evaluated on machine-learning-engineering benchmarks, with gains that carried over to four held-out benchmarks | Non-firing. ML engineering by a research-tooling agent, not model design. Weco itself places the result at Level 1 on its own 0–3 scale |
+| Dream-RSI (arXiv 2609.14858) | A frozen agent's exploration policy, on algorithm design, math optimization and GPU kernels | Non-firing; the tripwire's own named example |
+| ScienceBuddy, PhAI Labs (arXiv 2609.17523) | An agent harness, then a small task model trained on its trajectories, in genomics, biology and literature retrieval | Non-firing; different domain, not a frontier model |
+| DSec, DeepSeek (arXiv 2609.22978) | Sandbox infrastructure for training agents, including agents building later agents' training environments | Non-firing; infrastructure, not a training-method or design result |
+| AIDE², Weco AI (arXiv 2609.26457) | A research agent's own harness, on machine-learning-engineering benchmarks, with gains carrying over to held-out benchmarks | Non-firing; ML engineering by a tooling agent. Weco itself places it at Level 1 of its 0–3 scale |
 
-Each is real progress on the non-firing side. None of the four reports a result on the firing side.
+**What would fire it:** frozen-weight scaffolding gains measured on model design, training-method search or evaluation design. A system-originated training change actually adopted into a production run is a different, stronger event: tripwire 4.
 
-### What would fire it
+Even then the update is modest (closed-loop 2030 +8 points, hard takeoff +2), because cheap search speeds up *proposing* training methods but not *evaluating* them, and evaluation is the bottleneck.
 
-A report of Dream-RSI-style scaffolding gains — frozen weights, better search — measured on model design, training-method search, or evaluation design, rather than on algorithm engineering and kernels. That is the tripwire's observable, as worded in the main document.
-
-A stronger and separate event is a system-originated training or architectural change actually adopted into a production run. That is tripwire 4, not tripwire 17, and it carries a much larger update.
-
-Even when tripwire 17 does fire, the main document is explicit about how much it means: cheap search makes *proposing* candidate training methods faster, but not *evaluating* them, and evaluation — a real training run — is the expensive step that still bottlenecks the loop. That is why tripwire 17 carries a modest magnitude (closed-loop 2030 +8 points, hard takeoff +2) rather than a large one.
-
-### Why this is stated as a test rather than a list
-
-Harness self-improvement is an active research area with many groups working on it, so more results like these are coming. A list of examples goes stale with the next headline; a test lets you apply the same check yourself without waiting for this document to catch up.
-
-### If you think a result belongs on the firing side
-
-Open a Finding issue, quote the specific passage in the paper showing the technique applied to model design, training-method search, or evaluation design, and say what was measured. That is the evidence that would change this answer.
+If you think a result belongs on the firing side, open a Finding issue quoting the passage that shows it applied to model design, training-method search or evaluation design, and say what was measured.
 
 ---
 
 ## Hasn't AI already taken over, without any "singularity"?
 
-That is a serious view, and the main document's numbers already give it a lot of weight. It is also easy to miss, because the document's dated predictions are about recursive self-improvement (RSI), and RSI is not where most of this risk lives.
+It is a serious view, and the main document's numbers already give it a lot of weight. It is easy to miss because the dated predictions are about recursive self-improvement (RSI), which is not where most of this risk lives.
 
 ### The view, at full strength
 
-Yuval Noah Harari's Tanner Lecture at Oxford (21 May 2026, "AI has hacked the code of human civilization") argues that AI does not need to rebel, self-improve, or build robots to take control. Human dominance rests on large-scale cooperation, and that cooperation runs through bureaucracies — banks, courts, states, churches — whose operating code is language. AI is a "native bureaucrat": it can hold every law, every transaction, every precedent at once. As AI systems take over loan decisions, admissions, hiring, sentencing and targeting, control shifts from inside, with no single moment anyone would call a takeover. He adds a second channel: as AI masters language it moves from capturing attention (social media) to forming intimate relationships, and so into the trust that all of those institutions depend on. His present-tense evidence is social media ranking algorithms, narrow optimizers that changed politics worldwide without being agents in any strong sense.
+Yuval Noah Harari's Tanner Lecture at Oxford (21 May 2026) argues that AI need not rebel, self-improve or build robots to take control. Human dominance rests on large-scale cooperation, which runs through bureaucracies (banks, courts, states, churches) whose operating code is language. AI is a "native bureaucrat" that can hold every law and transaction at once. As it takes over loans, admissions, hiring, sentencing and targeting, control shifts from inside, with no moment anyone would call a takeover. A second channel: AI moves from capturing attention to forming intimate relationships, and so into the trust those institutions depend on. His present-tense evidence is social media ranking algorithms, narrow optimizers that changed politics worldwide without being agents in any strong sense.
 
-Connor Leahy makes a related point about oversight: there may be human CEOs for a long time, but if they "just rubber stamp what the AI CEOs tell them to do," that is not oversight.
+Connor Leahy adds that human CEOs who "just rubber stamp what the AI CEOs tell them to do" are not oversight.
 
 ### Where the document already agrees
 
-This is **pathway B** — fragmentation and delegation, no RSI required. It needs no misalignment, no takeoff, and no coherent adversary, only that delegation is individually rational and complexity outpaces oversight. The outcome table gives the world in which the loop never closes **25–40% permanent disempowerment** by 2060. That is roughly two-thirds of the disempowerment risk of the worst RSI row, and the main document says so directly: RSI raises the odds of disempowerment but does not create them.
+This is **pathway B**: fragmentation and delegation, needing no RSI, no misalignment and no coherent adversary, only that delegation is individually rational and complexity outpaces oversight. The table gives a world that never closes the loop **25–40% permanent disempowerment** by 2060, roughly two-thirds of the worst RSI row. RSI raises the odds of disempowerment; it does not create them.
 
 ### Where the document disagrees, or cannot tell
 
@@ -63,7 +49,7 @@ This is **pathway B** — fragmentation and delegation, no RSI required. It need
 
 ### How the document would see it
 
-**Tripwire 14** fires when major economic, military or administrative decision authority over millions of people is delegated to agent systems, **formally** (no human sign-off: pathway B disempowerment +10 points) or **de facto** (sign-off kept but documented as non-substantive, such as ~95%+ approval at review times too short for independent assessment: +5 points). The de facto branch exists because Harari's and Leahy's mechanism never involves a formal transfer. It carries half the magnitude because high approval rates are also what good recommendations produce.
+**Tripwire 14** fires when major decision authority over millions of people is delegated to agent systems, either **formally**, with no human sign-off (+10 points to pathway B disempowerment), or **de facto**, with sign-off kept but documented as non-substantive, such as ~95%+ approval at review times too short for real assessment (+5). The de facto branch exists because Harari's and Leahy's mechanism never involves a formal transfer. It carries half the magnitude because good recommendations also produce high approval rates.
 
 If you find a documented case that meets the de facto branch, open a Finding issue with the source.
 
@@ -71,7 +57,7 @@ If you find a documented case that meets the de facto branch, open a Finding iss
 
 ## What is the overall probability? The table only gives conditionals.
 
-The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈50%**, extinction alone **≈12%**. This is how it is built, so you can rerun it with your own inputs.
+The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈50%**, extinction alone **≈12%**. Here is how it is built, so you can rerun it with your own inputs.
 
 ### Inputs
 
@@ -83,7 +69,7 @@ The main document states one combined figure: extinction or permanent disempower
 | Holds through 2060, given solved at loop-close | 50–75% | 62.5% | Author judgment, stated in the main document |
 | Outcome cells | As in the table | Cell midpoints | Outcome table |
 
-The two alignment judgments were set after seeing probability elicitations from other AI systems. Those systems share training data and framing with the author, so the judgments are not independent of them, and the elicitations themselves are not treated as evidence. An alignment solution only counts for the "solved" rows if it holds through 2060, so the effective weight on those rows is the product: about 16% at midpoints.
+The two alignment judgments were set after seeing elicitations from other AI systems, which share training data and framing with the author; they are not independent, and the elicitations are not treated as evidence. A solution counts for the "solved" rows only if it holds through 2060, so their effective weight is the product: about 16% at midpoints.
 
 ### Result at midpoints
 
@@ -121,7 +107,7 @@ Extinction alone, computed the same way, comes to about 11.7%.
 
 ## How should I read the spread of expert estimates?
 
-Named estimates range from near zero to near certainty, and the spread is not noise to average away. Three things help.
+Named estimates range from near zero to near certainty. The spread is not noise to average away; three things help read it.
 
 ### 1. Incentives cut in both directions — apply them symmetrically
 
@@ -130,7 +116,7 @@ Two opposite incentive critiques are in circulation, and each discounts a differ
 - **Insiders are biased toward optimism.** People paid by frontier labs have reasons to see their work as safe. On this reading, the numbers that matter most come from people who left or were never employed there.
 - **Insiders are biased toward alarm.** Karen Hao (*Empire of AI*) argues that lab leaders' catastrophe talk is "an act of speech to persuade": it justifies keeping the technology in their hands, and the speakers come to half-believe it. On this reading, CEO risk figures are marketing, not forecasts.
 
-Applied consistently, each critique discounts a lab leader's warnings and that same leader's reassurances by the same amount. Neither touches the arguments themselves, which have to be weighed on their merits. Neither applies to people who gave up money or position to say what they said. A costly signal is better evidence than a cheap one in either direction.
+Applied consistently, each critique discounts a lab leader's warnings and reassurances alike. Neither touches the arguments themselves, which must be weighed on their merits, and neither applies to people who gave up money or position to speak. A costly signal is better evidence than a cheap one, in either direction.
 
 ### 2. Vantage point changes what a person can see
 
@@ -144,7 +130,7 @@ Applied consistently, each critique discounts a lab leader's warnings and that s
 | Tristan Harris | Societal-impact focus; says the architecture question is outside his expertise | No figure; says he thinks the companies plan to close the recursive loop "in the next 12 months" | Interview, date not pinned |
 | Field-wide survey | 2,778 published AI researchers | Median 5% chance of extremely bad outcomes such as extinction; human-level AI 50% by 2047 | Grace et al. 2024; see the main document |
 
-Three former insiders at one hearing gave three different answers: more likely than not, one in three, and no number at all. Distance from the frontier does not cleanly predict the number. People closer to the systems see capability first-hand; people further away see institutions, incentives and history. Both are evidence.
+Three former insiders at one hearing gave three answers: more likely than not, one in three, and no number. Distance from the frontier does not cleanly predict the figure. People close to the systems see capability first-hand; people further away see institutions, incentives and history. Both are evidence.
 
 ### 3. "Alignment is a sham" is three different claims
 
@@ -160,7 +146,7 @@ These have different evidence and different remedies. The main document's stated
 
 ## Which future does each outcome column actually include?
 
-Max Tegmark's *Life 3.0* (2017) describes twelve possible AI aftermaths. Mapping them onto the document's three columns shows what the columns capture and what they flatten.
+Max Tegmark's *Life 3.0* (2017) describes twelve AI aftermaths. Mapping them onto the three columns shows what the columns capture and what they flatten.
 
 | Tegmark scenario | Column | Note |
 |---|---|---|
@@ -179,4 +165,4 @@ Max Tegmark's *Life 3.0* (2017) describes twelve possible AI aftermaths. Mapping
 
 ### What the columns flatten: welfare
 
-The columns score *survival* and *agency*. They do not score *welfare*. A comfortable benevolent-dictator world and a zookeeper world — humans kept alive, confined and studied, or kept in a "happiness factory" — land in the same disempowerment column. Many people would rank the second as worse than extinction. The document has no axis for that, so it cannot say how much of its disempowerment mass is the comfortable kind and how much the kind people fear most. It is a real gap, not a hidden assumption. Closing it would mean splitting the disempowerment column and re-deriving every row.
+The columns score *survival* and *agency*, not *welfare*. A comfortable benevolent-dictator world and a zookeeper world (humans kept alive, confined and studied, or kept in a "happiness factory") share the disempowerment column, though many would rank the second worse than extinction. The document cannot say how much of its disempowerment mass is which kind. That is a real gap, not a hidden assumption; closing it would mean splitting the column and re-deriving every row.
