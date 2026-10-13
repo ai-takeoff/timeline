@@ -4,7 +4,7 @@ Credit for findings that changed the document, with the version each landed in. 
 
 ## Grok (xAI)
 
-The most frequent external reviewer, from v1.14 onward. Findings include the critique that expanded the physical-friction taxonomy from three categories to four; citation and arithmetic corrections across v1.17–v1.24; a contradiction between tripwire 3's row and its note (v1.36); the AI Futures "upper bound" direction error, the managed-decline false dichotomy, and `OPEN-QUESTIONS.md` scoping corrections (v1.50–v1.51); and a fabricated quotation and invented exchange in the Yampolskiy entry, found by checking it against two primary transcripts (v1.67).
+The most frequent external reviewer, from v1.14 onward. Findings include the critique that expanded the physical-friction taxonomy from three categories to four; citation and arithmetic corrections across v1.17–v1.24; a contradiction between tripwire 3's row and its note (v1.36); the AI Futures "upper bound" direction error, the managed-decline false dichotomy, and `OPEN-QUESTIONS.md` scoping corrections (v1.50–v1.51); and a fabricated quotation and invented exchange in the Yampolskiy entry, found by checking it against two primary transcripts (v1.67); and, at v1.70, that tripwire 14's de facto branch could not fire on any existing data series, and that pathway B did not price two of Harari's mechanisms.
 
 ## DeepSeek
 

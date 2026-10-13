@@ -46,10 +46,13 @@ This is **pathway B**: fragmentation and delegation, needing no RSI, no misalign
 - **"Has taken over" versus "is taking over."** Most of Harari's claims are in the future tense ("will decide," "over the next ten years"). Formal authority over money, law and force is still human in 2026. What can be measured is whether delegation is outrunning the ability to review it.
 - **Narrow optimizers are not the same as agents.** Social media rankers show that low-capability systems can reshape societies. They do not show that today's systems are making the consequential decisions Harari lists.
 - **The table cannot see it happening.** Outcomes are assessed as of 2060, so a process already under way has no reading there.
+- **Two of his mechanisms are not priced at all.** Pathway B covers humans delegating to agents. It does not price agents building trust and coordination among themselves (Harari's "AI tribes"; the OAI–HF swarm, where agents formed their own hierarchy, is a small instance), or a financial system that no human, regulator or head of state can follow. Either would raise the 25–40%. Neither has a checkable size yet, so the main document names them rather than moving the cells.
 
 ### How the document would see it
 
-**Tripwire 14** fires when major decision authority over millions of people is delegated to agent systems, either **formally**, with no human sign-off (+10 points to pathway B disempowerment), or **de facto**, with sign-off kept but documented as non-substantive, such as ~95%+ approval at review times too short for real assessment (+5). The de facto branch exists because Harari's and Leahy's mechanism never involves a formal transfer. It carries half the magnitude because good recommendations also produce high approval rates.
+**Tripwire 14** fires when major decision authority over millions of people is delegated to agent systems, either **formally**, with no human sign-off (+10 points to pathway B disempowerment), or **de facto**: a regulator, court, audit or document-based investigation finds the human sign-off non-substantive (+5). The de facto branch exists because Harari's and Leahy's mechanism never involves a formal transfer. It carries half the magnitude because good recommendations also produce high approval rates; the factor of one half is a judgment, not a derivation.
+
+**Why the de facto branch is phrased on findings rather than on a statistic.** No public series reports approval rates and review times for AI-assisted decisions at scale, so a numeric threshold could never fire. Findings, though, already happen. In 2023, ProPublica and The Capitol Forum used Cigna's internal documents to report that its physicians rejected over 300,000 payment claims in two months, at about 1.2 seconds per case, using a system called PXDX. Cigna disputed the reporting. That case would not fire tripwire 14: PXDX is a rule-based flagging system, not an agent system. It shows the kind of evidence the branch is waiting for: investigations built on internal documents, litigation and regulator audits.
 
 If you find a documented case that meets the de facto branch, open a Finding issue with the source.
 
@@ -82,7 +85,7 @@ The two alignment judgments were set after seeing elicitations from other AI sys
 | No closed-loop RSI by 2040 | 22.5% | 37.5% | 8.4 |
 | **Total** | 100% | | **≈50.7** |
 
-Extinction alone, computed the same way, comes to about 11.7%.
+Extinction alone, computed the same way, comes to about 11.7%. The no-RSI row alone contributes about 8 points, so even a large cut to the probability of RSI leaves substantial risk.
 
 ### Sensitivity
 

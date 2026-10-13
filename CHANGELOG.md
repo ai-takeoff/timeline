@@ -956,6 +956,34 @@ Housekeeping. **Defect:** the ancillary files had grown long, repeated each othe
 
 **Estimates:** unchanged. Marker stays at v1.68.
 
+## 1.70 — 2026-10-13
+
+After an external review of v1.68–v1.69 (Grok), scoped to the treatment of Harari's "stealth takeover" argument. Grok confirmed the combined-figure arithmetic, the coherence of the alignment definitions, the fairness of the Harari summary, the Tegmark mapping, and that the v1.69 cuts lost nothing a reader needs. It found two real defects and one communication gap.
+
+**Defects fixed, by name:**
+
+1. **Tripwire 14's de facto branch could not fire.** It required "~95%+ of agent recommendations approved at review times too short for independent assessment." No public series reports approval rates and review times jointly for decisions affecting millions, so the branch was unfirable, which is the same defect it was added to fix. It now fires on a *finding*: a regulator, court, audit or document-based investigation that human sign-off is non-substantive. Such findings already occur outside AI. The 2023 ProPublica/Capitol Forum reporting on Cigna's PXDX system (over 300,000 claims denied in two months at about 1.2 seconds each, disputed by Cigna) is the example now given in `FAQ.md`. It would not fire the tripwire, because PXDX is rule-based, not an agent system. The +5 magnitude is unchanged and is now labelled a judgment rather than a derivation. Grok's alternative observables were considered and not adopted: a complexity-adjusted review-time threshold still needs a data series that does not exist, and "the approver cannot explain the model's reasoning" has no collection mechanism.
+2. **Pathway B did not price two of Harari's mechanisms.** These are agents building trust and coordination among themselves ("AI tribes") and a financial system no human can follow. Grok attributed both to Harari's related statements; they are in the Tanner Lecture itself. The main document now names them as unpriced. Either would raise the pathway B figures, but neither has a checkable size, so the cells do not move. The OAI–HF swarm is cited as a small instance of the first.
+3. **The no-RSI risk was still easy to miss.** One paragraph inside "What this is" did not fix the communication gap that v1.68 itself recorded. Replaced by an "At a glance" box directly under the header, carrying the combined figure, the no-RSI contribution (about 8 of the ~50 points), and the point that the dated predictions track RSI only because it is checkable. Reordering the document to put pathways before timelines was considered and declined at the maintainer's choice.
+
+**Word ceiling held.** The additions were offset by tightening six passages:
+- the AI Futures conditionality note;
+- the depth/breadth robotics paragraph;
+- the plant-infrastructure paragraph;
+- the permitting-volume sentence;
+- the sacrificial-incident paragraph;
+- the side-channel reading.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — items 1–3; the six trims above; version header `1.69` → `1.70`.
+- `FAQ.md` — the tripwire 14 description rewritten to the finding-based branch, with the Cigna example and why the branch is phrased on findings; the two unpriced mechanisms added to "where the document disagrees, or cannot tell"; the no-RSI row's ~8-point contribution noted in the combined-figure entry.
+- `REFERENCES.md` — Cigna/PXDX row added.
+- `CONTRIBUTORS.md` — Grok credited for both findings.
+- `CHANGELOG.md` — this entry.
+
+**Estimates:** unchanged. Tripwire 14's de facto *observable* changed; its magnitude did not. The marker stays at v1.68.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
