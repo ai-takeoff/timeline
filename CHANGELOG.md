@@ -828,7 +828,7 @@ This event was processed promptly rather than queued, on a rationale distinct fr
 
 **check.py: all checks pass. Estimates last changed: v1.21** — this entry does not move it.
 
-## 1.65 — 2026-10-02
+## 1.65 — 2026-10-03
 
 **Files changed:**
 - `OPEN-QUESTIONS.md` — new entry: "Is durable AI control a logical impossibility?" States Roman Yampolskiy's position (University of Louisville, coined "AI safety" in 2011, published impossibility results, P(doom) 99.9%–99.9999%, the perpetual-motion-machine analogy) in its strongest form, identifies the two places this document's structure is actually in tension with it — the "alignment largely solved" row's existence, and the tripwire framework's vulnerability to a treacherous turn — and gives the document's actual reasoning for not adopting the strong conclusion: a distinction between "no fully general formal verification procedure exists" (a real, narrower claim with genuine theoretical grounding) and "therefore near-certain failure" (a stronger claim the formal results don't by themselves establish), plus a named methodological concern about treating correlated risk factors as independent when stacking probabilities. States plainly what remains genuinely unresolved rather than claiming the objection is closed.
@@ -894,6 +894,47 @@ The two-part submission (transcript omitted, then supplied separately) produced 
 `check.py`'s footer-date check (added v1.60) verifies the footer matches the header; it does not and cannot verify the header matches the actual commit date, which is exactly the class of error that recurred here. No automated check currently exists for this — `datecheck.py` catches it after the fact, on request, not automatically.
 
 **check.py: all checks pass, 7802/7850. Estimates last changed: v1.21** — this entry does not move it.
+
+## 1.68 — 2026-10-12
+
+Consolidated revision folding in everything queued since v1.67. **This version moves the estimates marker** — it states numbers that were not stated before and adds a tripwire magnitude — but **no existing cell, range or magnitude changed, and no tripwire fired.**
+
+**Defects fixed, by name:**
+
+1. **The document's largest finding was in the wrong place.** The no-RSI row's 25–40% disempowerment, and the point that RSI raises disempowerment odds without creating them, sat deep in the outcome-table commentary. A careful reader who had been through the document many times still found Harari's Oxford lecture "shocking." That shows the document carried the risk in its numbers but did not communicate it. Added a short paragraph near the top: "The RSI date is not the whole clock."
+2. **Tripwire 14 could not fire on the mechanism it exists to catch.** It required delegation "formally... without human sign-off." Harari's mechanism (AI taking over bureaucracies from inside) and Leahy's ("human CEOs... just rubber stamp") keep a human signature that is no longer meaningful, so the formal branch never fires. Added a de facto branch — sign-off documented as non-substantive, with ~95%+ approval at review times too short for independent assessment as the example — at **+5 points**, half the formal branch, because high approval rates are also what good recommendations produce. Magnitude chosen by the maintainer. Explanatory note added.
+3. **Pathway B omitted the trust and relationship channel.** Its list covered economic, military, legal and administrative decisions, but not companionship and persuasion, which Harari argues is where the frontier is moving ("from attention to intimacy"). One clause added.
+4. **`P(alignment largely solved | RSI closes)` and its persistence counterpart were missing parameters** (named in v1.66 and v1.67, open since). Now stated as author judgments: solved at loop-close 15–35%; holding through 2060 given that, 50–75%; strategic deception of evaluators by default, 40–65%. They are labelled in the text as set after seeing elicitations from AI systems, and so not independent of them.
+5. **"Solved" and "unsolved" were undefined with respect to persistence.** This was v1.67's third Yampolskiy finding. The bounded reading is adopted: the solved rows require alignment largely solved at loop-close *and* holding through 2060, and "unsolved" covers everything else, including solved-then-lost. No cell moved: the solved-row cells already described worlds where alignment held, and what was missing was the statement that this is what they mean.
+6. **No combined figure.** A table of conditionals invites readers to compose their own, usually by reading off the worst row. Added a combined line in the main text — extinction or permanent disempowerment by 2060 ≈50% (36–66% with every input at one end), extinction alone ≈12% (7–17%) — with the full derivation and sensitivity grid in `FAQ.md`. It needs one input the document did not state, closed-loop RSI by 2040 (70–85%, extending the 2035 figure); that input is labelled as such. **The finding worth recording:** the combined figure moves only 1–4 points across the full range of the alignment parameters. Its width comes from the outcome cells. Arguing the figure down requires arguing the unsolved and no-RSI cells down.
+7. **No near-horizon reading.** The table assesses 2060, so a loss of control already under way has no cell. One sentence added, naming tripwire 14 as the near-horizon instrument.
+8. **Stale Millennium Prize wording.** The "n=1" framing predated OpenAI's 6 October release of 722 mathematics manuscripts. Rewritten as one narrow domain, where checking is cheap, selected because it arrived early. Still explicitly not calibration evidence for occupational or capability questions.
+9. **Narrow open-weight diffusion was untracked.** Tripwire 10 reads the overall open-weight gap, but a domain-specific gap can close first. Mistral Large 4 sits eighth among open-weight models overall but fifth of eighteen on Artificial Analysis's cyber index, with weights due late October. Added as a tracked item without a threshold, since no domain-specific series is yet stable enough to pin.
+10. **Yampolskiy's P(doom) was mis-sourced.** `REFERENCES.md` and `OPEN-QUESTIONS.md` said the extreme figure appeared only in secondary reporting. He states it himself: "I am at 99.999999%" (X, 12 March 2024). Both corrected. The Digital Disruption row was dated 2024, but the podcast launched in February 2025; its date and title are now marked unconfirmed. The Diary of a CEO date is marked unpinned. The Lex Fridman episode title is pinned.
+11. **v1.65's changelog date was wrong.** It read 2026-10-02; the commit is 2026-10-03 08:49 -0400. Corrected here. v1.65's own document header cannot be corrected retroactively and is left as committed.
+12. **Provenance.** The footer and README named only "Claude (Opus 5)." Later revisions were made by other Claude models. Both now say so.
+
+**Word ceiling held, not raised.** The additions above (~300 words) were offset by tightening four passages: the fourth-column and partition-tension paragraphs, the Warp Speed paragraph, the tripwire-3 bias-cancellation explanation, and the McAfee counterweight. The modal-case note was shortened because the composite now makes its weights explicit. A dangling reference to a "growing-bias reason below," which pointed at nothing, went with the tripwire-3 trim.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — items 1–9 and 12 above; version header `1.67` → `1.68`; estimates marker `v1.21` → `v1.68`.
+- `CHANGELOG.md` — this entry; v1.65's date (item 11).
+- `check.py` — Harari, Mistral and Artificial Analysis added to the hardcoded source-coverage list, since the document now names them.
+- `FAQ.md` — four new entries:
+  - "Hasn't AI already taken over, without any singularity?" (Harari and Leahy at full strength, where the document agrees, where it disagrees, how tripwire 14 would see it).
+  - "What is the overall probability?" (inputs, midpoint table, sensitivity grid, exclusions).
+  - "How should I read the spread of expert estimates?" (symmetric incentive correction, including Hao's argument that CEO catastrophe talk is persuasion; a vantage-point table with the NYC hearing witnesses; three distinct meanings of "alignment is a sham").
+  - "Which future does each outcome column include?" (Tegmark's twelve scenarios mapped onto the columns, and the missing welfare axis: comfortable and worse-than-extinction disempowerment share one column).
+- `REFERENCES.md` — new section for October 2026 events and statements: the NYC Council hearing (5 Oct), the White House Accord on Super Intelligence (29 Sep, voluntary), the Super Intelligence Force (120-day report), the Axios "day after" scoop (9 Oct, an insider expectation and not a measurement), the OpenAI mathematics release (6 Oct), Mistral Large 4 (company figures marked unreplicated), Harari's Tanner Lecture (recordings marked as third-party uploads), Leahy, Hao, Tegmark, and the Grace median. The Yampolskiy rows are corrected as above. The stated parameters and combined figure are added to the inference list.
+- `OPEN-QUESTIONS.md` — Yampolskiy entry: P(doom) paragraph corrected; the second and third estimates findings updated to record that the parameters are now stated, with the bounded reading and its limit; "What would help" updated.
+- `README.md` — estimates marker; the tripwire-14 coverage gap added to the coverage record; FAQ pointer and file table updated; provenance.
+
+**Considered and not done:** reorganizing the document around pathway B rather than the RSI timeline. Pathway B is harder to make falsifiable, and the timeline is where the dated, checkable predictions live; giving that up for framing would trade the document's main asset. The top-of-document paragraph and tripwire 14 are the cheaper fix.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+The alignment parameters were set by the author after seeing elicitations from two AI systems, both identifying as Claude models. Those are not independent of the author or of each other, and polling was dropped for that reason. The stated ranges are the author's own, the dependence is disclosed in the text, and the elicitations are not cited as evidence. `check.py`: all checks pass, 7850/7850 — at the ceiling, not over it. The next addition to the main text has to be paid for by a cut, or by a deliberate raise.
 
 ## Convention from here
 

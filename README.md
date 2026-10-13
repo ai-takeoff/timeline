@@ -10,7 +10,7 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.21 (17 September 2026).** Every version since has changed wording, sourcing, or tooling — not a number. Check the same marker at the top of the document itself; the two are kept in sync by `check.py`.
+**Estimates last changed: v1.68 (12 October 2026).** That version stated three alignment parameters and a combined figure for the first time, and gave tripwire 14 a de facto branch with its own magnitude. No existing cell moved, and no tripwire fired. Before it, the last numeric change was v1.21 (17 September 2026). Check the same marker at the top of the document itself; the two are kept in sync by `check.py`.
 
 **No tripwire has fired.** No named metric has crossed a pre-registered threshold, so no estimate has been revised by the mechanism this document is built around. In that sense the instrument has not been read.
 
@@ -20,6 +20,8 @@ It has, however, been tested for *coverage* — and the results are not good. Th
 - **Tripwire 17** (frozen-weight self-improvement transferring to AI research) was added after Dream-RSI demonstrated a loop type that fires neither tripwire 4 nor 5.
 - **Tripwire 3** (coding uplift) was added after the AI Futures Project downgraded the metric tripwire 1 depends on.
 
+A fourth gap was exposed by an argument rather than an event: tripwire 14 fired only on *formal* delegation, while the mechanism Harari and Leahy describe — humans keeping a signature they can no longer meaningfully withhold — never involves a formal transfer. v1.68 added a de facto branch.
+
 The first two share a diagnosis: tripwires phrased on *mechanisms* get bypassed by mechanisms not enumerated in advance. Later ones are phrased on observable effects for that reason.
 
 **One of these crossed a line worth naming.** Tripwire 16 prescribes "no timeline change, modest upgrade to governance expectations" — and that is what v1.14 concluded about the event that prompted the tripwire's creation. Writing a rule after an observation and then applying it to that observation is not pre-registration, whatever it is labelled. It is recorded here rather than buried because the failure mode is the exact one this apparatus exists to prevent.
@@ -28,7 +30,7 @@ Treat the estimates as a baseline awaiting a real test, and the tripwire set as 
 
 ## Provenance and known limitations
 
-The estimates were produced by Claude (Opus 5) in conversation and are that model's own, not a survey of expert opinion and not the human collaborator's, whose figures ran higher on physical and rogue-state timelines and are deliberately not represented so that this stays a single-forecaster baseline.
+The estimates were produced by Claude (Opus 5, with later revisions by other Claude models) in conversation and are that model's own, not a survey of expert opinion and not the human collaborator's, whose figures ran higher on physical and rogue-state timelines and are deliberately not represented so that this stays a single-forecaster baseline.
 
 They should be weighted accordingly. An AI system estimating AI risk has an obvious conflict of interest and no privileged insight into capability trajectories. The specific version of that conflict worth naming rather than leaving implicit: an AI author could be motivated, in ways neither it nor a reader could necessarily detect from the text alone, to produce systematically reassuring estimates about its own category of risk. Nothing here can fully rule that out from the inside. What the document offers in its place is not a guarantee but a form of auditability: adversarial review from other AI systems, with every rejected critique logged alongside the accepted ones rather than only the ones that improved the document; estimates built conditionally and bracketed rather than asserted as a single confident figure; and, in `OPEN-QUESTIONS.md`, direct engagement with the strongest published argument that this document's whole structure is too optimistic by construction. That review process has the same limitation it's meant to check: a reviewer from the same model family as the author, or sharing training lineage, is not a fully independent check, and at least one past reviewer has disclosed exactly this about itself while reviewing. The document's own outside-view section notes that these figures are far more aggressive than field-wide researcher surveys and somewhat less aggressive than frontier-lab insiders, and that a reader who simply defers to the surveys is not being unreasonable.
 
@@ -60,7 +62,7 @@ Some things this project raises are genuinely open — not findings to fix or tr
 
 ## FAQ
 
-Some questions have answers a reader could still reasonably get wrong on first encounter. The first: why real, well-evidenced "recursive self-improvement" results such as Dream-RSI and AIDE² do not automatically fire tripwire 17. See [FAQ.md](FAQ.md).
+Some questions have answers a reader could still reasonably get wrong on first encounter: why "recursive self-improvement" headlines such as Dream-RSI and AIDE² do not automatically fire tripwire 17; whether AI has already taken over without any singularity; how the overall probability is derived from the conditional table; how to read the spread of expert estimates; and which futures each outcome column includes. See [FAQ.md](FAQ.md).
 
 ## Repository contents
 
@@ -72,7 +74,7 @@ Some questions have answers a reader could still reasonably get wrong on first e
 | `CONTRIBUTING.md` | What gets accepted, what does not, and how to submit. |
 | `CONTRIBUTORS.md` | Credit for findings that changed the document, by reviewer and version. |
 | `OPEN-QUESTIONS.md` | Genuinely open research questions the project raises but can't resolve. |
-| `FAQ.md` | Answers to questions a reader could reasonably get wrong on first encounter, starting with why "recursive self-improvement" headlines don't automatically fire tripwire 17. |
+| `FAQ.md` | Answers to questions a reader could reasonably get wrong on first encounter, including the derivation of the combined probability. |
 | `check.py` | Structural and arithmetic validation. Runs on every push and PR. |
 | `linkcheck.py` | Monthly link-durability check on `REFERENCES.md`'s external sources. |
 | `datecheck.py` | Verifies changelog entry dates against actual GitHub commit dates. |
