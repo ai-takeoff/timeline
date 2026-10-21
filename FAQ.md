@@ -133,6 +133,8 @@ Without a closed self-improvement loop, AI capability still keeps growing: the m
 
 The cell sits below the product because this is a two-factor sketch, not a derivation, and because the figure was raised in a single discussion. That is exactly when an author is most at risk of being argued up rather than persuaded.
 
+An outside review (Grok, at v1.71) judged the update sound. It put B lower, at 40–60%, on the grounds that institutions still preserve human competence by rule where the cost is visible (aviation, nuclear, medicine). On that B it would set the cell at 35–50%, or keep 40–55% as the cautious reading. The cell is kept: the two ranges overlap, and the reviewer's own product (~34–57%) is centred close to the current cell.
+
 ### What would move it
 
 Reversals of algorithmic delegation do happen. A Dutch court banned the SyRI welfare-fraud system in 2020; the UK scrapped its exam-grading algorithm the same year; Australia ended Robodebt, its automated welfare-debt recovery scheme, and a royal commission followed. All three came while human capacity in those domains was intact. If such reversals keep occurring as delegated tasks grow more complex, B is too high. If they stop, or an attempted reversal fails because no one can still do the work, B is too low.

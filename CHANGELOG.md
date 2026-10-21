@@ -984,7 +984,7 @@ After an external review of v1.68–v1.69 (Grok), scoped to the treatment of Har
 
 **Estimates:** unchanged. Tripwire 14's de facto *observable* changed; its magnitude did not. The marker stays at v1.68.
 
-## 1.71 — 2026-10-20
+## 1.71 — 2026-10-21
 
 **Estimate change.** The no-RSI row's permanent disempowerment rises from 25–40% to 40–55%, with flourishing falling from 55–70% to 40–55%. The combined figure moves from ≈50% to ≈54% (range 41–68%). No tripwire fired; this is a reasoned revision, prompted by the maintainer and going to outside review after commit. If that review finds the argument unsound, the row comes back down and this entry stays as the record.
 
@@ -1026,6 +1026,32 @@ After an external review of v1.68–v1.69 (Grok), scoped to the treatment of Har
 **Process notes** *(skip unless auditing the maintenance process)*:
 
 This is the first estimate change since v1.68, and the first in this document's history driven by a sustained argument with the maintainer rather than by external review or new evidence. The maintainer's own figures are deliberately not used; the revised cell is the author's. The risk named in item 2 — an author argued up within one conversation — is the reason the cell sits below its own sketch and the reason for the post-commit review.
+
+## 1.72 — 2026-10-21
+
+**Defect:** v1.71 was dated 20 October but committed 21 October 2026, 10:55 -0400. This is the upload-lag class again (v1.52, v1.60, v1.66). Its changelog date and the estimates marker are corrected to 21 October here; v1.71's own document header cannot be corrected retroactively and is left as committed.
+
+**Recorded: the outside review of v1.71 (Grok).** Grok judged the no-RSI revision sound, and confirmed:
+- the relabel;
+- the A × B structure, with no double-counting and power concentration correctly counted as disempowerment;
+- that setting the cell below its own sketch is principled;
+- the combined-figure arithmetic (54.0 at midpoints; 53.9 / 54.2 at 70% / 85% RSI);
+- each of the item-5 fixes.
+
+It agreed that the flat disempowerment column is a real gap, correctly left open until the RSI rows are decomposed into ratchet and misalignment shares.
+
+**Dissent noted, not adopted:** Grok would put B (irreversibility given routine delegation) at 40–60% rather than 55–70%. Its reason is that institutions still preserve human competence by rule where costs are visible. On that B it would set the cell at 35–50%, or keep 40–55%. The cell is kept: the ranges overlap, the reviewer's product (~34–57%) centres close to the current cell, and the reviewer itself named 40–55% as acceptable. The FAQ now records the dissent next to the sketch.
+
+**Queued, not done:** Grok calls the reversal rate of algorithmic delegations "a usable observable" and a candidate tripwire, citing court challenges to automated welfare and bail systems and human-oversight requirements. A tripwire needs a threshold that has not already been crossed. Drafting one is left for a revision with its own reason.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — version header `1.71` → `1.72`; estimates-marker date corrected to 21 October; footer date.
+- `FAQ.md` — the outside review's B dissent recorded under the A × B table.
+- `README.md` — estimates-marker date; the review outcome in one sentence.
+- `CHANGELOG.md` — v1.71's date corrected; this entry.
+
+**Estimates:** unchanged. The marker stays at v1.71, with its date corrected.
 
 ## Convention from here
 
