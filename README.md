@@ -8,7 +8,7 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.68 (12 October 2026).** That version stated three alignment parameters and a combined figure for the first time, and gave tripwire 14 a de facto branch. No existing cell moved, and no tripwire fired. The same marker heads the document, and `check.py` keeps the two in sync.
+**Estimates last changed: v1.71 (20 October 2026).** That version raised the no-RSI row's permanent disempowerment from 25–40% to 40–55%, after an argument that delegation ratchets with no recursive self-improvement needed, and that the row had been priced on a capability plateau rather than continued growth. The combined figure moved from ≈50% to ≈54%. No tripwire fired; this was a reasoned revision, and it is under outside review. The same marker heads the document, and `check.py` keeps the two in sync.
 
 **No tripwire has fired**, so the instrument has not yet been read.
 

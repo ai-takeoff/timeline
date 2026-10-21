@@ -984,6 +984,49 @@ After an external review of v1.68–v1.69 (Grok), scoped to the treatment of Har
 
 **Estimates:** unchanged. Tripwire 14's de facto *observable* changed; its magnitude did not. The marker stays at v1.68.
 
+## 1.71 — 2026-10-20
+
+**Estimate change.** The no-RSI row's permanent disempowerment rises from 25–40% to 40–55%, with flourishing falling from 55–70% to 40–55%. The combined figure moves from ≈50% to ≈54% (range 41–68%). No tripwire fired; this is a reasoned revision, prompted by the maintainer and going to outside review after commit. If that review finds the argument unsound, the row comes back down and this entry stays as the record.
+
+**Defects fixed, by name:**
+
+1. **The no-RSI row was priced on the wrong scenario.** Its label read "plateau, continued delegation." But the row stands for *every* world without a closed loop by 2040, and the combined figure weights it that way. Since assisted AI R&D sits at ~98% by 2035, nearly all of those worlds have capability still growing. Harari's mechanism describes exactly that world: delegation driven by capability and competition, not by RSI. The row is relabelled "capability grows, delegation continues."
+2. **The row underpriced the delegation ratchet.** The maintainer's argument: delegation is effectively one-way, and the author had treated reversibility as much easier than it is. The author accepted part of this, not all of it.
+   - *Conceded:* individual task competence never comes back. Collective competence, meaning some humans still able to do or understand the work, can vanish when the delegate is not human. Both undermine collective steering, which is what the disempowerment column measures.
+   - *Not conceded:* that reversal is near-impossible. Real reversals exist (the SyRI court ban, the UK exam algorithm, Robodebt), though all came while human capacity was intact.
+   - The resulting two-factor sketch: routine delegation of consequential decisions by 2060 ~85–95%; given that, irreversibility at the collective level ~55–70%; product ~45–65%. The cell is set at 40–55%, below the product, because the figure was raised within a single discussion and the author may be being argued up rather than persuaded. The external review is asked to test exactly that.
+   - The reversal rate is named as the observable.
+3. **"RSI raises the odds of disempowerment but does not create them" no longer holds.** With the revised row, the disempowerment column is roughly flat across the no-RSI and unsolved-RSI rows. What RSI adds is extinction and lost flourishing. The passage is rewritten accordingly, and the "roughly two-thirds" comparison is removed.
+4. **The RSI rows have not been re-derived under the same argument.** The ratchet operates inside them too. This is stated in the main text and in `FAQ.md` as open work that could raise the combined figure further, rather than left implicit.
+5. **DeepSeek review (main document only):**
+   - "Three moves exceed the width of the cells… the rest sit inside their own noise" was false. At least two further comparisons exceed their cells, including the extinction effect of removing the physical loop (13.5 points against 10- and 7-point cells). Now "several moves… most of the rest."
+   - "About 8 of those ~50 points" was ambiguous between the extinction-plus-disempowerment share and the disempowerment-only share; now explicit (about 12 of ~54).
+   - "Weighting rows by the first two" now names the two alignment parameters.
+   - "EUV is one company" now names ASML.
+   - "the word ceiling" is now "the word-count ceiling."
+   - Declined: the row-2 sum of 100.5 (within `check.py`'s tolerance and described as rough); "two-thirds should be 70%" (against the full-loop row the ratio is 68%); a table of contents, tripwire subheadings and a callout box (style); a combined-figure appendix (it exists in `FAQ.md`); and a domain-generality sentence for ScienceBuddy (already present).
+6. **Queued items from the past week, folded in:**
+   - A tracked item on whether TasteVal's superhuman experimental taste on cheap single-GPU tasks transfers to expensive multi-node runs, which is the bottleneck the document leans on. A tripwire was not written, because one written after the first reading would repeat the tripwire-16 lapse.
+   - One sentence noting that Anthropic's October self-replication tests weaken the infrastructure-dependency check for inference, but not for training.
+
+**Word ceiling held** at 7,849/7,850. Additions were offset by tightening the alignment-lever paragraph, the outside-view reconciliation, horizon sensitivity, the permitting and Warp Speed passages, the decentralization bound, the hype-theory market evidence (ASML's figure dropped; the index and SoftBank kept), the IPO and swarm items in the tracked list, and the tripwire preamble.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — items 1–6; outcome-table row 5 relabelled and re-derived; bold note updated (rows three and five); At-a-glance and Combined lines updated; estimates marker `v1.68` → `v1.71`; version header `1.70` → `1.71`.
+- `FAQ.md`:
+  - New entry, "Why is the no-RSI row's disempowerment so high?": the ratchet, the three levels of "taking it back," the A × B table, what would move it, and what it does not yet cover.
+  - Combined-figure tables and sensitivity grid recomputed. A new finding is recorded there: closed-loop RSI probability now barely moves the total and mainly shifts mass between extinction and disempowerment.
+  - The Harari entry updated to match.
+- `REFERENCES.md` — the TasteVal row replaces the "declined, too weakly sourced" P-Zero row; rows added for Jack Clark's forecast, Anthropic's self-replication research, the three delegation reversals, and Air France 447.
+- `README.md` — estimates marker and its explanation.
+- `CONTRIBUTORS.md` — DeepSeek's v1.71 findings; the maintainer's ratchet argument.
+- `CHANGELOG.md` — this entry.
+
+**Process notes** *(skip unless auditing the maintenance process)*:
+
+This is the first estimate change since v1.68, and the first in this document's history driven by a sustained argument with the maintainer rather than by external review or new evidence. The maintainer's own figures are deliberately not used; the revised cell is the author's. The risk named in item 2 — an author argued up within one conversation — is the reason the cell sits below its own sketch and the reason for the post-commit review.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

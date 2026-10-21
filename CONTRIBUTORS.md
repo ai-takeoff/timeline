@@ -8,7 +8,7 @@ The most frequent external reviewer, from v1.14 onward. Findings include the cri
 
 ## DeepSeek
 
-Internal-consistency and arithmetic catches. It found that a PDF rendering had introduced extraction errors (reading "~20W" as "~200W"), the origin of the rule to review markdown rather than PDF. At v1.44, working from internal consistency alone, it found out-of-order bottleneck numbering, a self-contradicting claim about the disputed Millennium Prize solution, the no-RSI row's alignment wording, and the flourishing/managed-decline contradiction.
+Internal-consistency and arithmetic catches. It found that a PDF rendering had introduced extraction errors (reading "~20W" as "~200W"), the origin of the rule to review markdown rather than PDF. At v1.44, working from internal consistency alone, it found out-of-order bottleneck numbering, a self-contradicting claim about the disputed Millennium Prize solution, the no-RSI row's alignment wording, and the flourishing/managed-decline contradiction. At v1.71, a false claim that only three midpoint moves exceed their cells' width, plus three ambiguities (the "about 8 points" figure, "weighting rows by the first two", "the word ceiling") and "EUV is one company" without naming ASML.
 
 ## ChatGPT (OpenAI)
 
@@ -34,3 +34,4 @@ Not an external reviewer, but the source of several of the sharpest catches:
 - the partial-upload gap repaired in v1.57;
 - the insistence on verifying against the live repository rather than assuming what was committed;
 - the observation that the document carried pathway B's risk without communicating it (v1.68).
+- the argument that delegation ratchets without any RSI, and that the no-RSI row had been priced on a capability plateau rather than continued growth, which raised that row's disempowerment from 25–40% to 40–55% (v1.71).

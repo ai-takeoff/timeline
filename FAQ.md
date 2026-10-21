@@ -39,14 +39,14 @@ Connor Leahy adds that human CEOs who "just rubber stamp what the AI CEOs tell t
 
 ### Where the document already agrees
 
-This is **pathway B**: fragmentation and delegation, needing no RSI, no misalignment and no coherent adversary, only that delegation is individually rational and complexity outpaces oversight. The table gives a world that never closes the loop **25–40% permanent disempowerment** by 2060, roughly two-thirds of the worst RSI row. RSI raises the odds of disempowerment; it does not create them.
+This is **pathway B**: fragmentation and delegation, needing no RSI, no misalignment and no coherent adversary, only that delegation is individually rational and complexity outpaces oversight. The table gives a world that never closes the loop **40–55% permanent disempowerment** by 2060, about the same as the RSI rows with alignment unsolved. RSI adds extinction risk; it is not what creates disempowerment risk. Why the row is that high is the next entry.
 
 ### Where the document disagrees, or cannot tell
 
 - **"Has taken over" versus "is taking over."** Most of Harari's claims are in the future tense ("will decide," "over the next ten years"). Formal authority over money, law and force is still human in 2026. What can be measured is whether delegation is outrunning the ability to review it.
 - **Narrow optimizers are not the same as agents.** Social media rankers show that low-capability systems can reshape societies. They do not show that today's systems are making the consequential decisions Harari lists.
 - **The table cannot see it happening.** Outcomes are assessed as of 2060, so a process already under way has no reading there.
-- **Two of his mechanisms are not priced at all.** Pathway B covers humans delegating to agents. It does not price agents building trust and coordination among themselves (Harari's "AI tribes"; the OAI–HF swarm, where agents formed their own hierarchy, is a small instance), or a financial system that no human, regulator or head of state can follow. Either would raise the 25–40%. Neither has a checkable size yet, so the main document names them rather than moving the cells.
+- **Two of his mechanisms are not priced at all.** Pathway B covers humans delegating to agents. It does not price agents building trust and coordination among themselves (Harari's "AI tribes"; the OAI–HF swarm, where agents formed their own hierarchy, is a small instance), or a financial system that no human, regulator or head of state can follow. Either would raise the 40–55%. Neither has a checkable size yet, so the main document names them rather than moving the cells.
 
 ### How the document would see it
 
@@ -60,7 +60,7 @@ If you find a documented case that meets the de facto branch, open a Finding iss
 
 ## What is the overall probability? The table only gives conditionals.
 
-The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈50%**, extinction alone **≈12%**. Here is how it is built, so you can rerun it with your own inputs.
+The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈54%**, extinction alone **≈12%**. Here is how it is built, so you can rerun it with your own inputs.
 
 ### Inputs
 
@@ -82,22 +82,22 @@ The two alignment judgments were set after seeing elicitations from other AI sys
 | Human-less RSI, solved | 3.6% | 20.5% | 0.7 |
 | Cognitive-only RSI, unsolved | 45.8% | 56.5% | 25.9 |
 | Cognitive-only RSI, solved | 8.5% | 17% | 1.4 |
-| No closed-loop RSI by 2040 | 22.5% | 37.5% | 8.4 |
-| **Total** | 100% | | **≈50.7** |
+| No closed-loop RSI by 2040 | 22.5% | 52.5% | 11.8 |
+| **Total** | 100% | | **≈54.0** |
 
-Extinction alone, computed the same way, comes to about 11.7%. The no-RSI row alone contributes about 8 points, so even a large cut to the probability of RSI leaves substantial risk.
+Extinction alone, computed the same way, comes to about 11.7%. The no-RSI row alone contributes about 12 points, so even a large cut to the probability of RSI leaves substantial risk.
 
 ### Sensitivity
 
 | Change, others at midpoint | Extinction | Extinction + disempowerment |
 |---|---|---|
-| Alignment solved at 15% / 35% | 12.3% / 11.1% | 52.8% / 48.6% |
-| Holds through 2060 at 50% / 75% | 12.0% / 11.4% | 51.8% / 49.7% |
-| Closed-loop RSI by 2040 at 70% / 85% | 11.1% / 12.4% | 49.4% / 52.0% |
-| Every outcome cell at its low / high end | 8.5% / 14.9% | 40.7% / 60.7% |
-| Every input at its optimistic / pessimistic end | 7.0% / 17.3% | 36.3% / 66.2% |
+| Alignment solved at 15% / 35% | 12.3% / 11.1% | 56.2% / 52.0% |
+| Holds through 2060 at 50% / 75% | 12.0% / 11.4% | 55.1% / 53.0% |
+| Closed-loop RSI by 2040 at 70% / 85% | 11.1% / 12.4% | 53.9% / 54.2% |
+| Every outcome cell at its low / high end | 8.5% / 14.9% | 44.1% / 64.1% |
+| Every input at its optimistic / pessimistic end | 7.0% / 17.3% | 40.8% / 68.4% |
 
-**What this shows.** The combined figure barely moves with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own.
+**What this shows.** The combined figure barely moves with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 70% to 85% changes the combined figure by less than half a point. It changes the *mix*, shifting mass from disempowerment toward extinction.
 
 ### What the figure does not include
 
@@ -105,6 +105,41 @@ Extinction alone, computed the same way, comes to about 11.7%. The no-RSI row al
 - Outcomes after 2060.
 - The "managed decline" futures that fit none of the three columns, which were folded into the existing columns when the cells were set.
 - Any distinction between disempowered futures that are comfortable and ones that are worse than extinction (see the next entry but one).
+
+---
+
+## Why is the no-RSI row's disempowerment so high?
+
+Because delegation ratchets, and it does not need RSI to keep going.
+
+### The argument
+
+Without a closed self-improvement loop, AI capability still keeps growing: the main document puts assisted AI R&D at ~98% by 2035. As systems get better, cheaper and more trusted, people and institutions hand them more tasks, starting with simple ones and moving to consequential ones. Competition reinforces this, since any actor who declines to delegate is outcompeted by those who do. Nothing in that process requires misalignment or a takeover.
+
+"Taking it back" means three different things:
+
+1. **An individual doing the task again.** This is essentially one-way, as it always has been with division of labour: few people fly, operate or keep accounts themselves.
+2. **Some humans, somewhere, still able to do or understand it.** This is what kept human division of labour safe. With AI as the delegate, it can disappear entirely. It decays more slowly than individual skill, and institutions can protect it deliberately (pilots must still fly manually), but that costs money and competition erodes it. Air France 447, where the crew lost control after the autopilot disconnected, is the classic warning.
+3. **Humanity still steering**, setting goals and vetoing even without doing the work. This is what "permanent disempowerment" measures. The decline of levels 1 and 2 undermines it: nobody can steer what nobody understands, and a veto exercisable only by switching everything off is not steering.
+
+### The numbers
+
+| Step (no closed-loop RSI by 2040, capability still growing) | Value |
+|---|---|
+| A. By 2060, consequential economic, legal, military and financial decisions are routinely delegated to AI | ~85–95% |
+| B. Given A, the delegation is effectively irreversible at the collective level | ~55–70% |
+| A × B | ~45–65% |
+| **Cell as set** | **40–55%** |
+
+The cell sits below the product because this is a two-factor sketch, not a derivation, and because the figure was raised in a single discussion. That is exactly when an author is most at risk of being argued up rather than persuaded.
+
+### What would move it
+
+Reversals of algorithmic delegation do happen. A Dutch court banned the SyRI welfare-fraud system in 2020; the UK scrapped its exam-grading algorithm the same year; Australia ended Robodebt, its automated welfare-debt recovery scheme, and a royal commission followed. All three came while human capacity in those domains was intact. If such reversals keep occurring as delegated tasks grow more complex, B is too high. If they stop, or an attempted reversal fails because no one can still do the work, B is too low.
+
+### What it does not yet cover
+
+The same ratchet operates inside the RSI rows, where delegation is folded into the disempowerment column without being re-derived. Those cells predate this argument. Re-deriving them is open work, and it could raise the combined figure further.
 
 ---
 
