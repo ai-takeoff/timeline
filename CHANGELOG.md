@@ -1053,6 +1053,49 @@ It agreed that the flat disempowerment column is a real gap, correctly left open
 
 **Estimates:** unchanged. The marker stays at v1.71, with its date corrected.
 
+## 1.73 — 2026-11-07
+
+**Estimate change.** Closed-loop cognitive RSI: 2028 ~25% → ~30%, 2030 ~45–50% → ~50–55%, 2035 ~70% → ~75%. Hard takeoff: 2030 12–18% → 14–20%, 2035 ~20% → ~22%. No tripwire fired; this is a reasoned revision on new evidence.
+
+**Evidence.** METR's independent assessment of AI R&D acceleration at Anthropic (5 November 2026) is the first third-party measurement of the quantity the closed-loop estimates depend on most:
+- Capability growth on well-specified tasks is running ~1.9× its 2024–25 rate (95% CI 1.5–2.8).
+- About 80% of that acceleration is attributed to AI, not to training compute.
+- A lasting slope change fits better than a one-time jump.
+
+Anthropic's amended S-1/A (around 2 November) says it "may imminently meet" its RSP's threshold for "dramatically accelerated progress attributable to AI."
+
+**Why this size of move, and not more.** Tripwire 1 exists to detect compounding; this is compounding, measured on a different series (AECI rather than METR's time horizons). Applying tripwire 1 in full (+10 closed-loop 2030, +5 hard takeoff) would treat a different, partly hidden measurement as if it were the pre-registered one. Taking about half reflects five limits:
+
+1. It is one lab's internal index, and that index is nearing saturation (Model 4 scores above 50% on every benchmark).
+2. Anthropic redacted most of the evidence METR found most informative, under unilateral redaction rights.
+3. Compute-allocation verification was dropped from scope midway.
+4. METR says AI is not yet making fully autonomous contributions to the most important parts of training, so this is not a closed loop and tripwire 4 does not fire.
+5. METR's hint of continuous, hyperbolic acceleration rests on redacted evidence.
+
+Hard takeoff moves less than closed-loop RSI for the same reason.
+
+**Conflict of interest.** The measured lab is Anthropic, which built the author. The bias could run either way, toward overstating Anthropic's lead or toward understating the risk, which is part of why the move is half-size. The outside review after commit is asked to test the size.
+
+**The combined outcome figure does not move** (≈54%, range 41–69%, from 41–68%). As recorded at v1.71, the probability of RSI now mostly shifts mass from disempowerment toward extinction (extinction ≈12.1%, from ≈11.7%). The 2040 input to the combined figure is raised to 75–88% to stay above the new 2035 figure.
+
+**New tripwire 18.** It fires if a further third-party assessment of AI-attributable acceleration at a frontier lab puts the 95% lower bound above 2×, or the point estimate at 3× or more. Then closed-loop 2030 moves +8 and hard takeoff +3. If the estimate falls back below ~1.3×, closed-loop 2030 moves −5. Both thresholds sit away from the current reading (lower bound 1.5×, point 1.9×), so neither fires on the evidence that prompted it; that avoids the tripwire-16 lapse.
+
+**Tracked item updated.** "Whether embedded evaluators are seated and whether they publish" partly resolved, in both directions. They were seated and they published, but the access was not employee-like, the redactions were unilateral, and the scope was cut. The item now tracks employee-like access and publication without unilateral redaction.
+
+**Word ceiling raised, 7,850 → 8,050**, with the reason recorded in `check.py`. Tripwire 18 and the METR paragraph needed ~170 words. The three previous revisions each paid for their additions by compressing already-tight prose, and a fourth round in a row would have traded clarity for the number.
+
+**Repository process.** `main` is now protected by a ruleset, so every change, including the author's, arrives as a pull request that only the maintainer can merge. This is the first version proposed that way, from the author's own clone. `CONTRIBUTING.md` records the rule. The upload-lag dating errors (v1.52, v1.60, v1.66, v1.71) should end, because the version is dated when the commit is made.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — cognitive timeline rows; the METR paragraph under the table; tripwire 18; the evaluator tracked item; At-a-glance and Combined lines (range and no-RSI contribution, about 10 of ~54 points); estimates marker `v1.71` → `v1.73`; version header `1.72` → `1.73`; footer date.
+- `check.py` — word ceiling 7,850 → 8,050, with the reason.
+- `FAQ.md` — combined-figure inputs, the midpoint table and the sensitivity grid recomputed with the new 2040 input.
+- `REFERENCES.md` — rows for the METR assessment and the S-1/A.
+- `README.md` — estimates marker and its explanation.
+- `CONTRIBUTING.md` — the pull-request-only rule for `main`.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

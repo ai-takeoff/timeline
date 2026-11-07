@@ -8,7 +8,7 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.71 (21 October 2026).** That version raised the no-RSI row's permanent disempowerment from 25–40% to 40–55%, after an argument that delegation ratchets with no recursive self-improvement needed, and that the row had been priced on a capability plateau rather than continued growth. The combined figure moved from ≈50% to ≈54%. No tripwire fired; this was a reasoned revision. An outside review (Grok) judged it sound and would set the cell at 35–50% or keep 40–55%; it is kept. The same marker heads the document, and `check.py` keeps the two in sync.
+**Estimates last changed: v1.73 (7 November 2026).** Closed-loop cognitive RSI moved up (2028 ~30%, 2030 ~50–55%, 2035 ~75%) and hard takeoff slightly (2030 14–20%), on METR's third-party finding that AI is roughly doubling the rate of capability growth at one frontier lab. No tripwire fired; the move is about half of tripwire 1's magnitude, and tripwire 18 now reads further assessments of this kind. The combined outcome figure is unchanged at ≈54%.
 
 **No tripwire has fired**, so the instrument has not yet been read.
 

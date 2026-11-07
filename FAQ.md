@@ -66,7 +66,7 @@ The main document states one combined figure: extinction or permanent disempower
 
 | Input | Range used | Midpoint | Where it comes from |
 |---|---|---|---|
-| Closed-loop cognitive RSI by 2040 | 70–85% | 77.5% | Extends the timeline table's ~70% by 2035; not otherwise stated in the document |
+| Closed-loop cognitive RSI by 2040 | 75–88% | 81.5% | Extends the timeline table's ~75% by 2035; not otherwise stated in the document |
 | Human-less RSI by 2040, given cognitive RSI | 25–35% | 30% | Physical table |
 | Alignment largely solved at loop-close | 15–35% | 25% | Author judgment, stated in the main document |
 | Holds through 2060, given solved at loop-close | 50–75% | 62.5% | Author judgment, stated in the main document |
@@ -78,26 +78,26 @@ The two alignment judgments were set after seeing elicitations from other AI sys
 
 | Scenario | Weight | Extinction + disempowerment (row midpoints) | Contribution |
 |---|---|---|---|
-| Human-less RSI, unsolved | 19.6% | 72.5% | 14.2 |
-| Human-less RSI, solved | 3.6% | 20.5% | 0.7 |
-| Cognitive-only RSI, unsolved | 45.8% | 56.5% | 25.9 |
-| Cognitive-only RSI, solved | 8.5% | 17% | 1.4 |
-| No closed-loop RSI by 2040 | 22.5% | 52.5% | 11.8 |
-| **Total** | 100% | | **≈54.0** |
+| Human-less RSI, unsolved | 20.6% | 72.5% | 15.0 |
+| Human-less RSI, solved | 3.8% | 20.5% | 0.8 |
+| Cognitive-only RSI, unsolved | 48.1% | 56.5% | 27.2 |
+| Cognitive-only RSI, solved | 8.9% | 17% | 1.5 |
+| No closed-loop RSI by 2040 | 18.5% | 52.5% | 9.7 |
+| **Total** | 100% | | **≈54.2** |
 
-Extinction alone, computed the same way, comes to about 11.7%. The no-RSI row alone contributes about 12 points, so even a large cut to the probability of RSI leaves substantial risk.
+Extinction alone, computed the same way, comes to about 12.1%. The no-RSI row alone contributes about 10 points, so even a large cut to the probability of RSI leaves substantial risk.
 
 ### Sensitivity
 
 | Change, others at midpoint | Extinction | Extinction + disempowerment |
 |---|---|---|
-| Alignment solved at 15% / 35% | 12.3% / 11.1% | 56.2% / 52.0% |
-| Holds through 2060 at 50% / 75% | 12.0% / 11.4% | 55.1% / 53.0% |
-| Closed-loop RSI by 2040 at 70% / 85% | 11.1% / 12.4% | 53.9% / 54.2% |
-| Every outcome cell at its low / high end | 8.5% / 14.9% | 44.1% / 64.1% |
-| Every input at its optimistic / pessimistic end | 7.0% / 17.3% | 40.8% / 68.4% |
+| Alignment solved at 15% / 35% | 12.7% / 11.4% | 56.4% / 52.0% |
+| Holds through 2060 at 50% / 75% | 12.4% / 11.7% | 55.3% / 53.1% |
+| Closed-loop RSI by 2040 at 75% / 88% | 11.5% / 12.6% | 54.0% / 54.3% |
+| Every outcome cell at its low / high end | 8.8% / 15.3% | 44.1% / 64.2% |
+| Every input at its optimistic / pessimistic end | 7.3% / 17.6% | 40.6% / 68.7% |
 
-**What this shows.** The combined figure barely moves with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 70% to 85% changes the combined figure by less than half a point. It changes the *mix*, shifting mass from disempowerment toward extinction.
+**What this shows.** The combined figure barely moves with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 75% to 88% changes the combined figure by less than half a point. It changes the *mix*, shifting mass from disempowerment toward extinction.
 
 ### What the figure does not include
 

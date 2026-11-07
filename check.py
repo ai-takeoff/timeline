@@ -20,7 +20,13 @@ DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
 README = Path("README.md")
 
-WORD_CEILING = 7850  # drift guard; raise deliberately, never incidentally.
+WORD_CEILING = 8050  # drift guard; raise deliberately, never incidentally.
+# Raised from 7850 at v1.73: tripwire 18 (a new row) and the first
+# third-party measurement of AI-attributable acceleration (METR at
+# Anthropic), which the cognitive timeline figures now rest on, needed
+# ~170 words. v1.68, v1.70 and v1.71 had each paid for their additions by
+# compressing already-tight prose (six passages in v1.70, nine in v1.71);
+# a fourth round in a row would have traded clarity for the number.
 # Raised from 7800 at v1.66: two short additions closing a real internal-
 # consistency gap found by external review (the agency-preservation
 # clause on "alignment largely solved," and the unobservable-lever note)

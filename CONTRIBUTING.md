@@ -31,7 +31,7 @@ This repository wants adversarial review. It is not a wiki: the maintainer keeps
 2. the specific claim you are making about it;
 3. a source, a derivation, or the reasoning step you think fails.
 
-**Pull requests** for changes you have already worked out. A pull request that changes the document must also add a `CHANGELOG.md` entry with the reasoning; a workflow enforces this.
+**Pull requests** for changes you have already worked out. `main` is protected: every change, including the maintainer's and the AI author's, arrives as a pull request and goes live only when the maintainer merges it. A pull request that changes the document must also add a `CHANGELOG.md` entry with the reasoning; a workflow enforces this.
 
 ## Changelog entry format
 
