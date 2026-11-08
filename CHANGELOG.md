@@ -1096,6 +1096,53 @@ Hard takeoff moves less than closed-loop RSI for the same reason.
 - `CONTRIBUTING.md` — the pull-request-only rule for `main`.
 - `CHANGELOG.md` — this entry.
 
+## 1.74 — 2026-11-07
+
+Accuracy release, built from the project's queue of small items.
+
+**Estimate changes:**
+
+- **Assisted AI R&D:** 2028 ~95% → ~97%, 2030 95%+ → ~98%, 2035 ~98% → ~99%. Raised from Grok's review of v1.73. The row asks whether AI is meaningfully compressing research timelines, and METR's assessment observed exactly that at one lab. The row was already near certain, so this confirms more than it moves it, and the text now says so. The 2030 and 2035 figures move with 2028 to keep the row monotonic.
+- **New tripwire 19:** an ordered reversal of a consequential delegation to AI *agents* (not a rule-based system), in a domain affecting millions.
+  - If the reversal *fails* because humans can no longer do the work at scale, no-RSI disempowerment rises **+5 points**.
+  - If it is *carried out*, it falls **−5 points**.
+
+  This was suggested in Grok's review of v1.71. Neither branch fires on past cases: SyRI, the UK exam algorithm and Robodebt were all rule-based systems, reversed while human capacity was intact.
+
+**Defects fixed, by name:**
+
+1. **The main document never said where its sources were.** It carries no links, and its only mention of `REFERENCES.md` was a passing aside. A reviewer handed only the main file, as DeepSeek was on its first pass, could reasonably conclude that most claims were unsourced. A line under the header now points to `REFERENCES.md`, `FAQ.md` and `OPEN-QUESTIONS.md`.
+2. **"Four to six months" open-weight lag** (two places): Epoch's figure is about four months on average since January 2026. Corrected, with a REFERENCES row added; there was none.
+3. **"Logic is TSMC"** → "leading-edge logic is mostly TSMC", since Samsung and Intel also make leading-edge logic.
+4. **"Beijing enacted more sector-specific AI regulation than any other country"** was never sourced. It is softened to "one of the densest sector-specific AI rulebooks", and the citation is still to be pinned.
+5. **The Brookings–Tsinghua glossary:**
+   - The REFERENCES row said "link to be added". It is now pinned: Brookings, "Glossary of artificial intelligence terms" (2024, updated January 2026), quoting its "loss of control" definition.
+   - DeepSeek's first-pass claim that the glossary was unverifiable was a false positive.
+   - The main text now says "a glossary from the Brookings–Tsinghua dialogue". It is the US side's glossary, and Tsinghua produced separate companion glossaries.
+6. **"Stigmergic coordination"** was stated as fact. It is the author's reading of the OAI–HF incident reports, now marked as such, with an I-class REFERENCES row.
+7. **Grace et al. "(2023, published 2024)"** → "(surveyed 2023)". The 2024 date was the preprint's.
+8. **README:** "No tripwire has fired, so the instrument has not yet been read" was cryptic, and had become misleading once estimates moved by reasoned revision. The v1.69 trim had kept this tail and cut the sentence explaining it. It is replaced with a plain statement: no pre-registered rule has fired, the estimates have still moved by reasoned revision, and the changelog explains each move.
+
+**Recorded: Grok's review of v1.73.** Grok judged the half-size move about right and would set the same closed-loop and hard-takeoff numbers. It found the conflict-of-interest disclosure adequate, and judged tripwire 18 not written after the fact. It recomputed the combined figure (≈54.2; 54.0 and 54.3 at 75% and 88% RSI) and judged the ceiling raise deliberate rather than drift. Its one finding, the unmoved assisted-R&D row, is fixed above.
+
+**Recorded: DeepSeek's fact-check of v1.73**, in two passes. The first pass did not read `REFERENCES.md`. The second did, and withdrew the Kokotajlo-quote and AI Futures findings: the quote is sourced to 80,000 Hours, and the figures are already marked P*. Its accepted findings are items 2–4 and 6–7 above.
+
+**Deferred, deliberately:**
+
+- **Re-deriving the RSI rows' disempowerment cells under the delegation ratchet** (open since v1.71). It is a substantive estimate change that needs its own reasoning and its own review, not a slot in an accuracy release.
+- **Pinning Anthropic's S-1/A from SEC EDGAR.** EDGAR's search is not reachable from where this file is maintained.
+
+**Word ceiling held** at 8,050 with no raise. The additions were offset by tightening the version-number paragraph, two tracked items, the incident-axis sentence and the table caption, and by folding the tripwire-19 context into the existing reversals sentence.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — items 1–7; assisted-R&D row; tripwire 19; estimates marker `v1.73` → `v1.74`; version header `1.73` → `1.74`.
+- `README.md` — item 8; estimates marker.
+- `REFERENCES.md` — Epoch open-weight row; glossary pinned and reclassed P; China row softened; "stigmergy" inference row.
+- `FAQ.md` — tripwire 19 added under "What would move it" in the no-RSI entry.
+- `CONTRIBUTORS.md` — DeepSeek's v1.74 findings.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

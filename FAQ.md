@@ -137,7 +137,7 @@ An outside review (Grok, at v1.71) judged the update sound. It put B lower, at 4
 
 ### What would move it
 
-Reversals of algorithmic delegation do happen. A Dutch court banned the SyRI welfare-fraud system in 2020; the UK scrapped its exam-grading algorithm the same year; Australia ended Robodebt, its automated welfare-debt recovery scheme, and a royal commission followed. All three came while human capacity in those domains was intact. If such reversals keep occurring as delegated tasks grow more complex, B is too high. If they stop, or an attempted reversal fails because no one can still do the work, B is too low.
+Reversals of algorithmic delegation do happen. A Dutch court banned the SyRI welfare-fraud system in 2020; the UK scrapped its exam-grading algorithm the same year; Australia ended Robodebt, its automated welfare-debt recovery scheme, and a royal commission followed. All three came while human capacity in those domains was intact. If such reversals keep occurring as delegated tasks grow more complex, B is too high. If they stop, or an attempted reversal fails because no one can still do the work, B is too low. Tripwire 19 pre-registers both readings for the first ordered reversal of a delegation to AI *agents*, as distinct from rule-based systems like the three above: −5 points if it is carried out, +5 if it fails.
 
 ### What it does not yet cover
 
