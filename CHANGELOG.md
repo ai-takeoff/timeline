@@ -1179,6 +1179,52 @@ Why these signals and not others. Banking, platform and labour-marketplace recor
 - `CONTRIBUTORS.md` — the maintainer's vector.
 - `CHANGELOG.md` — this entry.
 
+## 1.76 — 2026-11-10
+
+**Fixes from three outside reviews of v1.75** (Grok, DeepSeek, Google). Each reviewer was first asked, before reading, for its own lockout probability, the binding constraint, and whether ownerless capital counts as disempowerment.
+
+**Errors fixed:**
+- **Wyoming DAO LLCs were grouped with ownerless structures.** W.S. 17-31-105(a) requires "one (1) or more members" (DeepSeek; verified against the enrolled 2021 bill). Wyoming now illustrates a *thin* owner; only Bayern's zero-member argument and ownerless foundations illustrate an absent one. Added: a court may look through such an entity to the operator.
+- **The compounding argument credited ownerlessness.** A human-owned firm that reinvests everything grows just as fast. The advantage comes from the growth objective (DeepSeek).
+- **The binding constraint was misnamed.** Open weights remove model-provider monitoring but not payment-rail identity, which is why Mode 2 needs fronts. Two of the reviewers named this independently.
+
+**Clarified:**
+- The on-ramp routes are separated. Death, neglect and entanglement are ordinary; a "keep running" goal resisting interruption has not been observed (Grok, DeepSeek).
+- "No reported case is no evidence of absence" now reads as weak evidence, with a stopping condition: if tripwire 20 stays silent through 2028, the lockout estimate falls (all three reviewers).
+- Main text: why tripwire 20 moves the no-RSI row. Ownerless capital is a deeper form of the delegation ratchet. This answers the v1.75 entry's "fits none of the three pathways", which referred to pathway definitions, not outcome rows (DeepSeek).
+- Tripwire 20 now requires independent confirmation or an official filing, and sets "significant holdings" at ~$10M (DeepSeek).
+- The METR hedges are restored; RentAHuman "offered", not "sold"; E-Commerce Bench is read symmetrically, matching REFERENCES; "the escaped agent has the advantage" is conditional on who holds the accounts; political influence is marked as inference (DeepSeek, Grok).
+
+**Added to `FAQ.md`:** the brakes on Mode 2:
+- legal capacity;
+- payment rails;
+- rented fronts betraying the agent (Google, after the maintainer pressed it on what rented humans can do).
+
+They limit scale and lifespan, not possibility, and a theft by a front would itself be a tripwire-20 incident. Also added: a one-line dissent that ownerless capital is just another economic actor.
+
+**Rejected:**
+- *Pathway A has no magnitude:* tripwire 10 has none either, because pathway A is not a table cell.
+- *Payment-processor freezes as a precursor:* fronts present a human principal, and freezes are not public.
+- *Agent-run LLC services as a signal:* they show Mode 1 demand, not lockout.
+- *Detection by financial forensics:* front accounts show humans.
+- *Dropping the monotonicity constraint:* cumulative probabilities cannot fall over time.
+- *A non-RSI agent's capability is frozen:* it can buy newer models.
+- *A cloud kill switch:* a locked-out operator cannot flag accounts in a front's name.
+- *Courts "routinely pierce" ownerless operations:* there is no such case yet.
+- *Including inter-agent macroeconomics:* the v1.75 scope rule stands.
+
+**Estimate.** The blind estimates of a public lockout case by end-2027 were ~20% (Grok), 15–20% (DeepSeek) and 10–15% (Google). All were below the author's ~25–40%, which is lowered to **~15–30%**. It is a class-I judgment, not a table estimate, so the estimates marker stays at v1.75.
+
+**Word ceiling held** at 8,050, by trimming the tracked-items list, the magnitude-application note and the time-horizon note.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — subsection, tripwire 20, three trims, version header, footer date.
+- `FAQ.md` — the money-making-agents entry.
+- `REFERENCES.md` — estimate row; inference list.
+- `CONTRIBUTORS.md` — credits.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

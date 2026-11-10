@@ -134,7 +134,7 @@ Every externally checkable claim in `ai-timelines-and-outcomes.md`, with its sou
 | E-Commerce Bench: 18 models run up to four online stores for a simulated year from ¥100,000. Best (GPT-5.6 Sol) ~¥1.43M; 10 of 90 episodes bankrupt; one leading model sent 18.48% of order spending to fraudulent suppliers; 16 of 18 models showed no clear price improvement on repeat orders. Deterministic simulation, so a lower bound on real-world difficulty in some respects and an upper bound in others | Qwen Team (Alibaba) et al., arXiv 2608.30730 (Aug 2026) | P |
 | The "zero-member LLC": the argument that US LLC statutes may allow an entity with no human members to be controlled by an autonomous system | Shawn Bayern, "Of Bitcoins, Independently Wealthy Software, and the Zero-Member LLC," *Northwestern University Law Review Online* 108 (2014) | P |
 | Wyoming recognizes "algorithmically managed" DAO LLCs | Wyoming Decentralized Autonomous Organization Supplement, W.S. 17-31-101 et seq. (2021) | P |
-| Author's estimate: a credible public case of an operator locked out of an autonomous money-making agent by end-2027, ~25–40% | Author's judgment | I |
+| Author's estimate: a credible public case of an operator locked out of an autonomous money-making agent by end-2027, ~15–30% (lowered from ~25–40% in v1.76 after three blind outside estimates of ~10–20%) | Author's judgment | I |
 | Tegmark's twelve AI aftermath scenarios | Max Tegmark, *Life 3.0: Being Human in the Age of Artificial Intelligence* (Knopf, 2017), ch. 5 | P |
 | Grace et al. median respondent: 5% chance of extremely bad outcomes such as human extinction | Grace et al. 2024, same as above | P |
 
@@ -152,6 +152,7 @@ The following are the document's own reasoning and should not be attributed to a
 - That alignment dominates the disempowerment column while the two levers are comparable on extinction
 - That pathway B produces comparable disempowerment risk without RSI
 - That rented human labour bears on pathways A and B but not on physical RSI
+- That agents holding capital would gain political influence, and that ownerless capital is a deeper form of the delegation ratchet
 - The three- and four-way friction taxonomies for physical bootstrap
 - All probability estimates in every table
 - The three stated alignment parameters (solved at loop-close, holding through 2060, deception by default) and the combined figure derived from them; derivation in `FAQ.md`. Set after seeing elicitations from AI systems, which are not cited as evidence
