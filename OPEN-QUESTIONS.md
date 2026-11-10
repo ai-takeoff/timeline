@@ -96,7 +96,7 @@ The analogy shows only that formal completeness is not the normal bar for safety
 ### What this means for the estimates
 
 1. **"Alignment largely solved" means the agency-preserving sense.** A value-aligned system that does not defer to human judgment meets the disempowerment definition, however good the outcome. A reader who takes "solved" to mean good outcomes, deference or not, should read the solved rows' flourishing figures as overstated.
-2. **The largest lever cannot be observed.** Solving alignment moves disempowerment about 31 points, and no tripwire separates real from deceptive alignment. The main document states the parameter anyway, 15–35% at loop-close, as an author judgment no tripwire can revise.
+2. **The largest lever cannot be observed.** Solving alignment moves disempowerment about 37 points, and no tripwire separates real from deceptive alignment. The main document states the parameter anyway, 15–35% at loop-close, as an author judgment no tripwire can revise.
 3. **Persistence is now explicit, within a bounded window.** The "solved" rows require alignment largely solved at loop-close *and* holding through 2060 (stated at 50–75%). Solved-then-lost counts as unsolved. Indefinite persistence beyond 2060, the claim his argument targets most directly, is outside the table's horizon by design. That is a stated limit, not a rebuttal. The combined figure in `FAQ.md` moves only a few points when these two parameters are pushed toward his view, because the unsolved rows already carry most of the weight.
 
 No specific cell has a demonstrated case for being miscalibrated.

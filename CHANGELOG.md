@@ -1225,6 +1225,59 @@ They limit scale and lifespan, not possibility, and a theft by a front would its
 - `CONTRIBUTORS.md` — credits.
 - `CHANGELOG.md` — this entry.
 
+## 1.77 — 2026-11-10
+
+**Estimate change: the four RSI rows' disempowerment cells re-derived under the delegation ratchet.** This was flagged as open at v1.71, when the no-RSI row was raised to 40–55% on the ratchet argument.
+
+**Defect fixed.** The RSI rows predated that argument. Cognitive RSI with unsolved alignment showed less disempowerment (38–52%) than no RSI at all (40–55%), and nearly as much flourishing (35–50% against 40–55%). A more capable, misaligned system cannot plausibly leave humans with more control.
+
+**Method.** For the unsolved rows:
+1. Extinction is unchanged.
+2. Of the survivors, a share m is lost directly to misaligned systems: 25–40% cognitive, 35–50% human-less.
+3. Of the rest, a share R is lost to the ratchet: 45–65%, centred on the no-RSI row's ~50% of survivors.
+
+The flourishing this implies sets the cells. For the solved rows, agency-preserving alignment removes direct loss, but it respects human choices to delegate, so part of the ratchet survives. The derivation is in `FAQ.md`.
+
+**New cells** (extinction unchanged):
+
+| Row | Disempowerment | Flourishing |
+|---|---|---|
+| Human-less, unsolved | 40–55% → **50–63%** | 20–35% → 12–25% |
+| Human-less, solved | 12–20% → 15–25% | 75–85% → 70–80% |
+| Cognitive, unsolved | 38–52% → **52–67%** | 35–50% → 20–35% |
+| Cognitive, solved | 10–18% → 12–22% | 78–88% → 75–85% |
+
+Row three now has a modal outcome (disempowerment).
+
+**Effect on the combined figure:** ≈54% (41–69%) → **≈63% (48–79%)**. Extinction is unchanged at ≈12%. Several conclusions change with it:
+- RSI now adds about 10 points of disempowerment under unsolved alignment; before, the column was roughly flat.
+- The alignment lever on disempowerment is now about 37 points, from 31.
+- The probability of RSI now moves the combined figure by about 2 points across its range, not under half a point.
+
+**Timeline figures not changed.** AI Futures Project's Q3.5 update (10 November) now puts a superhuman AI researcher "likely" in 2027, far ahead of this document's closed-loop 2028 ~30%. The main document now states the gap and four reasons for not following it:
+- their update rests mainly on the METR reading already priced at v1.73, under the same redactions;
+- a superhuman researcher existing is not the same as humans being out of the loop;
+- their forecasts assume maximum feasible speed;
+- their medians moved two years in three months on one reading.
+
+One argument is recorded as unpriced: their models gave under 4% to the observed pace, a warning that this document's priors may also run conservative. Tripwire 18 does not fire, because the update reinterprets METR's assessment rather than adding a new one.
+
+**Stale citations updated:** "On range width" now shows the August-to-November move, and the FAQ vantage table now carries Kokotajlo's May 2027 median.
+
+**Process note.** The author had read AI Futures' numbers before re-deriving, so the author's own timeline review was not blind. The outside review of this version is asked for its own figures first.
+
+**Word ceiling raised, 8,050 → 8,110**, with the reason recorded in `check.py`. The re-derivation and the AI Futures paragraph needed about 100 words; five trims recovered about 45. v1.75 and v1.76 had already paid for their additions by trimming.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — outcome table rows 1–4 and the bold note; At a glance; the Combined line; three reading paragraphs; "On range width"; new paragraph "Why not follow AI Futures to 2027"; five trims; estimates marker `v1.75` → `v1.77`; version header.
+- `FAQ.md` — combined-figure tables and text; new subsection "The same ratchet in the RSI rows"; vantage table.
+- `REFERENCES.md` — AI Futures Q3.5 row.
+- `OPEN-QUESTIONS.md` — alignment-lever figure.
+- `README.md` — estimates marker.
+- `check.py` — word ceiling.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

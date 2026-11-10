@@ -40,6 +40,7 @@ Every externally checkable claim in `ai-timelines-and-outcomes.md`, with its sou
 | Metaculus "date of general AI": 25% by 2029, 50% by 2033 (Feb 2026) | Metaculus — https://www.metaculus.com/ | P |
 | AI safety leaders survey: median AGI 2033, IQR 2031–2036 | Secondary reporting; **primary source not yet traced** | S |
 | AI Futures: automated-coder medians Nov 2027 / Jan 2029 / Jan 2030 across three forecasters | AI Futures Project, Q2.5 2026 timelines update — https://blog.aifutures.org/p/q25-2026-timelines-update-uplift | P |
+| AI Futures, 10 Nov 2026: joint view that a superhuman AI researcher "will likely arrive at some point in 2027" (Kokotajlo median May 2027, Lifland Aug 2027); 35–65% chance of TED-AI before 2028; reads METR's Anthropic finding as ~1.7× AI-attributable; their most aggressive model-based distribution gave under 4% to that pace by November 2026; recommends a pause | AI Futures Project, "Q3.5 Timelines Update: Looks Like the Intelligence Explosion Will Happen in 2027 After All" — https://blog.aifutures.org/p/q35-timelines-update-looks-like-the | P |
 | Model revision simulating training runs raised AC→ASI median 1.22→1.72 yr and 3.86→4.56 yr, slowing fast takeoffs only | AI Futures Project, same post (quoted directly; a later search confirmed the revision and direction but not these exact figures) | P* |
 | AI Futures forecasts are conditional on maximum technically feasible speed | AI Futures Project, same | P |
 | Halstead's alignment-bottleneck argument | AI Futures Project, same | P |
