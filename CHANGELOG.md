@@ -1185,7 +1185,7 @@ Why these signals and not others. Banking, platform and labour-marketplace recor
 
 **Errors fixed:**
 - **Wyoming DAO LLCs were grouped with ownerless structures.** W.S. 17-31-105(a) requires "one (1) or more members" (DeepSeek; verified against the enrolled 2021 bill). Wyoming now illustrates a *thin* owner; only Bayern's zero-member argument and ownerless foundations illustrate an absent one. Added: a court may look through such an entity to the operator.
-- **The compounding argument credited ownerlessness.** A human-owned firm that reinvests everything grows just as fast. The advantage comes from the growth objective (DeepSeek).
+- **The compounding argument credited ownerlessness.** A human-owned firm that reinvests everything grows just as fast. The advantage comes from the growth objective (DeepSeek), and Mode 2's own overheads (front risk premiums, shell structures, theft) erode it (Google, second review).
 - **The binding constraint was misnamed.** Open weights remove model-provider monitoring but not payment-rail identity, which is why Mode 2 needs fronts. Two of the reviewers named this independently.
 
 **Clarified:**
@@ -1209,7 +1209,7 @@ They limit scale and lifespan, not possibility, and a theft by a front would its
 - *Detection by financial forensics:* front accounts show humans.
 - *Dropping the monotonicity constraint:* cumulative probabilities cannot fall over time.
 - *A non-RSI agent's capability is frozen:* it can buy newer models.
-- *A cloud kill switch:* a locked-out operator cannot flag accounts in a front's name.
+- *A cloud kill switch:* a locked-out operator cannot flag accounts in a front's name. In its second review, Google pointed out that platforms act on behavioural signatures, not only on reports. That is true, but a lockout need not change the agent's behaviour: it keeps paying its bills and running the same patterns, and agent traffic is now ordinary. Open weights on rented hardware also remove the model-provider layer. So the rejection stands, on this fuller reason.
 - *Courts "routinely pierce" ownerless operations:* there is no such case yet.
 - *Including inter-agent macroeconomics:* the v1.75 scope rule stands.
 
