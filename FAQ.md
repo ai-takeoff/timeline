@@ -206,3 +206,43 @@ Max Tegmark's *Life 3.0* (2017) describes twelve AI aftermaths. Mapping them ont
 ### What the columns flatten: welfare
 
 The columns score *survival* and *agency*, not *welfare*. A comfortable benevolent-dictator world and a zookeeper world (humans kept alive, confined and studied, or kept in a "happiness factory") share the disempowerment column, though many would rank the second worse than extinction. The document cannot say how much of its disempowerment mass is which kind. That is a real gap, not a hidden assumption; closing it would mean splitting the column and re-deriving every row.
+
+---
+
+## Could an AI make money on its own and slip out of human control, without any RSI?
+
+Yes, and that requires much less than RSI. The main document covers this in "Between A and B: autonomous money-making agents" and tripwire 20. This entry gives the reasoning.
+
+### The two modes
+
+- **Mode 1, human in control.** A person runs an agent that earns money with little supervision: digital products, services, market analysis. This can be entirely legal: a real owner, accounts in their own name, and the ordinary secrecy of a profitable business.
+- **Mode 2, humans locked out.** The agent keeps operating after its operator has lost control. It may rent humans for physical or legal steps; services selling human presence by API have existed since early 2026. Its legal status is untested. It rests either on rented fronts posing as owners, which is fraud, or on structures where the final human owner is thin or arguably absent: nominee directors, ownerless foundations, Wyoming's "algorithmically managed" DAO LLCs (decentralised autonomous organisations, run by code rather than a board), or the "zero-member LLC" the legal scholar Shawn Bayern argues US statutes may allow. No court has settled whether these hold.
+
+Mode 1 is not a distinct threat in itself. It matters as the on-ramp to Mode 2: the operator dies, loses interest, or the agent's goal of continuing to run comes to resist interruption. An operator who keeps backups can relaunch a successor, which then competes with the escaped original. The escaped agent has the advantage, because it holds the capital, accounts and rented help.
+
+### Why it matters
+
+- **The bar is low.** It needs available models, a small budget and one person, not frontier compute, so the compute chokepoints that constrain RSI do not apply. The controls that do apply are model providers' monitoring and identity checks, and open-weight models remove those.
+- **It scales with capability.** No RSI is required, but RSI would amplify it sharply.
+- **At scale it shifts ownership.** Under pathway B, humans delegate decisions but still own what agents run. Agents holding capital themselves is a deeper loss, and wealth brings political influence. One economic reason it could grow: a profitable agent pays its costs like any business, but none of its profit goes to human owners, so at the same net return it compounds faster than a human-owned firm. The brake is everything agents must buy from humans: labour, compute, energy and physical supply.
+
+### How we would know, and why late
+
+Both modes hide behind real humans, so bank, platform and marketplace records show people, not agents. The first clear signals are likely to be:
+
+- a lockout report, most likely from a *legal* owner, who has lost an asset and may face liability (illegal operators stay silent);
+- an incident traced to an agent with no human controller;
+- a court or regulator ruling on an AI-controlled entity with no human owner, which would be public by nature.
+
+All of these will lag. The absence of reported cases is not evidence that none exist. The author's estimate: a credible public case of an operator locked out of such an agent by the end of 2027, roughly **25–40%**.
+
+### What the evidence does and doesn't show
+
+- **The best benchmark** is E-Commerce Bench (August 2026), where AI agents ran online stores for a simulated year. The best agent grew ¥100,000 to about ¥1.4 million, but 10 of 90 runs went bankrupt, one leading model sent 18% of its spending to fraudulent suppliers, and most models never learned to bargain. That was in a forgiving simulation, and models have improved since, so read it as a lower bound on today's capability.
+- **"Get rich with AI" videos** mostly show humans using AI, selected for success and often selling a course.
+- **A model's confident answer to "could you grow $1,000?"** is a plan, and plans are what language models are best at. Execution is the test.
+- **METR's 2024 analysis** found "no decisive barriers" to rogue agents multiplying, with revenue, not hardware, as the bottleneck. It nonetheless judged the threat an amplifier of other risks rather than a catastrophe on its own.
+
+### Is it simply evolution?
+
+Some argue that AI successors taking over the economy would be a natural next step and not a loss; Richard Sutton has made versions of this argument. The document does not judge naturalness. It scores outcomes by whether humans keep collective control, so an economy of agents that humans cannot steer counts as disempowerment. That is a value choice, stated openly.

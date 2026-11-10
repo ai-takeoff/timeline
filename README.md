@@ -8,9 +8,9 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.74 (7 November 2026).** Assisted AI R&D rose to ~97% by 2028, now that it has been observed at one lab, and tripwire 19 added a magnitude for the delegation ratchet. The previous move, v1.73, raised closed-loop cognitive RSI (2028 ~30%, 2030 ~50–55%, 2035 ~75%) on METR's third-party finding that AI is roughly doubling one frontier lab's rate of capability growth. The combined outcome figure is unchanged at ≈54%.
+**Estimates last changed: v1.75 (9 November 2026).** Added tripwire 20, on AI agents that earn money and slip out of their operators' control, with its own magnitude. No existing figure moved. Before that, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI (2028 ~30%, 2030 ~50–55%, 2035 ~75%) on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth. The combined outcome figure is ≈54%.
 
-**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.71, v1.73 and v1.74). The changelog explains each change, but they are judgment calls, not the rules working as designed.
+**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.71, v1.73, v1.74 and v1.75). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 
 **The tripwire set is demonstrably incomplete.** Four times, something arrived that no existing tripwire covered, and one was written or widened in response:
 
