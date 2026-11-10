@@ -1227,55 +1227,53 @@ They limit scale and lifespan, not possibility, and a theft by a front would its
 
 ## 1.77 — 2026-11-10
 
-**Estimate change: the four RSI rows' disempowerment cells re-derived under the delegation ratchet.** This was flagged as open at v1.71, when the no-RSI row was raised to 40–55% on the ratchet argument.
+**Estimate change: the two unsolved-alignment RSI rows re-derived under the delegation ratchet.** This was flagged as open at v1.71, when the no-RSI row was raised to 40–55% on the ratchet argument.
 
 **Defect fixed.** The RSI rows predated that argument. Cognitive RSI with unsolved alignment showed less disempowerment (38–52%) than no RSI at all (40–55%), and nearly as much flourishing (35–50% against 40–55%). A more capable, misaligned system cannot plausibly leave humans with more control.
 
-**Method.** For the unsolved rows:
-1. Extinction is unchanged.
-2. Of the survivors, a share m is lost directly to misaligned systems: 25–40% cognitive, 35–50% human-less.
-3. Of the rest, a share R is lost to the ratchet: 45–65%, centred on the no-RSI row's ~50% of survivors.
+**Method.** For each unsolved row:
+1. Extinction, unchanged.
+2. Of the survivors, the share lost directly to misaligned systems, m: 25–40% cognitive, 35–50% human-less.
+3. Of the rest, the share lost to the ratchet, R: 45–55%, the no-RSI row's rate.
 
-The flourishing this implies sets the cells. For the solved rows, agency-preserving alignment removes direct loss, but it respects human choices to delegate, so part of the ratchet survives. The derivation is in `FAQ.md`.
+The cells are set to the ranges these inputs imply. The derivation is in `FAQ.md`.
 
 **New cells** (extinction unchanged):
 
 | Row | Disempowerment | Flourishing |
 |---|---|---|
-| Human-less, unsolved | 40–55% → **50–63%** | 20–35% → 12–25% |
-| Human-less, solved | 12–20% → 15–25% | 75–85% → 70–80% |
-| Cognitive, unsolved | 38–52% → **52–67%** | 35–50% → 20–35% |
-| Cognitive, solved | 10–18% → 12–22% | 78–88% → 75–85% |
+| Human-less, unsolved | 40–55% → **45–62%** | 20–35% → 16–29% |
+| Cognitive, unsolved | 38–52% → **50–67%** | 35–50% → 23–38% |
 
-Row three now has a modal outcome (disempowerment).
+The solved rows are unchanged. Row three now has a modal outcome, disempowerment.
 
-**Effect on the combined figure:** ≈54% (41–69%) → **≈63% (48–79%)**. Extinction is unchanged at ≈12%. Several conclusions change with it:
-- RSI now adds about 10 points of disempowerment under unsolved alignment; before, the column was roughly flat.
-- The alignment lever on disempowerment is now about 37 points, from 31.
-- The probability of RSI now moves the combined figure by about 2 points across its range, not under half a point.
+**Effect on the combined figure:** ≈54% (41–69%) → **≈62% (46–79%)**. Extinction is unchanged at ≈12%. Under unsolved alignment, RSI now adds about 6–11 points of disempowerment; before, the column was roughly flat. The alignment lever on disempowerment is now about 38 points, from 31.
 
-**Timeline figures not changed.** AI Futures Project's Q3.5 update (10 November) now puts a superhuman AI researcher "likely" in 2027, far ahead of this document's closed-loop 2028 ~30%. The main document now states the gap and four reasons for not following it:
-- their update rests mainly on the METR reading already priced at v1.73, under the same redactions;
-- a superhuman researcher existing is not the same as humans being out of the loop;
-- their forecasts assume maximum feasible speed;
-- their medians moved two years in three months on one reading.
+**Revised before merge on blind-first review.** Grok and DeepSeek each gave their own numbers before reading, then reviewed. The first draft had the combined figure at ≈63% (48–79%). Changes made:
+- **The solved rows reverted** (DeepSeek). The draft raised them, arguing that agency-preserving alignment still respects human choices to delegate. That equivocated: the main document's definition requires *sustaining* human agency, not respecting preferences. Under that definition R is near zero.
+- **R capped at 55%** (DeepSeek; Grok's blind figures imply ~45%). The draft widened R to 65% for RSI worlds, on the argument that delegation is faster with more capable systems. That was asserted rather than argued, and faster delegation to misaligned systems belongs in m.
+- **Cells widened to the implied ranges** (DeepSeek), so anyone rerunning the steps gets the table.
+- **The table notes now say** why the full loop shows less disempowerment than cognitive-only: more of its mass is extinction (DeepSeek).
+- **The AI Futures reasoning engages the reading itself** (DeepSeek): which caveats this document discounts METR's finding for. The "medians moved two years" reason is dropped, because it cuts both ways. The paragraph moved to a new FAQ entry, "Why not follow AI Futures Project to 2027?"
+- **The word-ceiling raise was withdrawn** (DeepSeek: two raises in three versions erode the guard). The additions now fit under 8,050.
 
-One argument is recorded as unpriced: their models gave under 4% to the observed pace, a warning that this document's priors may also run conservative. Tripwire 18 does not fire, because the update reinterprets METR's assessment rather than adding a new one.
+The blind estimates: Grok gave a combined figure of ~48–55% and cognitive-unsolved disempowerment of 45–55%; DeepSeek ~45–55% and 45–55%. Both are below this version, and both independently put cognitive-unsolved disempowerment at or above no-RSI, the direction this version fixes. Google's review is pending.
 
-**Stale citations updated:** "On range width" now shows the August-to-November move, and the FAQ vantage table now carries Kokotajlo's May 2027 median.
+**Timeline figures not changed.** AI Futures Project's Q3.5 update (10 November) puts a superhuman AI researcher "likely" in 2027. The two blind reviewers came in lower: Grok 20 / 40 / 65% and DeepSeek 18 / 35 / 60% for 2028 / 2030 / 2035, against this document's 30 / 50–55 / 75%. The document sits between them and AI Futures, and neither side's numbers are an argument by themselves. One argument is recorded as unpriced: AI Futures' models gave under 4% to the observed pace. Tripwire 18 does not fire, because the update reinterprets METR's assessment rather than adding a new one.
 
-**Process note.** The author had read AI Futures' numbers before re-deriving, so the author's own timeline review was not blind. The outside review of this version is asked for its own figures first.
+**Stale citations updated.** "On range width" now shows AI Futures' move from August to November. The FAQ vantage table carries Kokotajlo's May 2027 median.
 
-**Word ceiling raised, 8,050 → 8,110**, with the reason recorded in `check.py`. The re-derivation and the AI Futures paragraph needed about 100 words; five trims recovered about 45. v1.75 and v1.76 had already paid for their additions by trimming.
+**Process note.** The author had read AI Futures' numbers before re-deriving, so the author's own timeline review was not blind.
+
+**Word ceiling held** at 8,050, with nine trims.
 
 **Files changed:**
 
-- `ai-timelines-and-outcomes.md` — outcome table rows 1–4 and the bold note; At a glance; the Combined line; three reading paragraphs; "On range width"; new paragraph "Why not follow AI Futures to 2027"; five trims; estimates marker `v1.75` → `v1.77`; version header.
-- `FAQ.md` — combined-figure tables and text; new subsection "The same ratchet in the RSI rows"; vantage table.
+- `ai-timelines-and-outcomes.md` — outcome table rows 1 and 3, and the bold note; At a glance; Combined line; three reading paragraphs; "On range width" and a pointer to the FAQ; trims; estimates marker `v1.75` → `v1.77`; version header.
+- `FAQ.md` — combined-figure tables and text; new subsection "The same ratchet in the RSI rows"; new entry "Why not follow AI Futures Project to 2027?"; vantage table.
 - `REFERENCES.md` — AI Futures Q3.5 row.
 - `OPEN-QUESTIONS.md` — alignment-lever figure.
 - `README.md` — estimates marker.
-- `check.py` — word ceiling.
 - `CHANGELOG.md` — this entry.
 
 ## Convention from here

@@ -8,7 +8,7 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.77 (10 November 2026).** Re-derived the disempowerment figures for the four RSI scenarios to include the delegation ratchet, which already drove the no-RSI figure. The combined outcome figure rose from ≈54% to ≈63%; no timeline figure moved. Before that, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI (2028 ~30%, 2030 ~50–55%, 2035 ~75%) on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
+**Estimates last changed: v1.77 (10 November 2026).** Re-derived the disempowerment figures for the RSI scenarios with alignment unsolved to include the delegation ratchet, which already drove the no-RSI figure. The combined outcome figure rose from ≈54% to ≈62%; no timeline figure moved. Before that, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI (2028 ~30%, 2030 ~50–55%, 2035 ~75%) on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
 
 **No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.73, v1.74, v1.75 and v1.77). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 

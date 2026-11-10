@@ -20,11 +20,7 @@ DOC = Path("ai-timelines-and-outcomes.md")
 LOG = Path("CHANGELOG.md")
 README = Path("README.md")
 
-WORD_CEILING = 8110  # drift guard; raise deliberately, never incidentally.
-# Raised from 8050 at v1.77: the RSI-row re-derivation (the headline
-# figure moved ~54% -> ~63%) and the explicit gap with AI Futures' 2027
-# update needed ~100 words; v1.75 and v1.76 had already paid for theirs
-# by trimming, and v1.77 trimmed five more passages for ~45.
+WORD_CEILING = 8050  # drift guard; raise deliberately, never incidentally.
 # Raised from 7850 at v1.73: tripwire 18 (a new row) and the first
 # third-party measurement of AI-attributable acceleration (METR at
 # Anthropic), which the cognitive timeline figures now rest on, needed
