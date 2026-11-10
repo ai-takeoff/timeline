@@ -1143,6 +1143,42 @@ Accuracy release, built from the project's queue of small items.
 - `CONTRIBUTORS.md` — DeepSeek's v1.74 findings.
 - `CHANGELOG.md` — this entry.
 
+## 1.75 — 2026-11-09
+
+**New vector: autonomous money-making agents**, developed with the maintainer on 9 November 2026. **Defect fixed:** the document had no place for an AI that earns money and then outlives or locks out its operator. That case needs no RSI and no misalignment. It fits none of the three pathways: A assumes humans in control, B assumes voluntary delegation, and C needs RSI. The pieces existed only as fragments: two RentAHuman paragraphs and a tracked item on labour marketplaces.
+
+**Added:** a subsection, "Between A and B: autonomous money-making agents." It replaces those fragments and states:
+- the two modes. Mode 1, the owner in control, possibly fully legal. Mode 2, humans locked out, with rented humans and untested legality;
+- Mode 1 as the on-ramp to Mode 2;
+- METR's finding that revenue, not hardware, is the constraint;
+- the shift of *ownership*, not just decisions, at scale;
+- that both modes hide behind real humans, so detection is late;
+- that the risk rises with capability, needs no RSI, and RSI would amplify it.
+
+**New tripwire 20.** It fires on the first credible case of any of these:
+- an operator reporting being locked out of such an agent;
+- an incident traced to an agent with no human controller;
+- a court or regulator accepting an AI-controlled entity with no human owner.
+
+Effect: pathway A up; with significant holdings, or on the ruling, no-RSI disempowerment +3 points.
+
+Why these signals and not others. Banking, platform and labour-marketplace records would show the real humans the agents hide behind, so they were considered and rejected as tripwires. Tracking the capability itself was also rejected, as too vague to threshold. A lockout report is most likely to come from a *legal* owner, who has lost an asset and faces liability; illegal operators stay silent. None of the three signals has occurred, so the tripwire is not written after the fact.
+
+**Scope decision.** The goose economy's growth mechanics took several rounds of discussion: net return versus payout, trade and finance between agents, and what agents must buy from humans. They are kept to one paragraph in `FAQ.md`. The test: material belongs in this project only if it changes an estimate, a tripwire, or a reader's understanding of the impact on humans. A study of future AI corporations is a different project.
+
+**Not changed:** existing estimates. The vector's downside currently flows into pathway A (a new threat actor) and pathway B (economic entanglement), and no argument here sizes it separately. The author's estimate of a public lockout case by end-2027 (~25–40%) is recorded in `FAQ.md` and `REFERENCES.md` as a judgment, not an estimate in the tables.
+
+**Word ceiling held** at 8,050. The subsection costs about the same as the three fragments it replaces. Tripwire 20 was paid for by tightening the physical-section reading note and the saturation-check note.
+
+**Files changed:**
+
+- `ai-timelines-and-outcomes.md` — new subsection; the two RentAHuman paragraphs and the marketplace tracked item removed; tripwire 20; two trims; estimates marker `v1.74` → `v1.75`; version header `1.74` → `1.75`; footer date.
+- `FAQ.md` — new entry, "Could an AI make money on its own and slip out of human control, without any RSI?"
+- `REFERENCES.md` — rows for METR's rogue-replication threat model, E-Commerce Bench, Bayern's zero-member LLC, Wyoming's DAO LLC statute, and the author's estimate (class I).
+- `README.md` — estimates marker.
+- `CONTRIBUTORS.md` — the maintainer's vector.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

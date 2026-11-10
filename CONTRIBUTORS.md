@@ -35,3 +35,4 @@ Not an external reviewer, but the source of several of the sharpest catches:
 - the insistence on verifying against the live repository rather than assuming what was committed;
 - the observation that the document carried pathway B's risk without communicating it (v1.68).
 - the argument that delegation ratchets without any RSI, and that the no-RSI row had been priced on a capability plateau rather than continued growth, which raised that row's disempowerment from 25–40% to 40–55% (v1.71).
+- the autonomous money-making agent vector: two modes (human in control, humans locked out), why detection will be late, and the goose economy shifting ownership (v1.75).
