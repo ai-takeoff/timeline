@@ -1,14 +1,14 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.76 — 10 November 2026** · **Estimates last changed: v1.75 (9 November 2026)**
+**Version 1.77 — 10 November 2026** · **Estimates last changed: v1.77 (10 November 2026)**
 
 The version number moves with every change; the "Estimates last changed" figure moves only when a probability, range or tripwire magnitude does. If you cite a number, cite that one.
 
 *This document carries no links. Sources for every checkable claim are in `REFERENCES.md`; derivations and common questions in `FAQ.md`; unresolved research questions in `OPEN-QUESTIONS.md`.*
 
 > **At a glance.**
-> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈54%** (41–69%); extinction alone ≈12%. Most of the bad mass is lock-in, not death.
-> - **The RSI date is not the whole clock.** A world that never closes the loop still carries 40–55% permanent disempowerment, mostly through delegation (pathway B); such worlds contribute about 10 of the ~54 points. On one prominent view (Harari, Oxford, May 2026) that process has already begun; tripwire 14 is how this document would see it.
+> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈62%** (46–79%); extinction alone ≈12%. Most of the bad mass is lock-in, not death.
+> - **The RSI date is not the whole clock.** A world that never closes the loop still carries 40–55% permanent disempowerment, mostly through delegation (pathway B); such worlds contribute about 10 of the combined ~62 points. On one prominent view (Harari, Oxford, May 2026) that process has already begun; tripwire 14 is how this document would see it.
 > - The dated predictions track recursive self-improvement because that is what can be checked.
 
 ---
@@ -27,13 +27,13 @@ These are my views, not a summary of the conversation that produced them, and no
 
 **A datum that may cut the other way, held loosely.** The same survey put solving a Millennium Prize problem twenty-seven years out, approximately 2050. A claimed solution surfaced in 2026; it has not been accepted by the Clay Institute and is disputed. In October OpenAI released 722 mathematics manuscripts from an unreleased model, many Lean-formalized, none peer-reviewed.
 
-**And a counterweight, since the section above only cites forecasts that ran late.** Andrew McAfee, co-author of *The Second Machine Age* (2014), has publicly disowned his earlier expectations about **job and wage pressure** from AI, pointing to low rich-world unemployment and hiring constrained by finding qualified people, not by a shortage of work. He has *not* retracted that AI will replace much white-collar knowledge work; the error was about labour-market aggregates, not capability — the sharper counterweight, since aggregate consequences are what this document estimates. Expert forecasts here have erred confidently in both directions, and collecting only the late ones is selecting.
+**And a counterweight, since the section above only cites forecasts that ran late.** Andrew McAfee, co-author of *The Second Machine Age* (2014), has publicly disowned his earlier expectations about **job and wage pressure** from AI, pointing to low rich-world unemployment. He has *not* retracted that AI will replace much white-collar knowledge work; the error was about labour-market aggregates, not capability — the sharper counterweight, since aggregate consequences are what this document estimates. Expert forecasts here have erred confidently in both directions, and collecting only the late ones is selecting.
 
 **On that datum specifically:** it is **not** calibration evidence. It is one narrow domain — formal mathematics, where checking is cheap — selected because it arrived early. If it stands, these forecasts lag badly on mathematics; that says nothing yet about the occupational and capability questions below.
 
-**On range width.** Three AI Futures Project forecasters, one shared model, same evidence: AC medians of Nov 2027, Jan 2029, Jan 2030 — a two-year spread from unknown limitations. These ranges likely understate the real uncertainty.
+**On range width.** In August 2026 three AI Futures Project forecasters sharing one model gave automated-coder medians from Nov 2027 to Jan 2030; by November their joint view put a superhuman AI researcher "likely" in 2027. These ranges likely understate the real uncertainty.
 
-My cognitive estimates are far more aggressive than the field-wide surveys and somewhat less aggressive than lab insiders. Part of the reconciliation is that closed-loop RSI is a narrower target than automating the *occupation* of AI researcher, which also requires setting agendas across domains, committing to infrastructure, and coordinating collaborators — none needed to propose training changes, run them and evaluate the results. That is a partial defense; if the two bars are closer than I think, the outside view cuts harder than I allow. A reader who simply defers to it is not being unreasonable.
+My cognitive estimates are far more aggressive than the field-wide surveys and somewhat less aggressive than lab insiders. Part of the reconciliation is that closed-loop RSI is a narrower target than automating the *occupation* of AI researcher, which also requires setting agendas across domains, committing to infrastructure, and coordinating collaborators — none needed to propose training changes, run them and evaluate the results. That is a partial defense; if the two bars are closer than I think, the outside view cuts harder than I allow. A reader who simply defers to it is not being unreasonable. Why this document does not follow AI Futures to 2027 is in `FAQ.md`.
 
 ---
 
@@ -171,27 +171,27 @@ A second gap is not a missing column but a missing fact of the matter. Merger sc
 
 | Conditional (event by 2040) | Extinction / irrecoverable collapse | Permanent disempowerment | Prolonged flourishing |
 |---|---|---|---|
-| Human-less RSI — alignment substantially unsolved | 20–30% | **40–55%** | 20–35% |
+| Human-less RSI — alignment substantially unsolved | 20–30% | **45–62%** | 16–29% |
 | Human-less RSI — alignment largely solved | 3–6% | 12–20% | **75–85%** |
-| Cognitive RSI, no physical bootstrap — alignment unsolved | 8–15% | 38–52% | 35–50% |
+| Cognitive RSI, no physical bootstrap — alignment unsolved | 8–15% | **50–67%** | 23–38% |
 | Cognitive RSI, no physical bootstrap — alignment largely solved | 2–4% | 10–18% | **78–88%** |
 | No closed-loop RSI by 2040 — capability grows, delegation continues | 3–7% | 40–55% | 40–55% |
 
-*Bold marks the modal outcome, omitted from rows three and five, where the two leading outcomes sit within 2.5 points. Cell ranges are independent and need not sum to 100% at their extrema; row midpoints do, roughly.*
+*Bold marks the modal outcome, omitted from row five, where the two leading outcomes tie. Cell ranges are independent and need not sum to 100% at their extrema; row midpoints do, roughly.*
 
 **Reading the table.**
 
-*Most bad mass is lock-in, not death.* Row one's combined bad outcomes run 60–85%, but the extinction component is 20–30% and the rest is survival without control. Dependency is not autonomy, and "not exterminated" is a low bar.
+*Most bad mass is lock-in, not death.* Row one's combined bad outcomes run 65–92%, but the extinction component is 20–30% and the rest is survival without control. Dependency is not autonomy, and "not exterminated" is a low bar.
 
-*Alignment is the larger lever on disempowerment; on extinction the two levers are comparable.* Holding capability fixed, solving alignment moves disempowerment about 31 points (47.5% → 16% at midpoints) and extinction about 20. Holding alignment unsolved, removing the physical loop moves disempowerment 2.5 points and extinction 13.5, and the whole ladder to no-RSI moves extinction about 20 (25% → 5%). So alignment dominates disempowerment, and on extinction the two levers are roughly tied. Physical autonomy raises extinction to its highest rates but does not create it: cognitive-only, alignment unsolved, still sits at 8–15%.
+*Alignment is the larger lever on disempowerment; on extinction the two levers are comparable.* Holding capability fixed, solving alignment moves disempowerment about 38 points (53.5% → 16% at midpoints) and extinction about 20. Holding alignment unsolved, removing the physical loop lowers extinction 13.5 points and raises disempowerment 5, and the whole ladder to no-RSI moves extinction about 20 (25% → 5%). So alignment dominates disempowerment, and on extinction the two levers are roughly tied. Physical autonomy raises extinction to its highest rates but does not create it: cognitive-only, alignment unsolved, still sits at 8–15%.
 
 **This lever cannot currently be read.** No tripwire distinguishes alignment-largely-solved from deceptive alignment that is behaviorally identical under every evaluation here — the treacherous-turn gap applies with full force to the table's single largest driver. Stated anyway, as author judgments set after seeing AI-system elicitations, so not independent of them: alignment largely solved at loop-close, **15–35%**; holding through 2060 given that, **50–75%**; strategic deception of evaluators in most frontier systems built by current methods at that capability, **40–65%**. The "solved" rows require the first two together; "unsolved" covers everything else, including solved-then-lost. The biggest disempowerment lever is unobservable, not merely uncertain.
 
-**Combined.** Weighting rows by the two alignment parameters above and closed-loop RSI by 2040 at ~75–88% (human-less given that, 25–35%): extinction or permanent disempowerment by 2060 **≈54%**, 41–69% with every input at one end; extinction alone **≈12%** (7–18%). Unsolved and no-RSI rows carry nearly all of it; derivation in `FAQ.md`.
+**Combined.** Weighting rows by the two alignment parameters above and closed-loop RSI by 2040 at ~75–88% (human-less given that, 25–35%): extinction or permanent disempowerment by 2060 **≈62%**, 46–79% with every input at one end; extinction alone **≈12%** (7–18%). Unsolved and no-RSI rows carry nearly all of it; derivation in `FAQ.md`.
 
-*RSI is not what creates disempowerment risk.* The column reads 40–55% with no RSI (no alignment condition: pathway B does not route through misalignment), 38–52% with cognitive RSI and 40–55% with the full loop, both under unsolved alignment — roughly flat. RSI adds extinction and lost flourishing. Rows differ in more than RSI status; not a clean causal comparison.
+*RSI adds to disempowerment risk but does not create it.* The column reads 40–55% with no RSI (no alignment condition: pathway B does not route through misalignment), 50–67% with cognitive RSI and 45–62% with the full loop, both under unsolved alignment. RSI adds about 6–11 points, plus extinction and lost flourishing (the full loop lower, as more of its mass is extinction). Rows differ in more than RSI status; not a clean causal comparison.
 
-*Why the no-RSI row is this high.* Without a closed loop, capability still grows (assisted R&D ~98% by 2035), and delegation ratchets. Consequential decisions routinely delegated by 2060: ~85–95%. Given that, the collective capacity to take them back decays until reversal is unrealistic: ~55–70%. The product is ~45–65%; the cell is set lower, as a sketch rather than a derivation. Reversals so far (the Dutch SyRI ban, the UK exam algorithm, Robodebt) were of rule-based systems while human capacity was intact; tripwire 19 reads the next one. The RSI rows' disempowerment cells predate this argument and have not been re-derived under it.
+*Why the no-RSI row is this high.* Without a closed loop, capability still grows (assisted R&D ~98% by 2035), and delegation ratchets. Consequential decisions routinely delegated by 2060: ~85–95%. Given that, the collective capacity to take them back decays until reversal is unrealistic: ~55–70%. The product is ~45–65%; the cell is set lower, as a sketch rather than a derivation. Reversals so far (the Dutch SyRI ban, the UK exam algorithm, Robodebt) were of rule-based systems while human capacity was intact; tripwire 19 reads the next one. The RSI rows carry the same ratchet on top of misalignment; derivation in `FAQ.md`.
 
 *Pathway A is inside every row, not just the bottom one.* Misuse does not depend on how the RSI question resolves — it is why the cognitive-only rows carry meaningful extinction risk (8–15%) despite no physical bootstrap, and why the no-RSI row's figure is 3–7% rather than near zero. A system need not personally control physical infrastructure to raise extinction risk: bioweapon design assistance, rented human labor, and cyber effects on infrastructure are pathway-A channels available to a purely cognitive system. No-RSI is not safe, and neither is cognitive-only.
 
@@ -285,11 +285,11 @@ A passive watchlist lets any outcome be narrated as consistent with the priors; 
 
 **On tripwire 17.** Tripwires 4 and 5 cover self-improvement by mechanism — a system-originated training change, or continual learning shipping. Frozen-weight strategy-layer improvement fires neither, so tripwire 17 is phrased on the observable effect instead.
 
-The mechanism is narrower than it first appears. Dream-RSI's offline replay works because an *exploration policy* can be scored against a fixed, already-collected search tree — the environment doesn't change. A training-method proposal has no equivalent shortcut: evaluating whether a new architecture actually helps requires running it, an expensive, clocked training run regardless of how the candidate was generated. Cheap search can accelerate *proposing* candidates; it cannot make *evaluating* them cheap, and evaluation is the bottleneck this document has treated as the hard part throughout — one Noam Brown named directly (Dwarkesh, 17 Sep 2026): current models are "an incredible complement, not a replacement" for judging which experiment is worth running.
+Dream-RSI's offline replay works because an *exploration policy* can be scored against a fixed, already-collected search tree — the environment doesn't change. A training-method proposal has no equivalent shortcut: evaluating whether a new architecture actually helps requires running it, an expensive, clocked training run. Cheap search can accelerate *proposing* candidates; it cannot make *evaluating* them cheap, and evaluation is the bottleneck this document has treated as the hard part throughout — one Noam Brown named directly (Dwarkesh, 17 Sep 2026): current models are "an incredible complement, not a replacement" for judging which experiment is worth running.
 
 So tripwire 17 does not describe type 3 becoming type 1. It describes type 3 feeding type 1 a better-curated stream of candidates to test — still bottlenecked by the same expensive evaluation loop, just aimed better. That is a real effect, but a modest one: better aim at an unchanged bottleneck, not a route around it. Hence the small update rather than a large one.
 
-**A deployed system now does roughly this, outside the tripwire's domain.** ScienceBuddy (PhAI Labs) pairs an inner loop, which evolves the harness with the model held fixed, and an outer loop, which retrains the model under that improved harness — targeting the expensive step better, not cheapening it, exactly the distinction above. Domain is genomics and literature search, not AI research, so tripwire 17 does not fire; it is the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks.
+**A deployed system now does roughly this, outside the tripwire's domain.** ScienceBuddy (PhAI Labs) pairs an inner loop, which evolves the harness with the model held fixed, and an outer loop, which retrains the model under that improved harness — targeting the expensive step, not cheapening it. Domain is genomics and literature search, not AI research, so tripwire 17 does not fire; it is the closest live evidence yet that the mechanism generalises past Dream-RSI's narrow benchmarks.
 
 **On tripwire 14.** Delegation rarely arrives as a formal transfer; it arrives as a signature nobody can meaningfully withhold. The de facto branch is weaker evidence — approval rates also rise when recommendations are simply good — hence half the magnitude, a judgment rather than a derivation. Such findings already occur outside AI; see `FAQ.md`.
 

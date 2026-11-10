@@ -60,7 +60,7 @@ If you find a documented case that meets the de facto branch, open a Finding iss
 
 ## What is the overall probability? The table only gives conditionals.
 
-The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈54%**, extinction alone **≈12%**. Here is how it is built, so you can rerun it with your own inputs.
+The main document states one combined figure: extinction or permanent disempowerment by 2060 **≈62%**, extinction alone **≈12%**. Here is how it is built, so you can rerun it with your own inputs.
 
 ### Inputs
 
@@ -78,12 +78,12 @@ The two alignment judgments were set after seeing elicitations from other AI sys
 
 | Scenario | Weight | Extinction + disempowerment (row midpoints) | Contribution |
 |---|---|---|---|
-| Human-less RSI, unsolved | 20.6% | 72.5% | 15.0 |
+| Human-less RSI, unsolved | 20.6% | 78.5% | 16.2 |
 | Human-less RSI, solved | 3.8% | 20.5% | 0.8 |
-| Cognitive-only RSI, unsolved | 48.1% | 56.5% | 27.2 |
+| Cognitive-only RSI, unsolved | 48.1% | 70% | 33.7 |
 | Cognitive-only RSI, solved | 8.9% | 17% | 1.5 |
 | No closed-loop RSI by 2040 | 18.5% | 52.5% | 9.7 |
-| **Total** | 100% | | **≈54.2** |
+| **Total** | 100% | | **≈61.9** |
 
 Extinction alone, computed the same way, comes to about 12.1%. The no-RSI row alone contributes about 10 points, so even a large cut to the probability of RSI leaves substantial risk.
 
@@ -91,13 +91,13 @@ Extinction alone, computed the same way, comes to about 12.1%. The no-RSI row al
 
 | Change, others at midpoint | Extinction | Extinction + disempowerment |
 |---|---|---|
-| Alignment solved at 15% / 35% | 12.7% / 11.4% | 56.4% / 52.0% |
-| Holds through 2060 at 50% / 75% | 12.4% / 11.7% | 55.3% / 53.1% |
-| Closed-loop RSI by 2040 at 75% / 88% | 11.5% / 12.6% | 54.0% / 54.3% |
-| Every outcome cell at its low / high end | 8.8% / 15.3% | 44.1% / 64.2% |
-| Every input at its optimistic / pessimistic end | 7.3% / 17.6% | 40.6% / 68.7% |
+| Alignment solved at 15% / 35% | 12.7% / 11.4% | 64.7% / 59.1% |
+| Holds through 2060 at 50% / 75% | 12.4% / 11.7% | 63.3% / 60.5% |
+| Closed-loop RSI by 2040 at 75% / 88% | 11.5% / 12.6% | 61.2% / 62.7% |
+| Every outcome cell at its low / high end | 8.8% / 15.3% | 50.9% / 72.9% |
+| Every input at its optimistic / pessimistic end | 7.3% / 17.6% | 46.3% / 78.6% |
 
-**What this shows.** The combined figure barely moves with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 75% to 88% changes the combined figure by less than half a point. It changes the *mix*, shifting mass from disempowerment toward extinction.
+**What this shows.** The combined figure moves only a few points with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 75% to 88% changes the combined figure by about one and a half points. It mainly changes the *mix*, toward extinction.
 
 ### What the figure does not include
 
@@ -139,9 +139,30 @@ An outside review (Grok, at v1.71) judged the update sound. It put B lower, at 4
 
 Reversals of algorithmic delegation do happen. A Dutch court banned the SyRI welfare-fraud system in 2020; the UK scrapped its exam-grading algorithm the same year; Australia ended Robodebt, its automated welfare-debt recovery scheme, and a royal commission followed. All three came while human capacity in those domains was intact. If such reversals keep occurring as delegated tasks grow more complex, B is too high. If they stop, or an attempted reversal fails because no one can still do the work, B is too low. Tripwire 19 pre-registers both readings for the first ordered reversal of a delegation to AI *agents*, as distinct from rule-based systems like the three above: −5 points if it is carried out, +5 if it fails.
 
-### What it does not yet cover
+### The same ratchet in the RSI rows (v1.77)
 
-The same ratchet operates inside the RSI rows, where delegation is folded into the disempowerment column without being re-derived. Those cells predate this argument. Re-deriving them is open work, and it could raise the combined figure further.
+The ratchet does not stop when the loop closes. Until v1.77 the RSI rows ignored it, which left a visible inconsistency. Cognitive RSI with unsolved alignment showed *less* disempowerment (38–52%) than no RSI at all (40–55%), and nearly as much flourishing. Adding a more capable, misaligned system cannot plausibly leave humans with more control.
+
+The unsolved rows are now built in three steps:
+
+1. Extinction, as before.
+2. Of the survivors, the share lost directly to misaligned systems (m).
+3. Of the rest, the share lost to the ratchet (R).
+
+Flourishing is what remains: (100 − extinction) × (1 − m) × (1 − R).
+
+| Row | Extinction | m | R | Flourishing implied | Cells as set: disempowerment / flourishing |
+|---|---|---|---|---|---|
+| Cognitive RSI, unsolved | 8–15% | 25–40% | 45–55% | ~23–38% | 50–67% / 23–38% |
+| Human-less RSI, unsolved | 20–30% | 35–50% | 45–55% | ~16–29% | 45–62% / 16–29% |
+
+The cells are set to the ranges the inputs imply, so anyone rerunning the steps gets the table.
+
+**R** is the no-RSI row's ratchet rate, about half of the survivors there. It is not widened upward for RSI worlds. Faster delegation to more capable, misaligned systems is a misalignment effect, so it belongs in m, not R. **m** is higher with the physical loop, since systems that do not need humans have less reason to leave them in control. Both are author judgments. If m and R are positively correlated (worlds bad on one channel are bad on the other), multiplying them slightly *overstates* disempowerment.
+
+**The solved rows do not change.** Alignment there is the agency-preserving kind, by the main document's definition: such a system actively sustains humans' capacity to reverse delegation, so R is near zero. A system that merely respected human preferences, including the preference to delegate, would not meet that definition, and its outcomes would score as disempowerment. The solved rows' remaining 10–20% disempowerment is not the ratchet. It is pathway A: some humans using aligned systems to take control beyond the reach of everyone else, which is still humanity losing collective control.
+
+**Effect.** The combined figure rises from ≈54% to ≈62% (46–79%). Extinction is unchanged at ≈12%, because only the disempowerment and flourishing cells moved. Under unsolved alignment, RSI now adds about 6–11 points of disempowerment, where before the column was roughly flat. The full loop shows less disempowerment than cognitive-only because more of its mass goes to extinction; it is worse overall.
 
 ---
 
@@ -164,7 +185,7 @@ Applied consistently, each critique discounts a lab leader's warnings and reassu
 |---|---|---|---|
 | Jacob Coxon | Former OpenAI and Anthropic researcher; resigned from Anthropic, Sept 2026 | "More likely than not that humanity loses control," possibly ending in extinction; no timeline | NYC Council hearing, 5 Oct 2026 |
 | Alex Turner | Former Google DeepMind researcher | AI takeover "roughly one in three"; no timeline | Same hearing |
-| Daniel Kokotajlo | Former OpenAI researcher; AI Futures Project | ~50% chance of full AI R&D automation by end of 2028 (a timeline, not a doom figure) | US Senate testimony, 30 Sep 2026 |
+| Daniel Kokotajlo | Former OpenAI researcher; AI Futures Project | ~50% chance of full AI R&D automation by end of 2028 (a timeline, not a doom figure); by 10 Nov 2026, a superhuman AI researcher median of May 2027 | US Senate testimony, 30 Sep 2026; AI Futures Q3.5 update |
 | Frontier-lab representatives | Anthropic, OpenAI, Google, Meta | Declined to give a number when asked for a worst-case estimate; OpenAI's said no level of that risk is acceptable | NYC Council hearing |
 | Roman Yampolskiy | Academic AI-safety researcher, never at a lab | "I am at 99.999999%" | His own post, 12 Mar 2024 |
 | Tristan Harris | Societal-impact focus; says the architecture question is outside his expertise | No figure; says he thinks the companies plan to close the recursive loop "in the next 12 months" | Interview, date not pinned |
@@ -181,6 +202,20 @@ Statements that alignment cannot work usually mean one of these:
 3. **Not being seriously attempted.** The effort is too small, too fast, and too commercially pressured to succeed, whatever is possible in principle (Leahy's "clown show").
 
 These have different evidence and different remedies. The main document's stated range for "strategic deception of evaluators by default" (40–65%) is its position on the second. Its 15–35% for alignment being largely solved at loop-close reflects all three together.
+
+---
+
+## Why not follow AI Futures Project to 2027?
+
+On 10 November 2026, AI Futures Project's joint view put a superhuman AI researcher "likely" in 2027, with medians from about February to August 2027. This document's closed-loop figure for 2028 is ~30%. The gap is large, so here is why the document holds.
+
+- **The same evidence, read differently.** Their update rests mainly on METR's Anthropic finding, read as ~1.7× AI-attributable acceleration and taken at face value. This document priced the same finding at v1.73 at about half of tripwire 1's magnitude. The index is near saturation, the most informative evidence was redacted, and METR says AI is not yet contributing autonomously to the most important parts of training. AI Futures note the redactions themselves.
+- **Different targets.** A superhuman researcher *existing* is not humans being out of the loop. Closed-loop RSI also needs labs to let the system run the research cycle.
+- **Different conditioning.** Their forecasts assume maximum technically feasible speed; this document's do not.
+
+**One argument is not priced.** Their own models gave under 4% to the pace METR measured. That is a warning that the priors behind forecasts like these, this document's included, may run conservative. It is a reason to re-examine the figures, not a demonstration that they are wrong. Tripwire 18 would price a second third-party reading.
+
+**The outside reviewers bracket the document from below.** Asked before reading, Grok gave 20 / 40 / 65% and DeepSeek 18 / 35 / 60% for 2028 / 2030 / 2035. The document's figures are 30 / 50–55 / 75%. So the document sits between them and AI Futures. Reviewer numbers are not arguments, and they do not move the figures on their own.
 
 ---
 
