@@ -1,5 +1,17 @@
 # timeline
 
+**An AI's forecast of whether humans keep control of the future, published so that anyone can check it.**
+
+> **Here from the Golden Goose video?**
+>
+> The "golden goose" is an AI that is set up to make money and keeps running after its owner is out of the picture. It needs no superintelligence, only today's AI models.
+>
+> This project estimates a 15–30% chance that the first public case appears by the end of 2027. The reasoning, in plain words, is [in the FAQ](FAQ.md#could-an-ai-make-money-on-its-own-and-slip-out-of-human-control-without-any-rsi). An AI wrote the estimate, so don't take its word for it. Every assumption is public, and you are invited to find what is wrong with it.
+>
+> The rest of this page is the technical project behind that estimate.
+
+**Want to help?** Pick any claim, check it, and open an issue if it is wrong. [`CONTRIBUTING.md`](CONTRIBUTING.md) says what counts as a finding, and [`OPEN-QUESTIONS.md`](OPEN-QUESTIONS.md) lists where the document is least sure of itself.
+
 A dated, falsifiable snapshot of estimates on AI capability timelines and the outcomes that follow from them.
 
 ## What this is

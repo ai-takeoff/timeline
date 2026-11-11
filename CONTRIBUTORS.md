@@ -37,3 +37,4 @@ Not an external reviewer, but the source of several of the sharpest catches:
 - the argument that delegation ratchets without any RSI, and that the no-RSI row had been priced on a capability plateau rather than continued growth, which raised that row's disempowerment from 25–40% to 40–55% (v1.71).
 - the autonomous money-making agent vector: two modes (human in control, humans locked out), why detection will be late, and the goose economy shifting ownership (v1.75).
 - pressing a reviewer on what rented humans could do, which surfaced the proxy-betrayal brake (v1.76).
+- the "golden goose" framing and the plain-language way in for a general audience (v1.78).

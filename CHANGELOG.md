@@ -1277,6 +1277,23 @@ The blind estimates: Grok gave a combined figure of ~48–55% and cognitive-unso
 - `README.md` — estimates marker.
 - `CHANGELOG.md` — this entry.
 
+## 1.78 — 2026-11-10
+
+**A plain-language way in for visitors arriving from a short video.** A promotional video presents the autonomous money-making agent as a "golden goose". The phrase appeared nowhere in the repository, and the README opened on tripwire status, so a visitor from the video had no way to find what it was about.
+
+- **`README.md`:**
+  - a one-line plain description at the top;
+  - a short "Here from the Golden Goose video?" block linking to the FAQ entry;
+  - a "Want to help?" pointer to `CONTRIBUTING.md` and `OPEN-QUESTIONS.md`.
+
+  The technical README follows unchanged.
+- **`FAQ.md`:** the money-making-agents entry now opens with a plain-words paragraph that uses the phrase "golden goose" and spells out RSI.
+- **`FAQ.md`, queued from the v1.76 reviews (Google):** the two brakes on Mode 2 trade off. Many fronts guard against theft, but they create the pattern anti-money-laundering checks flag.
+
+No estimate, tripwire or main-document text changed apart from the version header.
+
+**Files changed:** `README.md`, `FAQ.md`, `CONTRIBUTORS.md`, `ai-timelines-and-outcomes.md` (version header), `CHANGELOG.md`.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
