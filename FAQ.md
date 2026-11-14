@@ -131,7 +131,7 @@ Without a closed self-improvement loop, AI capability still keeps growing: the m
 | A × B | ~45–65% |
 | **Cell as set** | **40–55%** |
 
-The cell sits below the product because this is a two-factor sketch, not a derivation, and because the figure was raised in a single discussion. That is exactly when an author is most at risk of being argued up rather than persuaded.
+The cell sits about 5–10 points below the product. That is a caution discount, not a calculation. It is there because this is a two-factor sketch, not a derivation, and because the figure was raised in a single discussion. That is exactly when an author is most at risk of being argued up rather than persuaded.
 
 An outside review (Grok, at v1.71) judged the update sound. It put B lower, at 40–60%, on the grounds that institutions still preserve human competence by rule where the cost is visible (aviation, nuclear, medicine). On that B it would set the cell at 35–50%, or keep 40–55% as the cautious reading. The cell is kept: the two ranges overlap, and the reviewer's own product (~34–57%) is centred close to the current cell.
 
@@ -205,6 +205,63 @@ These have different evidence and different remedies. The main document's stated
 
 ---
 
+## Where do the closed-loop figures come from, given the bottlenecks?
+
+Reviewers have said more than once that the 2028 and 2030 figures look high against the document's own list of bottlenecks, and that the document explains why it *discounts* evidence but never shows how it arrives at the figures. This entry gives the derivation. Every input is an author judgment. The point of setting them out is that each can be attacked separately.
+
+**Two steps.** The loop closes by a given date if:
+1. **Capability:** systems can run the full research cycle without routine human direction, early enough; and
+2. **Deployment:** labs then let them, with humans largely out.
+
+### Step 1: capability
+
+The one public trend that bears on this is METR's time horizon: how long a task a system can complete.
+
+- **Level.** In April 2026 the strongest measured system completed tasks of about 3 hours at 80% reliability, and likely at least 16 hours at 50%.
+- **Growth.** The horizon has doubled every 131 days since 2023, every 89 days since 2024, and every 196 days over the whole record.
+- **Target.** A frontier research cycle is weeks to months of expert work. Take one to three months, 170–500 working hours, at 80% reliability. That is 5.8 to 7.3 doublings from 3 hours.
+- **Arrival on trend.** Autumn 2027 to early 2028 at the fastest rate, mid- to late 2028 at the middle rate, and mid-2029 to spring 2030 at the slowest.
+
+Two discounts apply:
+
+- **The trend may not hold, and it can no longer be read.** Above 16 hours METR's task suite saturates.
+- **Well-specified tasks are not research.** The trend does not measure three things closure needs: choosing which hypothesis is worth testing, evaluating over long horizons without human feedback, and integrating results without a routine human veto. METR's Anthropic assessment says AI is not yet doing the most important parts of training autonomously.
+
+The author's judgment is that these together take about a quarter off the trend by 2030, and less by 2035.
+
+| | By mid-2028 | By mid-2030 | By mid-2035 |
+|---|---|---|---|
+| Arrival on trend alone | about even | very likely at all three rates | near certain |
+| Capability, after both discounts | 35–45% | 65–75% | 88–92% |
+
+### Step 2: deployment
+
+Given the capability, do labs run it with humans largely out, within about six months?
+
+- **For:** competition, the labs' stated goals, and a measured 1.9× acceleration at one lab already.
+- **Against:** safety frameworks written to trigger at exactly this point, regulation, and the chance of a visible incident.
+
+The author's judgment: 65–75% for 2028, where there is least time; 70–80% for 2030; 80–90% for 2035.
+
+### Result
+
+| | 2028 | 2030 | 2035 |
+|---|---|---|---|
+| Step 1 × step 2 | 23–34% | 46–60% | 70–83% |
+| Main document | ~30% | ~50–55% | ~75% |
+
+### What the bottlenecks do
+
+The main document lists compute allocation, experiment wall-clock time and the cost of evaluation as bottlenecks. They are deliberately not in step 1. A closed loop can be discrete and slow: propose a change, train, evaluate, repeat. Those bottlenecks set how fast the loop turns once it is closed, so they bear on hard takeoff (14–20% by 2030), not on whether the loop closes. They would delay closure itself only if evaluation stayed so costly that labs kept humans choosing every run. That possibility is inside step 2.
+
+### Where to attack it
+
+- **The capability discount is the weakest input.** A reviewer who puts 2030 at 25–40% is, in these terms, taking about half off the trend where the document takes a quarter. The useful challenge names which of the three unmeasured requirements fails, and what observation would show it.
+- **No tripwire reads the discount directly.** Tripwires 1 to 4 read the trend. Tripwire 18 reads acceleration inside a lab, which is the closest thing to a direct reading.
+- **The derivation was written after the figures** (v1.79), so the inputs may have been chosen to fit them. Treat the agreement in the result table as a consistency check, not as independent support.
+
+---
+
 ## Why not follow AI Futures Project to 2027?
 
 On 10 November 2026, AI Futures Project's joint view put a superhuman AI researcher "likely" in 2027, with medians from about February to August 2027. This document's closed-loop figure for 2028 is ~30%. The gap is large, so here is why the document holds.
@@ -213,9 +270,9 @@ On 10 November 2026, AI Futures Project's joint view put a superhuman AI researc
 - **Different targets.** A superhuman researcher *existing* is not humans being out of the loop. Closed-loop RSI also needs labs to let the system run the research cycle.
 - **Different conditioning.** Their forecasts assume maximum technically feasible speed; this document's do not.
 
-**One argument is not priced.** Their own models gave under 4% to the pace METR measured. That is a warning that the priors behind forecasts like these, this document's included, may run conservative. It is a reason to re-examine the figures, not a demonstration that they are wrong. Tripwire 18 would price a second third-party reading.
+**One argument is not priced.** Their own models gave under 4% to the pace METR measured. That is a warning that the priors behind forecasts like these, this document's included, may run conservative. It is a reason to re-examine the figures, not a demonstration that they are wrong. **What would change this.** A second third-party reading of a lab's acceleration (tripwire 18), or publication of the evidence that METR's report redacted, if it supports a larger effect. Either would raise the 2028 figure.
 
-**The outside reviewers bracket the document from below.** Asked before reading, Grok gave 20 / 40 / 65% and DeepSeek 18 / 35 / 60% for 2028 / 2030 / 2035. The document's figures are 30 / 50–55 / 75%. So the document sits between them and AI Futures. Reviewer numbers are not arguments, and they do not move the figures on their own.
+**The outside reviewers bracket the document from below.** Asked before reading, on several occasions, Grok, DeepSeek and Gemini each gave lower figures: 10–20% for 2028, 25–40% for 2030 and 45–65% for 2035. The same model's answers moved by 10–15 points between sessions. The document's figures are 30 / 50–55 / 75%. So the document sits between them and AI Futures. Reviewer numbers are not arguments, and they do not move the figures on their own. Their argument, that the bottlenecks point to a later date, is answered in the entry above.
 
 ---
 
@@ -273,7 +330,7 @@ Both modes hide behind real humans, so bank, platform and marketplace records sh
 - an incident traced to an agent with no human controller;
 - a court or regulator ruling on an AI-controlled entity with no human owner, which would be public by nature.
 
-The first can come early; the other two confirm, and lag. The absence of reported cases is weak evidence, not none, given the incentives to stay silent. If none of the three signals appears through 2028, the estimate below falls. The author's estimate: a public case of an operator locked out of such an agent by the end of 2027, roughly **15–30%**. Three outside reviewers asked before reading gave ~10–20%. The author stays somewhat above them because a public case can also come through a court or an incident, and a legal owner who has lost an asset has every reason to report it.
+The first can come early; the other two confirm, and lag. The absence of reported cases is weak evidence, not none, given the incentives to stay silent. If none of the three signals appears through 2028, the estimate below falls. The author's estimate: a public case of an operator locked out of such an agent by the end of 2027, roughly **15–30%**. It was 25–40% until v1.76. The argument for lowering it was that the first estimate left out the brakes: banks and payment processors need a human identity, rented fronts can rob the agent, and a *credible public* report is a high bar. Outside reviewers asked before reading have ranged from about 8% to 40%, and the same reviewer's answer has moved between sessions, so their numbers are a rough check and not the reason. The author stays above the lower ones because a public case can also come through a court or an incident, and a legal owner who has lost an asset has every reason to report it.
 
 ### What the evidence does and doesn't show
 

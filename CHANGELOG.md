@@ -1294,6 +1294,41 @@ No estimate, tripwire or main-document text changed apart from the version heade
 
 **Files changed:** `README.md`, `FAQ.md`, `CONTRIBUTORS.md`, `ai-timelines-and-outcomes.md` (version header), `CHANGELOG.md`.
 
+## 1.79 — 2026-11-14
+
+**The closed-loop figures now come with a derivation.** No estimate changed. Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at ~30% / ~50–55% / ~75%.
+
+**Added to `FAQ.md`: "Where do the closed-loop figures come from, given the bottlenecks?"**
+- **Capability.** METR's time-horizon level (about 3 hours at 80% reliability in April 2026) and its three doubling rates give an arrival date for month-scale research tasks. That is then discounted for what the trend does not measure. Grok named the three things: choosing hypotheses, long-horizon evaluation without human feedback, and integration without a routine human veto.
+- **Deployment.** Whether labs then let the system run with humans largely out.
+- **Result.** The product is 23–34% / 46–60% / 70–83%, and the table's figures sit inside it.
+- **The bottlenecks.** The entry states why compute, wall-clock and evaluation cost are not in the capability step: they set the loop's speed once closed, which is hard takeoff, not whether it closes. This answers the reviewers' argument.
+- **Caveat stated in the entry.** The derivation was written after the figures, so the agreement is a consistency check, not independent support.
+
+**Other fixes from the same reviews:**
+- **Lockout estimate (DeepSeek).** The FAQ said it was lowered after reviewers gave lower numbers, which breaks the document's own rule that numbers alone do not move an estimate. It now states the argument: the first estimate left out the brakes added in v1.76 and the high bar for a credible public report.
+- **No-RSI row (DeepSeek).** The FAQ now states the size of the cell's discount below its product, about 5–10 points, and that it is a caution discount. DeepSeek's proposed reason, correlation between the two factors, is not used: the second factor is already conditional on the first.
+- **AI Futures entry (DeepSeek).** It now says what would change the document's mind: a second third-party reading, or publication of the evidence METR's report redacted.
+- **README.** The list of tripwires written after something no tripwire covered said four. It is seven: tripwires 18, 19 and 20 are added. DeepSeek flagged the four against an older changelog entry's three. That difference was a renumbering artifact, but checking it showed the list was stale.
+
+**The reviewers' blind figures, for the record.** For 2028 / 2030 / 2035:
+- DeepSeek: 10–15 / 25–35 / 50–60%;
+- Grok: 10 / 25 / 45%;
+- Gemini: 15 / 35 / 60%.
+
+All are below the document. The same models gave figures 10–15 points different four days earlier, and their lockout figures ranged from 8% to 40%. Gemini's written review could not be used: it did not have the files.
+
+**Word ceiling held** at 8,050; the main document gains one pointer to the FAQ.
+
+**Files changed:**
+
+- `FAQ.md` — new entry; lockout paragraph; no-RSI discount; AI Futures entry.
+- `README.md` — tripwire-gap list.
+- `REFERENCES.md` — time-horizon levels row (secondary source, primary to be pinned).
+- `ai-timelines-and-outcomes.md` — pointer under the timeline table; version header; footer date.
+- `CONTRIBUTORS.md` — credits.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

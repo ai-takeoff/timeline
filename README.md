@@ -24,12 +24,15 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 **No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.73, v1.74, v1.75 and v1.77). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 
-**The tripwire set is demonstrably incomplete.** Four times, something arrived that no existing tripwire covered, and one was written or widened in response:
+**The tripwire set is demonstrably incomplete.** Seven times, something arrived that no existing tripwire covered, and one was written or widened in response:
 
 - **Tripwire 3** (coding uplift): the metric tripwire 1 relies on was downgraded by the forecasters who pioneered it.
 - **Tripwire 14**, de facto branch: an argument (Harari, Leahy) showed that delegation can happen without any formal transfer of authority.
 - **Tripwire 16** (proactive lab disclosure): a lab disclosed its own incidents, a third state between "an evaluator finds it" and "the victim finds it."
 - **Tripwire 17** (frozen-weight self-improvement): Dream-RSI showed a loop type that fires neither tripwire 4 nor 5.
+- **Tripwire 18** (third-party acceleration assessment): an outside evaluator measured a lab's AI-driven speed-up directly, a kind of evidence no tripwire read.
+- **Tripwire 19** (reversal of a delegation): the argument that delegation is hard to reverse had no observable attached.
+- **Tripwire 20** (money-making agents): a route to loss of control that fitted none of the pathways.
 
 Tripwires phrased on mechanisms get bypassed by mechanisms nobody listed, so newer ones are phrased on observable effects.
 

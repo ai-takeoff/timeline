@@ -26,6 +26,7 @@ Every externally checkable claim in `ai-timelines-and-outcomes.md`, with its sou
 |---|---|---|
 | TH1.1 doubling times: 196 days full-period (hybrid), 130.8 days from 2023 (CI 107–161), 88.6 days from 2024 | METR, *Measuring AI Ability to Complete Long Tasks*, and the TH1.1 methodology revision — https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/ | P |
 | TH1.1 estimates above 16 hours are unreliable due to suite saturation | METR, same TH1.1 revision | P |
+| Frontier time-horizon levels, April 2026: about 3 hours 6 minutes at 80% reliability and "likely at least 16 hours" at 50% (Claude Mythos Preview, early) | Wikipedia, "METR", read 14 November 2026 — https://en.wikipedia.org/wiki/METR. Secondary; METR's own time-horizons page was not reachable when this was added, so the primary is still to be pinned | S |
 | The full-period figure splices TH1 values for pre-2023 models | METR, same | P |
 | Coding uplift measured at 1.04–1.2× in controlled study | METR, *Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity* — https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ | P |
 | Anthropic internal survey gives 4× geomean coding uplift | Reported in AI Futures Project, Q2.5 2026 timelines update | S |

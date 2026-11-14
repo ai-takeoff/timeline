@@ -1,6 +1,6 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.78 — 10 November 2026** · **Estimates last changed: v1.77 (10 November 2026)**
+**Version 1.79 — 14 November 2026** · **Estimates last changed: v1.77 (10 November 2026)**
 
 The version number moves with every change; the "Estimates last changed" figure moves only when a probability, range or tripwire magnitude does. If you cite a number, cite that one.
 
@@ -63,7 +63,7 @@ Most apparent disagreement in this area dissolves into equivocation, so:
 | Closed-loop cognitive RSI | ~30% | **~50–55%** | ~75% |
 | Hard takeoff | ~5% | **14–20%** | ~22% |
 
-*Bold: the 2030 anchors the rest of the document reasons from.*
+*Bold: the 2030 anchors the rest of the document reasons from. Derivation in `FAQ.md`.*
 
 **The strongest single reading so far.** METR's eleven-week assessment at Anthropic (November 2026) found capability growth on well-specified tasks running ~1.9× its March 2024–October 2025 rate (95% CI 1.5–2.8), ~80% attributed to AI rather than training compute, with a lasting slope change fitting better than a one-time jump. The limits are real: one lab's internal index, near saturation; the most informative evidence redacted; compute verification dropped mid-scope; and AI not yet making fully autonomous contributions to the most important parts of training. That is compounding, not a closed loop. The closed-loop and hard-takeoff figures above price it at about half of tripwire 1's magnitude; the assisted row was near certain already.
 
@@ -339,4 +339,4 @@ Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG
 
 ---
 
-*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–10 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
+*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–14 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
