@@ -1,14 +1,14 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.78 — 10 November 2026** · **Estimates last changed: v1.77 (10 November 2026)**
+**Version 1.79 — 15 November 2026** · **Estimates last changed: v1.79 (15 November 2026)**
 
 The version number moves with every change; the "Estimates last changed" figure moves only when a probability, range or tripwire magnitude does. If you cite a number, cite that one.
 
 *This document carries no links. Sources for every checkable claim are in `REFERENCES.md`; derivations and common questions in `FAQ.md`; unresolved research questions in `OPEN-QUESTIONS.md`.*
 
 > **At a glance.**
-> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈62%** (46–79%); extinction alone ≈12%. Most of the bad mass is lock-in, not death.
-> - **The RSI date is not the whole clock.** A world that never closes the loop still carries 40–55% permanent disempowerment, mostly through delegation (pathway B); such worlds contribute about 10 of the combined ~62 points. On one prominent view (Harari, Oxford, May 2026) that process has already begun; tripwire 14 is how this document would see it.
+> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈62%** (46–78%); extinction alone ≈12%. Most of the bad mass is lock-in, not death.
+> - **The RSI date is not the whole clock.** A world that never closes the loop still carries 40–55% permanent disempowerment, mostly through delegation (pathway B); such worlds contribute about 11 of the combined ~62 points. On one prominent view (Harari, Oxford, May 2026) that process has already begun; tripwire 14 is how this document would see it.
 > - The dated predictions track recursive self-improvement because that is what can be checked.
 
 ---
@@ -60,10 +60,10 @@ Most apparent disagreement in this area dissolves into equivocation, so:
 | Claim | 2028 | 2030 | 2035 |
 |---|---|---|---|
 | Assisted AI R&D meaningfully compressing research timelines | ~97% | ~98% | ~99% |
-| Closed-loop cognitive RSI | ~30% | **~50–55%** | ~75% |
-| Hard takeoff | ~5% | **14–20%** | ~22% |
+| Closed-loop cognitive RSI | ~20–25% | **~45–50%** | ~70–75% |
+| Hard takeoff | ~4% | **13–18%** | ~21% |
 
-*Bold: the 2030 anchors the rest of the document reasons from.*
+*Bold: the 2030 anchors the rest of the document reasons from. Derivation in `FAQ.md`.*
 
 **The strongest single reading so far.** METR's eleven-week assessment at Anthropic (November 2026) found capability growth on well-specified tasks running ~1.9× its March 2024–October 2025 rate (95% CI 1.5–2.8), ~80% attributed to AI rather than training compute, with a lasting slope change fitting better than a one-time jump. The limits are real: one lab's internal index, near saturation; the most informative evidence redacted; compute verification dropped mid-scope; and AI not yet making fully autonomous contributions to the most important parts of training. That is compounding, not a closed loop. The closed-loop and hard-takeoff figures above price it at about half of tripwire 1's magnitude; the assisted row was near certain already.
 
@@ -187,7 +187,7 @@ A second gap is not a missing column but a missing fact of the matter. Merger sc
 
 **This lever cannot currently be read.** No tripwire distinguishes alignment-largely-solved from deceptive alignment that is behaviorally identical under every evaluation here — the treacherous-turn gap applies with full force to the table's single largest driver. Stated anyway, as author judgments set after seeing AI-system elicitations, so not independent of them: alignment largely solved at loop-close, **15–35%**; holding through 2060 given that, **50–75%**; strategic deception of evaluators in most frontier systems built by current methods at that capability, **40–65%**. The "solved" rows require the first two together; "unsolved" covers everything else, including solved-then-lost. The biggest disempowerment lever is unobservable, not merely uncertain.
 
-**Combined.** Weighting rows by the two alignment parameters above and closed-loop RSI by 2040 at ~75–88% (human-less given that, 25–35%): extinction or permanent disempowerment by 2060 **≈62%**, 46–79% with every input at one end; extinction alone **≈12%** (7–18%). Unsolved and no-RSI rows carry nearly all of it; derivation in `FAQ.md`.
+**Combined.** Weighting rows by the two alignment parameters above and closed-loop RSI by 2040 at ~73–86% (human-less given that, 25–35%): extinction or permanent disempowerment by 2060 **≈62%**, 46–78% with every input at one end; extinction alone **≈12%** (7–18%). Unsolved and no-RSI rows carry nearly all of it; derivation in `FAQ.md`.
 
 *RSI adds to disempowerment risk but does not create it.* The column reads 40–55% with no RSI (no alignment condition: pathway B does not route through misalignment), 50–67% with cognitive RSI and 45–62% with the full loop, both under unsolved alignment. RSI adds about 6–11 points, plus extinction and lost flourishing (the full loop lower, as more of its mass is extinction). Rows differ in more than RSI status; not a clean causal comparison.
 
@@ -339,4 +339,4 @@ Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG
 
 ---
 
-*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–10 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
+*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–15 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*

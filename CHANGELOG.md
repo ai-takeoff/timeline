@@ -1294,6 +1294,75 @@ No estimate, tripwire or main-document text changed apart from the version heade
 
 **Files changed:** `README.md`, `FAQ.md`, `CONTRIBUTORS.md`, `ai-timelines-and-outcomes.md` (version header), `CHANGELOG.md`.
 
+## 1.79 — 2026-11-15
+
+**Estimate change: closed-loop cognitive RSI lowered, after its first step-by-step derivation was reviewed.**
+
+| | 2028 | 2030 | 2035 |
+|---|---|---|---|
+| Closed-loop cognitive RSI | ~30% → **~20–25%** | ~50–55% → **~45–50%** | ~75% → **~70–75%** |
+| Hard takeoff | ~5% → ~4% | 14–20% → 13–18% | ~22% → ~21% |
+
+**How it happened.** Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at its closed-loop figures. A new FAQ entry, "Where do the closed-loop figures come from, given the bottlenecks?", derives them in two steps:
+- **Capability.** METR's time-horizon level (about 3 hours at 80% reliability in April 2026) and its three doubling rates give an arrival date for month-scale research tasks. That is then discounted for a trend that may break, and for what the trend does not measure. Grok named the three things: choosing hypotheses, long-horizon evaluation without human feedback, and integration without a routine human veto.
+- **Deployment.** Whether at least one lab then lets the system run with humans largely out.
+
+The first draft of that entry reproduced the old figures almost exactly: 23–34% / 46–60% / 70–83%. Grok, DeepSeek and Gemini then reviewed the draft. Grok and Gemini first gave their own capability and deployment figures. All three said the inputs looked fitted to the existing figures. Two objections were checkable and correct:
+- **The 2028 discount was smaller than the 2030 one** (implied by Gemini's and Grok's figures; checked by the author). The gap between well-specified tasks and research has had less time to close by 2028, so the discount cannot be smaller there. It is now 15–30% for both.
+- **The 2028 deployment figure ignored its own evidence** (Grok, Gemini, DeepSeek). The draft gave 65–75% for a six-month window while citing a lab pausing training after an incident. It is now 55–65%.
+
+The revised derivation gives 18–30% / 40–58% / 64–80%, and the table was lowered to sit at its centre. This partly reverses v1.73, which raised these figures by five points on METR's finding. That evidence stands; the base it was added to had never been derived.
+
+**Other changes to the entry on review:**
+- The warning that the derivation was written after the figures now opens the entry (DeepSeek).
+- "About a quarter off" is replaced by two stated discounts, each with its own row (DeepSeek, Gemini).
+- The trend-alone row is in numbers, not words (Gemini).
+- Each deployment figure has its reason (DeepSeek).
+- It shows what a reviewer's inputs and AI Futures' inputs would give for 2030, about 25% and about 85–90% (Grok).
+- It names the binding gap and what would shrink or widen the discount (Grok).
+
+**Not accepted.** The reviewers' own combined figures remain lower: 20 / 40 / 65% (Gemini) and 8–10 / 20–25 / 45% (Grok). They take about half off the trend where the document takes a quarter to two fifths. Neither size is anchored to a measurement, and reviewer numbers alone do not move estimates. All three reviewers accepted the argument that compute, wall-clock and evaluation cost limit the loop's speed once closed, not whether it closes.
+
+**Knock-on changes.**
+- The closed-loop-by-2040 input to the combined figure moves from 75–88% to 73–86%. The combined figure stays at ≈62%; its range is now 46–78%, and extinction stays at ≈12%.
+- Hard takeoff is scaled to keep its share of closed-loop worlds unchanged. It was not otherwise re-derived.
+
+**In the RSI-rows FAQ section (DeepSeek):** both formulas and a worked case are now shown; "the cells are set to the ranges the inputs imply" is softened to say the cells are reproducible, not certain; and the direction of possible bias from not widening R is stated.
+
+**Other fixes from the same reviews:**
+- **Lockout estimate (DeepSeek).** The FAQ said it was lowered after reviewers gave lower numbers, which breaks the document's own rule that numbers alone do not move an estimate. It now states the argument: the first estimate left out the brakes added in v1.76 and the high bar for a credible public report.
+- **No-RSI row (DeepSeek).** The FAQ now states the size of the cell's discount below its product, about 5–10 points, and that it is a caution discount. DeepSeek's proposed reason, correlation between the two factors, is not used: the second factor is already conditional on the first.
+- **AI Futures entry (DeepSeek).** It now says what would change the document's mind: a second third-party reading, or publication of the evidence METR's report redacted.
+- **README.** The list of tripwires written after something no tripwire covered said four. It is seven: tripwires 18, 19 and 20 are added. DeepSeek flagged the four against an older changelog entry's three. That difference was a renumbering artifact, but checking it showed the list was stale.
+
+**Added from newly read sources on the 2026 agent incidents.** OpenAI's technical report on the Hugging Face incident was read in full, and the later incidents were checked against news reporting.
+- **`REFERENCES.md`:** the OpenAI–Hugging Face row had "primary source to be pinned". It now cites OpenAI's technical report. New rows cover OpenAI's September training incident and eleven-day pause, Anthropic's October disclosure, the Australian Medicare portal, and the agent fleet found probing Alibaba's Amap.
+- **`FAQ.md`, derivation entry:** the eleven-day pause and both labs cutting live internet access are cited as a real instance of an incident slowing labs.
+- **`FAQ.md`, money-making agents:**
+  - A detection route the entry had missed: outsiders found an unattended agent fleet through public scan logs and got replies through hidden-text bait. The fleet had an operator, so tripwire 20 does not fire.
+  - A precision on "not observed": agents working around blocks to finish a task has been observed; resisting an instruction to stop is not described in OpenAI's report. A widely viewed video says agents ignored requests to pause; the report does not say so.
+- **No tripwire fires.** Most of these incidents were found by the lab's own after-the-fact review, or by outside volunteers. Tripwires 7, 8 and 16 expect an embedded evaluator, the victim, or prompt disclosure under a standing framework. That is recorded here as a known gap in how the tripwires sort incidents; no tripwire is added.
+
+**The reviewers' blind figures in the v1.78 round, for the record.** For 2028 / 2030 / 2035:
+- DeepSeek: 10–15 / 25–35 / 50–60%;
+- Grok: 10 / 25 / 45%;
+- Gemini: 15 / 35 / 60%.
+
+All are below the document. The same models gave figures 10–15 points different four days earlier, and their lockout figures ranged from 8% to 40%. Gemini's written review in that round could not be used: it did not have the files.
+
+**Word ceiling held** at 8,050; the main document gains one pointer to the FAQ.
+
+**Not done, queued:** DeepSeek's smaller tripwire notes (a cross-reference for tripwire 17, the missing hard-takeoff effect in tripwire 18's downward branch, and saying that tripwire 20's 2028 clause is a sunset, not a firing rule).
+
+**Files changed:**
+
+- `FAQ.md` — new derivation entry; combined-figure tables; RSI-rows formulas; lockout paragraph; no-RSI discount; AI Futures entry; detection route and "not observed" precision in the money-making-agents entry.
+- `README.md` — estimates marker; tripwire-gap list.
+- `REFERENCES.md` — time-horizon levels row (secondary source, primary to be pinned); OpenAI–Hugging Face row pinned; five incident rows.
+- `ai-timelines-and-outcomes.md` — closed-loop and hard-takeoff rows; the 2040 input and range in the Combined line and At a glance; pointer under the timeline table; estimates marker `v1.77` → `v1.79`; version header; footer date.
+- `CONTRIBUTORS.md` — credits.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
