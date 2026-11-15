@@ -20,9 +20,9 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.77 (10 November 2026).** Re-derived the disempowerment figures for the RSI scenarios with alignment unsolved to include the delegation ratchet, which already drove the no-RSI figure. The combined outcome figure rose from ≈54% to ≈62%; no timeline figure moved. Before that, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI (2028 ~30%, 2030 ~50–55%, 2035 ~75%) on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
+**Estimates last changed: v1.79 (15 November 2026).** Lowered closed-loop cognitive RSI to ~20–25% by 2028, ~45–50% by 2030 and ~70–75% by 2035, from ~30%, ~50–55% and ~75%. The figures were derived step by step for the first time, outside reviewers attacked the inputs, and two of their objections held. Hard takeoff was scaled down in proportion; the combined outcome figure stays at ≈62%. Before that, v1.77 re-derived the disempowerment figures for the RSI scenarios, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
 
-**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.73, v1.74, v1.75 and v1.77). The changelog explains each change, but they are judgment calls, not the rules working as designed.
+**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.74, v1.75, v1.77 and v1.79). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 
 **The tripwire set is demonstrably incomplete.** Seven times, something arrived that no existing tripwire covered, and one was written or widened in response:
 

@@ -66,7 +66,7 @@ The main document states one combined figure: extinction or permanent disempower
 
 | Input | Range used | Midpoint | Where it comes from |
 |---|---|---|---|
-| Closed-loop cognitive RSI by 2040 | 75–88% | 81.5% | Extends the timeline table's ~75% by 2035; not otherwise stated in the document |
+| Closed-loop cognitive RSI by 2040 | 73–86% | 79.5% | Extends the timeline table's ~70–75% by 2035; not otherwise stated in the document |
 | Human-less RSI by 2040, given cognitive RSI | 25–35% | 30% | Physical table |
 | Alignment largely solved at loop-close | 15–35% | 25% | Author judgment, stated in the main document |
 | Holds through 2060, given solved at loop-close | 50–75% | 62.5% | Author judgment, stated in the main document |
@@ -78,26 +78,26 @@ The two alignment judgments were set after seeing elicitations from other AI sys
 
 | Scenario | Weight | Extinction + disempowerment (row midpoints) | Contribution |
 |---|---|---|---|
-| Human-less RSI, unsolved | 20.6% | 78.5% | 16.2 |
-| Human-less RSI, solved | 3.8% | 20.5% | 0.8 |
-| Cognitive-only RSI, unsolved | 48.1% | 70% | 33.7 |
-| Cognitive-only RSI, solved | 8.9% | 17% | 1.5 |
-| No closed-loop RSI by 2040 | 18.5% | 52.5% | 9.7 |
-| **Total** | 100% | | **≈61.9** |
+| Human-less RSI, unsolved | 20.1% | 78.5% | 15.8 |
+| Human-less RSI, solved | 3.7% | 20.5% | 0.8 |
+| Cognitive-only RSI, unsolved | 47.0% | 70% | 32.9 |
+| Cognitive-only RSI, solved | 8.7% | 17% | 1.5 |
+| No closed-loop RSI by 2040 | 20.5% | 52.5% | 10.8 |
+| **Total** | 100% | | **≈61.7** |
 
-Extinction alone, computed the same way, comes to about 12.1%. The no-RSI row alone contributes about 10 points, so even a large cut to the probability of RSI leaves substantial risk.
+Extinction alone, computed the same way, comes to about 11.9%. The no-RSI row alone contributes about 11 points, so even a large cut to the probability of RSI leaves substantial risk.
 
 ### Sensitivity
 
 | Change, others at midpoint | Extinction | Extinction + disempowerment |
 |---|---|---|
-| Alignment solved at 15% / 35% | 12.7% / 11.4% | 64.7% / 59.1% |
-| Holds through 2060 at 50% / 75% | 12.4% / 11.7% | 63.3% / 60.5% |
-| Closed-loop RSI by 2040 at 75% / 88% | 11.5% / 12.6% | 61.2% / 62.7% |
-| Every outcome cell at its low / high end | 8.8% / 15.3% | 50.9% / 72.9% |
-| Every input at its optimistic / pessimistic end | 7.3% / 17.6% | 46.3% / 78.6% |
+| Alignment solved at 15% / 35% | 12.5% / 11.3% | 64.4% / 59.0% |
+| Holds through 2060 at 50% / 75% | 12.2% / 11.6% | 63.0% / 60.3% |
+| Closed-loop RSI by 2040 at 73% / 86% | 11.3% / 12.4% | 60.9% / 62.4% |
+| Every outcome cell at its low / high end | 8.7% / 15.1% | 50.7% / 72.6% |
+| Every input at its optimistic / pessimistic end | 7.2% / 17.4% | 46.2% / 78.2% |
 
-**What this shows.** The combined figure moves only a few points with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 75% to 88% changes the combined figure by about one and a half points. It mainly changes the *mix*, toward extinction.
+**What this shows.** The combined figure moves only a few points with the alignment parameters, because even at their high end the "solved" rows carry less than a third of the weight. Almost all of the result comes from the unsolved rows and the no-RSI row, and its width comes from the outcome cells themselves. A reader who wants to argue the figure down has to argue those cells down. Arguing that alignment is more likely to be solved is not enough on its own. Nor is arguing that RSI is less likely: with the no-RSI row this high, moving closed-loop RSI by 2040 from 73% to 86% changes the combined figure by about one and a half points. It mainly changes the *mix*, toward extinction.
 
 ### What the figure does not include
 
@@ -149,20 +149,25 @@ The unsolved rows are now built in three steps:
 2. Of the survivors, the share lost directly to misaligned systems (m).
 3. Of the rest, the share lost to the ratchet (R).
 
-Flourishing is what remains: (100 − extinction) × (1 − m) × (1 − R).
+Flourishing is what remains:
+
+- Flourishing = (100 − extinction) × (1 − m) × (1 − R)
+- Disempowerment = (100 − extinction) × [m + (1 − m) × R]
+
+A worked case, cognitive RSI with every input at its midpoint: extinction 11.5%, m 32.5%, R 50%. Flourishing = 88.5 × 0.675 × 0.5 = 29.9%. Disempowerment = 88.5 × 0.6625 = 58.6%.
 
 | Row | Extinction | m | R | Flourishing implied | Cells as set: disempowerment / flourishing |
 |---|---|---|---|---|---|
 | Cognitive RSI, unsolved | 8–15% | 25–40% | 45–55% | ~23–38% | 50–67% / 23–38% |
 | Human-less RSI, unsolved | 20–30% | 35–50% | 45–55% | ~16–29% | 45–62% / 16–29% |
 
-The cells are set to the ranges the inputs imply, so anyone rerunning the steps gets the table.
+Given m and R as stated, the formulas yield these ranges, and the cells are set to them, so anyone rerunning the steps gets the table. That makes the cells reproducible, not certain: m and R are themselves judgments.
 
-**R** is the no-RSI row's ratchet rate, about half of the survivors there. It is not widened upward for RSI worlds. Faster delegation to more capable, misaligned systems is a misalignment effect, so it belongs in m, not R. **m** is higher with the physical loop, since systems that do not need humans have less reason to leave them in control. Both are author judgments. If m and R are positively correlated (worlds bad on one channel are bad on the other), multiplying them slightly *overstates* disempowerment.
+**R** is the no-RSI row's ratchet rate, about half of the survivors there. It is not widened upward for RSI worlds. Faster delegation to more capable, misaligned systems is a misalignment effect, so it belongs in m, not R. If delegation also speeds up in RSI worlds for reasons m does not capture, these cells understate disempowerment. **m** is higher with the physical loop, since systems that do not need humans have less reason to leave them in control. Both are author judgments. If m and R are positively correlated (worlds bad on one channel are bad on the other), multiplying them slightly *overstates* disempowerment.
 
 **The solved rows do not change.** Alignment there is the agency-preserving kind, by the main document's definition: such a system actively sustains humans' capacity to reverse delegation, so R is near zero. A system that merely respected human preferences, including the preference to delegate, would not meet that definition, and its outcomes would score as disempowerment. The solved rows' remaining 10–20% disempowerment is not the ratchet. It is pathway A: some humans using aligned systems to take control beyond the reach of everyone else, which is still humanity losing collective control.
 
-**Effect.** The combined figure rises from ≈54% to ≈62% (46–79%). Extinction is unchanged at ≈12%, because only the disempowerment and flourishing cells moved. Under unsolved alignment, RSI now adds about 6–11 points of disempowerment, where before the column was roughly flat. The full loop shows less disempowerment than cognitive-only because more of its mass goes to extinction; it is worse overall.
+**Effect.** At v1.77 the combined figure rose from ≈54% to ≈62% (46–79%). Extinction is unchanged at ≈12%, because only the disempowerment and flourishing cells moved. Under unsolved alignment, RSI now adds about 6–11 points of disempowerment, where before the column was roughly flat. The full loop shows less disempowerment than cognitive-only because more of its mass goes to extinction; it is worse overall.
 
 ---
 
@@ -207,11 +212,11 @@ These have different evidence and different remedies. The main document's stated
 
 ## Where do the closed-loop figures come from, given the bottlenecks?
 
-Reviewers have said more than once that the 2028 and 2030 figures look high against the document's own list of bottlenecks, and that the document explains why it *discounts* evidence but never shows how it arrives at the figures. This entry gives the derivation. Every input is an author judgment. The point of setting them out is that each can be attacked separately.
+**Read this first.** This derivation was written after the figures already existed, so it could have been built to fit them. Its first draft did reproduce them almost exactly, and three outside reviewers said the inputs looked chosen for that. Two of their objections were checkable and correct, and the figures came down by about five points as a result (see "What review changed"). Every input is still an author judgment. The point of setting them out is that each can be attacked separately.
 
 **Two steps.** The loop closes by a given date if:
 1. **Capability:** systems can run the full research cycle without routine human direction, early enough; and
-2. **Deployment:** labs then let them, with humans largely out.
+2. **Deployment:** at least one lab then lets them, with humans largely out.
 
 ### Step 1: capability
 
@@ -219,52 +224,67 @@ The one public trend that bears on this is METR's time horizon: how long a task 
 
 - **Level.** In April 2026 the strongest measured system completed tasks of about 3 hours at 80% reliability, and likely at least 16 hours at 50%.
 - **Growth.** The horizon has doubled every 131 days since 2023, every 89 days since 2024, and every 196 days over the whole record.
-- **Target.** A frontier research cycle is weeks to months of expert work. Take one to three months, 170–500 working hours, at 80% reliability. That is 5.8 to 7.3 doublings from 3 hours.
+- **Target.** A frontier research cycle is weeks to months of expert work. Take one to three months, 170–500 working hours, at 80% reliability. That is 5.8 to 7.3 doublings from 3 hours. It is a stand-in, not a definition.
 - **Arrival on trend.** Autumn 2027 to early 2028 at the fastest rate, mid- to late 2028 at the middle rate, and mid-2029 to spring 2030 at the slowest.
 
 Two discounts apply:
 
-- **The trend may not hold, and it can no longer be read.** Above 16 hours METR's task suite saturates.
-- **Well-specified tasks are not research.** The trend does not measure three things closure needs: choosing which hypothesis is worth testing, evaluating over long horizons without human feedback, and integrating results without a routine human veto. METR's Anthropic assessment says AI is not yet doing the most important parts of training autonomously.
+- **The trend may break, and it can no longer be read.** Above 16 hours METR's task suite saturates. The author takes about a tenth off for this.
+- **Well-specified tasks are not research.** The trend does not measure three things closure needs: choosing which hypothesis is worth testing, evaluating over long horizons without human feedback, and integrating results without a routine human veto. METR's Anthropic assessment says AI is not yet doing the most important parts of training autonomously. The author takes 15–30% off for this through 2030, and 5–15% by 2035.
 
-The author's judgment is that these together take about a quarter off the trend by 2030, and less by 2035.
+The binding gap, in the author's view, is the first: choosing which expensive experiment to run. There is evidence on both sides. On cheap single-GPU problems, one system already designs and interprets experiments better than the best of 24 expert baselines (TasteVal). But that benchmark fixes the problem instead of testing the choice of problem, its baseline leaves out top researchers, and the system is a Claude model, so the author's conflict of interest applies. Whether the result carries over to expensive multi-node runs is unknown.
 
 | | By mid-2028 | By mid-2030 | By mid-2035 |
 |---|---|---|---|
-| Arrival on trend alone | about even | very likely at all three rates | near certain |
-| Capability, after both discounts | 35–45% | 65–75% | 88–92% |
+| Arrival on trend alone | 50–60% | 90–95% | ~99% |
+| Less: the trend breaks or cannot be read | about a tenth | about a tenth | about a twentieth |
+| Less: well-specified tasks are not research | 15–30% | 15–30% | 5–15% |
+| **Capability** | 32–46% | 57–73% | 80–89% |
 
 ### Step 2: deployment
 
-Given the capability, do labs run it with humans largely out, within about six months?
+Given the capability, does at least one lab run it with humans largely out, by the end of that year?
 
-- **For:** competition, the labs' stated goals, and a measured 1.9× acceleration at one lab already.
-- **Against:** safety frameworks written to trigger at exactly this point, regulation, and the chance of a visible incident. This has already happened once: after a model reached the live internet during a training run in September 2026, OpenAI paused frontier training for eleven days and now trains without live internet access, and Anthropic cut live internet access from its internal evaluations in October.
+- **2028: 55–65%.** If the capability arrives by mid-2028, it has only just arrived, so labs have about six months. Competition and the labs' stated goals push toward yes. Safety frameworks written to trigger at exactly this point push toward no, and "humans largely out" is a higher bar than heavy assistance.
+- **2030: 70–80%.** A capability present by mid-2030 has, in most cases, been present for a year or more. Labs have had longer to act, and a rival has had longer to go first.
+- **2035: 80–90%.**
 
-The author's judgment: 65–75% for 2028, where there is least time; 70–80% for 2030; 80–90% for 2035.
+One piece of evidence cuts both ways. After a model reached the live internet during a training run in September 2026, OpenAI paused frontier training and now trains without live internet access, and Anthropic cut live internet access from its internal evaluations in October. So incidents do stop labs. But OpenAI's pause lasted eleven days.
 
 ### Result
 
 | | 2028 | 2030 | 2035 |
 |---|---|---|---|
-| Step 1 × step 2 | 23–34% | 46–60% | 70–83% |
-| Main document | ~30% | ~50–55% | ~75% |
+| Step 1 × step 2 | 18–30% | 40–58% | 64–80% |
+| Main document | ~20–25% | ~45–50% | ~70–75% |
+
+### If you disagree with the inputs
+
+- **A reviewer's reading:** half off the trend, and deployment at 50–60%. That gives about 25% for 2030.
+- **AI Futures' reading, roughly:** no discount, and deployment near certain. That gives about 85–90% for 2030.
+- **What would shrink the discount:** research taste carrying over from cheap problems to expensive runs, a lab adopting a training change that the system itself originated (tripwire 4), or a second outside reading of acceleration inside a lab (tripwire 18).
+- **What would widen it:** the time-horizon trend flattening on a rebuilt task suite, or labs reporting that long unsupervised runs fail in ways shorter ones do not.
 
 ### What the bottlenecks do
 
-The main document lists compute allocation, experiment wall-clock time and the cost of evaluation as bottlenecks. They are deliberately not in step 1. A closed loop can be discrete and slow: propose a change, train, evaluate, repeat. Those bottlenecks set how fast the loop turns once it is closed, so they bear on hard takeoff (14–20% by 2030), not on whether the loop closes. They would delay closure itself only if evaluation stayed so costly that labs kept humans choosing every run. That possibility is inside step 2.
+The main document lists compute allocation, experiment wall-clock time and the cost of evaluation as bottlenecks. They are deliberately not in step 1. A closed loop can be discrete and slow: propose a change, train, evaluate, repeat. Those bottlenecks set how fast the loop turns once it is closed, so they bear on hard takeoff (13–18% by 2030), not on whether the loop closes. They would delay closure itself only if evaluation stayed so costly that labs kept humans choosing every run. That possibility is inside step 2. All three reviewers accepted this distinction.
 
-### Where to attack it
+### What review changed
 
-- **The capability discount is the weakest input.** A reviewer who puts 2030 at 25–40% is, in these terms, taking about half off the trend where the document takes a quarter. The useful challenge names which of the three unmeasured requirements fails, and what observation would show it.
-- **No tripwire reads the discount directly.** Tripwires 1 to 4 read the trend. Tripwire 18 reads acceleration inside a lab, which is the closest thing to a direct reading.
-- **The derivation was written after the figures** (v1.79), so the inputs may have been chosen to fit them. Treat the agreement in the result table as a consistency check, not as independent support.
+The first draft of this entry gave 23–34% / 46–60% / 70–83%, around the document's then figures of ~30% / ~50–55% / ~75%. Grok, DeepSeek and Gemini reviewed it, two of them after giving their own capability and deployment figures. Two objections held:
+
+- **The 2028 discount was smaller than the 2030 one.** The draft took a quarter off the trend by 2030 but less than that by 2028. That is backwards: the gap between well-specified tasks and research has had less time to close by 2028. The discount is now the same 15–30% for both.
+- **The 2028 deployment figure ignored its own evidence.** The draft gave 65–75% for a six-month window while citing a lab pausing training after an incident. It is now 55–65%.
+
+"About a quarter" was also replaced by a stated range, split into its two parts. The figures in the main document were lowered to match: by about seven points for 2028, five for 2030 and two to three for 2035. Hard takeoff was scaled down in proportion.
+
+The reviewers' own figures remain lower still, at about 10–20% / 20–40% / 45–65%. The remaining difference is the size of the research discount, which no tripwire reads directly.
 
 ---
 
 ## Why not follow AI Futures Project to 2027?
 
-On 10 November 2026, AI Futures Project's joint view put a superhuman AI researcher "likely" in 2027, with medians from about February to August 2027. This document's closed-loop figure for 2028 is ~30%. The gap is large, so here is why the document holds.
+On 10 November 2026, AI Futures Project's joint view put a superhuman AI researcher "likely" in 2027, with medians from about February to August 2027. This document's closed-loop figure for 2028 is ~20–25%. The gap is large, so here is why the document does not follow.
 
 - **The same evidence, read differently.** Their update rests mainly on METR's Anthropic finding, read as ~1.7× AI-attributable acceleration and taken at face value. This document priced the same finding at v1.73 at about half of tripwire 1's magnitude. The index is near saturation, the most informative evidence was redacted, and METR says AI is not yet contributing autonomously to the most important parts of training. AI Futures note the redactions themselves.
 - **Different targets.** A superhuman researcher *existing* is not humans being out of the loop. Closed-loop RSI also needs labs to let the system run the research cycle.
@@ -272,7 +292,7 @@ On 10 November 2026, AI Futures Project's joint view put a superhuman AI researc
 
 **One argument is not priced.** Their own models gave under 4% to the pace METR measured. That is a warning that the priors behind forecasts like these, this document's included, may run conservative. It is a reason to re-examine the figures, not a demonstration that they are wrong. **What would change this.** A second third-party reading of a lab's acceleration (tripwire 18), or publication of the evidence that METR's report redacted, if it supports a larger effect. Either would raise the 2028 figure.
 
-**The outside reviewers bracket the document from below.** Asked before reading, on several occasions, Grok, DeepSeek and Gemini each gave lower figures: 10–20% for 2028, 25–40% for 2030 and 45–65% for 2035. The same model's answers moved by 10–15 points between sessions. The document's figures are 30 / 50–55 / 75%. So the document sits between them and AI Futures. Reviewer numbers are not arguments, and they do not move the figures on their own. Their argument, that the bottlenecks point to a later date, is answered in the entry above.
+**The outside reviewers bracket the document from below.** Asked before reading, on several occasions, Grok, DeepSeek and Gemini each gave lower figures: 10–20% for 2028, 25–40% for 2030 and 45–65% for 2035. The same model's answers moved by 10–15 points between sessions. The document's figures are 20–25 / 45–50 / 70–75%, so it sits between the reviewers and AI Futures. Reviewer numbers are not arguments, and they do not move the figures on their own. Two of their arguments did, in v1.79, by about five points; the entry above records which. Their other argument, that the bottlenecks point to a later date, is answered there too.
 
 ---
 
