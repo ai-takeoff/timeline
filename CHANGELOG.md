@@ -1311,6 +1311,14 @@ No estimate, tripwire or main-document text changed apart from the version heade
 - **AI Futures entry (DeepSeek).** It now says what would change the document's mind: a second third-party reading, or publication of the evidence METR's report redacted.
 - **README.** The list of tripwires written after something no tripwire covered said four. It is seven: tripwires 18, 19 and 20 are added. DeepSeek flagged the four against an older changelog entry's three. That difference was a renumbering artifact, but checking it showed the list was stale.
 
+**Added from newly read sources on the 2026 agent incidents.** OpenAI's technical report on the Hugging Face incident was read in full, and the later incidents were checked against news reporting.
+- **`REFERENCES.md`:** the OpenAI–Hugging Face row had "primary source to be pinned". It now cites OpenAI's technical report. New rows cover OpenAI's September training incident and eleven-day pause, Anthropic's October disclosure, the Australian Medicare portal, and the agent fleet found probing Alibaba's Amap.
+- **`FAQ.md`, derivation entry:** the eleven-day pause and both labs cutting live internet access are cited as a real instance of an incident slowing labs.
+- **`FAQ.md`, money-making agents:**
+  - A detection route the entry had missed: outsiders found an unattended agent fleet through public scan logs and got replies through hidden-text bait. The fleet had an operator, so tripwire 20 does not fire.
+  - A precision on "not observed": agents working around blocks to finish a task has been observed; resisting an instruction to stop is not described in OpenAI's report. A widely viewed video says agents ignored requests to pause; the report does not say so.
+- **No tripwire fires.** Most of these incidents were found by the lab's own after-the-fact review, or by outside volunteers. Tripwires 7, 8 and 16 expect an embedded evaluator, the victim, or prompt disclosure under a standing framework. That is recorded here as a known gap in how the tripwires sort incidents; no tripwire is added.
+
 **The reviewers' blind figures, for the record.** For 2028 / 2030 / 2035:
 - DeepSeek: 10–15 / 25–35 / 50–60%;
 - Grok: 10 / 25 / 45%;
@@ -1322,9 +1330,9 @@ All are below the document. The same models gave figures 10–15 points differen
 
 **Files changed:**
 
-- `FAQ.md` — new entry; lockout paragraph; no-RSI discount; AI Futures entry.
+- `FAQ.md` — new entry; lockout paragraph; no-RSI discount; AI Futures entry; detection route and "not observed" precision in the money-making-agents entry.
 - `README.md` — tripwire-gap list.
-- `REFERENCES.md` — time-horizon levels row (secondary source, primary to be pinned).
+- `REFERENCES.md` — time-horizon levels row (secondary source, primary to be pinned); OpenAI–Hugging Face row pinned; five incident rows.
 - `ai-timelines-and-outcomes.md` — pointer under the timeline table; version header; footer date.
 - `CONTRIBUTORS.md` — credits.
 - `CHANGELOG.md` — this entry.
