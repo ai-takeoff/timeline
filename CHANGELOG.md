@@ -1303,7 +1303,7 @@ No estimate, tripwire or main-document text changed apart from the version heade
 | Closed-loop cognitive RSI | ~30% → **~20–25%** | ~50–55% → **~45–50%** | ~75% → **~70–75%** |
 | Hard takeoff | ~5% → ~4% | 14–20% → 13–18% | ~22% → ~21% |
 
-**How it happened.** Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at its closed-loop figures. A new FAQ entry, "Where do the closed-loop figures come from, given the bottlenecks?", derives them in two steps:
+**How it happened.** Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first; Gemini was also asked but could not open the files) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at its closed-loop figures. A new FAQ entry, "Where do the closed-loop figures come from, given the bottlenecks?", derives them in two steps:
 - **Capability.** METR's time-horizon level (about 3 hours at 80% reliability in April 2026) and its three doubling rates give an arrival date for month-scale research tasks. That is then discounted for a trend that may break, and for what the trend does not measure. Grok named the three things: choosing hypotheses, long-horizon evaluation without human feedback, and integration without a routine human veto.
 - **Deployment.** Whether at least one lab then lets the system run with humans largely out.
 
@@ -1362,6 +1362,47 @@ All are below the document. The same models gave figures 10–15 points differen
 - `ai-timelines-and-outcomes.md` — closed-loop and hard-takeoff rows; the 2040 input and range in the Combined line and At a glance; pointer under the timeline table; estimates marker `v1.77` → `v1.79`; version header; footer date.
 - `CONTRIBUTORS.md` — credits.
 - `CHANGELOG.md` — this entry.
+
+## 1.80 — 2026-11-19
+
+**Tripwire 21: labs' own measures of fully autonomous AI R&D.** No existing estimate changed.
+
+**Why.** The v1.79 derivation of the closed-loop figures rests most on its research discount: how far "can complete long, well-specified tasks" falls short of "can run research with humans out". Reviewers took about half off the trend where the document takes 15–30%, and the entry said no tripwire read that discount directly. Two labs have since measured it on their own work, and the document had not used either measurement:
+- **Anthropic (September 2026):** full autonomy (AL5) is 0% of measured AI R&D work, and the share Claude "leads" rose from under 1% in February to 26% in August. The document cited this in REFERENCES but never used it.
+- **Google DeepMind (October 2026),** in its Gemini 4 Argon safety report: more than 75% of code is AI-written, but fully delegated code changes rose only from 7.5% to 11.9% between April and September, and its capability index shows no statistically significant acceleration. The point estimate is about 1.3×, with an interval including none. This was new to the document.
+
+The maintainer found both through a promotional video on AI building AI. Its other material was already in the document, or was a single insider's view.
+
+**Added:**
+- **Tripwire 21.**
+  - Fires when a frontier lab reports 5% or more of its measured AI R&D running fully autonomously, or when Google DeepMind reports a model at its own 90% alert level for automating research engineering.
+  - Up: closed-loop 2028 and 2030 +5, hard takeoff 2030 +2.
+  - Down: if full autonomy is still about 0% and Anthropic's "leads" share is below half at the end of 2027, closed-loop 2028 −5.
+  - The 5% threshold is low on purpose: any measured full autonomy is a change of kind.
+  - Both measures are self-reported, and Anthropic's comes from the author's developer. That is stated in the FAQ.
+- **FAQ, derivation entry:** a section, "Direct readings", setting out both measurements and how they bear on the figures. Tripwire 21 is added to what would shrink or widen the discount.
+- **FAQ, AI Futures entry, and the main text:** DeepMind's finding of no significant acceleration is added beside METR's reading at Anthropic.
+
+**Why the figures did not move.** Both readings fit the derivation's assumption that the capability is not present in late 2026. They point different ways on speed: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. Closure needs only one lab, so the faster reading carries more weight for 2028. DeepMind's finding argues against reading METR's 1.9× as industry-wide, which the document never assumed.
+
+**Also in this release, from the queue:**
+- DeepSeek's tripwire notes:
+  - "(see note)" on tripwire 17;
+  - tripwire 18's downward branch now says hard takeoff is unchanged;
+  - the preamble now says tripwires 20 and 21 carry dated downward clauses.
+- The 1.79 entry now says Gemini was asked in the v1.78 round but could not open the files.
+
+**Removed from the main text:** a February 2026 survey of AI safety leaders (median AGI 2033). Its primary source was never pinned, and the cut paid for part of the new tripwire.
+
+**Word ceiling held** at 8,050, with five other trims: the TH1.1 series note, the AI Futures objection note, the incident list, the Warp Speed note and the tripwire 3 reconciliation.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — tripwire 21; the DeepMind line under "The strongest single reading so far"; tripwire 17, 18 and preamble notes; trims; estimates marker `v1.79` → `v1.80`; version header; footer date.
+- `FAQ.md` — "Direct readings" in the derivation entry; attack points; AI Futures entry.
+- `REFERENCES.md` — Anthropic measurement row; Google DeepMind row.
+- `README.md` — estimates marker; tripwire-gap list (seven → eight).
+- `CONTRIBUTORS.md` — credit.
+- `CHANGELOG.md` — this entry; the 1.79 Gemini clause.
 
 ## Convention from here
 
