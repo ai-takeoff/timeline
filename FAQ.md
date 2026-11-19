@@ -252,11 +252,15 @@ Two labs have now measured, on their own work, what the time-horizon trend only 
   - its capability index shows no statistically significant acceleration since April: a point estimate of about 1.3×, with an interval that includes no change;
   - its research-engineering benchmark score is well below its own 90% alert level, though about a quarter of that benchmark's tasks were found to be broken, which can only understate the score.
 
-Both fit the derivation's starting point: in late 2026 the capability is not yet present. They point different ways on speed. Anthropic's "leads" share rose 25 points in six months; DeepMind's fully delegated share rose about 4. Closure needs only one lab, so the faster reading matters more for the 2028 figure, while DeepMind's argues that METR's 1.9× at Anthropic is not industry-wide. Neither moved the figures in v1.80.
+**What they show.** Both agree on the point the derivation starts from: in late 2026, full autonomy is absent at both labs. On speed they differ: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. The document does not choose between them. They measure different things at different labs, and neither measures the capability the derivation projects for 2028.
 
-Both are self-reported, by labs with an interest in the answer, and Anthropic's comes from the author's own developer. Tripwire 21 reads them anyway, because nothing else measures autonomy directly:
-- full autonomy reaching 5% at any lab raises the figures;
-- full autonomy still at zero, and Anthropic's "leads" share below half, at the end of 2027 lowers the 2028 figure.
+**Why the figures did not move.** The two acceleration readings are less opposed than they look. DeepMind's interval, roughly 0.6× to 1.9×, overlaps METR's interval for Anthropic, 1.5× to 2.8×. And the document had already priced METR's reading at half its face value, on the grounds that it might not hold. So DeepMind's finding supports a caution already taken, rather than adding a new reason to lower the figures. A reader who weighs DeepMind's finding more heavily than this has a fair case for a lower 2028 figure, which is the reviewers' position.
+
+**Why the tripwire is graded.** Both measures are self-reported, by labs with an interest in the answer, and Anthropic's comes from the author's own developer. Each lab defines "fully autonomous" for itself, chooses what to sample, and decides whether to keep publishing. So tripwire 21 gives a single lab's own report less weight than a confirmed one:
+- **One lab reports 5% or more of its measured research work with no human in the loop:** +3 points for 2028 and 2030.
+- **An outside evaluator with access, or a second lab, confirms it:** +5 points, and hard takeoff +2.
+- **Delegated code changes do not count.** DeepMind's 11.9% of fully delegated code changes is not research work with no human in the loop.
+- **Every lab that publishes such a measure still reports about zero at the end of 2027:** the 2028 figure falls 3 points. If labs stop publishing, there is no update, and the gap is recorded.
 
 ### Step 2: deployment
 

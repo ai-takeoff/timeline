@@ -1374,16 +1374,26 @@ All are below the document. The same models gave figures 10–15 points differen
 The maintainer found both through a promotional video on AI building AI. Its other material was already in the document, or was a single insider's view.
 
 **Added:**
-- **Tripwire 21.**
-  - Fires when a frontier lab reports 5% or more of its measured AI R&D running fully autonomously, or when Google DeepMind reports a model at its own 90% alert level for automating research engineering.
-  - Up: closed-loop 2028 and 2030 +5, hard takeoff 2030 +2.
-  - Down: if full autonomy is still about 0% and Anthropic's "leads" share is below half at the end of 2027, closed-loop 2028 −5.
-  - The 5% threshold is low on purpose: any measured full autonomy is a change of kind.
-  - Both measures are self-reported, and Anthropic's comes from the author's developer. That is stated in the FAQ.
+- **Tripwire 21.** It fires when a frontier lab reports 5% or more of its measured AI research work with no human in the loop (Anthropic's AL5; delegated code changes alone do not count), or when Google DeepMind reports a model at its own 90% alert level for automating research engineering. Its effects are graded:
+  - One lab's own report: closed-loop 2028 and 2030 +3.
+  - Confirmed by an outside evaluator with access, or by a second lab: +5, and hard takeoff 2030 +2.
+  - Every publishing lab still at about 0% at the end of 2027: closed-loop 2028 −3. No update if labs stop publishing.
 - **FAQ, derivation entry:** a section, "Direct readings", setting out both measurements and how they bear on the figures. Tripwire 21 is added to what would shrink or widen the discount.
 - **FAQ, AI Futures entry, and the main text:** DeepMind's finding of no significant acceleration is added beside METR's reading at Anthropic.
 
-**Why the figures did not move.** Both readings fit the derivation's assumption that the capability is not present in late 2026. They point different ways on speed: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. Closure needs only one lab, so the faster reading carries more weight for 2028. DeepMind's finding argues against reading METR's 1.9× as industry-wide, which the document never assumed.
+**Why the figures did not move.** Both readings show full autonomy absent in late 2026, which the derivation already assumed. On acceleration, DeepMind's interval (about 0.6×–1.9×) overlaps METR's interval for Anthropic (1.5×–2.8×). The document had already priced METR's reading at half its face value, so DeepMind's finding supports a caution already taken. The FAQ says a reader who weighs it more heavily has a fair case for a lower 2028 figure.
+
+**Revised before merge on Grok's review.** The first draft had a single +5 on any one lab's report, a downward clause tied to Anthropic's "leads" share, and an FAQ paragraph favouring the faster of the two readings. Grok found five problems.
+
+Accepted:
+- **Self-reporting was disclosed but not handled.** Each lab defines "fully autonomous", chooses the sample and decides whether to publish. The rule is now graded: one lab's own report counts less than a confirmed one.
+- **"Or equivalent" was ambiguous.** DeepMind's 11.9% of fully delegated code changes could have been read as firing it already. Code changes alone are now excluded.
+- **The downward clause depended on one lab.** It was tied to Anthropic's continued publication of its "leads" series. It now applies to every lab that publishes such a measure, with no update if they stop.
+- **The FAQ preferred the faster reading,** from the author's developer. It now records that the readings measure different things, declines to choose between them, and gives the substantive reason the figures hold: the intervals overlap.
+
+Rejected:
+- **Refusing the tripwire until an outside party measures autonomy.** Nothing else reads the discount the derivation rests on, and grading the effect handles the weakness without discarding the evidence.
+- **The magnitudes, in part.** The confirmed branch keeps +5, below tripwire 4's +15, which needs an observed act rather than a percentage.
 
 **Also in this release, from the queue:**
 - DeepSeek's tripwire notes:
@@ -1394,7 +1404,7 @@ The maintainer found both through a promotional video on AI building AI. Its oth
 
 **Removed from the main text:** a February 2026 survey of AI safety leaders (median AGI 2033). Its primary source was never pinned, and the cut paid for part of the new tripwire.
 
-**Word ceiling held** at 8,050, with five other trims: the TH1.1 series note, the AI Futures objection note, the incident list, the Warp Speed note and the tripwire 3 reconciliation.
+**Word ceiling held** at 8,050, with other trims: the TH1.1 series note, the AI Futures objection note, the incident list, the Warp Speed note, the tripwire 3 reconciliation and the tripwire 3 row.
 
 **Files changed:**
 - `ai-timelines-and-outcomes.md` — tripwire 21; the DeepMind line under "The strongest single reading so far"; tripwire 17, 18 and preamble notes; trims; estimates marker `v1.79` → `v1.80`; version header; footer date.
