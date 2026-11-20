@@ -241,9 +241,9 @@ The binding gap, in the author's view, is the first: choosing which expensive ex
 | Less: well-specified tasks are not research | 15–30% | 15–30% | 5–15% |
 | **Capability** | 32–46% | 57–73% | 80–89% |
 
-### Direct readings (added v1.80)
+### Direct readings (added v1.80, extended v1.81)
 
-Two labs have now measured, on their own work, what the time-horizon trend only implies.
+Three labs have now measured, on their own work, what the time-horizon trend only implies.
 
 - **Anthropic** (September 2026), on its main internal platform: Claude "leads" 26% of measured AI R&D work, up from under 1% in February, and more than 90% is at least collaborative. **None is fully autonomous.** "Leads" means it completes most of a task end to end from a high-level prompt, with a human supervising.
 - **Google DeepMind** (October 2026), assessing Gemini 4 Argon:
@@ -251,10 +251,22 @@ Two labs have now measured, on their own work, what the time-horizon trend only 
   - code changes fully delegated to AI rose only from 7.5% to 11.9% between April and September, and about 88% still need multi-turn human steering;
   - its capability index shows no statistically significant acceleration since April: a point estimate of about 1.3×, with an interval that includes no change;
   - its research-engineering benchmark score is well below its own 90% alert level, though about a quarter of that benchmark's tasks were found to be broken, which can only understate the score.
+- **OpenAI** (18 November 2026), "Research acceleration: The jagged frontier":
+  - agents completed tasks researchers delegated to them with no human intervention 46% of the time for tasks of two to four hours, up from 23% in March, and 35% for four to eight hours, up from 13%;
+  - success is uneven: 79% for monitoring training runs, 25% for writing inference code, 29% for building evaluation and training environments;
+  - agent working time per researcher rose elevenfold, from 0.5 to 5.7 eight-hour "agent workdays" a day;
+  - asked about the key ideas behind GPT-6 Astra and GPT-6.2 Astra, researchers credited all of them to people, with one exception: for GPT-6.2 Astra, pretraining researchers credited the model with "identifying key insights";
+  - its capability index rose 16.4 points a year, against Epoch's industry trend of 14, so no clear acceleration yet; OpenAI says "humans remain a core part of the AI research loop".
 
-**What they show.** Both agree on the point the derivation starts from: in late 2026, full autonomy is absent at both labs. On speed they differ: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. The document does not choose between them. They measure different things at different labs, and neither measures the capability the derivation projects for 2028.
+Two formal determinations arrived in the same week:
+- **Anthropic** told the SEC (prospectus amendments of 10 and 17 November) that "we made a determination that we have met" its Responsible Scaling Policy's threshold for AI-accelerated R&D, "based on what we expect from future models and our overall rate of progress, rather than on what we have observed from current models". Its 2 November amendment had said it "may imminently meet" the threshold. The same passage concedes that "we have in the past not identified ... a significant acceleration in our rate of development until after it has occurred".
+- **OpenAI** rated GPT-6.2 Astra "High" for AI self-improvement (system card, 17 November), its first externally released model at that level. OpenAI calls High "an early milestone for proactively preparing safeguards" before fully automated self-improvement. The model cleared the cutoff on one of the three second-stage tests (MLE-Bench Revised) and missed the other two: on NanoGPT it saved 43% of training time against an 80% cutoff, where the best human solution saved 72%.
+
+**What they show.** All three agree on the point the derivation starts from: in late 2026, full autonomy is absent. OpenAI's task-success rates are not a share of research work with no human in the loop, since researchers choose what to delegate, so they do not bear on tripwire 21. Nor does the GPT-6.2 credit meet tripwire 4, which needs a change the system originated and a production run adopted; an idea developed with the model is a step towards it. On speed they differ: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. The document does not choose between them. They measure different things at different labs, and neither measures the capability the derivation projects for 2028.
 
 **Why the figures did not move.** The two acceleration readings are less opposed than they look. DeepMind's interval, roughly 0.6× to 1.9×, overlaps METR's interval for Anthropic, 1.5× to 2.8×. And the document had already priced METR's reading at half its face value, on the grounds that it might not hold. So DeepMind's finding supports a caution already taken, rather than adding a new reason to lower the figures. A reader who weighs DeepMind's finding more heavily than this has a fair case for a lower 2028 figure, which is the reviewers' position.
+
+**Why v1.81 did not move them either.** OpenAI's reading sits between the other two: delegated success roughly doubling in seven months, but capability growth near trend. The two determinations are judgments, not measurements. Anthropic's rests on expectation, and follows the METR assessment the figures already price; OpenAI's High sits below its own level for fully automated research. Labs' judgments about themselves are views, by this document's rule, not arguments. What they add is that two labs now treat the threshold as near enough to act on, and Anthropic's concession supports the derivation's caution that acceleration shows up late in lagging indicators.
 
 **Why the tripwire is graded.** Both measures are self-reported, by labs with an interest in the answer, and Anthropic's comes from the author's own developer. Each lab defines "fully autonomous" for itself, chooses what to sample, and decides whether to keep publishing. So tripwire 21 gives a single lab's own report less weight than a confirmed one:
 - **One lab reports 5% or more of its measured research work with no human in the loop:** +3 points for 2028 and 2030.
