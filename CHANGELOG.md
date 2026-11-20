@@ -1303,7 +1303,7 @@ No estimate, tripwire or main-document text changed apart from the version heade
 | Closed-loop cognitive RSI | ~30% → **~20–25%** | ~50–55% → **~45–50%** | ~75% → **~70–75%** |
 | Hard takeoff | ~5% → ~4% | 14–20% → 13–18% | ~22% → ~21% |
 
-**How it happened.** Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at its closed-loop figures. A new FAQ entry, "Where do the closed-loop figures come from, given the bottlenecks?", derives them in two steps:
+**How it happened.** Two outside reviews of the whole repository at v1.78 (DeepSeek and Grok, each asked for its own numbers first; Gemini was also asked but could not open the files) found no error in the arithmetic or in the v1.77 fixes. Both made the same main point: the document explains why it discounts evidence, but never shows how it arrives at its closed-loop figures. A new FAQ entry, "Where do the closed-loop figures come from, given the bottlenecks?", derives them in two steps:
 - **Capability.** METR's time-horizon level (about 3 hours at 80% reliability in April 2026) and its three doubling rates give an arrival date for month-scale research tasks. That is then discounted for a trend that may break, and for what the trend does not measure. Grok named the three things: choosing hypotheses, long-horizon evaluation without human feedback, and integration without a routine human veto.
 - **Deployment.** Whether at least one lab then lets the system run with humans largely out.
 
@@ -1362,6 +1362,57 @@ All are below the document. The same models gave figures 10–15 points differen
 - `ai-timelines-and-outcomes.md` — closed-loop and hard-takeoff rows; the 2040 input and range in the Combined line and At a glance; pointer under the timeline table; estimates marker `v1.77` → `v1.79`; version header; footer date.
 - `CONTRIBUTORS.md` — credits.
 - `CHANGELOG.md` — this entry.
+
+## 1.80 — 2026-11-19
+
+**Tripwire 21: labs' own measures of fully autonomous AI R&D.** No existing estimate changed.
+
+**Why.** The v1.79 derivation of the closed-loop figures rests most on its research discount: how far "can complete long, well-specified tasks" falls short of "can run research with humans out". Reviewers took about half off the trend where the document takes 15–30%, and the entry said no tripwire read that discount directly. Two labs have since measured it on their own work, and the document had not used either measurement:
+- **Anthropic (September 2026):** full autonomy (AL5) is 0% of measured AI R&D work, and the share Claude "leads" rose from under 1% in February to 26% in August. The document cited this in REFERENCES but never used it.
+- **Google DeepMind (October 2026),** in its Gemini 4 Argon safety report: more than 75% of code is AI-written, but fully delegated code changes rose only from 7.5% to 11.9% between April and September, and its capability index shows no statistically significant acceleration. The point estimate is about 1.3×, with an interval including none. This was new to the document.
+
+The maintainer found both through a promotional video on AI building AI. Its other material was already in the document, or was a single insider's view.
+
+**Added:**
+- **Tripwire 21.** It fires when a frontier lab reports 5% or more of its measured AI research work with no human in the loop (Anthropic's AL5; delegated code changes alone do not count), or when Google DeepMind reports a model at its own 90% alert level for automating research engineering. Its effects are graded:
+  - One lab's own report: closed-loop 2028 and 2030 +3.
+  - Confirmed by an outside evaluator with access, or by a second lab: +5, and hard takeoff 2030 +2.
+  - Every publishing lab still at about 0% at the end of 2027: closed-loop 2028 −3. No update if labs stop publishing.
+- **FAQ, derivation entry:** a section, "Direct readings", setting out both measurements and how they bear on the figures. Tripwire 21 is added to what would shrink or widen the discount.
+- **FAQ, AI Futures entry, and the main text:** DeepMind's finding of no significant acceleration is added beside METR's reading at Anthropic.
+
+**Why the figures did not move.** Both readings show full autonomy absent in late 2026, which the derivation already assumed. On acceleration, DeepMind's interval (about 0.6×–1.9×) overlaps METR's interval for Anthropic (1.5×–2.8×). The document had already priced METR's reading at half its face value, so DeepMind's finding supports a caution already taken. The FAQ says a reader who weighs it more heavily has a fair case for a lower 2028 figure.
+
+**Revised before merge on Grok's review.** The first draft had a single +5 on any one lab's report, a downward clause tied to Anthropic's "leads" share, and an FAQ paragraph favouring the faster of the two readings. Grok found five problems.
+
+Accepted:
+- **Self-reporting was disclosed but not handled.** Each lab defines "fully autonomous", chooses the sample and decides whether to publish. The rule is now graded: one lab's own report counts less than a confirmed one.
+- **"Or equivalent" was ambiguous.** DeepMind's 11.9% of fully delegated code changes could have been read as firing it already. Code changes alone are now excluded.
+- **The downward clause depended on one lab.** It was tied to Anthropic's continued publication of its "leads" series. It now applies to every lab that publishes such a measure, with no update if they stop.
+- **The FAQ preferred the faster reading,** from the author's developer. It now records that the readings measure different things, declines to choose between them, and gives the substantive reason the figures hold: the intervals overlap.
+
+Rejected:
+- **Refusing the tripwire until an outside party measures autonomy.** Nothing else reads the discount the derivation rests on, and grading the effect handles the weakness without discarding the evidence.
+- **The magnitudes, in part.** The confirmed branch keeps +5, below tripwire 4's +15, which needs an observed act rather than a percentage.
+
+**Also in this release, from the queue:**
+- DeepSeek's tripwire notes:
+  - "(see note)" on tripwire 17;
+  - tripwire 18's downward branch now says hard takeoff is unchanged;
+  - the preamble now says tripwires 20 and 21 carry dated downward clauses.
+- The 1.79 entry now says Gemini was asked in the v1.78 round but could not open the files.
+
+**Removed from the main text:** a February 2026 survey of AI safety leaders (median AGI 2033). Its primary source was never pinned, and the cut paid for part of the new tripwire.
+
+**Word ceiling held** at 8,050, with other trims: the TH1.1 series note, the AI Futures objection note, the incident list, the Warp Speed note, the tripwire 3 reconciliation and the tripwire 3 row.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — tripwire 21; the DeepMind line under "The strongest single reading so far"; tripwire 17, 18 and preamble notes; trims; estimates marker `v1.79` → `v1.80`; version header; footer date.
+- `FAQ.md` — "Direct readings" in the derivation entry; attack points; AI Futures entry.
+- `REFERENCES.md` — Anthropic measurement row; Google DeepMind row.
+- `README.md` — estimates marker; tripwire-gap list (seven → eight).
+- `CONTRIBUTORS.md` — credit.
+- `CHANGELOG.md` — this entry; the 1.79 Gemini clause.
 
 ## Convention from here
 

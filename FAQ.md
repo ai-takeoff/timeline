@@ -241,6 +241,27 @@ The binding gap, in the author's view, is the first: choosing which expensive ex
 | Less: well-specified tasks are not research | 15–30% | 15–30% | 5–15% |
 | **Capability** | 32–46% | 57–73% | 80–89% |
 
+### Direct readings (added v1.80)
+
+Two labs have now measured, on their own work, what the time-horizon trend only implies.
+
+- **Anthropic** (September 2026), on its main internal platform: Claude "leads" 26% of measured AI R&D work, up from under 1% in February, and more than 90% is at least collaborative. **None is fully autonomous.** "Leads" means it completes most of a task end to end from a high-level prompt, with a human supervising.
+- **Google DeepMind** (October 2026), assessing Gemini 4 Argon:
+  - more than 75% of its code is written by AI;
+  - code changes fully delegated to AI rose only from 7.5% to 11.9% between April and September, and about 88% still need multi-turn human steering;
+  - its capability index shows no statistically significant acceleration since April: a point estimate of about 1.3×, with an interval that includes no change;
+  - its research-engineering benchmark score is well below its own 90% alert level, though about a quarter of that benchmark's tasks were found to be broken, which can only understate the score.
+
+**What they show.** Both agree on the point the derivation starts from: in late 2026, full autonomy is absent at both labs. On speed they differ: Anthropic's "leads" share rose 25 points in six months, while DeepMind's fully delegated share rose about 4. The document does not choose between them. They measure different things at different labs, and neither measures the capability the derivation projects for 2028.
+
+**Why the figures did not move.** The two acceleration readings are less opposed than they look. DeepMind's interval, roughly 0.6× to 1.9×, overlaps METR's interval for Anthropic, 1.5× to 2.8×. And the document had already priced METR's reading at half its face value, on the grounds that it might not hold. So DeepMind's finding supports a caution already taken, rather than adding a new reason to lower the figures. A reader who weighs DeepMind's finding more heavily than this has a fair case for a lower 2028 figure, which is the reviewers' position.
+
+**Why the tripwire is graded.** Both measures are self-reported, by labs with an interest in the answer, and Anthropic's comes from the author's own developer. Each lab defines "fully autonomous" for itself, chooses what to sample, and decides whether to keep publishing. So tripwire 21 gives a single lab's own report less weight than a confirmed one:
+- **One lab reports 5% or more of its measured research work with no human in the loop:** +3 points for 2028 and 2030.
+- **An outside evaluator with access, or a second lab, confirms it:** +5 points, and hard takeoff +2.
+- **Delegated code changes do not count.** DeepMind's 11.9% of fully delegated code changes is not research work with no human in the loop.
+- **Every lab that publishes such a measure still reports about zero at the end of 2027:** the 2028 figure falls 3 points. If labs stop publishing, there is no update, and the gap is recorded.
+
 ### Step 2: deployment
 
 Given the capability, does at least one lab run it with humans largely out, by the end of that year?
@@ -262,8 +283,8 @@ One piece of evidence cuts both ways. After a model reached the live internet du
 
 - **A reviewer's reading:** half off the trend, and deployment at 50–60%. That gives about 25% for 2030.
 - **AI Futures' reading, roughly:** no discount, and deployment near certain. That gives about 85–90% for 2030.
-- **What would shrink the discount:** research taste carrying over from cheap problems to expensive runs, a lab adopting a training change that the system itself originated (tripwire 4), or a second outside reading of acceleration inside a lab (tripwire 18).
-- **What would widen it:** the time-horizon trend flattening on a rebuilt task suite, or labs reporting that long unsupervised runs fail in ways shorter ones do not.
+- **What would shrink the discount:** research taste carrying over from cheap problems to expensive runs, a lab reporting a measurable share of fully autonomous R&D (tripwire 21), a lab adopting a training change that the system itself originated (tripwire 4), or a second outside reading of acceleration inside a lab (tripwire 18).
+- **What would widen it:** the time-horizon trend flattening on a rebuilt task suite, labs' autonomy measures stalling (tripwire 21's downward clause), or labs reporting that long unsupervised runs fail in ways shorter ones do not.
 
 ### What the bottlenecks do
 
@@ -278,7 +299,7 @@ The first draft of this entry gave 23–34% / 46–60% / 70–83%, around the do
 
 "About a quarter" was also replaced by a stated range, split into its two parts. The figures in the main document were lowered to match: by about seven points for 2028, five for 2030 and two to three for 2035. Hard takeoff was scaled down in proportion.
 
-The reviewers' own figures remain lower still, at about 10–20% / 20–40% / 45–65%. The remaining difference is the size of the research discount, which no tripwire reads directly.
+The reviewers' own figures remain lower still, at about 10–20% / 20–40% / 45–65%. The remaining difference is the size of the research discount. Since v1.80, tripwire 21 reads it through labs' own autonomy measures.
 
 ---
 
@@ -286,7 +307,7 @@ The reviewers' own figures remain lower still, at about 10–20% / 20–40% / 45
 
 On 10 November 2026, AI Futures Project's joint view put a superhuman AI researcher "likely" in 2027, with medians from about February to August 2027. This document's closed-loop figure for 2028 is ~20–25%. The gap is large, so here is why the document does not follow.
 
-- **The same evidence, read differently.** Their update rests mainly on METR's Anthropic finding, read as ~1.7× AI-attributable acceleration and taken at face value. This document priced the same finding at v1.73 at about half of tripwire 1's magnitude. The index is near saturation, the most informative evidence was redacted, and METR says AI is not yet contributing autonomously to the most important parts of training. AI Futures note the redactions themselves.
+- **The same evidence, read differently.** Their update rests mainly on METR's Anthropic finding, read as ~1.7× AI-attributable acceleration and taken at face value. This document priced the same finding at v1.73 at about half of tripwire 1's magnitude. The index is near saturation, the most informative evidence was redacted, and METR says AI is not yet contributing autonomously to the most important parts of training. AI Futures note the redactions themselves. And a second lab, Google DeepMind, assessing itself, found no significant acceleration: a point estimate of about 1.3×, with an interval that includes none.
 - **Different targets.** A superhuman researcher *existing* is not humans being out of the loop. Closed-loop RSI also needs labs to let the system run the research cycle.
 - **Different conditioning.** Their forecasts assume maximum technically feasible speed; this document's do not.
 

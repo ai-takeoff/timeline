@@ -20,11 +20,11 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 ## Status
 
-**Estimates last changed: v1.79 (15 November 2026).** Lowered closed-loop cognitive RSI to ~20–25% by 2028, ~45–50% by 2030 and ~70–75% by 2035, from ~30%, ~50–55% and ~75%. The figures were derived step by step for the first time, outside reviewers attacked the inputs, and two of their objections held. Hard takeoff was scaled down in proportion; the combined outcome figure stays at ≈62%. Before that, v1.77 re-derived the disempowerment figures for the RSI scenarios, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
+**Estimates last changed: v1.80 (19 November 2026).** Added tripwire 21, which reads labs' own measures of how much of their AI research runs fully autonomously, with its own magnitude. No existing figure moved. Before that, v1.79 lowered closed-loop cognitive RSI to ~20–25% by 2028, ~45–50% by 2030 and ~70–75% by 2035, from ~30%, ~50–55% and ~75%. The figures were derived step by step for the first time, outside reviewers attacked the inputs, and two of their objections held. Hard takeoff was scaled down in proportion; the combined outcome figure stayed at ≈62%. Earlier, v1.77 re-derived the disempowerment figures for the RSI scenarios, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
 
-**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.74, v1.75, v1.77 and v1.79). The changelog explains each change, but they are judgment calls, not the rules working as designed.
+**No tripwire has fired yet.** None of the pre-registered measurements has crossed its threshold, so none of the automatic update rules has been triggered. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.75, v1.77, v1.79 and v1.80). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 
-**The tripwire set is demonstrably incomplete.** Seven times, something arrived that no existing tripwire covered, and one was written or widened in response:
+**The tripwire set is demonstrably incomplete.** Eight times, something arrived that no existing tripwire covered, and one was written or widened in response:
 
 - **Tripwire 3** (coding uplift): the metric tripwire 1 relies on was downgraded by the forecasters who pioneered it.
 - **Tripwire 14**, de facto branch: an argument (Harari, Leahy) showed that delegation can happen without any formal transfer of authority.
@@ -33,6 +33,7 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 - **Tripwire 18** (third-party acceleration assessment): an outside evaluator measured a lab's AI-driven speed-up directly, a kind of evidence no tripwire read.
 - **Tripwire 19** (reversal of a delegation): the argument that delegation is hard to reverse had no observable attached.
 - **Tripwire 20** (money-making agents): a route to loss of control that fitted none of the pathways.
+- **Tripwire 21** (fully autonomous R&D share): labs began measuring their own automation directly, which no tripwire read.
 
 Tripwires phrased on mechanisms get bypassed by mechanisms nobody listed, so newer ones are phrased on observable effects.
 
