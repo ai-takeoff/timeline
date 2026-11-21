@@ -29,6 +29,10 @@ Usage:
     python scout.py --no-video            # skip YouTube entirely
     python scout.py --useful a1b2c d3e4f  # record which digest items were used (no run)
 
+Changes in v3.2.1: an AI-relevance gate (incident, court and regulator sources no
+longer lift items that never mention AI); page link texts that run a title into
+its summary are split, so "already cited" matching works; FTC read from its feed.
+
 Changes in v3.2: independent sources (incident trackers, security news, courts,
 regulators, outside evaluators, independent journalists, China in English) with
 source-kind weights; fact-over-opinion scoring; items already cited in the
@@ -51,7 +55,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-VERSION = "v3.2"
+VERSION = "v3.2.1"
 
 # ----------------------------------------------------------------------------
 # SOURCES: edit freely. A source that fails is reported in the digest; the run continues.
@@ -71,6 +75,7 @@ FEEDS = {
     "BleepingComputer":        ("https://www.bleepingcomputer.com/feed/", "incident"),
     "The Record":              ("https://therecord.media/feed", "incident"),
     # courts (CourtListener docket search)
+    "FTC press releases":      ("https://www.ftc.gov/feeds/press-release.xml", "regulator"),
     "Court dockets: OpenAI":   ("https://www.courtlistener.com/feed/search/?type=r&q=%22OpenAI%22", "court"),
     "Court dockets: Anthropic": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Anthropic%22", "court"),
     "Court dockets: Google DeepMind": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Google+DeepMind%22", "court"),
@@ -104,8 +109,6 @@ PAGES = {
     "FAR.AI":              ("https://far.ai/news",                  r"^/news/[\w-]+/?$", "evaluator"),
     "Transluce":           ("https://transluce.org/",               r"^/[a-z0-9-]{8,}/?$", "evaluator"),
     "California AG news":  ("https://oag.ca.gov/news",              r"^/news/press-releases/[\w-]+$", "regulator"),
-    "FTC press releases":  ("https://www.ftc.gov/news-events/news/press-releases",
-                            r"^/news-events/news/press-releases/\d{4}/\d{2}/[\w-]+$", "regulator"),
     "US CAISI (NIST)":     ("https://www.nist.gov/caisi",           r"^/news-events/news/\d{4}/\d{2}/[\w-]+$", "regulator"),
 }
 
@@ -202,6 +205,11 @@ OPINION_MARKERS = ["could ", "might ", "warns", "predicts", "opinion", "should "
                    "why ", "what if", "thinks", "believes", "says ai will"]
 NEW_DEVELOPMENT = ["ruling", "settle", "verdict", "charged", "indict", "fined", "paused",
                    "recall", "retract", "confirms", "admits", "dismiss", "injunction"]
+# Items that never mention AI cannot reach the relevant tiers, whatever their source:
+# security, court and regulator feeds carry much that is not about AI.
+AI_TERMS = re.compile(r"\b(ai|a\.i\.|agi|llms?|gpts?|agents?|agentic|chatbots?|models?|"
+                      r"artificial intelligence|machine learning|neural|openai|anthropic|deepmind|"
+                      r"gemini|claude|grok|copilot|frontier|superintelligen\w*|alignment)\b")
 TOP_N = 15                      # "Read first": full detail and full texts
 REFERENCES_URL = "https://raw.githubusercontent.com/ai-takeoff/timeline/main/REFERENCES.md"
 MIN_SCORE = 4
@@ -409,12 +417,22 @@ def score(item):
                 if w == 3: core += 1
     noise = [n for n in NOISE if n in hay]
     s -= 3 * len(noise)
+    if not AI_TERMS.search(hay):                # not about AI: never above the low tier
+        return min(s, MIN_SCORE_PRIMARY - 1), hits, core, noise
     if core:                                    # source kind and fact/opinion only matter on-topic
         s += SOURCE_WEIGHT.get(item.get("skind", "news"), 0)
         s += min(3, sum(1 for m in FACT_MARKERS if m in hay))
         s -= min(3, sum(1 for m in OPINION_MARKERS if m in hay))
         s += LEARNED["source"].get(item["source"], 0)
     return s, hits, core, noise
+
+def split_title(txt):
+    """Link texts on some pages run the title into a summary ("...addressAfter its context").
+    Split at the first glued lowercase-to-Capital join at least 25 characters in."""
+    for m in re.finditer(r"(?<=[a-z0-9).])(?=[A-Z][a-z])", txt):
+        if m.start() >= 25:
+            return txt[:m.start()].strip(), txt[m.start():].strip()
+    return txt, ""
 
 def item_id(item):
     return hashlib.sha1((item.get("link") or item["title"]).encode()).hexdigest()[:5]
@@ -721,8 +739,9 @@ def main():
                 if re.match(pat, path or "") and len(txt) > 8:
                     found.setdefault(urllib.parse.urljoin(url, path), txt)
             for link, txt in found.items():
-                items.append(dict(source=name, title=txt[:200], link=link, date=None, publisher="",
-                                  summary="", video_id=None, kind="page", skind=skind))
+                title, summ = split_title(txt)
+                items.append(dict(source=name, title=title[:200], link=link, date=None, publisher="",
+                                  summary=summ[:600], video_id=None, kind="page", skind=skind))
             status.append((name, True, f"{len(found)} links")); log(f"  {name}: {len(found)} links")
         except Exception as e:
             status.append((name, False, f"{type(e).__name__}: {str(e)[:80]}"))
