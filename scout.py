@@ -29,6 +29,11 @@ Usage:
     python scout.py --no-video            # skip YouTube entirely
     python scout.py --useful a1b2c d3e4f  # record which digest items were used (no run)
 
+Changes in v3.2.2: learning waits for real feedback (no adjustments until at least
+five items are marked useful, and only items shown since feedback began count);
+model names map to their makers (Gemini -> Google, Claude -> Anthropic, ChatGPT/GPT
+-> OpenAI) so follow-ups are recognised; FTC dropped (it refuses the scout).
+
 Changes in v3.2.1: an AI-relevance gate (incident, court and regulator sources no
 longer lift items that never mention AI); page link texts that run a title into
 its summary are split, so "already cited" matching works; FTC read from its feed.
@@ -55,7 +60,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-VERSION = "v3.2.1"
+VERSION = "v3.2.2"
 
 # ----------------------------------------------------------------------------
 # SOURCES: edit freely. A source that fails is reported in the digest; the run continues.
@@ -75,7 +80,6 @@ FEEDS = {
     "BleepingComputer":        ("https://www.bleepingcomputer.com/feed/", "incident"),
     "The Record":              ("https://therecord.media/feed", "incident"),
     # courts (CourtListener docket search)
-    "FTC press releases":      ("https://www.ftc.gov/feeds/press-release.xml", "regulator"),
     "Court dockets: OpenAI":   ("https://www.courtlistener.com/feed/search/?type=r&q=%22OpenAI%22", "court"),
     "Court dockets: Anthropic": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Anthropic%22", "court"),
     "Court dockets: Google DeepMind": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Google+DeepMind%22", "court"),
@@ -442,9 +446,16 @@ def numbers(text):
     found = set(re.findall(r"\d[\d,.]*%?", text or ""))
     return {n.rstrip(".,") for n in found if not re.fullmatch(r"20[0-3]\d", n.rstrip(".,"))}
 
+ORG_ALIASES = {"gemini": "google", "deepmind": "google", "claude": "anthropic",
+               "chatgpt": "openai", "gpt-": "openai", "codex": "openai", "grok": "xai",
+               "llama": "meta", "kimi": "moonshot", "qwen": "alibaba"}
+
 def orgs_in(text):
     t = (text or "").lower()
-    return {o for o in ORGS if o in t}
+    found = {o for o in ORGS if o in t}
+    found |= {org for alias, org in ORG_ALIASES.items() if alias in t}
+    if "google" in found: found.discard("deepmind")      # one maker, one name
+    return found
 
 # --- what the repository already cites --------------------------------------------
 def load_references():
@@ -488,10 +499,18 @@ def follow_up(item, memory, now):
     return None, False
 
 # --- learning from feedback ------------------------------------------------------
+MIN_FEEDBACK = 5                # no learning until this many items are marked useful
+
 def learn(base):
-    """Source and keyword bonuses from items marked useful (--useful) versus items shown."""
+    """Source and keyword bonuses from items marked useful (--useful) versus items shown.
+    Waits for real feedback, and counts only items shown since feedback began, so a
+    source is never penalised merely because nobody has reviewed anything yet."""
     shown = json.loads((base / "shown.json").read_text()) if (base / "shown.json").exists() else {}
     useful = set(json.loads((base / "feedback.json").read_text())) if (base / "feedback.json").exists() else set()
+    if len(useful) < MIN_FEEDBACK:
+        return {"source": {}, "keyword": {}}, len(useful), len(shown)
+    fb_start = min((v.get("run", "") for k, v in shown.items() if k in useful), default="")
+    shown = {k: v for k, v in shown.items() if v.get("run", "") >= fb_start}
     by_src, kw_useful = {}, {}
     for iid, info in shown.items():
         n, u = by_src.get(info["source"], (0, 0))
@@ -521,8 +540,8 @@ def same_story(a, b):
         return False
     if a["date"] and b["date"] and abs((a["date"] - b["date"]).days) > 3:
         return False
-    oa = {o for o in ORGS if o in a["title"].lower()}
-    ob = {o for o in ORGS if o in b["title"].lower()}
+    oa = orgs_in(a["title"])
+    ob = orgs_in(b["title"])
     ca = {h for h in a["hits"] if h in KEYWORDS[3]}
     cb = {h for h in b["hits"] if h in KEYWORDS[3]}
     return bool(oa) and oa == ob and len(ca & cb) >= 1
@@ -1000,9 +1019,10 @@ def main():
     shown_file = base / "shown.json"
     shown = json.loads(shown_file.read_text()) if shown_file.exists() else {}
     for it in top + also:
-        shown.setdefault(it["id"], dict(source=it["source"], hits=sorted(set(it["hits"])), skind=it.get("skind")))
+        shown.setdefault(it["id"], dict(source=it["source"], hits=sorted(set(it["hits"])),
+                                        skind=it.get("skind"), run=run.name))
     for v in vkept:
-        shown.setdefault(v["id"], dict(source=v["source"], hits=v["core"], skind="video"))
+        shown.setdefault(v["id"], dict(source=v["source"], hits=v["core"], skind="video", run=run.name))
     shown_file.write_text(json.dumps(shown))
 
     zpath = base / f"{run.name}.zip"
