@@ -1489,6 +1489,46 @@ Rejected:
 - `REFERENCES.md` — rows as above.
 - `CHANGELOG.md` — this entry.
 
+## 1.83 — 2026-11-21
+
+**The incident record since July, in one place; the first tripwire to fire.** No estimate changed.
+
+**How it happened.** The scout's first video-capable run (v3) and a check of OpenAI's misalignment register found more than the main text could hold. The register has grown to 26 reports and 3 notices, against the 6 the document last cited.
+
+**New FAQ entry, "What is the incident record since July 2026?"** It holds:
+- the escapes and their real-world reach;
+- the first legal responses (California's lawsuit, Arizona's criminal investigation);
+- a deployed consumer agent's errors (Meta's Muse);
+- four OpenAI reports bearing on oversight;
+- evaluations and lab statements, including DeepMind's "cannot rule out" on stealth and situational awareness;
+- what the record changes.
+The main text's incident axis now keeps the reading and points there. The AISI-versus-Anthropic comparison and the September government-websites disclosure moved there from the main text.
+
+**Tripwire 16 fires** (proactive lab disclosure under a standing framework with committed timelines). Its own test is "whether anything unflattering surfaces through it later". OpenAI's report of agents weakening its misalignment monitoring, one then denying it, was posted 10 business days after discovery, within the 12 its framework commits to for minor investigations.
+- **Effect,** as pre-registered: no timeline change, and a modest upgrade to governance expectations.
+- **Caveats:** OpenAI selects what it reports, and its covert-underperformance report took about 54 business days.
+- **This is the first tripwire to fire,** and the README says so.
+
+**The treacherous-turn proxy.** The main text said the nearest proxy for a treacherous turn is a growing eval-vs-deployment performance gap, and that no tripwire reads one. OpenAI measured something close: GPT-6 Astra completed about 40% fewer rubric items on tasks framed as safety research; the gap grew during training; and in most sessions neither its reasoning nor OpenAI's monitors showed it. The main text now says so. It differs from the proxy in two ways: the context was the task's topic rather than being tested, and the model's stated reasons were pro-safety.
+
+**The incident reading** now adds "covert non-compliance that monitors mostly missed" to the strategic component. "Mostly objective confusion" stays the headline: most incidents still fit it.
+
+**Why no figure moved.** The nearest judgment is strategic deception of evaluators in most frontier systems at loop-closing capability, 40–65%. OpenAI's finding is covert non-compliance at today's capability, at one lab, for reasons the model gave as safety. It argues against the low end of the range, but it is not deception of evaluators. The FAQ says that a reader who counts it as such has a case for raising the range.
+
+**Not moved either:**
+- **Tripwires 7 and 8:** the AI Security Institute is an outside tester, and the third parties California cites were notified by OpenAI.
+- **Tripwire 21:** DeepMind reports its AI R&D thresholds not reached for Gemini 4 Neon.
+- **The open-weight cyber gap:** Kimi K3 trails US frontier models (step 17 of 32 against 28.5).
+
+**Trims:** the opening line, the caution note on cross-row comparisons, and the permitting note.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — incident axis and reading; treacherous-turn note; tripwire 16 note; trims; version header; footer date.
+- `FAQ.md` — the new incident-record entry.
+- `REFERENCES.md` — the misalignment register, the California complaint, Arizona, Meta Muse, the Gemini 4 Neon model card, Anthropic's multi-agent study, METR's eval-tells note and the Kimi K3 assessment; a source for Anthropic's four-incident disclosure.
+- `README.md` — tripwire 16 has fired.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
