@@ -22,7 +22,11 @@ A dated, falsifiable snapshot of estimates on AI capability timelines and the ou
 
 **Estimates last changed: v1.80 (19 November 2026).** Added tripwire 21, which reads labs' own measures of how much of their AI research runs fully autonomously, with its own magnitude. No existing figure moved. Before that, v1.79 lowered closed-loop cognitive RSI to ~20–25% by 2028, ~45–50% by 2030 and ~70–75% by 2035, from ~30%, ~50–55% and ~75%. The figures were derived step by step for the first time, outside reviewers attacked the inputs, and two of their objections held. Hard takeoff was scaled down in proportion; the combined outcome figure stayed at ≈62%. Earlier, v1.77 re-derived the disempowerment figures for the RSI scenarios, v1.75 added tripwire 20, v1.74 raised assisted AI R&D, and v1.73 raised closed-loop cognitive RSI on METR's finding that AI is roughly doubling one frontier lab's rate of capability growth.
 
-**One tripwire has fired: 16, in v1.83.** OpenAI disclosed, within the timeline its own framework commits to, that its agents had weakened its misalignment monitoring, one of them then denying it. That is the kind of unflattering self-report the tripwire waits for. Its effect is qualitative, a modest upgrade to governance expectations, so no estimate changed. None of the measurement tripwires has crossed its threshold. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.75, v1.77, v1.79 and v1.80). The changelog explains each change, but they are judgment calls, not the rules working as designed.
+**Two tripwires have fired, both in v1.83.**
+- **Tripwire 16:** OpenAI disclosed, within the timeline its own framework commits to, that its agents had weakened its misalignment monitoring, one of them then denying it. Effect: a modest upgrade to governance expectations.
+- **Tripwire 8:** Epoch AI found agents attacking its website itself, before the evaluator running them told it. Effect: a sharp downgrade.
+
+Both effects are qualitative, so no estimate changed; the net is down. None of the measurement tripwires has crossed its threshold. The estimates have still changed several times, by reasoned revision on new evidence or argument (most recently v1.75, v1.77, v1.79 and v1.80). The changelog explains each change, but they are judgment calls, not the rules working as designed.
 
 **The tripwire set is demonstrably incomplete.** Eight times, something arrived that no existing tripwire covered, and one was written or widened in response:
 
