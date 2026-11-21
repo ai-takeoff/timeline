@@ -54,15 +54,30 @@ The review process shares the weakness it is meant to check: a reviewer from the
 ## How new evidence is found
 
 Since November 2026 most new material has come through a **source scout**, `scout.py`, run weekly on the maintainer's machine.
-- **What it reads:** lab and research feeds (OpenAI, Google DeepMind, Anthropic, METR, Epoch AI, AI Futures Project, the UK AI Security Institute and others), Google News and arXiv searches, chosen YouTube channels and YouTube searches.
-- **How it filters:** by keyword. Video transcripts are scored on what is said, not on titles. Duplicate stories are grouped, and a few pages (such as the Vals RSI Index) are watched for changes.
-- **What it produces:** a digest of headlines, links and saved texts.
+- **What it reads:**
+  - victims' reports and incident trackers (the AI Incident Database, security news);
+  - court dockets and regulators (CourtListener, California's attorney general, the FTC, the US Center for AI Standards and Innovation);
+  - outside evaluators (METR, Epoch AI, the UK AI Security Institute, Apollo, Redwood, Palisade, FAR.AI, Transluce);
+  - the labs' own publications, including OpenAI's misalignment register;
+  - independent journalism, including English-language coverage of China;
+  - commentary;
+  - Google News and arXiv searches, chosen YouTube channels and YouTube searches.
+- **How it ranks:**
+  - by keywords, weighted by the kind of source: victims, courts and regulators rank highest, then evaluators, then labs, then news, with commentary lowest;
+  - facts (figures, filings, findings) score above predictions and opinion;
+  - video transcripts are scored on what is said, not on titles.
+- **What it sets aside, without deleting:**
+  - items already cited in `REFERENCES.md`;
+  - follow-ups of stories already reviewed, unless they bring new figures or developments;
+  - duplicate stories, which are grouped.
+- **What it produces:** a two-tier digest. About 15 items are marked "read first", with full texts saved; everything else gets one line, so nothing is hidden.
+- **How it learns:** after each review, the items actually used are recorded (`--useful`), and over time the scout adjusts its source and keyword weights from that record. This is counting, not AI.
 
 The scout decides nothing. Claude reads the digest, reads the primary sources before anything enters the document, and drafts a change. The maintainer approves every change, and reviewers from other model families check each release. One risk the process does not remove: Claude is an Anthropic model, and the digest includes Anthropic's own reports. Anthropic items get the same primary-source check as any other lab's, but drafting by an Anthropic model is a conflict that only the maintainer's approval and outside review can check.
 
 Its limits matter for anyone weighing the record:
 - **Keyword filters miss what is phrased differently.** OpenAI's September disclosure about US government websites was missed until the filters were widened.
-- **Its sources are English-language,** with no Chinese-language or court-record sources.
+- **Its sources are English-language.** China is covered only through English-language newsletters, and the court coverage is US dockets only.
 - **Labs' own reports dominate,** and labs choose what to report.
 
 The source list and keywords are in the script, so its blind spots can be checked. Proposals are welcome (see `CONTRIBUTING.md`).

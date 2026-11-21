@@ -27,6 +27,14 @@ Usage:
     python scout.py --all                 # ignore memory of earlier runs
     python scout.py --quiet               # less progress output
     python scout.py --no-video            # skip YouTube entirely
+    python scout.py --useful a1b2c d3e4f  # record which digest items were used (no run)
+
+Changes in v3.2: independent sources (incident trackers, security news, courts,
+regulators, outside evaluators, independent journalists, China in English) with
+source-kind weights; fact-over-opinion scoring; items already cited in the
+repository's REFERENCES.md set aside; memory of stories, so follow-ups show only
+with something new; a two-tier digest with full texts for the top tier only; and
+learning from feedback (python scout.py --useful ID ID ...).
 
 Changes in v3.1: fewer transcript requests, spaced further apart, stopping early if
 YouTube blocks them; reads feeds with a byte-order mark or compression; retries a
@@ -37,35 +45,68 @@ passages); video descriptions read from channel feeds; duplicate stories grouped
 by content as well as title; incident-disclosure news queries; page watches.
 """
 
-import argparse, base64, datetime as dt, difflib, email.utils, html, json, re, sys, time, zipfile
+import argparse, base64, datetime as dt, difflib, email.utils, hashlib, html, json, re, sys, time, zipfile
 import urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-VERSION = "v3.1"
+VERSION = "v3.2"
 
 # ----------------------------------------------------------------------------
 # SOURCES: edit freely. A source that fails is reported in the digest; the run continues.
 # ----------------------------------------------------------------------------
+# Each source has a kind, which sets its weight (SOURCE_WEIGHT below): what a source
+# is matters as much as what it says. Victims, courts and regulators rank highest.
 FEEDS = {
-    "OpenAI news":            "https://openai.com/news/rss.xml",
-    "Google DeepMind blog":   "https://deepmind.google/blog/rss.xml",
-    "AI Futures Project":     "https://blog.ai-futures.org/feed",
-    "Import AI (Jack Clark)": "https://importai.substack.com/feed",
-    "Epoch AI":               "https://epoch.ai/atom.xml",
-    "METR":                   "https://metr.org/feed.xml",
-    "AI Alignment Forum":     "https://www.alignmentforum.org/feed.xml",
+    # labs
+    "OpenAI news":             ("https://openai.com/news/rss.xml", "lab"),
+    "Google DeepMind blog":    ("https://deepmind.google/blog/rss.xml", "lab"),
+    # evaluators and research organisations
+    "Epoch AI":                ("https://epoch.ai/atom.xml", "evaluator"),
+    "METR":                    ("https://metr.org/feed.xml", "evaluator"),
+    "Redwood Research":        ("https://blog.redwoodresearch.org/feed", "evaluator"),
+    # incidents and security (victims' reports surface here first)
+    "AI Incident Database":    ("https://incidentdatabase.ai/rss.xml", "incident"),
+    "BleepingComputer":        ("https://www.bleepingcomputer.com/feed/", "incident"),
+    "The Record":              ("https://therecord.media/feed", "incident"),
+    # courts (CourtListener docket search)
+    "Court dockets: OpenAI":   ("https://www.courtlistener.com/feed/search/?type=r&q=%22OpenAI%22", "court"),
+    "Court dockets: Anthropic": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Anthropic%22", "court"),
+    "Court dockets: Google DeepMind": ("https://www.courtlistener.com/feed/search/?type=r&q=%22Google+DeepMind%22", "court"),
+    # independent journalism
+    "404 Media":               ("https://www.404media.co/rss/", "news"),
+    "MIT Technology Review (AI)": ("https://www.technologyreview.com/topic/artificial-intelligence/feed", "news"),
+    "Ars Technica (AI)":       ("https://arstechnica.com/ai/feed/", "news"),
+    "Transformer":             ("https://www.transformernews.ai/feed", "news"),
+    "Platformer":              ("https://www.platformer.news/rss/", "news"),
+    "ChinAI (Jeffrey Ding)":   ("https://chinai.substack.com/feed", "news"),
+    "ChinaTalk":               ("https://www.chinatalk.media/feed", "news"),
+    # analysis and commentary
+    "AI Futures Project":      ("https://blog.ai-futures.org/feed", "commentary"),
+    "Import AI (Jack Clark)":  ("https://importai.substack.com/feed", "commentary"),
+    "AI Alignment Forum":      ("https://www.alignmentforum.org/feed.xml", "commentary"),
+    "Don't Worry About the Vase (Zvi)": ("https://thezvi.substack.com/feed", "commentary"),
 }
 
 # Pages without a usable feed: collect links on the page whose path matches the pattern.
 PAGES = {
-    "Anthropic news":      ("https://www.anthropic.com/news",       r"^/news/[\w-]+$"),
-    "Anthropic research":  ("https://www.anthropic.com/research",   r"^/research/[\w-]+$"),
-    "METR research":       ("https://metr.org/research",            r"^/(blog|research|notes)/[\w/-]+$"),
-    "METR home":           ("https://metr.org/",                    r"^/(blog|notes)/[\w/-]+$"),
-    "OpenAI system cards": ("https://deploymentsafety.openai.com/", r"^/[a-z0-9][\w-]+$"),
-    "UK AISI blog":        ("https://www.aisi.gov.uk/blog",         r"^/blog/[\w-]+$"),
+    "Anthropic news":      ("https://www.anthropic.com/news",       r"^/news/[\w-]+$", "lab"),
+    "Anthropic research":  ("https://www.anthropic.com/research",   r"^/research/[\w-]+$", "lab"),
+    "OpenAI system cards": ("https://deploymentsafety.openai.com/", r"^/[a-z0-9][\w-]+$", "lab"),
+    "OpenAI misalignment reports": ("https://openai.com/safety-alignment/misalignment-reports/",
+                            r"^/safety-alignment/misalignment-reports/[\w-]+/?$", "lab"),
+    "METR research":       ("https://metr.org/research",            r"^/(blog|research|notes)/[\w/-]+$", "evaluator"),
+    "METR home":           ("https://metr.org/",                    r"^/(blog|notes)/[\w/-]+$", "evaluator"),
+    "UK AISI blog":        ("https://www.aisi.gov.uk/blog",         r"^/blog/[\w-]+$", "evaluator"),
+    "Apollo Research":     ("https://www.apolloresearch.ai/research", r"^/(research|blog)/[\w-]+/?$", "evaluator"),
+    "Palisade Research":   ("https://palisaderesearch.org/research", r"^/(research|blog)/[\w-]+/?$", "evaluator"),
+    "FAR.AI":              ("https://far.ai/news",                  r"^/news/[\w-]+/?$", "evaluator"),
+    "Transluce":           ("https://transluce.org/",               r"^/[a-z0-9-]{8,}/?$", "evaluator"),
+    "California AG news":  ("https://oag.ca.gov/news",              r"^/news/press-releases/[\w-]+$", "regulator"),
+    "FTC press releases":  ("https://www.ftc.gov/news-events/news/press-releases",
+                            r"^/news-events/news/press-releases/\d{4}/\d{2}/[\w-]+$", "regulator"),
+    "US CAISI (NIST)":     ("https://www.nist.gov/caisi",           r"^/news-events/news/\d{4}/\d{2}/[\w-]+$", "regulator"),
 }
 
 # Pages watched for changes: the digest reports what changed since the last run.
@@ -134,7 +175,10 @@ KEYWORDS = {
         "safety framework", "scaling policy", "preparedness framework", "frontier safety",
         "system card", "critical capability", "security institute", "aisi",
         "loss of control", "alignment", "unsanctioned", "unauthoriz", "sandbox",
-        "rsi index"],
+        "rsi index",
+        # v3.2: incident and legal words the v3.1 run undervalued
+        "lawsuit", "sues ", "sued", "attorney general", "criminal investigation",
+        "impersonat", "breach", "cyberattack", "incident report", "hack"],
     1: ["agi", "agent", "agentic", "autonomous", "frontier model", "benchmark",
         "evaluation", "compute", "regulat", "export control", "executive order",
         "anthropic", "openai", "deepmind", "xai", "deepseek", "ai act", "incident"],
@@ -150,10 +194,20 @@ STOP = set("about after again against also among another because been before bei
            "more most only other over same says said should since some such than that their "
            "them then there these they this those through under until very were what when "
            "where which while will with would your report reports new news".split())
+SOURCE_WEIGHT = {"incident": 3, "court": 3, "regulator": 3, "evaluator": 2, "lab": 1,
+                 "news": 0, "paper": 0, "commentary": -1}
+FACT_MARKERS = ["%", "disclosed", "filed", "found ", "confirmed", "reported", "sued",
+                "charged", "ruling", "fined", "published", "released"]
+OPINION_MARKERS = ["could ", "might ", "warns", "predicts", "opinion", "should ", "fears",
+                   "why ", "what if", "thinks", "believes", "says ai will"]
+NEW_DEVELOPMENT = ["ruling", "settle", "verdict", "charged", "indict", "fined", "paused",
+                   "recall", "retract", "confirms", "admits", "dismiss", "injunction"]
+TOP_N = 15                      # "Read first": full detail and full texts
+REFERENCES_URL = "https://raw.githubusercontent.com/ai-takeoff/timeline/main/REFERENCES.md"
 MIN_SCORE = 4
 MIN_SCORE_PRIMARY = 3        # lab feeds and lab pages: one core keyword is enough
 NEWS_MIN_CORE = 1
-MAX_FULLTEXT = 40
+MAX_FULLTEXT = 15             # full texts for the top tier only; ask for others
 MAX_LOW_LIST = 120
 
 UA = ("Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 "
@@ -343,17 +397,96 @@ def gnews_resolve(link):
         return None
 
 # --- scoring -----------------------------------------------------------------
+LEARNED = {"source": {}, "keyword": {}}           # filled from feedback at the start of a run
+
 def score(item):
     hay = (item["title"] + " " + item.get("summary", "")).lower()
     s, hits, core = 0, [], 0
     for w, words in KEYWORDS.items():
         for k in words:
             if k in hay:
-                s += w; hits.append(k)
+                s += w + LEARNED["keyword"].get(k, 0); hits.append(k)
                 if w == 3: core += 1
     noise = [n for n in NOISE if n in hay]
     s -= 3 * len(noise)
+    if core:                                    # source kind and fact/opinion only matter on-topic
+        s += SOURCE_WEIGHT.get(item.get("skind", "news"), 0)
+        s += min(3, sum(1 for m in FACT_MARKERS if m in hay))
+        s -= min(3, sum(1 for m in OPINION_MARKERS if m in hay))
+        s += LEARNED["source"].get(item["source"], 0)
     return s, hits, core, noise
+
+def item_id(item):
+    return hashlib.sha1((item.get("link") or item["title"]).encode()).hexdigest()[:5]
+
+def numbers(text):
+    """Figures in a text, ignoring years, for spotting new facts in follow-up stories."""
+    found = set(re.findall(r"\d[\d,.]*%?", text or ""))
+    return {n.rstrip(".,") for n in found if not re.fullmatch(r"20[0-3]\d", n.rstrip(".,"))}
+
+def orgs_in(text):
+    t = (text or "").lower()
+    return {o for o in ORGS if o in t}
+
+# --- what the repository already cites --------------------------------------------
+def load_references():
+    """Normalised URLs and row texts from REFERENCES.md on GitHub (empty if unreachable)."""
+    try:
+        txt = fetch(REFERENCES_URL)
+    except Exception:
+        return set(), []
+    urls = {norm_url(u) for u in re.findall(r"https?://[^\s|)\]>,]+", txt)}
+    rows = [l.lower() for l in txt.splitlines() if l.startswith("|")]
+    return urls, rows
+
+def norm_url(u):
+    u = re.sub(r"^https?://(www\.)?", "", (u or "").strip().lower())
+    return u.split("?")[0].split("#")[0].rstrip("/.")
+
+def already_cited(item, ref_urls, ref_rows):
+    if norm_url(item.get("link")) in ref_urls:
+        return True
+    tok = item.get("_tok") or title_tokens(item["title"])
+    if len(tok) < 4:
+        return False
+    return any(sum(1 for t in tok if t in row) / len(tok) >= 0.7 for row in ref_rows)
+
+# --- memory of stories already reviewed ----------------------------------------
+def follow_up(item, memory, now):
+    """Return (remembered story, has_news) if this item continues a remembered story."""
+    hay = (item["title"] + " " + item.get("summary", "")).lower()
+    tok, orgs = item["_tok"], orgs_in(item["title"])
+    core = {h for h in item["hits"] if h in KEYWORDS[3]}
+    for m in memory:
+        mt = set(m["tok"])
+        same = tok and mt and len(tok & mt) / len(tok | mt) >= 0.4
+        if not same and orgs and set(m["orgs"]) == orgs:
+            age = (now - dt.datetime.fromisoformat(m["date"])).days
+            same = age <= 30 and len(core & set(m["core"])) >= 1
+        if same:
+            new_nums = numbers(hay) - set(m["nums"])
+            has_news = bool(new_nums) or any(w in hay for w in NEW_DEVELOPMENT)
+            return m, has_news
+    return None, False
+
+# --- learning from feedback ------------------------------------------------------
+def learn(base):
+    """Source and keyword bonuses from items marked useful (--useful) versus items shown."""
+    shown = json.loads((base / "shown.json").read_text()) if (base / "shown.json").exists() else {}
+    useful = set(json.loads((base / "feedback.json").read_text())) if (base / "feedback.json").exists() else set()
+    by_src, kw_useful = {}, {}
+    for iid, info in shown.items():
+        n, u = by_src.get(info["source"], (0, 0))
+        by_src[info["source"]] = (n + 1, u + (iid in useful))
+        if iid in useful:
+            for k in info.get("hits", []):
+                kw_useful[k] = kw_useful.get(k, 0) + 1
+    src_bonus = {}
+    for src, (n, u) in by_src.items():
+        if u >= 2 and u / n >= 0.25: src_bonus[src] = 2
+        elif n >= 8 and u == 0:     src_bonus[src] = -1
+    kw_bonus = {k: 1 for k, c in kw_useful.items() if c >= 2}
+    return {"source": src_bonus, "keyword": kw_bonus}, len(useful), len(shown)
 
 def title_tokens(title):
     t = re.sub(r"\s+[-–|]\s+[^-–|]{2,40}$", "", title.lower())     # drop " - Publisher"
@@ -494,8 +627,19 @@ def main():
     ap.add_argument("--out", default="scout-out")
     ap.add_argument("--quiet", action="store_true")
     ap.add_argument("--no-video", action="store_true")
+    ap.add_argument("--useful", nargs="+", metavar="ID",
+                    help="record digest item IDs that were used, then exit (feeds the learning)")
     a = ap.parse_args()
     QUIET = a.quiet
+
+    if a.useful:
+        base = Path(a.out); base.mkdir(exist_ok=True)
+        fb = base / "feedback.json"
+        ids = set(json.loads(fb.read_text())) if fb.exists() else set()
+        ids.update(x.strip("[],").lower() for x in a.useful)
+        fb.write_text(json.dumps(sorted(ids)))
+        print(f"Recorded. {len(ids)} items marked useful so far.")
+        return
 
     now = dt.datetime.now(dt.timezone.utc)
     cutoff = (dt.datetime.fromisoformat(a.since).replace(tzinfo=dt.timezone.utc)
@@ -515,13 +659,24 @@ def main():
 
     log(f"scout {VERSION}. Window: {cutoff.date()} to {now.date()}. Output: {run}", always=True)
     log(f"Remembered from earlier runs: {len(seen)} items")
+    global LEARNED
+    LEARNED, n_useful, n_shown = learn(base)
+    log(f"Learning: {n_useful} items marked useful of {n_shown} shown; "
+        f"{len(LEARNED['source'])} source and {len(LEARNED['keyword'])} keyword adjustments", always=True)
+    mem_file = base / "stories.json"
+    memory = [] if a.all or not mem_file.exists() else json.loads(mem_file.read_text())
+    ref_urls, ref_rows = load_references()
+    log(f"REFERENCES.md: {len(ref_urls)} cited links loaded" if ref_urls
+        else "REFERENCES.md could not be loaded; nothing will be marked as already cited", always=True)
 
     items, videos, status = [], [], []
 
-    def take(name, url, kind, into=None):
+    def take(name, url, kind, into=None, skind=None):
         try:
             got = parse_feed(fetch(url), name)
-            for g in got: g["kind"] = kind
+            for g in got:
+                g["kind"] = kind
+                g["skind"] = skind or {"news": "news", "arxiv": "paper"}.get(kind, "news")
             (into if into is not None else items).extend(got)
             status.append((name, True, f"{len(got)} items")); log(f"  {name}: {len(got)} items")
         except Exception as e:
@@ -529,8 +684,8 @@ def main():
         time.sleep(1)
 
     log("== Feeds ==", always=True)
-    for name, url in FEEDS.items():
-        take(name, url, "feed")
+    for name, (url, skind) in FEEDS.items():
+        take(name, url, "feed", skind=skind)
 
     log("== Google News searches ==", always=True)
     windows = []
@@ -557,7 +712,7 @@ def main():
         time.sleep(3)
 
     log("== Pages without feeds ==", always=True)
-    for name, (url, pat) in PAGES.items():
+    for name, (url, pat, skind) in PAGES.items():
         try:
             lc = LinkCollector(); lc.feed(fetch(url))
             found = {}
@@ -567,7 +722,7 @@ def main():
                     found.setdefault(urllib.parse.urljoin(url, path), txt)
             for link, txt in found.items():
                 items.append(dict(source=name, title=txt[:200], link=link, date=None, publisher="",
-                                  summary="", video_id=None, kind="page"))
+                                  summary="", video_id=None, kind="page", skind=skind))
             status.append((name, True, f"{len(found)} links")); log(f"  {name}: {len(found)} links")
         except Exception as e:
             status.append((name, False, f"{type(e).__name__}: {str(e)[:80]}"))
@@ -625,18 +780,35 @@ def main():
         else:
             stories.append(it)
 
+    PRIMARY = ("lab", "evaluator", "regulator", "court", "incident")
     def keep(i):
-        return i["score"] >= (MIN_SCORE_PRIMARY if i["kind"] in ("feed", "page") else MIN_SCORE)
-    relevant = [i for i in stories if keep(i)]
-    low = [i for i in stories if not keep(i)]
+        return i["score"] >= (MIN_SCORE_PRIMARY if i.get("skind") in PRIMARY else MIN_SCORE)
+    relevant = sorted([i for i in stories if keep(i)], key=lambda i: -i["score"])
+    low = sorted([i for i in stories if not keep(i)], key=lambda i: -i["score"])
     relevant, dropped = local_triage(relevant)
+
+    # set aside what is already cited, and follow-ups of stories already reviewed
+    cited, followups, candidates = [], [], []
+    for it in relevant:
+        it["id"] = item_id(it)
+        if ref_urls and already_cited(it, ref_urls, ref_rows):
+            cited.append(it); continue
+        m, has_news = follow_up(it, memory, now)
+        if m and not has_news:
+            it["follow_of"] = m["title"]; followups.append(it); continue
+        if m:
+            it["note_fu"] = f"follow-up of a story already reviewed (\"{m['title'][:70]}\"), with new figures or developments"
+        candidates.append(it)
+    top, also = candidates[:TOP_N], candidates[TOP_N:]
+    for it in low + also: it["id"] = item_id(it)
     log(f"== Filtering: {len(items)} found, {len(fresh)} new, {len(stories)} stories, "
-        f"{len(relevant)} relevant ==", always=True)
+        f"{len(relevant)} relevant: {len(top)} read-first, {len(also)} also relevant, "
+        f"{len(followups)} follow-ups, {len(cited)} already cited ==", always=True)
 
     # --- full texts
     log("== Fetching full texts ==", always=True)
     n_txt = 0
-    for i, it in enumerate(relevant, 1):
+    for i, it in enumerate(top, 1):
         it["file"] = None
         if n_txt >= MAX_FULLTEXT or it["kind"] == "arxiv":
             continue
@@ -711,22 +883,29 @@ def main():
         if lab: v["label"] = lab
 
     # --- digest
+    def line(it):
+        src = it.get("publisher") or it["source"]
+        return f"- [{it['id']}] [{it['score']}] {it['title'][:110]} ({src}) {it['link']}"
     win = f"{cutoff.date()} to {now.date()}" + (" (backfill)" if backfill else "")
     L = [f"# Scout digest {today} ({VERSION})", "",
-         f"Window: {win}. New stories: {len(stories)} (from {len(fresh)} items). "
-         f"Relevant: {len(relevant)}. Full texts: {n_txt}. "
-         f"Videos: {len(vfresh)} new, {len(vcand)} transcripts scored, {len(vkept)} kept.", ""]
+         f"Window: {win}. New stories: {len(stories)} (from {len(fresh)} items). Relevant: {len(relevant)}: "
+         f"{len(top)} to read first, {len(also)} also relevant, {len(followups)} follow-ups without news, "
+         f"{len(cited)} already cited. Full texts: {n_txt}. "
+         f"Videos: {len(vfresh)} new, {len(vcand)} transcripts scored, {len(vkept)} kept.",
+         f"Learning: {n_useful} items marked useful so far; "
+         f"{len(LEARNED['source'])} source and {len(LEARNED['keyword'])} keyword adjustments in effect.",
+         "Item IDs in [brackets]: after review, record the useful ones with `python scout.py --useful ID ID ...`.", ""]
     changed = [w for w in watched if w[3]]
     if changed:
         L += ["## Watched pages that changed", ""]
         for name, url, msg, diff in changed:
             L += [f"**{name}** — {msg}  ", url, "", "```"] + [l[:200] for l in diff] + ["```", ""]
-    L += ["## Relevant items (highest keyword score first)", ""]
-    for i, it in enumerate(relevant, 1):
+    L += [f"## Read first ({len(top)})", ""]
+    for i, it in enumerate(top, 1):
         d = it["date"].date().isoformat() if it["date"] else "undated"
         src = it["source"] + (f" ({it['publisher']})" if it.get("publisher") else "")
-        L.append(f"{i}. **{it['title']}**  ")
-        L.append(f"   {src} · {d} · score {it['score']}"
+        L.append(f"{i}. [{it['id']}] **{it['title']}**  ")
+        L.append(f"   {src} · {it.get('skind','news')} · {d} · score {it['score']}"
                  + (f" · {', '.join(sorted(set(it['hits'])))}" if it.get("hits") else "") + "  ")
         if it["also"]:
             L.append(f"   Same story, {len(it['also'])} more: "
@@ -735,6 +914,7 @@ def main():
         L.append(f"   {it['link']}  ")
         if it.get("summary") and it["kind"] != "news":
             L.append(f"   > {it['summary'][:300]}  ")
+        if it.get("note_fu"): L.append(f"   Note: {it['note_fu']}  ")
         if it.get("file"): L.append(f"   Saved: `{it['file']}` ({it['words']} words)  ")
         if it.get("label"): L.append(f"   Local model: {it['label']}  ")
         if it.get("note"): L.append(f"   Note: {it['note']}  ")
@@ -744,8 +924,9 @@ def main():
         if not vkept:
             L += ["None reached the threshold this run.", ""]
         for k, v in enumerate(vkept, 1):
+            v["id"] = item_id(v)
             d = v["date"].date().isoformat() if v["date"] else "undated"
-            L.append(f"{k}. **{v['title']}**  ")
+            L.append(f"{k}. [{v['id']}] **{v['title']}**  ")
             L.append(f"   {v.get('publisher') or v['source']} · {d}"
                      + (f" · {v['length']}" if v.get("length") else "")
                      + f" · transcript score {v['tscore']} · {', '.join(v['core'])}  ")
@@ -755,8 +936,18 @@ def main():
             for t, p in v["passages"][:3]:
                 L.append(f"   > [{ts(t)}] {p[:300]}  ")
             L.append("")
+    if also:
+        L += [f"## Also relevant ({len(also)}, one line each; ask for any full text)", ""]
+        L += [line(it) for it in also] + [""]
+    if followups:
+        L += [f"## Follow-ups of stories already reviewed, nothing new detected ({len(followups)})", ""]
+        L += [line(it) + f" · follows: {it['follow_of'][:60]}" for it in followups] + [""]
+    if cited:
+        L += [f"## Already cited in REFERENCES.md ({len(cited)})", ""]
+        L += [line(it) for it in cited] + [""]
+    if not a.no_video:
         L += ["## Other videos scored (headlines only)", ""]
-        for v in sorted(vrest, key=lambda v: -v["tscore"])[:40]:
+        for v in sorted(vrest, key=lambda v: -v["tscore"])[:25]:
             sc = f"{v['tscore']}" if v["tscore"] >= 0 else "n/a"
             L.append(f"- [{sc}] {v['title'][:100]} ({v.get('publisher') or v['source']})"
                      + (f" · {v['note']}" if v.get("note") else ""))
@@ -765,8 +956,7 @@ def main():
         L += ["## Dropped by local model (headlines only)", ""]
         L += [f"- {it['title']} ({it['source']}) {it['link']}" for it in dropped] + [""]
     L += [f"## Low-score items (headlines only, top {MAX_LOW_LIST})", ""]
-    L += [f"- [{it['score']}] {it['title']} ({it.get('publisher') or it['source']})"
-          + (f" · noise: {', '.join(it['noise'])}" if it.get("noise") else "")
+    L += [line(it) + (f" · noise: {', '.join(it['noise'])}" if it.get("noise") else "")
           for it in low[:MAX_LOW_LIST]]
     if len(low) > MAX_LOW_LIST:
         L.append(f"- … and {len(low) - MAX_LOW_LIST} more")
@@ -782,6 +972,19 @@ def main():
     seen.update(keys)
     seen.update(v["link"] for v in vcand if "not tried" not in v.get("note", "") and "Block" not in v.get("note", ""))
     seen_file.write_text(json.dumps(sorted(seen)))
+    for it in top:                              # stories shown in full count as reviewed
+        hay = it["title"] + " " + it.get("summary", "")
+        memory.append(dict(title=it["title"], tok=sorted(it["_tok"]), orgs=sorted(orgs_in(it["title"])),
+                           core=sorted({h for h in it["hits"] if h in KEYWORDS[3]}),
+                           nums=sorted(numbers(hay)), date=now.isoformat()))
+    mem_file.write_text(json.dumps(memory[-500:]))
+    shown_file = base / "shown.json"
+    shown = json.loads(shown_file.read_text()) if shown_file.exists() else {}
+    for it in top + also:
+        shown.setdefault(it["id"], dict(source=it["source"], hits=sorted(set(it["hits"])), skind=it.get("skind")))
+    for v in vkept:
+        shown.setdefault(v["id"], dict(source=v["source"], hits=v["core"], skind="video"))
+    shown_file.write_text(json.dumps(shown))
 
     zpath = base / f"{run.name}.zip"
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
@@ -789,7 +992,7 @@ def main():
             if f.is_file():
                 z.write(f, f.relative_to(base))
     ok = sum(1 for s in status if s[1])
-    log(f"Done: {run/'digest.md'} ({len(relevant)} relevant, {len(vkept)} videos, "
+    log(f"Done: {run/'digest.md'} ({len(top)} read-first, {len(also)} also relevant, {len(vkept)} videos, "
         f"{ok}/{len(status)} sources ok)", always=True)
     log(f"Attach this file: {zpath.resolve()} ({zpath.stat().st_size//1024} KB)", always=True)
 
