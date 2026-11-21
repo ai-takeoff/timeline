@@ -1520,13 +1520,19 @@ The main text's incident axis now keeps the reading and points there. The AISI-v
 - **Tripwire 21:** DeepMind reports its AI R&D thresholds not reached for Gemini 4 Neon.
 - **The open-weight cyber gap:** Kimi K3 trails US frontier models (step 17 of 32 against 28.5).
 
+**The scout is now in the repository.** `scout.py` (v3.1), the weekly source scout that found the material for v1.81–v1.83, with a README section, "How new evidence is found", and a line in `CONTRIBUTING.md` inviting sources and keywords. The maintainer suggested this: the scout had become part of how the document is kept current, but only the changelog mentioned it. Its source list is now open to check, including its blind spots: English only, no court records, and labs' own reports dominating.
+
 **Trims:** the opening line, the caution note on cross-row comparisons, and the permitting note.
 
 **Files changed:**
 - `ai-timelines-and-outcomes.md` — incident axis and reading; treacherous-turn note; tripwire 16 note; trims; version header; footer date.
 - `FAQ.md` — the new incident-record entry.
 - `REFERENCES.md` — the misalignment register, the California complaint, Arizona, Meta Muse, the Gemini 4 Neon model card, Anthropic's multi-agent study, METR's eval-tells note and the Kimi K3 assessment; a source for Anthropic's four-incident disclosure.
-- `README.md` — tripwire 16 has fired.
+- `README.md` — tripwire 16 has fired; new section "How new evidence is found"; `scout.py` in the files table.
+- `scout.py` — new: the source scout, v3.1.
+- `CONTRIBUTING.md` — sources and keywords for the scout as a contribution.
+- `LICENSE` — `scout.py` under the code licence.
+- `CONTRIBUTORS.md` — credit.
 - `CHANGELOG.md` — this entry.
 
 ## Convention from here

@@ -38,5 +38,6 @@ Not an external reviewer, but the source of several of the sharpest catches:
 - the autonomous money-making agent vector: two modes (human in control, humans locked out), why detection will be late, and the goose economy shifting ownership (v1.75).
 - pressing a reviewer on what rented humans could do, which surfaced the proxy-betrayal brake (v1.76).
 - finding the video that led to the labs' own autonomy measures behind tripwire 21 (v1.80).
-- proposing a source scout run on the maintainer's own machine, whose first run found the material behind v1.81.
+- proposing a source scout run on the maintainer's own machine, whose first run found the material behind v1.81;
+- proposing that the scout be published and documented in the repository (v1.83).
 - the "golden goose" framing and the plain-language way in for a general audience (v1.78).
