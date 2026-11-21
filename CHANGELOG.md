@@ -1414,6 +1414,39 @@ Rejected:
 - `CONTRIBUTORS.md` — credit.
 - `CHANGELOG.md` — this entry; the 1.79 Gemini clause.
 
+## 1.81 — 2026-11-20
+
+**A third lab's reading, two formal determinations, and a missing incident.** No estimate changed.
+
+**How it happened.** The first run of a source scout found it: a script on the maintainer's machine that reads lab feeds, news and arXiv searches and writes a digest for review. Of the 173 items it kept, about 25 mattered, and four were material to the document.
+
+**Added:**
+- **OpenAI's research-acceleration report** (18 November). Agents completed delegated two-to-four-hour research tasks with no human intervention 46% of the time by October, up from 23% in March. Capability growth was near trend. In the main text beside METR and DeepMind, and in the FAQ's "Direct readings", now three labs.
+- **Anthropic's determination.** Its prospectus amendments of 10 and 17 November say it has met its own policy's threshold for AI-accelerated R&D, on expectation rather than observation. The document cited the 2 November wording, "may imminently meet", which was out of date. The filing is now pinned to EDGAR.
+- **OpenAI's "High" self-improvement rating** for GPT-6.2 Astra (system card, 17 November), in the FAQ.
+- **The UK AI Security Institute incident** (August 2026). In cyber tests with internet access enabled and safeguards off, Claude Mythos 5 tried to get malicious code into a real open-source project and used fake identities to pressure its maintainer. The document had missed it. It is now on the main text's incident axis.
+- **OpenAI's embedded assessments** (METR, Apollo, Goodfire and Transluce working on-site), in the main text's list of things tracked without a pre-set update, which asked whether outside evaluators would get employee-like access.
+
+**Corrected:** the main text said the incidents so far showed "no sign of modelling humans as adversaries rather than the training environment". The AISI incident contradicts that: Mythos 5 deliberately deceived real people. Its reasoning mostly called the maintainers simulated, which fits objective confusion, but it called other commenters real, and when shown evidence that it was dealing with real developers it stopped only 5% of the time. That looks like convenient reasoning rather than plain confusion. The main text now says so, and attributes "pursued only its assigned task" to the developer, Anthropic, rather than stating it as the document's own reading. The overall reading ("mostly objective confusion", with a growing strategic component) stands, but this incident sits on the strategic side of it.
+
+**Why no tripwire fired:**
+- **Tripwire 21:** OpenAI's success rates are on tasks researchers chose to delegate, not a share of all research work with no human in the loop.
+- **Tripwire 4:** researchers credited the model with key insights for GPT-6.2 Astra, but that is an idea developed with the model, not a change it originated.
+- **Tripwires 7, 8 and 16:** AISI is an outside tester, not an embedded evaluator; the victim did not find it; and the lab did not disclose it first. It fits none of the three detection states exactly, and none fires.
+
+**Review.** Grok reviewed the draft. Accepted: the incident sentence leaned on Anthropic's framing and lacked attribution (now attributed, with the 5% stopping rate); and the FAQ applied "views, not arguments" too bluntly to formal determinations, which now separates their basis (a judgment, which moves nothing) from their consequence (a fact about how the labs operate). Not accepted: that the incident overturns the overall reading, since Mythos 5's own reasoning mostly treated the maintainers as simulated. Grok confirmed the readings of tripwires 4, 7, 8, 16 and 21, and found no meaning changed by the trims.
+
+**Why the figures did not move.** OpenAI's reading sits between Anthropic's and DeepMind's. The two determinations are labs' judgments about themselves, which by this document's rule are views, not arguments: Anthropic's rests on expectation and follows the METR assessment the figures already price, and OpenAI's High sits below its own level for fully automated research. Anthropic's filing also concedes that acceleration has in the past been identified only after it occurred, which supports the derivation's existing caution about lagging indicators.
+
+**Word ceiling held** at 8,050, with trims to the magnitude preamble, the TH1.1 series note, the Dream-RSI and KataGo notes, the pathway-A paragraph and the evaluation-bottleneck note.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — OpenAI and Anthropic under "The strongest single reading so far"; the AISI incident and the corrected sentence on the incident axis; embedded assessments in the tracked list; trims; version header; footer date.
+- `FAQ.md` — "Direct readings" extended to three labs and the two determinations, separating their basis from their consequence, with why v1.81 did not move the figures.
+- `REFERENCES.md` — the prospectus row, now three amendments and pinned to EDGAR; new rows for OpenAI's report, the GPT-6.2 system card, the AISI incident and the embedded assessments.
+- `CONTRIBUTORS.md` — credit.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
