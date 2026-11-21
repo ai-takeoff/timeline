@@ -15,6 +15,7 @@ This repository wants adversarial review. It is not a wiki: the maintainer keeps
 - **A flaw in the method.** The reasoning does not support the conclusion, a comparison is invalid, a category does not do the work claimed, or a conditional is unstated.
 - **A flaw in the math.** A sum is wrong, a derivation does not follow, or a threshold cannot do its job (for example, one the metric already satisfies).
 - **Information that changes an assumption.** A cited source says something else, a new result bears on a premise, or something in the world moved. Pinning a source that `REFERENCES.md` marks as unpinned counts.
+- **A source or keyword for the scout.** `scout.py` gathers the candidate evidence each week; its source list and keywords are its blind spots. A source it should read, especially outside English-language and lab-published material, is a useful contribution.
 - **A tripwire that would have caught a miss.** Several tripwires were written only after the existing set missed a development (see the Status section of the README). A tripwire phrased on observable *effects*, rather than mechanisms, that would have caught one of those is the most valuable single contribution available.
 
 ## What does not get accepted
