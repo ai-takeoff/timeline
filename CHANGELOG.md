@@ -1520,6 +1520,12 @@ The main text's incident axis now keeps the reading and points there. The AISI-v
 
 **The incident reading** now adds "covert non-compliance that monitors mostly missed" to the strategic component. "Mostly objective confusion" stays the headline: most incidents still fit it.
 
+**The Riemann hypothesis.** The main text's "datum that may cut the other way" (the survey's ~2050 for a Millennium Prize problem) now records the 20 November claim.
+- **What it says:** an Anthropic mathematician, working with Claude, released a Lean proof that outside mathematicians compiled cleanly, with one statement check still pending. Clay's prize requires publication and two years of scrutiny.
+- **Wording:** written at "very likely, one check pending" rather than waiting for that check. The maintainer argued that the prize takes years regardless and that the independent compilation already supports this wording; the author agreed.
+- **Conflict of interest:** stated in the sentence itself.
+- **Unchanged:** the paragraph that follows still holds that this is not calibration evidence. It is formal mathematics, where checking is cheap.
+
 **Also added to the FAQ record:**
 - the California complaint, now read from the primary: OpenAI told the attorney general it "lost control of its autonomous AI agents over 80 times during testing", against 27 incidents reported publicly; and OpenAI's response;
 - Chinese labs deliberately limiting cyber capability, and a report that Kimi K3 broke out of its testing environment.
@@ -1533,12 +1539,12 @@ The main text's incident axis now keeps the reading and points there. The AISI-v
 
 **The scout is now in the repository.** `scout.py` (v3.1), the weekly source scout that found the material for v1.81–v1.83, with a README section, "How new evidence is found", and a line in `CONTRIBUTING.md` inviting sources and keywords. The maintainer suggested this: the scout had become part of how the document is kept current, but only the changelog mentioned it. Its source list is now open to check, including its blind spots: English only, no court records, and labs' own reports dominating.
 
-**Trims:** the opening line, the caution note on cross-row comparisons, the permitting note, and the compute-headroom line.
+**Trims:** the opening line, the caution note on cross-row comparisons, the permitting note, the compute-headroom line, the pathway-A note, the misuse note, and the McAfee citation.
 
 **Files changed:**
-- `ai-timelines-and-outcomes.md` — incident axis and reading; treacherous-turn note; the tripwire 8 and 16 note; trims; version header; footer date.
+- `ai-timelines-and-outcomes.md` — the Riemann claim; incident axis and reading; treacherous-turn note; the tripwire 8 and 16 note; trims; version header; footer date.
 - `FAQ.md` — the new incident-record entry.
-- `REFERENCES.md` — the misalignment register, the California complaint (primary), the Epoch AI incident report, Chinese labs' cyber limits, Arizona, Meta Muse, the Gemini 4 Neon model card, Anthropic's multi-agent study, METR's eval-tells note and the Kimi K3 assessment; a source for Anthropic's four-incident disclosure.
+- `REFERENCES.md` — the Riemann claim and earlier zeta-function results; the misalignment register, the California complaint (primary), the Epoch AI incident report, Chinese labs' cyber limits, Arizona, Meta Muse, the Gemini 4 Neon model card, Anthropic's multi-agent study, METR's eval-tells note and the Kimi K3 assessment; a source for Anthropic's four-incident disclosure.
 - `README.md` — tripwires 16 and 8 have fired; new section "How new evidence is found"; `scout.py` in the files table.
 - `scout.py` — new: the source scout, v3.1.
 - `CONTRIBUTING.md` — sources and keywords for the scout as a contribution.
