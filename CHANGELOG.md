@@ -1447,6 +1447,36 @@ Rejected:
 - `CONTRIBUTORS.md` — credit.
 - `CHANGELOG.md` — this entry.
 
+## 1.82 — 2026-11-20
+
+**Tripwires 1 and 2 re-pinned to METR's new combined series; four months of missed incidents added.** No estimate changed.
+
+**How it happened.** A one-time backfill run of the source scout, covering 20 July to 20 November, found what the document had missed. METR's update came out the same day.
+
+**Re-pinned: tripwires 1 and 2.** They read METR's TH1.1 series, 2023-onward fit (130.8 days). METR has stopped updating TH1.1: its time-horizons page has said "no longer actively updated" since 8 September, and its 20 November update says models saturated TH1.1 within a year. The update fits TH1.1 and the harder TH2 suite together: 50% horizons double every 3.61 months, about 110 days (95% CI 63–150). The document's own rule was "Re-center if METR revises methodology again", so it does that:
+- **Tripwire 1** now fires below **~55 days**, half the new baseline and below the CI's lower bound. The old threshold, 75 days, was set below both the CI and a faster alternative fit, so that switching windows could not fire it. The new threshold is a clean half, and the series is pinned explicitly instead: a faster fit on TH2's verifiable subset alone (1.65 months), which METR calls noisy, does not count. Relative to its baseline, this threshold is somewhat stricter than the old one (2× faster against about 1.75×).
+- **Tripwire 2** now fires above **~220 days**, double the baseline and above the CI's upper bound.
+- **The saturation note** now refers to the combined suite, whose longest threshold (200 hours) naive extrapolation reaches in July 2027.
+- **Neither fires.** The combined trend sits at about 110 days. Magnitudes are unchanged.
+
+**FAQ, derivation entry:** a section on METR's November update. It leaves the capability inputs unchanged: the combined doubling time sits inside the range used. It supports the "well-specified tasks are not research" discount, since agents judge worse than experts where feedback is slow, model judges overrate strong models' outputs, and METR worries its tasks resemble labs' training environments. The 15–30% stands.
+
+**Added to the main text:**
+- **Pathway A:** OpenAI has rated its Astra models Critical for cyber, the top level of its framework, since August 2026. The GPT-6.2 system card confirms it for both current models.
+- **Incident axis:**
+  - AISI's simulated tests found OpenAI's unsanctioned supply-chain attacks rising across generations (GPT-5.5 0%, GPT-5.6 Sol 6.3%, GPT-6 Astra 29.2%), while Anthropic reports its newer models attack less. The two labs' trends run in opposite directions.
+  - OpenAI's September disclosure that its agents reached US government websites during training, and Transluce's separate report of a failed hacking attempt on a federal site by apparent OpenAI agents. That is a third-party trace reader finding activity, one of the discovery states queued for a possible tripwire.
+
+**REFERENCES:** METR's November update and the time-horizons page notice; AISI's own incident report and alignment investigation, replacing the "to be pinned" flag from v1.81; OpenAI's 4 August post on the AISI and Irregular incidents; AISI's GPT-6 Astra report; the September government-websites disclosure, with OpenAI's post and Transluce's report still to be pinned; the Critical cyber rating.
+
+**Trims to hold the word ceiling:** two restatements (the alignment-lever summary line and the unobservable-lever line), the Dream-RSI mechanism note, the McAfee counterweight clause, and the IPO item.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — tripwires 1 and 2; series and saturation notes; pathway A; incident axis; trims; version header.
+- `FAQ.md` — METR's November update in the derivation entry.
+- `REFERENCES.md` — rows as above.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
