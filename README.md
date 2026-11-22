@@ -80,7 +80,7 @@ The scout decides nothing. Claude reads the digest, reads the primary sources be
 Its limits matter for anyone weighing the record:
 - **Keyword filters miss what is phrased differently.** OpenAI's September disclosure about US government websites was missed until the filters were widened.
 - **Its sources are English-language.** China is covered only through English-language newsletters, and the court coverage is US dockets only.
-- **Labs' own reports dominate,** and labs choose what to report.
+- **Labs' own reports still dominate,** and labs choose what to report. To offset this, the scout also reads victims, courts, regulators, outside evaluators and independent journalists, and ranks them above the labs' own publications. That reduces the bias without removing it: an incident a lab keeps quiet leaves few traces for anyone else to find.
 
 The source list and keywords are in the script, so its blind spots can be checked. Proposals are welcome (see `CONTRIBUTING.md`).
 
