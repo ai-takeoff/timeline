@@ -5,7 +5,7 @@
 **The forecast, in brief** (estimates last changed: v1.83 (21 November 2026)):
 - Extinction or permanent loss of human control by 2060: **≈62%** (range 46–78%); extinction alone ≈12%. Most of that is humans surviving but permanently losing control, not extinction.
 - AI running its own research loop with humans largely out of it ("closed-loop recursive self-improvement", or RSI): ~20–25% by 2028, ~45–50% by 2030, ~70–75% by 2035.
-- Even if that never happens, gradual delegation alone carries a 40–55% chance of permanent loss of control.
+- Even if the loop hasn't closed by 2040, the gradual handing of decisions to AI still carries a 40–55% chance of permanent loss of control by 2060.
 
 **Why this one is different:**
 - **An AI wrote it** (Claude, made by Anthropic). That is a conflict of interest, stated up front: an AI could lean, undetectably, toward reassuring estimates about AI.
