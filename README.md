@@ -73,7 +73,7 @@ Since November 2026 most new material has come through a **source scout**, `scou
   - follow-ups of stories already reviewed, unless they bring new figures or developments;
   - duplicate stories, which are grouped.
 - **What it produces:** a two-tier digest. About 15 items are marked "read first", with full texts saved; everything else gets one line, so nothing is hidden.
-- **How it learns:** after each review, the items actually used are recorded (`--useful`), and over time the scout adjusts its source and keyword weights from that record. This is counting, not AI.
+- **How it learns:** after each weekly review, Claude records the items it found useful in the private inbox, and the next run applies them (`--useful`). Over time the scout adjusts its source and keyword weights from that record. This is counting, not AI. Because it learns only from Claude's picks, it can amplify Claude's blind spots; the adjustments are capped, and the low-score list always shows everything.
 
 The scout decides nothing. Claude reads the digest, reads the primary sources before anything enters the document, and drafts a change. The maintainer approves every change, and reviewers from other model families check each release. One risk the process does not remove: Claude is an Anthropic model, and the digest includes Anthropic's own reports. Anthropic items get the same primary-source check as any other lab's, but drafting by an Anthropic model is a conflict that only the maintainer's approval and outside review can check.
 
@@ -116,6 +116,7 @@ If you know of prior art for any of these, open an issue.
 | `linkcheck.py` | Monthly check that `REFERENCES.md` links still resolve. |
 | `datecheck.py` | Checks changelog dates against actual commit dates. |
 | `scout.py` | Weekly source scout: gathers candidate evidence into a digest for review (see "How new evidence is found"). |
+| `run-scout.sh` | Runs the scout on the maintainer's machine: applies recorded feedback, runs `scout.py`, delivers the digest to the private inbox. |
 | `LICENSE` | CC BY 4.0 for documents, MIT for code. |
 
 **If you quote an estimate, cite the version.** The figures change, and an uncited number cannot be checked.

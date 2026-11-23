@@ -60,7 +60,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
 
-VERSION = "v3.2.2"
+VERSION = "v3.2.3"
 
 # ----------------------------------------------------------------------------
 # SOURCES: edit freely. A source that fails is reported in the digest; the run continues.
@@ -185,10 +185,14 @@ KEYWORDS = {
         "rsi index",
         # v3.2: incident and legal words the v3.1 run undervalued
         "lawsuit", "sues ", "sued", "attorney general", "criminal investigation",
-        "impersonat", "breach", "cyberattack", "incident report", "hack"],
+        "impersonat", "breach", "cyberattack", "incident report", "hack",
+        # v3.2.3: threat-intelligence reports
+        "threat tracker", "gtig"],
     1: ["agi", "agent", "agentic", "autonomous", "frontier model", "benchmark",
         "evaluation", "compute", "regulat", "export control", "executive order",
-        "anthropic", "openai", "deepmind", "xai", "deepseek", "ai act", "incident"],
+        "anthropic", "openai", "deepmind", "xai", "deepseek", "ai act", "incident",
+        # v3.2.3: agents and money (the goose)
+        "liabil", "stablecoin", "usdc", "paid work", "donation"],
 }
 NOISE = ["raises $", "funding round", "series a", "series b", "series c", "valuation",
          "stock", "shares", "earnings", "price target", "investors", "ipo date",
@@ -419,8 +423,8 @@ def score(item):
             if k in hay:
                 s += w + LEARNED["keyword"].get(k, 0); hits.append(k)
                 if w == 3: core += 1
-    noise = [n for n in NOISE if n in hay]
-    s -= 3 * len(noise)
+    noise = [n for n in NOISE if n in hay and not (n == "customer" and "agent" in hay)]
+    s -= (1 if core else 3) * len(noise)        # v3.2.3: on-topic items lose less to noise words
     if not AI_TERMS.search(hay):                # not about AI: never above the low tier
         return min(s, MIN_SCORE_PRIMARY - 1), hits, core, noise
     if core:                                    # source kind and fact/opinion only matter on-topic

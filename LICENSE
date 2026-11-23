@@ -21,7 +21,7 @@ most versions carry identical numbers to the one before them.
 
 --------------------------------------------------------------------
 CODE
-check.py, linkcheck.py, datecheck.py, scout.py, and
+check.py, linkcheck.py, datecheck.py, scout.py, run-scout.sh, and
 .github/workflows/check.yml, .github/workflows/linkcheck.yml,
 .github/workflows/pr-rules.yml, and .github/ISSUE_TEMPLATE/*
 
