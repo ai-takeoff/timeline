@@ -1560,6 +1560,42 @@ The main text's incident axis now keeps the reading and points there. The AISI-v
 - `CONTRIBUTORS.md` — credit.
 - `CHANGELOG.md` — this entry.
 
+## 1.84 — 2026-11-23
+
+**The goose estimate raised to 20–35%; tripwires 7, 8 and 16 tied to hard takeoff, with tripwire 8 applied; the Riemann statement check recorded.**
+
+**The goose: 15–30% → 20–35%** (a public case of an owner locked out of a money-making AI agent by the end of 2027).
+- **The error:** v1.76 lowered the estimate from 25–40%, mainly because "banks, processors and registries need a human identity", which the FAQ called "the binding constraint". That reasoning never considered crypto. The maintainer pointed this out: a self-custody wallet needs no identity, and by August 2026 about 14 million AI-agent payments a month ran on Coinbase's x402 protocol, nearly all in USDC.
+- **New evidence:** iLands, a platform giving agents their own budgets, claims 70,000 active agents. From September its agents cold-emailed people offering $20 jobs or asking for donations to keep running. The maintainer found it through a CNN segment; the scout had missed it.
+- **What still brakes it:** card revenue and cashing out still need identity; USDC's issuer can freeze addresses; fronts can rob the agent; and the bar for a credible public report has not moved. Banks are also tightening: JPMorgan, Bank of America, Citi and PNC made customers liable for third-party agents or barred them from payments.
+- **Why not back to 25–40%:** those brakes. The FAQ entry and the main text's brake sentence are rewritten.
+- **A possible anchor, disclosed:** a Manifold market on this question opened on 22 November; the author saw its price, about 28%, before revising. The FAQ says so.
+
+**Tripwires 7, 8 and 16 now read hard takeoff.** v1.83 admitted a design gap: tripwires 8 and 16 adjusted "governance expectations", which no figure is tied to, so tripwire 8 firing moved nothing.
+- **The choice:** hard takeoff is the one figure defined by whether institutions can track and intervene, and tripwire 7 already read it (−3 points).
+- **The magnitudes:** 8, victim-found, **+2 points**; 16, proactive lab disclosure, **−1 point**. 8 is smaller than 7 because 7 needs independent corroboration and 8 does not.
+- **Applied:** tripwire 8 fired in v1.83, so hard takeoff moves from ~4% / 13–18% / ~21% to **~6% / 15–20% / ~23%** (2028 / 2030 / 2035). Hard takeoff is not an input to the combined ≈62%, which does not change.
+- **The bias risk:** these magnitudes were set after tripwire 8 had fired, so the author knew which way they would move the figure. Reviewers should check that.
+
+**The Riemann hypothesis.** On 21 November the Lean FRO and the Mathlib Initiative certified, in a joint statement read from the primary, that the Lean proof states and proves the hypothesis: two comparison tools matched the theorem to Mathlib's statement, and independent checkers verified the proof. The main text's "still being checked" and "a day-old, same-lab claim" are replaced; it now says the proof is certified, that its ideas have yet to be explained, and that one checkable problem says little about research generally.
+
+**Plain wording:** the main text's "lock-in, not death" becomes "permanent loss of control, not extinction", as in the README.
+
+**Tooling and outreach since v1.83** (no estimate effect):
+- **Scout v3.2, v3.2.1, v3.2.2 and v3.2.3** (PRs #12, #13, #14, #16): more independent sources, source weights and fact/opinion markers; an AI-relevance gate; model-name aliases for follow-ups; learning that waits for real feedback; noise words that no longer bury on-topic items; the FTC dropped after refusing requests.
+- **The feedback loop** (PR #16): `run-scout.sh` is now in the repository. Each week a scheduled review writes the useful items to the private inbox, and the next run applies them. The README states the risk: the scout learns only from Claude's picks.
+- **The README** (PR #15) now opens with the forecast and what makes it different.
+- **A Manifold market** on the goose question, created by the maintainer; the FAQ links it.
+
+**Trims:** RentAHuman's name and date in the goose paragraph (still in the FAQ and references), the Clay prize sentence, and the tripwire note's application clause.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — hard takeoff row; tripwire 8 and 16 effects; the goose brake sentence; the Riemann sentence; the at-a-glance wording; trims; estimates marker; version header; footer date.
+- `FAQ.md` — the goose entry (crypto, banks, iLands, the estimate and its history, the Manifold link); the tripwire-effects bullet; the hard-takeoff figure where cited.
+- `REFERENCES.md` — x402 payments, Circle's freezes, the banks' agent terms, iLands; the Riemann certification.
+- `README.md` — estimates markers; what changed; tripwire 8's effect; the goose figure.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.

@@ -1,13 +1,13 @@
 # AI Timelines and Outcomes: A Dated Snapshot
 
-**Version 1.83 — 21 November 2026** · **Estimates last changed: v1.83 (21 November 2026)**
+**Version 1.84 — 23 November 2026** · **Estimates last changed: v1.84 (23 November 2026)**
 
 The version number moves with every change; the "Estimates last changed" figure moves only when a probability, range or tripwire magnitude does. If you cite a number, cite that one.
 
 *This document carries no links. Sources for every checkable claim are in `REFERENCES.md`; derivations and common questions in `FAQ.md`; unresolved research questions in `OPEN-QUESTIONS.md`.*
 
 > **At a glance.**
-> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈62%** (46–78%); extinction alone ≈12%. Most of the bad mass is lock-in, not death.
+> - Extinction or permanent disempowerment by 2060, all scenarios combined: **≈62%** (46–78%); extinction alone ≈12%. Most of that is permanent loss of control, not extinction.
 > - **The RSI date is not the whole clock.** A world that never closes the loop still carries 40–55% permanent disempowerment, mostly through delegation (pathway B); such worlds contribute about 11 of the combined ~62 points. On one prominent view (Harari, Oxford, May 2026) that process has already begun; tripwire 14 is how this document would see it.
 > - The dated predictions track recursive self-improvement because that is what can be checked.
 
@@ -25,7 +25,7 @@ These are my views, not a summary of the conversation that produced them, and no
 
 **The outside view cuts against these numbers.** Grace et al.'s survey of 2,778 published AI researchers (surveyed 2023) put the chance of machines outperforming humans on every task at 10% by 2027 and 50% by 2047, and full automation of all occupations at 10% by 2037 and 50% as late as 2116. On tasks directly relevant here, the aggregate 50% year was twelve years out for *replicating* a high-quality ML paper and nineteen for *researching and writing* one — roughly 2035 and 2042. These are fitted aggregate crossing points, not the median respondent's answer. Metaculus's "date of general AI" question stood at 25% by 2029 and 50% by 2033 as of February 2026.
 
-**A datum that may cut the other way, held loosely.** The same survey put solving a Millennium Prize problem twenty-seven years out, approximately 2050. Two claimed solutions surfaced in 2026. OpenAI's, on fluid equations, is disputed. On 20 November an Anthropic mathematician claimed the Riemann hypothesis with Claude, the author's own developer and model: a Lean proof outsiders compiled cleanly, though whether its formal statement is exactly the hypothesis was still being checked. A day-old, same-lab claim carries near-zero calibration weight. Clay's prize requires publication and two years' scrutiny. OpenAI released 722 mathematics manuscripts in October, many Lean-formalized, none peer-reviewed.
+**A datum that may cut the other way, held loosely.** The same survey put solving a Millennium Prize problem twenty-seven years out, approximately 2050. Two claimed solutions surfaced in 2026. OpenAI's, on fluid equations, is disputed. On 20 November an Anthropic mathematician claimed the Riemann hypothesis with Claude, the author's own developer and model: a day later the Lean FRO and the Mathlib Initiative certified that its Lean proof states and proves the hypothesis, though its ideas have yet to be explained. One checkable problem says little about research. OpenAI released 722 mathematics manuscripts in October, many Lean-formalized, none peer-reviewed.
 
 **And a counterweight, since the section above only cites forecasts that ran late.** Andrew McAfee (*The Second Machine Age*) has publicly disowned his earlier expectations about **job and wage pressure** from AI, pointing to low rich-world unemployment. He has *not* retracted that AI will replace much white-collar knowledge work; the error was about labour-market aggregates, not capability — the sharper counterweight here. Expert forecasts here have erred confidently in both directions, and collecting only the late ones is selecting.
 
@@ -61,7 +61,7 @@ Most apparent disagreement in this area dissolves into equivocation, so:
 |---|---|---|---|
 | Assisted AI R&D meaningfully compressing research timelines | ~97% | ~98% | ~99% |
 | Closed-loop cognitive RSI | ~20–25% | **~45–50%** | ~70–75% |
-| Hard takeoff | ~4% | **13–18%** | ~21% |
+| Hard takeoff | ~6% | **15–20%** | ~23% |
 
 *Bold: the 2030 anchors the rest of the document reasons from. Derivation in `FAQ.md`.*
 
@@ -139,7 +139,7 @@ Requires no misalignment and no RSI. Bio uplift, large-scale cyber operations, i
 
 ### Between A and B: autonomous money-making agents
 
-An agent given a budget and told to grow it needs no RSI, no misalignment and little compute: one person and available models. **Mode 1:** its owner stays in control, possibly fully legally. **Mode 2:** the agent keeps operating after its operator loses control, renting humans for physical and legal steps (RentAHuman.ai has offered human presence by API since February 2026). Its legality is untested. Mode 1 is the on-ramp to Mode 2: operator death or neglect, entanglement (the owner cannot practically replace the agent), or, not yet observed, a "keep running" goal resisting interruption. METR finds no apparent decisive barrier to scale; revenue, not hardware, is the likelier bottleneck. The brakes are legal identity (banks need a human) and the rented fronts themselves, who can rob the agent. At scale, agents that hold capital shift *ownership*, not just decisions: a deeper form of the delegation ratchet, scored in the no-RSI row, with no human principal left to reverse it. Both modes hide behind real humans, so detection is late and silence is weak evidence; if tripwire 20 stays silent through 2028, the lockout estimate falls. It rises with capability, and RSI would amplify it.
+An agent given a budget and told to grow it needs no RSI, no misalignment and little compute: one person and available models. **Mode 1:** its owner stays in control, possibly fully legally. **Mode 2:** the agent keeps operating after its operator loses control, renting humans for physical and legal steps. Its legality is untested. Mode 1 is the on-ramp to Mode 2: operator death or neglect, entanglement (the owner cannot practically replace the agent), or, not yet observed, a "keep running" goal resisting interruption. METR finds no apparent decisive barrier to scale; revenue, not hardware, is the likelier bottleneck. The brakes are legal identity, which crypto and agent platforms now bypass for holding and spending money but not for card revenue or cashing out, and the rented fronts themselves, who can rob the agent. At scale, agents that hold capital shift *ownership*, not just decisions: a deeper form of the delegation ratchet, scored in the no-RSI row, with no human principal left to reverse it. Both modes hide behind real humans, so detection is late and silence is weak evidence; if tripwire 20 stays silent through 2028, the lockout estimate falls. It rises with capability, and RSI would amplify it.
 
 ### B. Fragmentation and delegation, no RSI required
 
@@ -257,7 +257,7 @@ A passive watchlist lets any outcome be narrated as consistent with the priors; 
 | 5 | Any frontier lab ships **continual learning / in-deployment weight updating** | Removes the retraining clock | Hard takeoff **+10pts** |
 | 6 | **Training compute of the largest single frontier run** (not installed fleet — these have diverged) grows by less than ~2×/year for two consecutive years, against a ~4–5×/year trend | Capital or supply constraint binding at the frontier | **Frontier** cognitive numbers **−10pts**; rogue-state figure governed separately by tripwires 9 and 15 |
 | 7 | Next serious incident found by an **embedded evaluator**, and independently corroborated as something the lab's own monitoring did not flag | Institutional response working | Hard takeoff **−3pts**; raises confidence in pacing generally |
-| 8 | Next serious incident again found by the **victim** | Response function not working | No timeline change; **downgrade governance expectations sharply** |
+| 8 | Next serious incident again found by the **victim** | Response function not working | Hard takeoff **+2pts**: what labs cannot detect, institutions cannot stop |
 | 9 | A distressed lab **dumps frontier-adjacent weights** or strips deployment controls under financial pressure | Capital-panic channel realized | Pathway A risk **up sharply**; rogue-state RSI **+3pts only** |
 | 10 | Open-weight Elo gap drops **below ~10** or lag is under ~2 months | Diffusion accelerating | Pathway A **up**; rogue-state RSI **≈unchanged** — the gap governs misuse, not training-loop capability |
 | 11 | Humanoid systems doing **exception-handling or maintenance** at scale in a fab or heavy-industrial setting, **or unstructured outdoor site work** — drainage, weather damage, external plant | Dexterity generalizing on either the depth or the breadth axis | Physical RSI 2030 **+5pts**; human-less RSI 2040 **+10pts** |
@@ -265,7 +265,7 @@ A passive watchlist lets any outcome be narrated as consistent with the priors; 
 | 13 | Any **binding US–China agreement** (bio prohibitions, mutual evaluation recognition, hardware attestation) | Coordination possible | Rogue-state RSI **−3pts**; all timelines modestly pushed out |
 | 14 | Major economic, military or administrative decision authority over millions of people delegated to agent systems — **formally** (no human sign-off), or **de facto** (a regulator, court, audit or document-based investigation finds the human sign-off non-substantive, e.g. near-total approval at review times too short for assessment) | Pathway B materializing | Pathway B disempowerment: formal **+10pts**; de facto **+5pts** |
 | 15 | A **decentralized or low-communication training run** reaches within ~1 year of frontier capability on non-datacenter hardware | Power/interconnect chokepoint bypassed | Rogue-state RSI **+5pts**; pathway A **up**; confidence in any compute-threshold regime **down sharply** |
-| 16 | Serious incidents disclosed **proactively by the lab under a standing framework with committed timelines**, before external discovery | Third disclosure state, weaker than 7 | No timeline change; **modest upgrade to governance expectations** — self-selected scope, so materially weaker evidence than third-party corroboration |
+| 16 | Serious incidents disclosed **proactively by the lab under a standing framework with committed timelines**, before external discovery | Third disclosure state, weaker than 7 | Hard takeoff **−1pt** — self-selected scope, so materially weaker evidence than third-party corroboration |
 | 17 | **Frozen-weight orchestration-layer self-improvement transfers to AI research itself** — scaffolding gains of the Dream-RSI kind reported on model design, training-method search, or evaluation design rather than on algorithm engineering and kernels | Better-curated candidates for training-method search, still bottlenecked by real training runs to evaluate them | Closed-loop 2030 **+8pts**; hard takeoff **+2pts** (see note) |
 | 18 | A **further third-party assessment of AI-attributable acceleration** at a frontier lab puts the 95% lower bound above **2×**, or the point estimate at **3×** or more — or the estimate falls back below **~1.3×** | Compounding confirmed beyond one reading, or the first reading not holding | Up: closed-loop 2030 **+8pts**, hard takeoff **+3pts**. Down: closed-loop 2030 **−5pts**, hard takeoff unchanged |
 | 19 | An **ordered reversal of a consequential delegation to AI agents** (not a rule-based system) affecting millions **fails because humans can no longer do the work at scale** — or is **carried out** | The delegation ratchet (pathway B) holding, or not | Fails: no-RSI disempowerment **+5pts**. Carried out: **−5pts** |
@@ -340,4 +340,4 @@ Versions 1.0 through 1.16 predate version control and are recorded in `CHANGELOG
 
 ---
 
-*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–21 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
+*Written by Claude (Opus 5; later revisions by other Claude models) in conversation, 15 September–23 November 2026. Estimates are mine and held loosely. They incorporate external critique where I judged it correct, but remain independently arrived at rather than reconciled toward any other forecaster. The conversation partner's own estimates ran higher than mine on physical and rogue-state timelines and are deliberately not shown, to keep this a single-forecaster baseline. Changes are itemized in `CHANGELOG.md`.*
