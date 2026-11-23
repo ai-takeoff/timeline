@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-scout.py (v3.1): weekly source scout for the ai-takeoff/timeline forecast.
+scout.py: weekly source scout for the ai-takeoff/timeline forecast (version: VERSION, below).
 
 It gathers candidate evidence; it decides nothing. Claude reads the digest and
 checks primary sources before anything enters the document, and the maintainer
@@ -29,6 +29,9 @@ Usage:
     python scout.py --no-video            # skip YouTube entirely
     python scout.py --useful a1b2c d3e4f  # record which digest items were used (no run)
 
+Changes in v3.2.3: on-topic items lose less to noise words, and "customer" is not
+noise when an agent is mentioned; keywords for threat trackers and for agents and
+money. Feedback now arrives through the inbox (run-scout.sh applies it).
 Changes in v3.2.2: learning waits for real feedback (no adjustments until at least
 five items are marked useful, and only items shown since feedback began count);
 model names map to their makers (Gemini -> Google, Claude -> Anthropic, ChatGPT/GPT
