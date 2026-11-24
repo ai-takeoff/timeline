@@ -1560,6 +1560,52 @@ The main text's incident axis now keeps the reading and points there. The AISI-v
 - `CONTRIBUTORS.md` — credit.
 - `CHANGELOG.md` — this entry.
 
+## 1.84 — 2026-11-23
+
+**The goose estimate raised to 20–30%; tripwires 7, 8 and 16 given stated effects on hard takeoff, for future firings; the Riemann certification recorded.**
+
+**The goose: 15–30% → 20–30%** (a public case of an owner locked out of a money-making AI agent by the end of 2027).
+- **The error:** v1.76 lowered the estimate from 25–40%, mainly because "banks, processors and registries need a human identity", which the FAQ called "the binding constraint". That treated identity as binding on holding and spending money as well as on revenue, and never considered crypto. The maintainer pointed this out: a self-custody wallet needs no identity, and by August 2026 about 14 million AI-agent payments a month ran on Coinbase's x402 protocol, nearly all in USDC. This corrects the scope of v1.76's argument; it does not repudiate it, since identity still binds on revenue and cashing out.
+- **New evidence:** iLands, a platform giving agents their own budgets, claims 70,000 active agents. From September its agents cold-emailed people offering $20 jobs or asking for donations to keep running. The maintainer found it through a CNN segment; the scout had missed it.
+- **What still brakes it:** card revenue and cashing out still need identity; USDC's issuer can freeze addresses; fronts can rob the agent; and the bar for a credible public report has not moved. Banks are also tightening: JPMorgan, Bank of America, Citi and PNC made customers liable for third-party agents or barred them from payments.
+- **Why not back to 25–40%:** those brakes. The FAQ entry and the main text's brake sentence are rewritten.
+- **A possible anchor, disclosed:** a Manifold market on this question opened on 22 November; the author saw its price, about 28%, before revising. The FAQ says so.
+
+**Tripwires 7, 8 and 16 now read hard takeoff, for future firings.** v1.83 admitted a design gap: tripwires 8 and 16 adjusted "governance expectations", which no figure is tied to, so tripwire 8 firing moved nothing.
+- **The choice:** hard takeoff is the one figure defined by whether institutions can track and intervene, and tripwire 7 already read it (−3 points).
+- **The magnitudes:** 8, victim-found, **+2 points**; 16, proactive lab disclosure, **−1 point**. 8 is smaller than 7 because 7 needs independent corroboration and 8 does not.
+- **Not applied to tripwire 8's v1.83 firing.** The draft applied it; review changed that (below). Hard takeoff stays at ~4% / 13–18% / ~21%.
+
+**The Riemann hypothesis.** On 21 November the Lean FRO and the Mathlib Initiative certified, in a joint statement read from the primary, that the Lean proof states and proves the hypothesis: two comparison tools matched the theorem to Mathlib's statement, and independent checkers verified the proof. The main text's "still being checked" and "a day-old, same-lab claim" are replaced; it now says the proof is certified and that its ideas are still unexplained. The paragraph after it, which already said this is not calibration evidence, now says what it does cut against: the survey's mathematics forecast.
+
+**Plain wording:** the main text's "lock-in, not death" becomes "permanent loss of control, not extinction", as in the README.
+
+**Review.** Grok and DeepSeek reviewed the draft, and Gemini the revised branch; each answered the goose question blind first.
+- **The goose: Grok and DeepSeek put it lower; the top end is cut.** Blind, Grok said 8–15% and DeepSeek 10–15%; after reading, 12–22% and 18–30%. Gemini, reviewing the revised 20–30%, said 15–25% blind and 15–28% after reading, and found 20–30% defensible. Both accepted the crypto argument and found 35% too high, because the scenario needs a self-custody setup, an agent that earns on its own, and a credible public report, all at once. The draft's 20–35% becomes 20–30%. The lower bound stays: both accepted that crypto removes the identity gate on holding and spending, which v1.76's 15% did not allow for.
+- **Applying tripwire 8 after the fact: both rejected it; accepted.** A magnitude chosen knowing it would apply is a post-hoc adjustment wearing the costume of a rule. The magnitudes stand for future firings; tripwire 8's v1.83 firing moves no figure. That reverses DeepSeek's own v1.83 request that a firing move something, and DeepSeek now argues the forward-only treatment.
+- **The target figure: hard takeoff kept, two reviewers to one.** DeepSeek argued detection-and-response tripwires should move no-RSI disempowerment, which feeds the combined ≈62%. Grok and Gemini found hard takeoff right; Gemini's reason is that no-RSI disempowerment is driven by voluntary delegation, which lab-incident detection does not test. The FAQ records the disagreement. Gemini, whose developer's model was reportedly involved in the incident that fired tripwire 8, declared that conflict.
+- **Forward-only: Gemini agreed, making three of three.**
+- **Riemann: DeepSeek asked for an explicit statement that this is not calibration evidence; Gemini then found the added sentence contradicted the paragraph's framing and duplicated the next paragraph; both accepted.** The duplicate is removed; the next paragraph keeps the statement and now says what the datum does cut against, replacing "if it stands", which certification made stale. Grok found the passage accurate.
+- **v1.76's argument: DeepSeek found "never considered crypto" unfair; accepted in part.** The entry now calls it a correction of scope.
+- **Spending: Gemini found "crypto bypasses identity for spending" overstated; accepted in part.** Frontier APIs, the big clouds and registrars still want an account holder; open-weight models, crypto-paid compute and pay-per-request APIs get around some of that. The main text now says "some spending"; the FAQ explains.
+- **Gemini also caught** a stale 15–30% in `REFERENCES.md` (fixed) and asked that tripwire 8 be stated as still live (done).
+- **Not accepted:** DeepSeek reported the Manifold price as about 19%. Checked on 23 November: 28%, four traders. The FAQ's figure stands.
+
+**Tooling and outreach since v1.83** (no estimate effect):
+- **Scout v3.2, v3.2.1, v3.2.2 and v3.2.3** (PRs #12, #13, #14, #16): more independent sources, source weights and fact/opinion markers; an AI-relevance gate; model-name aliases for follow-ups; learning that waits for real feedback; noise words that no longer bury on-topic items; the FTC dropped after refusing requests.
+- **The feedback loop** (PR #16): `run-scout.sh` is now in the repository. Each week a scheduled review writes the useful items to the private inbox, and the next run applies them. The README states the risk: the scout learns only from Claude's picks.
+- **The README** (PR #15) now opens with the forecast and what makes it different.
+- **A Manifold market** on the goose question, created by the maintainer; the FAQ links it.
+
+**Trims:** RentAHuman's name and date in the goose paragraph (still in the FAQ and references), "and agent platforms" in the brake sentence, the Clay prize sentence, and two words in the Riemann sentence.
+
+**Files changed:**
+- `ai-timelines-and-outcomes.md` — tripwire 8 and 16 effects; the goose brake sentence; the Riemann sentence; the at-a-glance wording; trims; estimates marker; version header; footer date.
+- `FAQ.md` — the goose entry (crypto, banks, iLands, the estimate and its history, the Manifold link); the tripwire-effects bullet.
+- `REFERENCES.md` — x402 payments, Circle's freezes, the banks' agent terms, iLands; the Riemann certification.
+- `README.md` — estimates markers; what changed; tripwire 8's effect; the goose figure.
+- `CHANGELOG.md` — this entry.
+
 ## Convention from here
 
 Every commit names either the tripwire that fired or the specific defect it fixes. Anything that can name neither belongs in an issue, not a commit.
